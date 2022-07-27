@@ -35,6 +35,9 @@ def squat(onof):
     if(onof==1):
         legjoint[0].rotate(1500, 500)
         legjoint[1].rotate(1500, 500)
+    else:
+        legjoint[0].rotate(2000, 500)
+        legjoint[1].rotate(2000, 500)
 
   
 
