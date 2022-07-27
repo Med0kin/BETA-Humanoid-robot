@@ -67,17 +67,7 @@ class Servo_digit(object):
 
     def move(self, angle, speed):
         angle = map_pos(angle)
-        print("rot")
-        msg = bytes([self.id]) + b'\x09\x03\x2a' + (angle).to_bytes(2, byteorder='little') + b'\x00\x00' + (speed).to_bytes(2, byteorder='little')
-        sum = 0
-        for i in range(10):
-            sum += msg[i]
-
-        msg = b'\xff\xff' + msg + bytes([przemiel(sum)])
-        #serial.write(msg)
-        print(msg)
-        serial.write(msg)
-        time.sleep(0.025)
+        self.rotate(angle, speed)
 
 
 
