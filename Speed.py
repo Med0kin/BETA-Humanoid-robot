@@ -29,8 +29,6 @@ def map_pos(value):
     elif(value < 0):
         value = 0
     y = round(translate(value, 0, 180, 0, 4095))
-    print(type(y))
-    print(y)
     return y
 '''
 def map_speed(value):
@@ -46,28 +44,24 @@ class Servo_digit(object):
 
     def __init__(self, id=None):
         self.id = id
-        print("init")
         serial.write(b'\xff\xff' + bytes([self.id])+ b'\x04\x02\x02\x01' + bytes([przemiel(self.id + 9)]))
         time.sleep(0.025)
         serial.write(b'\xff\xff' + bytes([self.id])+ b'\x04\x02\x02\x01' + bytes([przemiel(self.id + 15)]))
         time.sleep(0.025)
 
     def rotate(self, angle, speed):
-        print("rot")
         msg = bytes([self.id]) + b'\x09\x03\x2a' + (angle).to_bytes(2, byteorder='little') + b'\x00\x00' + (speed).to_bytes(2, byteorder='little')
         sum = 0
         for i in range(10):
             sum += msg[i]
 
         msg = b'\xff\xff' + msg + bytes([przemiel(sum)])
-        #serial.write(msg)
         print(msg)
         serial.write(msg)
         time.sleep(0.025)
 
     def move(self, angle, speed):
-        angle = map_pos(angle)
-        self.rotate(angle, speed)
+        self.rotate(map_pos(angle), speed)
 
 
 
