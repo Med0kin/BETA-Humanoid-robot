@@ -7,7 +7,6 @@ legjoint = [Servo_digit]*8
 #test commit from github
 
 def define_digit():
-    print("serDefined")
     legjoint[0] =  Servo_digit(10)
     time.sleep(0.025)
     legjoint[1] =  Servo_digit(11)
@@ -33,7 +32,6 @@ define_digit()
 while True:
 
     x = int(input("Enter the value for legjoint[0]: "))
-    print(type(x))
     print(x)
     legjoint[0].move(x, 1000)
 
