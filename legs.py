@@ -4,7 +4,7 @@ import time
 
 legjoint = [Servo_digit]*8
 
-
+#test commit from github
 
 def define_digit():
     print("serDefined")
