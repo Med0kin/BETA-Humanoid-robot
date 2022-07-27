@@ -31,7 +31,10 @@ def define_digit():
 define_digit()
 
 while True:
-    legjoint[0].move(int(input("Enter the value for legjoint[0]: ")), 1000)
+
+    x = int(input("Enter the value for legjoint[0]: "))
+    print(x)
+    legjoint[0].move(x, 1000)
 
 
     '''

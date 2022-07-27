@@ -27,7 +27,9 @@ def map_pos(value):
         value = 180
     elif(value < 0):
         value = 0
-    return round(translate(value, 0, 180, 0, 4095))
+    y = round(translate(value, 0, 180, 0, 4095))
+    print(y)
+    return y
 '''
 def map_speed(value):
     if(value=<240 and value>120):
