@@ -24,9 +24,9 @@ def translate(value, leftMin, leftMax, rightMin, rightMax):
 
 def map_pos(value):
     if(value > 180):
-        return 180
+        value = 180
     elif(value < 0):
-        return 0
+        value = 0
     return round(translate(value, 0, 180, 0, 4095))
 '''
 def map_speed(value):
