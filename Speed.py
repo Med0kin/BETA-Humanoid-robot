@@ -1,6 +1,7 @@
 from cv2 import rotate
 import serial
 import threading
+import time
 
 serial = serial.Serial(port='/dev/ttyUSB0',baudrate=1000000 ,timeout=2)
 
@@ -45,13 +46,14 @@ class Servo_digit(object):
 
     def __init__(self, id=None):
         self.id = id
-        print("init1")
+        print("init")
         serial.write(b'\xff\xff' + bytes([self.id])+ b'\x04\x02\x02\x01' + bytes([przemiel(self.id + 9)]))
+        time.sleep(0.025)
         serial.write(b'\xff\xff' + bytes([self.id])+ b'\x04\x02\x02\x01' + bytes([przemiel(self.id + 15)]))
-        print("init2")
-        
+        time.sleep(0.025)
+
     def rotate(self, angle, speed):
-        print("rot1")
+        print("rot")
         msg = bytes([self.id]) + b'\x09\x03\x2a' + (angle).to_bytes(2, byteorder='little') + b'\x00\x00' + (speed).to_bytes(2, byteorder='little')
         sum = 0
         for i in range(10):
@@ -61,10 +63,7 @@ class Servo_digit(object):
         #serial.write(msg)
         print(msg)
         serial.write(msg)
-
-    def move(self, angle, speed):
-        rotate(map_pos(angle), speed)
-
+        time.sleep(0.025)
 
 
 class Servo(object):
