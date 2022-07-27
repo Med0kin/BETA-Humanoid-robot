@@ -65,6 +65,10 @@ class Servo_digit(object):
         serial.write(msg)
         time.sleep(0.025)
 
+    def move(self, angle, speed):
+        rotate(map_pos(angle), speed)
+
+
 
 class Servo(object):
     _registry = []
