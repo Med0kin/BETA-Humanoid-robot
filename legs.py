@@ -1,4 +1,4 @@
-from Servo import *
+from Speed import *
 import time
 
 
@@ -30,6 +30,11 @@ def define_digit():
 
 define_digit()
 
+while True:
+    legjoint[0].move(input("Enter the value for legjoint[0]: "), 1000)
+
+
+'''
 
 def squat(onof):
     if(onof==1):
@@ -52,3 +57,6 @@ while(1):
             squat(0)
         else:
             print("Invalid input")
+
+
+'''

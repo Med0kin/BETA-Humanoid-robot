@@ -1,3 +1,4 @@
+from cv2 import rotate
 import serial
 import threading
 
@@ -22,6 +23,10 @@ def translate(value, leftMin, leftMax, rightMin, rightMax):
     return rightMin + (valueScaled * rightSpan)
 
 def map_pos(value):
+    if(value > 180):
+        return 180
+    elif(value < 0):
+        return 0
     return round(translate(value, 0, 180, 0, 4095))
 '''
 def map_speed(value):
@@ -53,6 +58,9 @@ class Servo_digit(object):
         #serial.write(msg)
         print(msg)
         serial.write(msg)
+
+    def move(self, angle, speed):
+        rotate(map_pos(angle), speed)
 
 
 
