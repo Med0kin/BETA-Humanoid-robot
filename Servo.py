@@ -83,3 +83,5 @@ class Servo(object):
         #self.kill()
         print("\nGoodbye!")
         
+servo1 = Servo_digit(10)
+servo1.rotate(2000, 500)
