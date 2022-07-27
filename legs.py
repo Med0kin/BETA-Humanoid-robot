@@ -33,6 +33,7 @@ define_digit()
 while True:
 
     x = int(input("Enter the value for legjoint[0]: "))
+    print(type(x))
     print(x)
     legjoint[0].move(x, 1000)
 

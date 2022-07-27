@@ -28,6 +28,7 @@ def map_pos(value):
     elif(value < 0):
         value = 0
     y = round(translate(value, 0, 180, 0, 4095))
+    print(type(y))
     print(y)
     return y
 '''
