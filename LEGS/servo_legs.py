@@ -46,7 +46,7 @@ class Servo_digit(object):
             sum += msg[i]
 
         msg = b'\xff\xff' + msg + (przemiel(sum)).to_bytes(2, byteorder='little')
-        print(msg)
+        print(str(msg))
         #serial.write(msg)
         time.sleep(0.05)
 
