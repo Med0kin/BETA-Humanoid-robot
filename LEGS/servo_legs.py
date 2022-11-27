@@ -47,7 +47,7 @@ class Servo_digit(object):
 
         msg = b'\xff\xff' + msg + bytes([przemiel(sum)])
         print(msg)
-        serial.write(msg)
+        #serial.write(msg)
         time.sleep(0.05)
 
     def move(self, angle, speed):
