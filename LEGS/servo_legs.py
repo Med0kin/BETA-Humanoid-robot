@@ -34,18 +34,18 @@ class Servo_digit(object):
 
     def __init__(self, id=None):
         self.id = id
-        serial.write(b'\xff\xff' + [self.id].to_bytes(2, byteorder='little') + b'\x04\x02\x02\x01' + [przemiel(self.id + 9)].to_bytes(2, byteorder='little'))
+        serial.write(b'\xff\xff' + (self.id).to_bytes(2, byteorder='little') + b'\x04\x02\x02\x01' + (przemiel(self.id + 9)).to_bytes(2, byteorder='little'))
         time.sleep(0.05)
-        serial.write(b'\xff\xff' + [self.id].to_bytes(2, byteorder='little') + b'\x04\x02\x02\x01' + [przemiel(self.id + 15)].to_bytes(2, byteorder='little'))
+        serial.write(b'\xff\xff' + (self.id).to_bytes(2, byteorder='little') + b'\x04\x02\x02\x01' + (przemiel(self.id + 15)).to_bytes(2, byteorder='little'))
         time.sleep(0.05)
 
     def rotate(self, angle, speed=500):
-        msg = [self.id].to_bytes(2, byteorder='little') + b'\x09\x03\x2a' + (angle).to_bytes(2, byteorder='little') + b'\x00\x00' + (speed).to_bytes(2, byteorder='little')
+        msg = (self.id).to_bytes(2, byteorder='little') + b'\x09\x03\x2a' + (angle).to_bytes(2, byteorder='little') + b'\x00\x00' + (speed).to_bytes(2, byteorder='little')
         sum = 0
         for i in range(10):
             sum += msg[i]
 
-        msg = b'\xff\xff' + msg + [przemiel(sum)].to_bytes(2, byteorder='little')
+        msg = b'\xff\xff' + msg + (przemiel(sum)).to_bytes(2, byteorder='little')
         print(msg)
         #serial.write(msg)
         time.sleep(0.05)
