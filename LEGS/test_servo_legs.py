@@ -6,7 +6,6 @@ import numpy as np
 
 
 legjoint = [Servo_digit]*8
-armjoint = [Servo]*8
 hip = [Servo]*2
 
 def define_digit():
