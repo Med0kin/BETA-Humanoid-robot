@@ -39,7 +39,7 @@ class Servo_digit(object):
         serial.write(b'\xff\xff' + bytes([self.id])+ b'\x04\x02\x02\x01' + bytes([przemiel(self.id + 15)]))
         time.sleep(0.025)
 
-    def rotate(self, angle, speed):
+    def rotate(self, angle, speed=500):
         msg = bytes([self.id]) + b'\x09\x03\x2a' + (angle).to_bytes(2, byteorder='little') + b'\x00\x00' + (speed).to_bytes(2, byteorder='little')
         sum = 0
         for i in range(10):
