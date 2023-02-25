@@ -36,7 +36,7 @@ class Servo(threading.Thread):
 
     def set_pulsewidth_from_angle(self, angle):
         #Set the pulsewidth of the servo from the angle
-        pulsewidth = 500 + ((angle/180)*2000)
+        pulsewidth = round(500 + ((angle/180)*2000))
 
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
         self.pos = angle
@@ -48,7 +48,7 @@ class Servo(threading.Thread):
         if speed < 1 or speed > 100:
             return 0
         
-        for _ in range(speed):
+        while True:
             self.set_pulsewidth_from_angle(round(self.pos + 1))
             self.delay(1/speed)
             if self.pos == angle:
