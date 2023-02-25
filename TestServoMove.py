@@ -28,9 +28,9 @@ armjoint[7] = Servo(21)
 while True:
 
     servo = int(input("Enter servo number: "))
-    angle = int(input("Enter angle: ")
+    angle = int(input("Enter angle: "))
     speed = int(input("Enter speed: "))
-    armjoint[servo].move_servo(angle,100)
+    armjoint[servo].move_servo(angle,speed)
 
     if servo == 'q':
         break
