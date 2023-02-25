@@ -51,5 +51,9 @@ class Servo(threading.Thread):
         while True:
             if self.pos == angle:
                 return 1
-            self.set_pulsewidth_from_angle(round(self.pos + 1))
+            
+            if self.pos > angle:
+                self.set_pulsewidth_from_angle(round(self.pos - 1))
+            else:
+                self.set_pulsewidth_from_angle(round(self.pos + 1))
             self.delay(1/speed)
