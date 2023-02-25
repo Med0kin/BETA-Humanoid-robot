@@ -55,9 +55,3 @@ class Servo(threading.Thread):
             self.delay(1/speed)
             if self.pos == angle:
                 return 1
-            
-            
-        
-
-
-    
