@@ -8,7 +8,6 @@ import threading
     This is a class for the analog servos
 '''
 
-
 class Servo(threading.Thread):
     _registry = []
     def __init__(self, servoNum=None):
@@ -48,9 +47,9 @@ class Servo(threading.Thread):
         #if speed isn't in range 1-100 then stop
         if speed < 1 or speed > 100:
             return 0
-
+        
         for _ in range(speed):
-            self.set_pulsewidth_from_angle(round(angle))
+            self.set_pulsewidth_from_angle(round(self.pos + 1))
             self.delay(1/speed)
             if self.pos == angle:
                 return 1
