@@ -8,7 +8,6 @@ import threading
     This is a class for the analog servos
 '''
 
-serial = serial.Serial(port='/dev/ttyUSB0',baudrate=1000000 ,timeout=2)
 
 class Servo(threading.Thread):
     _registry = []
