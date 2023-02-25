@@ -27,10 +27,10 @@ armjoint[7] = Servo(21)
 #Enter the servo number and the angle you want to move, press q to quit
 while True:
 
-    servo = input("Enter servo: ")
-    angle = input("Enter angle: ")
-    speed = input("Enter speed: ")
-    armjoint[0].move_servo(cord[0],100)
+    servo = int(input("Enter servo number: "))
+    angle = int(input("Enter angle: ")
+    speed = int(input("Enter speed: "))
+    armjoint[servo].move_servo(angle,100)
 
     if servo == 'q':
         break
