@@ -146,7 +146,7 @@ if __name__ == '__main__':
     d = np.load(distortion_coefficients_path)
 
     #video = cv2.VideoCapture(0)
-    video = cv2.VideoCapture("/dev/video2")
+    video = cv2.VideoCapture("/dev/video0")
     time.sleep(2.0)
 
     while True:
