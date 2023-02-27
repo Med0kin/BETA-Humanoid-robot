@@ -5,7 +5,6 @@ import math
 from speddo import *
 
 armjoint = [Servo]*4
-
 gpio = Servo()
 
 #Create the servo objects
