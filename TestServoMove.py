@@ -30,10 +30,17 @@ armjoint[1].servo_range = 270
 #Enter the servo number and the angle you want to move, press q to quit
 while True:
 
-    servo = int(input("Enter servo number: "))
-    angle = int(input("Enter angle: "))
-    speed = int(input("Enter speed: "))
-    armjoint[servo].move_servo(angle,speed)
+    servo = input("Enter servo number: ")
+    angle = input("Enter angle: ")
+    speed = input("Enter speed: ")
 
-    if servo == 'q':
+    if servo == 'q' or angle == 'q' or speed == 'q':
+        for i in range(8):
+            armjoint[i].kill()
         break
+    elif servo == 'r' or angle == 'r' or speed == 'r':
+        for i in range(8):
+            armjoint[i].move_servo(90,100)
+        break
+    else:
+        armjoint[int(servo)].move_servo(int(angle),int(speed))
