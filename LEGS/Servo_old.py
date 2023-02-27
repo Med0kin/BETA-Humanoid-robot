@@ -1,3 +1,10 @@
+'''
+Nieaktualna wersja biblioteki
+do sterowania serwomechanizmami
+'''
+
+
+
 import serial
 
 serial = serial.Serial(port='/dev/ttyUSB0',baudrate=1000000 ,timeout=2)
