@@ -105,7 +105,7 @@ def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
 
 
             # Do it every 10 frames
-            if frame_count == 100:
+            if frame_count == 30:
                 R = cv2.Rodrigues(rvec[0])[0]
                 
                 # Define rotation and location values
