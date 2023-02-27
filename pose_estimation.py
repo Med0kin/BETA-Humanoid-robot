@@ -30,6 +30,7 @@ ARUCO_DICT = {
 
 loc = np.zeros((6), dtype=(float,3))
 rot = np.zeros((6), dtype=(float,3))
+frame_count = 0
 
 # Checks if a matrix is a valid rotation matrix.
 def isRotationMatrix(R) :
@@ -101,11 +102,16 @@ def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
             corners_array = corners[0]
             #print(corners_array[0][0])
 
-            R = cv2.Rodrigues(rvec[0])[0]
-            
-            # Define rotation and location values
-            loc[ids_list[i]] = tvec[0][0][0], tvec[0][0][1], tvec[0][0][2]
-            rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
+
+            # Do it every 10 frames
+            if frame_count == 10:
+                R = cv2.Rodrigues(rvec[0])[0]
+                
+                # Define rotation and location values
+                loc[ids_list[i]] = tvec[0][0][0], tvec[0][0][1], tvec[0][0][2]
+                rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
+                frame_count = 0
+            frame_count += 1
 
     return frame, ids_list
 
