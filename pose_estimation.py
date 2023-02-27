@@ -30,6 +30,7 @@ ARUCO_DICT = {
 
 loc = np.zeros((6), dtype=(float,3))
 rot = np.zeros((6), dtype=(float,3))
+frame_count = 0
 
 # Checks if a matrix is a valid rotation matrix.
 def isRotationMatrix(R) :
@@ -65,6 +66,7 @@ def rotationMatrixToEulerAngles(R) :
 # and return frame
 
 def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coefficients):
+    global frame_count
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     cv2.aruco_dict = cv2.aruco.Dictionary_get(aruco_dict_type)
@@ -153,8 +155,7 @@ if __name__ == '__main__':
     #video = cv2.VideoCapture(0)
     video = cv2.VideoCapture("/dev/video0")
     time.sleep(2.0)
-    frame_count = 0
-    
+
     while True:
         ret, frame = video.read()
 
