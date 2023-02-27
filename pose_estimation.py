@@ -168,7 +168,8 @@ if __name__ == '__main__':
             print("Angle: ", angle*180/math.pi)
         print("IDs: ", ids_list)
         '''
-        print(rot[1])
+        #change to degrees from radians and print
+        print(rot[1][0]*180/math.pi, rot[1][1]*180/math.pi, rot[1][2]*180/math.pi)
 
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(output, 1), (400, 300)))
 
