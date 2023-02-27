@@ -30,7 +30,6 @@ ARUCO_DICT = {
 
 loc = np.zeros((6), dtype=(float,3))
 rot = np.zeros((6), dtype=(float,3))
-frame_count = 0
 
 # Checks if a matrix is a valid rotation matrix.
 def isRotationMatrix(R) :
@@ -154,7 +153,8 @@ if __name__ == '__main__':
     #video = cv2.VideoCapture(0)
     video = cv2.VideoCapture("/dev/video0")
     time.sleep(2.0)
-
+    frame_count = 0
+    
     while True:
         ret, frame = video.read()
 
