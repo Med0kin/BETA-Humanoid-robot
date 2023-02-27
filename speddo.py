@@ -18,9 +18,11 @@ class Servo(threading.Thread):
             self.start()
 
             self.num = servoNum
-            self.pos = 90
+            self.pos = 0
             self.delay = time.sleep
-            self.servo_max_angle = 180
+            self.servo_range = 180
+            self.max_angle = 90
+            self.min_angle = -90
 
             self.servo = pigpio.pi()
             self.servo.set_mode(servoNum, pigpio.OUTPUT)
@@ -39,11 +41,12 @@ class Servo(threading.Thread):
         #Set the pulsewidth of the servo from the angle (500-2500)
 
         #if angle isn't in range 0-180 then stop
-        if angle > self.servo_max_angle:
-            angle = self.servo_max_angle
-        elif angle < 0:
-            angle = 0
-        pulsewidth = round(500 + ((angle/self.servo_max_angle)*2000))
+        if angle > self.max_angle:
+            angle = self.max_angle
+        elif angle < self.min_angle:
+            angle = self.min_angle
+            
+        pulsewidth = round(1500 + ((angle/self.servo_range)*1000))
 
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
         self.pos = angle
