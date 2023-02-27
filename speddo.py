@@ -41,7 +41,7 @@ class Servo(threading.Thread):
         #Set the pulsewidth of the servo from the angle (500-2500)
 
         #angle -> pulsewidth
-        pulsewidth = round(1500 + ((angle/self.servo_range)*1000))
+        pulsewidth = round(1500 + ((angle/(self.servo_range/2))*1000))
 
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
         self.pos = angle
