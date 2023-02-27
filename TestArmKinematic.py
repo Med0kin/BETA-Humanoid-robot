@@ -2,7 +2,7 @@ import time
 import numpy as np
 import math
 '''
-from speddo import *
+from servo_lib import *
 
 armjoint = [Servo]*4
 gpio = Servo()
