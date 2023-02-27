@@ -105,7 +105,7 @@ def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
             
             # Define rotation and location values
             loc[ids_list[i]] = tvec[0][0][0], tvec[0][0][1], tvec[0][0][2]
-            ##rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
+            rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
 
     return frame, ids_list
 
@@ -156,19 +156,19 @@ if __name__ == '__main__':
             break
         
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
-        
+        '''
         # Get vectors from 2 markers
         v1 = create_vector(loc[3], loc[2])
         v2 = create_vector(loc[3], loc[4])
-
+        
         if all(values in ids_list for values in [2, 3, 4]):
             # Get angle between vectors
             angle = angle_between_vectors(v1, v2)
 
             print("Angle: ", angle*180/math.pi)
         print("IDs: ", ids_list)
-
-
+        '''
+        print(rot[1])
 
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(output, 1), (800, 600)))
 
