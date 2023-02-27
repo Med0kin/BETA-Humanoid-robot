@@ -40,12 +40,7 @@ class Servo(threading.Thread):
     def set_pulsewidth_from_angle(self, angle):
         #Set the pulsewidth of the servo from the angle (500-2500)
 
-        #if angle isn't in range 0-180 then stop
-        if angle > self.max_angle:
-            angle = self.max_angle
-        elif angle < self.min_angle:
-            angle = self.min_angle
-            
+        #angle -> pulsewidth
         pulsewidth = round(1500 + ((angle/self.servo_range)*1000))
 
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
@@ -58,6 +53,11 @@ class Servo(threading.Thread):
         #if speed isn't in range 1-100 then stop
         if speed < 1 or speed > 100:
             return 0
+        #if angle isn't in range
+        if angle > self.max_angle:
+            angle = self.max_angle
+        elif angle < self.min_angle:
+            angle = self.min_angle
         
         while True:
             if self.pos == angle:
