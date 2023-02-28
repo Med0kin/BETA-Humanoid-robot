@@ -4,7 +4,6 @@ import sys
 import argparse
 import time
 import math
-
 from servo_lib import *
 import TestArmKinematic as ak
 
