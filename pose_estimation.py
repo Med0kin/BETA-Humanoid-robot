@@ -7,6 +7,10 @@ import math
 from servo_lib import *
 import TestArmKinematic as ak
 
+import RPi.GPIO as GPIO
+import pigpio
+import threading
+
 ARUCO_DICT = {
     "DICT_4X4_50": cv2.aruco.DICT_4X4_50,
     "DICT_4X4_100": cv2.aruco.DICT_4X4_100,
@@ -173,9 +177,10 @@ if __name__ == '__main__':
         armjoint[3] = Servo(10)
         armjoint[0].servo_range = 270
         armjoint[1].servo_range = 270
-        
+
         that_angle = ak.get_servo1_angle(round(rot[1][1]))
         print(that_angle)
+
         # Move every 1 second
         #if round(armjoint[3].pos) != round(that_angle):
         #    armjoint[3].move_servo(round(that_angle), 50)
