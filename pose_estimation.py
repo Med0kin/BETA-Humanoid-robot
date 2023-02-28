@@ -128,20 +128,6 @@ def vector_length(v):
 def angle_between_vectors(v1, v2):
     return math.acos(np.dot(v1, v2) / (vector_length(v1) * vector_length(v2)))
 
-def create_all_servo_objects():
-    # Create servo objects
-    armjoint = [Servo]*8
-
-    gpio = Servo()
-
-    armjoint[0] = Servo(17)
-    armjoint[1] = Servo(27)
-    armjoint[2] = Servo(22)
-    armjoint[3] = Servo(10)
-    armjoint[0].servo_range = 270
-    armjoint[1].servo_range = 270
-
-    return 0
 
 # Main function
 
@@ -177,7 +163,18 @@ if __name__ == '__main__':
         
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
 
-        create_all_servo_objects()
+        # Create servo objects
+        armjoint = [Servo]*8
+
+        gpio = Servo()
+
+        armjoint[0] = Servo(17)
+        armjoint[1] = Servo(27)
+        armjoint[2] = Servo(22)
+        armjoint[3] = Servo(10)
+        armjoint[0].servo_range = 270
+        armjoint[1].servo_range = 270
+        
         armjoint[3].move_servo(ak.get_servo1_angle(round(rot[1][1])),50)
 
 
