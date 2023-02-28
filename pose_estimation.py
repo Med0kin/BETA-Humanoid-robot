@@ -4,7 +4,7 @@ import sys
 import argparse
 import time
 import math
-
+import time
 from servo_lib import *
 import TestArmKinematic as ak
 
@@ -175,11 +175,10 @@ if __name__ == '__main__':
         armjoint[0].servo_range = 270
         armjoint[1].servo_range = 270
 
-        # Move every 10 frames
-        if frame_count % 100 == 0:
-            armjoint[3].move_servo(ak.get_servo1_angle(round(rot[1][1])),50)
-            frame_count = 0
-        frame_count += 1
+        that_angle = ak.get_servo1_angle(round(rot[1][1]))
+        # Move every 1 second
+        if round(armjoint[3].pos) != round(that_angle):
+            armjoint[3].move_servo(round(that_angle), 50)
 
 
 

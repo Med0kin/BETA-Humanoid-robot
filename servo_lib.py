@@ -44,6 +44,7 @@ class Servo(threading.Thread):
         pulsewidth = round(1500 + ((angle/(self.servo_range/2))*1000))
 
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
+        
         self.pos = angle
         print("Position: ", self.pos)
         return 1
