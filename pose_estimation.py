@@ -173,20 +173,22 @@ if __name__ == '__main__':
         armjoint[3] = Servo(10)
         armjoint[0].servo_range = 270
         armjoint[1].servo_range = 270
-
+        
         that_angle = ak.get_servo1_angle(round(rot[1][1]))
+        print(that_angle)
         # Move every 1 second
-        if round(armjoint[3].pos) != round(that_angle):
-            armjoint[3].move_servo(round(that_angle), 50)
+        #if round(armjoint[3].pos) != round(that_angle):
+        #    armjoint[3].move_servo(round(that_angle), 50)
 
 
 
         #change to degrees from radians and print
+        '''
         if rot[1][0] > 0:
             print(180 - rot[1][0]*180/math.pi, rot[1][1]*180/math.pi, rot[1][2]*180/math.pi)
         else:
             print(-180 - rot[1][0]*180/math.pi, rot[1][1]*180/math.pi, rot[1][2]*180/math.pi)
-
+        '''
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(output, 1), (400, 300)))
 
         key = cv2.waitKey(1) & 0xFF
