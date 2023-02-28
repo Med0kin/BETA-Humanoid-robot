@@ -176,7 +176,7 @@ if __name__ == '__main__':
         armjoint[1].servo_range = 270
 
         # Move every 10 frames
-        if frame_count % 40 == 0:
+        if frame_count % 100 == 0:
             armjoint[3].move_servo(ak.get_servo1_angle(round(rot[1][1])),50)
             frame_count = 0
         frame_count += 1
