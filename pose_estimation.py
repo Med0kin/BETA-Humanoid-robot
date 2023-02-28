@@ -175,7 +175,7 @@ if __name__ == '__main__':
         
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
 
-        that_angle = ak.get_servo1_angle(round(rot[1][1]))
+        that_angle = ak.get_servo1_angle(rot[1][1])
         print(that_angle)
 
         # Move every 1 second
