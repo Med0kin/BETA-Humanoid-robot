@@ -5,7 +5,7 @@ import argparse
 import time
 import math
 
-import servo_lib as servo
+from servo_lib import *
 import TestArmKinematic as ak
 
 ARUCO_DICT = {
@@ -108,15 +108,11 @@ def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
             #print(corners_array[0][0])
 
 
-            # Do it every 10 frames
-            #if frame_count == 3 and False:
             R = cv2.Rodrigues(rvec[0])[0]
                 
                 # Define rotation and location values
             loc[ids_list[i]] = tvec[0][0][0], tvec[0][0][1], tvec[0][0][2]
             rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
-            #frame_count = 0
-            #frame_count += 1
 
     return frame, ids_list
 
@@ -133,6 +129,18 @@ def angle_between_vectors(v1, v2):
     return math.acos(np.dot(v1, v2) / (vector_length(v1) * vector_length(v2)))
 
 def create_all_servo_objects():
+    # Create servo objects
+    armjoint = [Servo]*8
+
+    gpio = Servo()
+
+    armjoint[0] = Servo(17)
+    armjoint[1] = Servo(27)
+    armjoint[2] = Servo(22)
+    armjoint[3] = Servo(10)
+    armjoint[0].servo_range = 270
+    armjoint[1].servo_range = 270
+
     return 0
 
 # Main function
@@ -168,7 +176,9 @@ if __name__ == '__main__':
             break
         
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
-        
+
+        create_all_servo_objects()
+        armjoint[3].move_servo(ak.get_servo1_angle(rot[1][1]),50)
 
 
 
