@@ -4,6 +4,10 @@ import sys
 import argparse
 import time
 import math
+
+import servo_lib as servo
+import TestArmKinematic as ak
+
 ARUCO_DICT = {
     "DICT_4X4_50": cv2.aruco.DICT_4X4_50,
     "DICT_4X4_100": cv2.aruco.DICT_4X4_100,
@@ -128,7 +132,8 @@ def vector_length(v):
 def angle_between_vectors(v1, v2):
     return math.acos(np.dot(v1, v2) / (vector_length(v1) * vector_length(v2)))
 
-
+def create_all_servo_objects():
+    return 0
 
 # Main function
 
@@ -163,18 +168,10 @@ if __name__ == '__main__':
             break
         
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
-        '''
-        # Get vectors from 2 markers
-        v1 = create_vector(loc[3], loc[2])
-        v2 = create_vector(loc[3], loc[4])
         
-        if all(values in ids_list for values in [2, 3, 4]):
-            # Get angle between vectors
-            angle = angle_between_vectors(v1, v2)
 
-            print("Angle: ", angle*180/math.pi)
-        print("IDs: ", ids_list)
-        '''
+
+
         #change to degrees from radians and print
         if rot[1][0] > 0:
             print(180 - rot[1][0]*180/math.pi, rot[1][1]*180/math.pi, rot[1][2]*180/math.pi)
