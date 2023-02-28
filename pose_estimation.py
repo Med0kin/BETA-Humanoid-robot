@@ -178,7 +178,7 @@ if __name__ == '__main__':
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
 
         create_all_servo_objects()
-        armjoint[3].move_servo(ak.get_servo1_angle(rot[1][1]),50)
+        armjoint[3].move_servo(ak.get_servo1_angle(round(rot[1][1])),50)
 
 
 
