@@ -109,14 +109,14 @@ def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
 
 
             # Do it every 10 frames
-            if frame_count == 3 and False:
-                R = cv2.Rodrigues(rvec[0])[0]
+            #if frame_count == 3 and False:
+            R = cv2.Rodrigues(rvec[0])[0]
                 
                 # Define rotation and location values
-                loc[ids_list[i]] = tvec[0][0][0], tvec[0][0][1], tvec[0][0][2]
-                rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
-                frame_count = 0
-            frame_count += 1
+            loc[ids_list[i]] = tvec[0][0][0], tvec[0][0][1], tvec[0][0][2]
+            rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
+            #frame_count = 0
+            #frame_count += 1
 
     return frame, ids_list
 
