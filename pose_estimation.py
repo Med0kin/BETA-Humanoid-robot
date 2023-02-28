@@ -155,6 +155,18 @@ if __name__ == '__main__':
     video = cv2.VideoCapture("/dev/video0")
     time.sleep(2.0)
 
+    # Create servo objects
+    armjoint = [Servo]*8
+
+    gpio = Servo()
+
+    armjoint[0] = Servo(17)
+    armjoint[1] = Servo(27)
+    armjoint[2] = Servo(22)
+    armjoint[3] = Servo(10)
+    armjoint[0].servo_range = 270
+    armjoint[1].servo_range = 270
+
     while True:
         ret, frame = video.read()
 
@@ -162,18 +174,6 @@ if __name__ == '__main__':
             break
         
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
-
-        # Create servo objects
-        armjoint = [Servo]*8
-
-        gpio = Servo()
-
-        armjoint[0] = Servo(17)
-        armjoint[1] = Servo(27)
-        armjoint[2] = Servo(22)
-        armjoint[3] = Servo(10)
-        armjoint[0].servo_range = 270
-        armjoint[1].servo_range = 270
 
         #that_angle = ak.get_servo1_angle(round(rot[1][1]))
         #print(that_angle)
