@@ -200,3 +200,7 @@ if __name__ == '__main__':
 
     video.release()
     cv2.destroyAllWindows()
+    for i in range(0, 4):
+        armjoint[i].opened_thread = False
+        armjoint[i].kill()
+
