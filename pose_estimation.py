@@ -172,6 +172,8 @@ if __name__ == '__main__':
 
     #armjoint[4] = Servo(11)
     #armjoint[5] = Servo(9)
+    armjoin[2].max_angle = 110
+    armjoint[2].min_angle = -110
     armjoint[2].servo_range = 270
     armjoint[3].servo_range = 270
 
