@@ -24,6 +24,8 @@ armjoint[7] = Servo(21)
 
 armjoint[0].servo_range = 270
 armjoint[1].servo_range = 270
+armjoint[1].max_angle = 180
+armjoint[1].min_angle = -180
 
 #Enter the servo number and the angle you want to move, press q to quit
 while True:
