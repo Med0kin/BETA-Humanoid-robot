@@ -13,7 +13,7 @@ armjoint[1] = Servo(27)
 armjoint[2] = Servo(22)
 armjoint[3] = Servo(10)
 '''
-arm_lenght = 0.125
+arm_lenght = 0.15
 
 def rad_to_deg(rad):
     return rad * 180 / np.pi
