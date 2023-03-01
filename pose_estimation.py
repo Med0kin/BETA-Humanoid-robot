@@ -203,7 +203,7 @@ if __name__ == '__main__':
         if round(armjoint[2].pos) != round(servo_angle3):
             armjoint[2].move_servo(round(-(180 - servo_angle3)), 50)
         if round(armjoint[3].pos) != round(servo_angle4):
-            armjoint[3].move_servo(round(servo_angle4), 50)
+            armjoint[3].move_servo(round(-servo_angle4), 50)
 
 
 
