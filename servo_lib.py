@@ -15,7 +15,6 @@ class Servo(threading.Thread):
             self._registry.append(self)
             
             threading.Thread.__init__(self)
-            self.start()
 
             self.num = servoNum
             self.pos = 0
