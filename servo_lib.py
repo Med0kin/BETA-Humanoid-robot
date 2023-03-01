@@ -23,6 +23,7 @@ class Servo:
             self.servo_range = 180
             self.max_angle = 90
             self.min_angle = -90
+            self.opened_thread = False
 
             self.servo = pigpio.pi()
             self.servo.set_mode(servoNum, pigpio.OUTPUT)
@@ -42,11 +43,14 @@ class Servo:
         #Run the servo in a thread
         self.thread = threading.Thread(target=self.servo_loop)
         self.thread.start()
+        self.opened_thread = True
         return 1
     
     def move_servo(self, angle, speed):
         #Move the servo
         #if speed isn't in range 1-100 then stop
+        if angle == self.pos:
+            return 1
         if speed < 1 or speed > 100:
             return 0
         #if angle isn't in range
@@ -75,6 +79,10 @@ class Servo:
         while True:
             if self.pos > self.target:
                 self.set_pulsewidth_from_angle(round(self.pos - 1))
-            else:
+            elif self.pos < self.target:
                 self.set_pulsewidth_from_angle(round(self.pos + 1))
             self.delay(1/self.speed)
+
+            if self.opened_thread == False:
+                break
+
