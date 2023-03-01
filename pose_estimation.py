@@ -171,7 +171,7 @@ if __name__ == '__main__':
     armjoint[2].servo_range = 270
     armjoint[3].servo_range = 270
 
-
+    servo_angle3 = 0
     while True:
         ret, frame = video.read()
 
