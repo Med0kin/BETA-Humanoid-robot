@@ -40,7 +40,7 @@ class Servo:
 
     def run_thread(self):
         #Run the servo in a thread
-        self.thread = threading.Thread(target=self.move_servo)
+        self.thread = threading.Thread(target=self.servo_loop)
         self.thread.start()
         return 1
     
