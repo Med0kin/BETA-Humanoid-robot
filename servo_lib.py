@@ -62,8 +62,8 @@ class Servo:
     def move_servo(self, angle, speed):
         #Move the servo
         #if speed isn't in range 1-100 then stop
-    #    if angle == self.pos:
-    #        return 1
+        if angle == self.pos:
+            return 1
         if speed < 1 or speed > 100:
             return 0
         #if angle isn't in range
