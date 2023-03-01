@@ -167,10 +167,6 @@ if __name__ == '__main__':
     armjoint[3] = Servo(10)
     armjoint[0].servo_range = 270
     armjoint[1].servo_range = 270
-    armjoint[0].start()
-    armjoint[1].start()
-    armjoint[2].start()
-    armjoint[3].start()
 
 
     while True:

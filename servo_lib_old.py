@@ -8,17 +8,16 @@ import threading
     This is a class for the analog servos
 '''
 
-class Servo:
+class Servo(threading.Thread):
     _registry = []
     def __init__(self, servoNum=None):
         if(servoNum != None):
             self._registry.append(self)
+            
+            threading.Thread.__init__(self)
+
             self.num = servoNum
-
             self.pos = 0
-            self.speed = 50
-            self.target = 0
-
             self.delay = time.sleep
             self.servo_range = 180
             self.max_angle = 90
@@ -29,7 +28,6 @@ class Servo:
             self.servo.set_PWM_frequency(servoNum, 50 )
             self.servo.set_servo_pulsewidth(self.num, 1500)
 
-            self.run_thread()
         else:
             pass
         self.killer = GPIO.cleanup
@@ -37,27 +35,6 @@ class Servo:
     def kill(self):
         #Kill the servo
         self.killer
-
-    def run_thread(self):
-        #Run the servo in a thread
-        self.thread = threading.Thread(target=self.move_servo)
-        self.thread.start()
-        return 1
-    
-    def move_servo(self, angle, speed):
-        #Move the servo
-        #if speed isn't in range 1-100 then stop
-        if speed < 1 or speed > 100:
-            return 0
-        #if angle isn't in range
-        if angle > self.max_angle:
-            angle = self.max_angle
-        elif angle < self.min_angle:
-            angle = self.min_angle
-
-        self.target = angle
-        self.speed = speed
-        return 1
 
     def set_pulsewidth_from_angle(self, angle):
         #Set the pulsewidth of the servo from the angle (500-2500)
@@ -71,10 +48,23 @@ class Servo:
         print("Position: ", self.pos)
         return 1
     
-    def servo_loop(self):
+    def move_servo(self, angle, speed):
+        #Move the servo
+        #if speed isn't in range 1-100 then stop
+        if speed < 1 or speed > 100:
+            return 0
+        #if angle isn't in range
+        if angle > self.max_angle:
+            angle = self.max_angle
+        elif angle < self.min_angle:
+            angle = self.min_angle
+        
         while True:
-            if self.pos > self.target:
+            if self.pos == angle:
+                return 1
+            
+            if self.pos > angle:
                 self.set_pulsewidth_from_angle(round(self.pos - 1))
             else:
                 self.set_pulsewidth_from_angle(round(self.pos + 1))
-            self.delay(1/self.speed)
+            self.delay(1/speed)
