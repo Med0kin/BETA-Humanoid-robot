@@ -181,7 +181,10 @@ if __name__ == '__main__':
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
 
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
-        servo_angle3 = ak.get_servo3_angle(vector_length(create_vector(loc[1], loc[2])))
+        if (loc[1] == [0,0,0]) or (loc[2] == [0,0,0]):
+            servo_angle3 = 0
+        else:
+            servo_angle3 = ak.get_servo3_angle(vector_length(create_vector(loc[1], loc[2])))
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
 
         
