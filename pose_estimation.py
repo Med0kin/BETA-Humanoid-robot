@@ -178,14 +178,13 @@ if __name__ == '__main__':
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
 
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
-        if rot[1][0] > 0:
-            servo_angle4 = ak.get_servo4_angle(math.pi - rot[1][0])
-        else:
-            servo_angle4 = ak.get_servo4_angle(-math.pi - rot[1][0])
 
-        print("1: ", servo_angle1, " 4: ", servo_angle4)
+        servo_angle4 = ak.get_servo4_angle(rot[1][0])
 
-        # Move every 1 second
+        
+        print("length: ", vector_length(create_vector(loc[1], loc[2])))
+
+
         if round(armjoint[3].pos) != round(servo_angle1):
             armjoint[3].move_servo(round(servo_angle1), 50)
         if round(armjoint[0].pos) != round(servo_angle4):
@@ -193,13 +192,6 @@ if __name__ == '__main__':
 
 
 
-        #change to degrees from radians and print
-        '''
-        if rot[1][0] > 0:
-            print(180 - rot[1][0]*180/math.pi, rot[1][1]*180/math.pi, rot[1][2]*180/math.pi)
-        else:
-            print(-180 - rot[1][0]*180/math.pi, rot[1][1]*180/math.pi, rot[1][2]*180/math.pi)
-        '''
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(output, 1), (400, 300)))
 
         key = cv2.waitKey(1) & 0xFF

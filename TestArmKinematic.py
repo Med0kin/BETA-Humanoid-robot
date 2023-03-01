@@ -35,7 +35,10 @@ def get_servo2_angle(z_dist):
 def get_servo3_angle(dist):
     return get_angle(arm_lenght/2,arm_lenght/2,dist)
 def get_servo4_angle(rot):
-    return rad_to_deg(rot)
+    if rot > 0:
+        return rad_to_deg(math.pi - rot)
+    else:
+        return rad_to_deg(-math.pi - rot)
 
 print("Servo 1 angle: ",get_servo1_angle(math.pi/2))
 print("Servo 2 angle: ",get_servo2_angle(50))
