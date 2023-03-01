@@ -189,7 +189,7 @@ if __name__ == '__main__':
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
 
         
-        print("length: ", servo_angle3)
+        print("servoangle: ", servo_angle3)
 
 
         if round(armjoint[0].pos) != round(servo_angle1):
