@@ -5,7 +5,17 @@ import pigpio
 import threading
 
 '''
-    This is a class for the analog servos
+    This is a class for the analog servos where:
+    servoNum = id of the servo
+    pos = current position of the servo
+    speed = speed of the servo
+    target = target position of the servo
+
+    max_angle = maximum angle of the servo
+    min_angle = minimum angle of the servo
+    servo_range = range of the servo
+
+    opened_thread = determines if the thread is open
 '''
 
 class Servo:
@@ -39,6 +49,7 @@ class Servo:
         #Kill the servo
         self.killer
 
+    #This is the function that runs the servo_loop in a thread
     def run_thread(self):
         #Run the servo in a thread
         self.thread = threading.Thread(target=self.servo_loop)
@@ -46,6 +57,8 @@ class Servo:
         self.opened_thread = True
         return 1
     
+    #This is the function that sets the target position
+    #and speed of the servo
     def move_servo(self, angle, speed):
         #Move the servo
         #if speed isn't in range 1-100 then stop
@@ -62,9 +75,10 @@ class Servo:
         self.target = angle
         self.speed = speed
         return 1
-
+    
+    #Sets the pulsewidth of the servo from the angle (500-2500)
+    #This is the function that actually moves the servo
     def set_pulsewidth_from_angle(self, angle):
-        #Set the pulsewidth of the servo from the angle (500-2500)
 
         #angle -> pulsewidth
         pulsewidth = round(1500 + ((angle/(self.servo_range/2))*1000))
@@ -75,6 +89,9 @@ class Servo:
         print("Position: ", self.pos)
         return 1
     
+    #This is the loop that runs in the thread
+    #It moves the servo to the target position
+    #at specified speed
     def servo_loop(self):
         while True:
             if self.pos > self.target:
