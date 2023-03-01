@@ -1,5 +1,3 @@
-import tkinter as tk
-
 import time
 import numpy as np
 
