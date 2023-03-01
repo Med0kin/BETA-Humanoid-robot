@@ -182,9 +182,7 @@ if __name__ == '__main__':
 
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
         #if there aren't 2 markers on screen, set servo angle to 0
-        if len(ids_list) != 2:
-            servo_angle3 = 180
-        else:
+        if len(ids_list) == 2:
             servo_angle3 = ak.get_servo3_angle(vector_length(create_vector(loc[1], loc[2])))
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
 
