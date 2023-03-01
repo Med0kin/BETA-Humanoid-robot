@@ -91,6 +91,10 @@ def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
         for i in range(0, len(ids)):
             ids_list[i] = ids[i][0]
 
+        # If number in ids_list is grater than 5 then break
+        if max(ids_list) > 5:
+            return frame, ids_list
+
         for i in range(0, len(ids)):
             # Estimate pose of each marker and return the values rvec and tvec---(different from those of camera coefficients)
             rvec, tvec, markerPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.02, matrix_coefficients,
