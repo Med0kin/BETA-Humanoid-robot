@@ -33,6 +33,8 @@ def get_servo1_angle(rot):
 def get_servo2_angle(z_dist):
     return (90*z_dist)/arm_lenght
 def get_servo3_angle(dist):
+    if dist>arm_lenght:
+        dist = arm_lenght
     return get_angle(arm_lenght/2,arm_lenght/2,dist)
 def get_servo4_angle(rot):
     if rot > 0:

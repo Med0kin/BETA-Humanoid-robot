@@ -183,7 +183,7 @@ if __name__ == '__main__':
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
         #if there aren't 2 markers on screen, set servo angle to 0
         if len(ids_list) != 2:
-            servo_angle3 = 0
+            servo_angle3 = 180
         else:
             servo_angle3 = ak.get_servo3_angle(vector_length(create_vector(loc[1], loc[2])))
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
@@ -194,8 +194,8 @@ if __name__ == '__main__':
 
         if round(armjoint[0].pos) != round(servo_angle1):
             armjoint[0].move_servo(round(servo_angle1), 50)
-        #if round(armjoint[2].pos) != round(servo_angle3):
-        #    armjoint[2].move_servo(round(servo_angle3), 50)
+        if round(armjoint[2].pos) != round(servo_angle3):
+            armjoint[2].move_servo(round(180 - servo_angle3), 50)
         if round(armjoint[3].pos) != round(servo_angle4):
             armjoint[3].move_servo(round(servo_angle4), 50)
 
