@@ -161,10 +161,12 @@ if __name__ == '__main__':
 
     gpio = Servo()
 
-    armjoint[0] = Servo(17)
-    armjoint[1] = Servo(27)
-    armjoint[2] = Servo(22)
-    armjoint[3] = Servo(10)
+    armjoint[3] = Servo(17)
+    armjoint[2] = Servo(27)
+    armjoint[1] = Servo(22)
+    armjoint[0] = Servo(10)
+    armjoint[4] = Servo(11)
+    armjoint[5] = Servo(9)
     armjoint[0].servo_range = 270
     armjoint[1].servo_range = 270
 
@@ -178,17 +180,19 @@ if __name__ == '__main__':
         output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
 
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
-
+        servo_angle3 = ak.get_servo3_angle(vector_length(create_vector(loc[1], loc[2])))
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
 
         
-        print("length: ", vector_length(create_vector(loc[1], loc[2])))
+        print("length: ", servo_angle3)
 
 
-        if round(armjoint[3].pos) != round(servo_angle1):
-            armjoint[3].move_servo(round(servo_angle1), 50)
-        if round(armjoint[0].pos) != round(servo_angle4):
-            armjoint[0].move_servo(round(servo_angle4), 50)
+        if round(armjoint[0].pos) != round(servo_angle1):
+            armjoint[0].move_servo(round(servo_angle1), 50)
+        if round(armjoint[2].pos) != round(servo_angle3):
+            armjoint[2].move_servo(round(servo_angle3), 50)
+        if round(armjoint[3].pos) != round(servo_angle4):
+            armjoint[3].move_servo(round(servo_angle4), 50)
 
 
 

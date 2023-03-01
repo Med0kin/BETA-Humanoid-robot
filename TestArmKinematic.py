@@ -13,7 +13,7 @@ armjoint[1] = Servo(27)
 armjoint[2] = Servo(22)
 armjoint[3] = Servo(10)
 '''
-arm_lenght = 100
+arm_lenght = 0.125
 
 def rad_to_deg(rad):
     return rad * 180 / np.pi
@@ -39,8 +39,3 @@ def get_servo4_angle(rot):
         return rad_to_deg(math.pi - rot)
     else:
         return rad_to_deg(-math.pi - rot)
-
-print("Servo 1 angle: ",get_servo1_angle(math.pi/2))
-print("Servo 2 angle: ",get_servo2_angle(50))
-print("Servo 3 angle: ",get_servo3_angle(100))
-print("Servo 4 angle: ",get_servo4_angle(math.pi/2))
