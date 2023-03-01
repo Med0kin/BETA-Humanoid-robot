@@ -53,8 +53,8 @@ class Servo:
     def run_thread(self):
         #Run the servo in a thread
         self.thread = threading.Thread(target=self.servo_loop)
-        self.thread.start()
         self.opened_thread = True
+        self.thread.start()
         return 1
     
     #This is the function that sets the target position
@@ -62,8 +62,8 @@ class Servo:
     def move_servo(self, angle, speed):
         #Move the servo
         #if speed isn't in range 1-100 then stop
-        if angle == self.pos:
-            return 1
+    #    if angle == self.pos:
+    #        return 1
         if speed < 1 or speed > 100:
             return 0
         #if angle isn't in range
