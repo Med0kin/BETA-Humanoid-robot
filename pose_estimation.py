@@ -201,9 +201,9 @@ if __name__ == '__main__':
         if round(armjoint[0].pos) != round(90):
             armjoint[0].move_servo(90, 50)
         if round(armjoint[2].pos) != round(servo_angle3):
-            armjoint[2].move_servo(round(-(180 - servo_angle3)), 40)
+            armjoint[2].move_servo(round(-(180 - servo_angle3)), 70)
         if round(armjoint[3].pos) != round(servo_angle4):
-            armjoint[3].move_servo(round(-servo_angle4), 40)
+            armjoint[3].move_servo(round(-servo_angle4), 70)
 
 
 
