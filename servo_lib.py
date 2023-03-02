@@ -95,11 +95,11 @@ class Servo:
     #at specified speed
     def servo_loop(self):
         while True:
+            self.delay(1/self.speed)
             if self.pos > self.target:
                 self.set_pulsewidth_from_angle(round(self.pos - 1))
             elif self.pos < self.target:
                 self.set_pulsewidth_from_angle(round(self.pos + 1))
-            self.delay(1/self.speed)
 
             if self.opened_thread == False:
                 break
