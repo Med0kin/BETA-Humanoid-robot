@@ -207,7 +207,7 @@ if __name__ == '__main__':
 
 
 
-        cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(output, 1), (400, 300)))
+        cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(output, 1), (800, 600)))
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
