@@ -87,7 +87,7 @@ class Servo:
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
         
         self.pos = angle
-        #print("Position: ", self.pos)
+        print("Position: ", self.pos)
         return 1
     
     #This is the loop that runs in the thread
