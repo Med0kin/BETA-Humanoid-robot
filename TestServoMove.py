@@ -14,8 +14,8 @@ gpio = Servo()
 #Create the servo objects
 armjoint[0] = Servo(17)
 armjoint[1] = Servo(27)
-armjoint[2] = Servo(22)
-armjoint[3] = Servo(10)
+armjoint[2] = Servo(11)
+armjoint[3] = Servo(9)
 
 armjoint[4] = Servo(13)
 armjoint[5] = Servo(19)
