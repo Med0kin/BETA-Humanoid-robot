@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import sys
 import time
 import numpy as np
 
@@ -25,14 +25,6 @@ armjoint[6] = Servo(26)
 armjoint[7] = Servo(21)
 
 
-def callback():
-    for i in range(0, 4):
-        try:
-            armjoint[i].opened_thread = False
-            armjoint[i].kill()
-        except:
-            pass
-
 def translate(value, leftMin, leftMax, rightMin, rightMax):
     # Figure out how 'wide' each range is
     leftSpan = leftMax - leftMin
@@ -51,6 +43,15 @@ def map_pos(value):
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", callback)
 root.title('BETA Servo Manager')
+
+def callback():
+    for i in range(0, 4):
+        try:
+            armjoint[i].opened_thread = False
+            armjoint[i].kill()
+        except:
+            pass
+    sys.quit()
 
 
 bcg = "#3D82F0"
@@ -93,9 +94,6 @@ coordinates1.pack(pady=20)
 coordinates2 = tk.Label(tframe2, text="Touchpad2", bg=men)
 coordinates2.pack(pady=20)
 
-exit_button = tk.Button(root, text='Exit', command=lambda: root.quit())
-
-exit_button.pack(ipadx=5, ipady=5, expand=True)
 
 
 def move1(event):
