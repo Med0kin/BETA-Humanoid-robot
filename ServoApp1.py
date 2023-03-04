@@ -43,13 +43,14 @@ def map_pos(value):
 root = tk.Tk()
 
 def callback():
-    for i in range(0, 4):
+    for i in range(0, 8):
         try:
             armjoint[i].opened_thread = False
             armjoint[i].kill()
         except:
             print("Error")
     root.quit()
+
 root.protocol("WM_DELETE_WINDOW", callback)
 root.title('BETA Servo Manager')
 
