@@ -14,10 +14,10 @@ gpio = Servo()
 # Numeration         0  1  2  3   0  1    4  5  6  7
 #                    0  1  2  3   8  9    4  5  6  7
 
-armjoint[0] = Servo(11) #17
-armjoint[1] = Servo(9) #27
-armjoint[2] = Servo(22)
-armjoint[3] = Servo(10)
+armjoint[0] = Servo(17) #17
+armjoint[1] = Servo(27) #27
+armjoint[2] = Servo(9)
+armjoint[3] = Servo(11)
 
 armjoint[4] = Servo(13)
 armjoint[5] = Servo(19)
@@ -105,8 +105,8 @@ def move1(event):
 
     coordinates1.config(text="Coordinates1 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
-    armjoint[0].move_servo(cord[0],100)
-    armjoint[2].move_servo(cord[1],100)
+    armjoint[0].move_servo(cord[0]-90,100)
+    armjoint[2].move_servo(cord[1]-90,100)
 
 
 def move2(event):
@@ -124,8 +124,8 @@ def move2(event):
 
     coordinates2.config(text="Coordinates2 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
-    armjoint[1].move_servo(cord[0],100)
-    armjoint[3].move_servo(cord[1],100)
+    armjoint[1].move_servo(cord[0]-90,100)
+    armjoint[3].move_servo(cord[1]-90,100)
 
 
 
