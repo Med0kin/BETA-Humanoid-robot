@@ -41,8 +41,6 @@ def map_pos(value):
 
 
 root = tk.Tk()
-root.protocol("WM_DELETE_WINDOW", callback)
-root.title('BETA Servo Manager')
 
 def callback():
     for i in range(0, 4):
@@ -51,7 +49,9 @@ def callback():
             armjoint[i].kill()
         except:
             pass
-    sys.quit()
+    root.quit()
+root.protocol("WM_DELETE_WINDOW", callback)
+root.title('BETA Servo Manager')
 
 
 bcg = "#3D82F0"
