@@ -48,7 +48,7 @@ def callback():
             armjoint[i].opened_thread = False
             armjoint[i].kill()
         except:
-            pass
+            print("Error")
     root.quit()
 root.protocol("WM_DELETE_WINDOW", callback)
 root.title('BETA Servo Manager')
