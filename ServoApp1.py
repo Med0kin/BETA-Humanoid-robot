@@ -25,6 +25,13 @@ armjoint[6] = Servo(26)
 armjoint[7] = Servo(21)
 
 
+def callback():
+    for i in range(0, 4):
+        try:
+            armjoint[i].opened_thread = False
+            armjoint[i].kill()
+        except:
+            pass
 
 def translate(value, leftMin, leftMax, rightMin, rightMax):
     # Figure out how 'wide' each range is
@@ -42,6 +49,7 @@ def map_pos(value):
 
 
 root = tk.Tk()
+root.protocol("WM_DELETE_WINDOW", callback)
 root.title('BETA Servo Manager')
 
 
