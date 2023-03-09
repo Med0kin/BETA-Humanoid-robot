@@ -6,85 +6,65 @@ import time
 """
 PySide2 app for controlling robot
 """
-class MainWindow(QMainWindow):
+class Window(QMainWindow):
     def __init__(self):
-        super().__init__()
-        self.setWindowTitle("PySide2 App")
+        super(Window, self).__init__()
+        self.setWindowTitle("Robot Control")
+        self.setGeometry(100, 100, 800, 600)
+        self.UI()
+        self.show()
+        self.createButtons()
 
-        QToolTip.setFont(QFont('SansSerif', 10))
-        self.setToolTip('This is a <b>QWidget</b> widget')
-        self.setGeometry(300, 300, 800, 600)
-        '''
-        # Set background image
-        p = self.palette()
-        # p always scaled to window size
-        p.setBrush(QPalette.Window, QBrush(QPixmap("bg.png").scaled(self.size(), Qt.IgnoreAspectRatio, Qt.SmoothTransformation)))
-        '''
-        
-
-
-        # Set window icon
+    # Setting up the UI
+    def UI(self):
         self.setWindowIcon(QIcon("icon.png"))
-        # Initialize UI
-        self.initUI()
-        self.addButton()
+        self.setStyleSheet("background-color: white;")
 
-    def initUI(self):
-        # Center the window on the screen
-        qr = self.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.move(qr.topLeft())
-        # Set background color
-        p = QPalette()
-        p.setColor(QPalette.Window, Qt.cyan)
-        self.setPalette(p)
-
-    # Button that displays image when clicked, and hides image when released
-    def addButton(self):
-        self.QPLabel = QLabel(self)
-        self.QPLabel.setPixmap(QPixmap("serious.png"))
-        self.QPLabel.setGeometry(0, 0, 800, 600)
-
-        self.toplabel = QLabel(self)
-        self.toplabel.setGeometry(0, 0, 800, 300)
-        self.toplabel.mousePressEvent = self.mousePressEvent
-        self.toplabel.mouseReleaseEvent = self.mouseReleaseEvent
-
-        self.botlabel = QLabel(self)
-        self.botlabel.setGeometry(0, 300, 800, 300)
-        self.botlabel.mousePressEvent = self.mousePressEvent
-        self.botlabel.mouseReleaseEvent = self.mouseReleaseEvent
-
-
-
-        self.QPLabel.show()
-
-    def mousePressEvent(self, event):
-        #change image
-        self.QPLabel.setPixmap(QPixmap("smile.png"))
-        print("smile")
-        self.QPLabel.show()
-
-
-
-    def mouseReleaseEvent(self, event):
-        #change image
-        self.QPLabel.setPixmap(QPixmap("serious.png"))
-        print("serious")
-        self.QPLabel.show()
-
-
-
+    def createButtons(self):
+        buttonSyle = "background-color: cyan; font: bold 20px;\
+                    border-radius: 10px; border: 2px solid black;\
+                    padding: 10px; margin: 10px; text-align: center;"
         
-
+        btnFont = QFont("System", 12)
         
+        btn1 = QPushButton("Button 1", self)
+        btn1.setStyleSheet(buttonSyle)
+        btn1.clicked.connect(self.btn1Click)
+        btn1.setFont(btnFont)
+        btn1.move(100, 100)
+
+        btn2 = QPushButton("Button 2", self)
+        btn2.setStyleSheet(buttonSyle)
+        btn2.clicked.connect(self.btn2Click)
+        btn2.setFont(btnFont)
+        btn2.move(100, 200)
+
+        btn3 = QPushButton("Button 3", self)
+        btn3.setStyleSheet(buttonSyle)
+        btn3.clicked.connect(self.btn3Click)
+        btn3.setFont(btnFont)
+        btn3.move(100, 300)
+
+        # show buttons
+        btn1.show()
+        btn2.show()
+        btn3.show()
+
+
+
+    def btn1Click(self):
+        print("Button 1 clicked")
+
+    def btn2Click(self):
+        print("Button 2 clicked")
+
+    def btn3Click(self):
+        print("Button 3 clicked")
+
     
 
 
-
 myapp = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-sys.exit(myapp.exec_())
-window.show()
+window = Window()
+myapp.exec_()
+sys.exit()
