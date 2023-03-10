@@ -1,0 +1,1 @@
+# musi poczekac bo driver do jedynej kamery co mam w domu nie dziala na w10 :(
