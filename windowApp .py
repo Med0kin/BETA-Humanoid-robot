@@ -6,62 +6,65 @@ import time
 """
 PySide2 app for controlling robot
 """
-class Window(QMainWindow):
+class Window(QWidget):
     def __init__(self):
         super(Window, self).__init__()
         self.setWindowTitle("Robot Control")
-        self.setGeometry(100, 100, 800, 600)
+
+        self.width = 800
+        self.height = 600
+        self.setGeometry(100, 100, self.width, self.height)
         self.UI()
         self.show()
-        self.createButtons()
 
     # Setting up the UI
     def UI(self):
         self.setWindowIcon(QIcon("icon.png"))
         self.setStyleSheet("background-color: white;")
 
+        #make layouts for left and right side
+        self.leftLayout = QFormLayout()
+        self.rightLayout = QVBoxLayout()
+
+        #make main layout
+        self.mainLayout = QHBoxLayout()
+        self.mainLayout.addLayout(self.leftLayout, 40)
+        self.mainLayout.addLayout(self.rightLayout, 10)
+        self.setLayout(self.mainLayout)
+
+        self.createImage()
+
+        self.createButtons()
+
     def createButtons(self):
-        buttonSyle = "background-color: cyan; font: bold 20px;\
-                    border-radius: 10px; border: 2px solid black;\
+        btnFont = QFont("System", 12)
+        buttonSyle = "background-color: cyan; font: 20px;\
+                    border-radius: 10px; border: 2px solid grey;\
                     padding: 10px; margin: 10px; text-align: center;"
         
-        btnFont = QFont("System", 12)
-        
-        btn1 = QPushButton("Button 1", self)
-        btn1.setStyleSheet(buttonSyle)
-        btn1.clicked.connect(self.btn1Click)
-        btn1.setFont(btnFont)
-        btn1.move(100, 100)
+        self.btns = QButtonGroup(self)
+        for i, btn in enumerate(["Button 1", "Button 2", "Button 3","Quit"]):
+            btn = QPushButton(btn, self)
+            btn.setStyleSheet(buttonSyle)
+            btn.setFont(btnFont)
+            self.btns.addButton(btn, i)
+            self.rightLayout.addWidget(btn)
+        self.btns.idClicked.connect(self.btnClick)
 
-        btn2 = QPushButton("Button 2", self)
-        btn2.setStyleSheet(buttonSyle)
-        btn2.clicked.connect(self.btn2Click)
-        btn2.setFont(btnFont)
-        btn2.move(100, 200)
-
-        btn3 = QPushButton("Button 3", self)
-        btn3.setStyleSheet(buttonSyle)
-        btn3.clicked.connect(self.btn3Click)
-        btn3.setFont(btnFont)
-        btn3.move(100, 300)
-
-        # show buttons
-        btn1.show()
-        btn2.show()
-        btn3.show()
+    def btnClick(self, id):
+        print(id)
+        if id == 3:
+            self.close()
 
 
+    def createImage(self):
 
-    def btn1Click(self):
-        print("Button 1 clicked")
-
-    def btn2Click(self):
-        print("Button 2 clicked")
-
-    def btn3Click(self):
-        print("Button 3 clicked")
-
-    
+        label1 = QLabel('Image', self)
+        pixmap = QPixmap("serious.png")
+        pixmap = pixmap.scaled(self.height-100, self.height-100, Qt.KeepAspectRatio)
+        label1.setPixmap(pixmap)
+        label1.setAlignment(Qt.AlignCenter)
+        self.leftLayout.addRow(label1)
 
 
 myapp = QApplication(sys.argv)
