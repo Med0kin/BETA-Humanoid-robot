@@ -36,6 +36,8 @@ class Window(QWidget):
 
         self.createButtons()
 
+
+
     def createButtons(self):
         btnFont = QFont("System", 12)
         buttonSyle = "background-color: cyan; font: 20px;\
