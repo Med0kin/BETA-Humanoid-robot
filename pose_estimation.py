@@ -69,7 +69,7 @@ def rotationMatrixToEulerAngles(R) :
 # Estimate pose of aruco markers
 # and return frame
 
-def pose_esitmation(frame, aruco_dict_type, matrix_coefficients, distortion_coefficients):
+def estimate_pose(frame, aruco_dict_type, matrix_coefficients, distortion_coefficients):
     global frame_count
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -184,7 +184,7 @@ if __name__ == '__main__':
         if not ret:
             break
         
-        output, ids_list = pose_esitmation(frame, aruco_dict_type, k, d)
+        output, ids_list = estimate_pose(frame, aruco_dict_type, k, d)
 
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
         #if there aren't 2 markers on screen, set servo angle to 0
