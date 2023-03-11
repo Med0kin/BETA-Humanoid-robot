@@ -42,8 +42,14 @@ def rotationMatrixToEulerAngles(R) :
 # Estimate pose of aruco markers
 # and return frame
 
-def estimate_pose(frame, aruco_dict_type, matrix_coefficients, distortion_coefficients):
+def estimate_pose(frame):
     global frame_count
+
+    # Load camera calibration
+    aruco_dict_type = cv2.aruco.DICT_5X5_100
+    matrix_coefficients = np.load('calibration_matrix.npy')
+    distortion_coefficients = np.load('distortion_coefficients.npy')
+
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     cv2.aruco_dict = cv2.aruco.Dictionary_get(aruco_dict_type)

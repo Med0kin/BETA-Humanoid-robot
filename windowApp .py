@@ -212,12 +212,9 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
-        self.capture = cv2.VideoCapture(0)
+        self.capture = cv2.VideoCapture("/dev/video2")
         self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
-
-        self.calib = np.load("calibration_matrix.npy")
-        self.distortion = np.load("distortion_coefficients.npy")
 
         self.timer = QTimer()
         self.timer.timeout.connect(self.display_video_stream)
@@ -229,16 +226,12 @@ class Window(QWidget):
         frame = cv2.flip(frame, 1)
 
         if self.camera_mode == 1:
-            frame, _ = pe.estimate_pose(frame, cv2.aruco.DICT_5X5_100, self.calib, self.distortion)
-            print("Pose Estimation")
+            frame, id_list = pe.estimate_pose(frame)
+            print(id_list)
+        image = qimage2ndarray.array2qimage(frame)
+        self.image_label.setPixmap(QPixmap.fromImage(image))
 
-            image = qimage2ndarray.array2qimage(frame)
-            self.image_label.setPixmap(QPixmap.fromImage(image))
-        else:
-            image = qimage2ndarray.array2qimage(frame)
-            self.image_label.setPixmap(QPixmap.fromImage(image))
 
-    
 
 
 # Main
