@@ -24,7 +24,7 @@ class Window(QWidget):
         self.setGeometry(100, 100, self.width, self.height)
 
         self.video_size = QSize(320, 240)
-        self.camera_mode = 1
+        self.camera_mode = 0
 
         self.setup_UI()
         self.show()
@@ -52,7 +52,7 @@ class Window(QWidget):
         self.mainLayout.addLayout(self.rightLayout, 10)
         self.setLayout(self.mainLayout)
 
-        self.create_image()
+        #self.create_image()
 
         btn_font = QFont("System", 12)
         button_style = "background-color: cyan; font: 20px;\
