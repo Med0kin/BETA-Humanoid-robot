@@ -59,6 +59,15 @@ class Window(QWidget):
             btn = QPushButton(name)
             btn.clicked.connect(lambda: self.btn_clickMain(i))
             self.rightLayout.addWidget(btn)
+            btn_count = i+1
+
+        
+        # hide buttons in right layout
+        for i in range(btn_count):
+            self.rightLayout.itemAt(i).widget().hide()
+            
+
+
         
 
 
