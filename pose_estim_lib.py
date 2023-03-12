@@ -5,6 +5,30 @@ import argparse
 import time
 import math
 
+ARUCO_DICT = {
+    "DICT_4X4_50": cv2.aruco.DICT_4X4_50,
+    "DICT_4X4_100": cv2.aruco.DICT_4X4_100,
+    "DICT_4X4_250": cv2.aruco.DICT_4X4_250,
+    "DICT_4X4_1000": cv2.aruco.DICT_4X4_1000,
+    "DICT_5X5_50": cv2.aruco.DICT_5X5_50,
+    "DICT_5X5_100": cv2.aruco.DICT_5X5_100,
+    "DICT_5X5_250": cv2.aruco.DICT_5X5_250,
+    "DICT_5X5_1000": cv2.aruco.DICT_5X5_1000,
+    "DICT_6X6_50": cv2.aruco.DICT_6X6_50,
+    "DICT_6X6_100": cv2.aruco.DICT_6X6_100,
+    "DICT_6X6_250": cv2.aruco.DICT_6X6_250,
+    "DICT_6X6_1000": cv2.aruco.DICT_6X6_1000,
+    "DICT_7X7_50": cv2.aruco.DICT_7X7_50,
+    "DICT_7X7_100": cv2.aruco.DICT_7X7_100,
+    "DICT_7X7_250": cv2.aruco.DICT_7X7_250,
+    "DICT_7X7_1000": cv2.aruco.DICT_7X7_1000,
+    "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL,
+    "DICT_APRILTAG_16h5": cv2.aruco.DICT_APRILTAG_16h5,
+    "DICT_APRILTAG_25h9": cv2.aruco.DICT_APRILTAG_25h9,
+    "DICT_APRILTAG_36h10": cv2.aruco.DICT_APRILTAG_36h10,
+    "DICT_APRILTAG_36h11": cv2.aruco.DICT_APRILTAG_36h11
+}
+
 loc = np.zeros((6), dtype=(float,3))
 rot = np.zeros((6), dtype=(float,3))
 frame_count = 0
@@ -45,11 +69,24 @@ def rotationMatrixToEulerAngles(R) :
 def estimate_pose(frame):
     global frame_count
 
-    # Load camera calibration
-    aruco_dict_type = cv2.aruco.DICT_5X5_100
-    matrix_coefficients = np.load('calibration_matrix.npy')
-    distortion_coefficients = np.load('distortion_coefficients.npy')
 
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-k", "--K_Matrix", default="calibration_matrix.npy" ,help="Path to calibration matrix (numpy file)")
+    ap.add_argument("-d", "--D_Coeff", default="distortion_coefficients.npy", help="Path to distortion coefficients (numpy file)")
+    ap.add_argument("-t", "--type", type=str, default="DICT_5X5_100", help="Type of ArUCo tag to detect")
+    args = vars(ap.parse_args())
+
+    
+    if ARUCO_DICT.get(args["type"], None) is None:
+        print(f"ArUCo tag type '{args['type']}' is not supported")
+        sys.exit(0)
+
+    aruco_dict_type = ARUCO_DICT[args["type"]]
+    calibration_matrix_path = args["K_Matrix"]
+    distortion_coefficients_path = args["D_Coeff"]
+    
+    matrix_coefficients = np.load(calibration_matrix_path)
+    distortion_coefficients = np.load(distortion_coefficients_path)
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     cv2.aruco_dict = cv2.aruco.Dictionary_get(aruco_dict_type)
