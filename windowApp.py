@@ -211,24 +211,33 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
-        self.capture = cv2.VideoCapture("/dev/video0")
-        self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
-        self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
-
+        #self.capture = cv2.VideoCapture("/dev/video0")
+        #self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
+        #self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
+        self.video = cv2.VideoCapture("/dev/video0")
         self.timer = QTimer()
         self.timer.timeout.connect(self.display_video_stream)
 
     # Displays the camera capture
     def display_video_stream(self):
-        _, frame = self.capture.read()
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frame = cv2.flip(frame, 1)
+        ret, frame = self.video.read()
+        if not ret:
+            return
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        #frame = cv2.flip(frame, 1)
 
         if self.camera_mode == 1:
             frame, id_list = pe.estimate_pose(frame)
             print(id_list)
         image = qimage2ndarray.array2qimage(frame)
         self.image_label.setPixmap(QPixmap.fromImage(image))
+
+        cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(frame, 1), (800, 600)))
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
+            self.video.release()
+            cv2.destroyAllWindows()
 
 
 
