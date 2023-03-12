@@ -1,7 +1,7 @@
 import sys
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+from PySide2.QtWidgets import *
+from PySide2.QtGui import *
+from PySide2.QtCore import *
 import qimage2ndarray
 import pose_estim_lib as pe
 import numpy as np
