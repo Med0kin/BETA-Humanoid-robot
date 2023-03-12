@@ -53,10 +53,17 @@ class Window(QWidget):
         self.setLayout(self.mainLayout)
 
         self.create_image()
+
+        btn_font = QFont("System", 12)
+        button_style = "background-color: cyan; font: 20px;\
+                    border-radius: 10px; border: 2px solid grey;\
+                    padding: 10px; margin: 10px; text-align: center;"
         
         # Main menu buttons
         for i, name in enumerate(["Camera", "Pose Estimation", "Button 3","Quit"]):
             btn = QPushButton(name)
+            btn.setFont(btn_font)
+            btn.setStyleSheet(button_style)
             btn.clicked.connect(lambda: self.btn_clickMain(i))
             self.rightLayout.addWidget(btn)
             btn_count = i+1
@@ -65,7 +72,11 @@ class Window(QWidget):
         # hide buttons in right layout
         for i in range(btn_count):
             self.rightLayout.itemAt(i).widget().hide()
-            
+
+        # show buttons in right layout
+        for i in range(btn_count):
+            self.rightLayout.itemAt(i).widget().show()
+
 
 
         
