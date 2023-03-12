@@ -31,6 +31,11 @@ class Window(QWidget):
 
     # d(-_-)b ~-=< USER INTERFACE >=-~ d(-_-)b
     def setup_UI(self):
+
+
+        # Set full screen
+        self.showFullScreen()
+
         # Set window icon and background color
         self.setWindowIcon(QIcon("icon.png"))
         self.setStyleSheet("background-color: white;")
@@ -114,7 +119,6 @@ class Window(QWidget):
         self.hide_buttons(self.btns1)
         self.hide_buttons(self.btns2)
         
-
 
 
     # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
