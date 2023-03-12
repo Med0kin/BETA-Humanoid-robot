@@ -60,49 +60,79 @@ class Window(QWidget):
                     padding: 10px; margin: 10px; text-align: center;"
         
         # Main menu buttons
+        self.btns = QButtonGroup(self)
+        btn = []
         for i, name in enumerate(["Camera", "Pose Estimation", "Button 3","Quit"]):
-            btn = QPushButton(name)
-            btn.setFont(btn_font)
-            btn.setStyleSheet(button_style)
-            btn.clicked.connect(lambda: self.btn_clickMain(i))
-            self.rightLayout.addWidget(btn)
+            btn_temp = QPushButton(name)
+            btn_temp.setFont(btn_font)
+            btn_temp.setStyleSheet(button_style)
+            btn.append(btn_temp)
             btn_count = i+1
+            self.rightLayout.addWidget(btn[i])
+            self.btns.addButton(btn[i], i)
 
+        # Can't figure out how to add this to for loop above without getting error
+        btn[0].clicked.connect(lambda: self.btn_clickMain(0))
+        btn[1].clicked.connect(lambda: self.btn_clickMain(1))
+        btn[2].clicked.connect(lambda: self.btn_clickMain(2))
+        btn[3].clicked.connect(lambda: self.btn_clickMain(3))
+
+
+
+        # Camera buttons
+        self.btns1 = QButtonGroup(self)
+        btn1 = []
+        for i, name in enumerate(["Pause", "Back"]):
+            btn_temp = QPushButton(name)
+            btn_temp.setFont(btn_font)
+            btn_temp.setStyleSheet(button_style)
+            btn1.append(btn_temp)
+            btn1_count = i+1
+            self.rightLayout.addWidget(btn1[i])
+            self.btns1.addButton(btn1[i], i)
+
+        btn1[0].clicked.connect(lambda: self.btn_click1(0))
+        btn1[1].clicked.connect(lambda: self.btn_click1(1))
+
+
+        # Pose Estimation buttons
+        self.btns2 = QButtonGroup(self)
+        btn2 = []
+        for i, name in enumerate(["Mode 0", "Back"]):
+            btn_temp = QPushButton(name)
+            btn_temp.setFont(btn_font)
+            btn_temp.setStyleSheet(button_style)
+            btn2.append(btn_temp)
+            btn2_count = i+1
+            self.rightLayout.addWidget(btn2[i])
+            self.btns2.addButton(btn2[i], i)
+
+        btn2[0].clicked.connect(lambda: self.btn_click2(0))
+        btn2[1].clicked.connect(lambda: self.btn_click2(1))
+
+        self.btns_count = {self.btns: btn_count, self.btns1: btn1_count, self.btns2: btn2_count}
+        self.hide_buttons(self.btns1)
+        self.hide_buttons(self.btns2)
         
-        # hide buttons in right layout
-        for i in range(btn_count):
-            self.rightLayout.itemAt(i).widget().hide()
-
-        # show buttons in right layout
-        for i in range(btn_count):
-            self.rightLayout.itemAt(i).widget().show()
 
 
 
-        
-
-
-
-    # d(-_-)b ~-=< BUTTON FUNCTIONS >=-~ d(-_-)b
+    # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
     def btn_clickMain(self, id):
         print(id)
         # Main menu
         if id == 0:
             # Camera
             self.swap_buttons(self.btns, self.btns1)
-
             # Show video stream
             self.timer.start(30)
             self.image_label.show()
-
         elif id == 1:
             # Pose Estimation
             self.swap_buttons(self.btns, self.btns2)
-
+            # Show video stream
             self.timer.start(30)
             self.image_label.show()
-
-
         elif id == 2:
             # Button 3
             self.swap_buttons(self.btns, self.btns3)
@@ -151,22 +181,24 @@ class Window(QWidget):
             self.timer.stop()
             self.image_label.hide()
 
-    def btn_click3(self, id):
-        print(id)
-        # Button 1 menu
-        if id == 0:
-            # Button 4
-            pass
-        elif id == 1:
-            # Button 5
-            pass
-        elif id == 2:
-            # Back
-            self.swap_buttons(self.btns3, self.btns)
-
 
 
     # d(-_-)b ~-=< FUNCTIONS >=-~ d(-_-)b
+
+    # Hides all buttons in a btnsGroup
+    def hide_buttons(self, btnsGroup):
+        for i in range(self.btns_count[btnsGroup]):
+            btnsGroup.button(i).hide()
+
+    # Shows all buttons in a btnsGroup
+    def show_buttons(self, btnsGroup):
+        for i in range(self.btns_count[btnsGroup]):
+            btnsGroup.button(i).show()
+
+    # Hides all buttons in btnsGroup1 and shows all buttons in btnsGroup2
+    def swap_buttons(self, btnsGroup1, btnsGroup2):
+        self.hide_buttons(btnsGroup1)
+        self.show_buttons(btnsGroup2)
 
     # Creates an image and adds it to the left layout
     def create_image(self):
@@ -179,7 +211,7 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
-        self.capture = cv2.VideoCapture("/dev/video2")
+        self.capture = cv2.VideoCapture("/dev/video0")
         self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
 
