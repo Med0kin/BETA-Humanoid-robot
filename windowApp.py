@@ -53,34 +53,12 @@ class Window(QWidget):
         self.setLayout(self.mainLayout)
 
         self.create_image()
-        '''
+        
         # Main menu buttons
-        self.btns = QButtonGroup(self)
-        btns_count = self.create_buttons(self.btns, ["Camera", "Pose Estimation", "Button 3","Quit"])
-        self.btns.idClicked.connect(self.btn_clickMain)
-
-        # Button 1 menu buttons
-        self.btns1 = QButtonGroup(self)
-        btns1_count = self.create_buttons(self.btns1, ["Pause", "Back"])
-        self.btns1.idClicked.connect(self.btn_click1)
-
-        # Button 2 menu buttons
-        self.btns2 = QButtonGroup(self)
-        btns2_count = self.create_buttons(self.btns2, ["Pause", "Back"])
-        self.btns2.idClicked.connect(self.btn_click2)
-
-        # Button 3 menu buttons
-        self.btns3 = QButtonGroup(self)
-        btns3_count = self.create_buttons(self.btns3, ["Button 6", "Button 7", "Back"])
-        self.btns3.idClicked.connect(self.btn_click3)
-
-        # Dicitonary of number of buttons in each menu
-        self.btns_count = {self.btns : btns_count, self.btns1 : btns1_count, self.btns2 : btns2_count, self.btns3 : btns3_count}
-
-        # Hide all buttons except main menu
-        self.hide_buttons(self.btns1)
-        self.hide_buttons(self.btns2)
-        self.hide_buttons(self.btns3)
+        for i, name in enumerate(["Camera", "Pose Estimation", "Button 3","Quit"]):
+            btn = QPushButton(name)
+            btn.clicked.connect(lambda: self.btn_clickMain(i))
+            self.rightLayout.addWidget(btn)
         
 
 
@@ -166,41 +144,9 @@ class Window(QWidget):
             # Back
             self.swap_buttons(self.btns3, self.btns)
 
-'''
+
 
     # d(-_-)b ~-=< FUNCTIONS >=-~ d(-_-)b
-
-    # Creates buttons from a btnsGroup and a list of button names
-    def create_buttons(self, btns , btnsList):
-        # Set style and font for buttons
-        btn_font = QFont("System", 12)
-        button_style = "background-color: cyan; font: 20px;\
-                    border-radius: 10px; border: 2px solid grey;\
-                    padding: 10px; margin: 10px; text-align: center;"
-        # Loop through the list of buttons to create
-        for i, btn in enumerate(btnsList):
-            btn = QPushButton(btn, self)
-            btn.setStyleSheet(button_style)
-            btn.setFont(btn_font)
-            btns.addButton(btn, i)
-            self.rightLayout.addWidget(btn)
-        # Return the number of buttons created
-        return(i+1)
-
-    # Hides all buttons in a btnsGroup
-    def hide_buttons(self, btnsGroup):
-        for i in range(self.btns_count[btnsGroup]):
-            btnsGroup.button(i).hide()
-
-    # Shows all buttons in a btnsGroup
-    def show_buttons(self, btnsGroup):
-        for i in range(self.btns_count[btnsGroup]):
-            btnsGroup.button(i).show()
-
-    # Hides all buttons in btnsGroup1 and shows all buttons in btnsGroup2
-    def swap_buttons(self, btnsGroup1, btnsGroup2):
-        self.hide_buttons(btnsGroup1)
-        self.show_buttons(btnsGroup2)
 
     # Creates an image and adds it to the left layout
     def create_image(self):
