@@ -227,7 +227,7 @@ class Window(QWidget):
         ret, frame = self.video.read()
         if not ret:
             return
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame = cv2.flip(frame, 1)
 
         if self.camera_mode == 1:
