@@ -53,7 +53,7 @@ class Window(QWidget):
         self.setLayout(self.mainLayout)
 
         self.create_image()
-        '''
+        
         # Main menu buttons
         self.btns = QButtonGroup(self)
         btns_count = self.create_buttons(self.btns, ["Camera", "Pose Estimation", "Button 3","Quit"])
@@ -81,7 +81,6 @@ class Window(QWidget):
         self.hide_buttons(self.btns1)
         self.hide_buttons(self.btns2)
         self.hide_buttons(self.btns3)
-        
 
 
 
@@ -166,7 +165,7 @@ class Window(QWidget):
             # Back
             self.swap_buttons(self.btns3, self.btns)
 
-'''
+
 
     # d(-_-)b ~-=< FUNCTIONS >=-~ d(-_-)b
 
