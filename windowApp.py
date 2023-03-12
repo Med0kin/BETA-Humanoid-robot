@@ -23,7 +23,7 @@ class Window(QWidget):
         self.height = 600
         self.setGeometry(100, 100, self.width, self.height)
 
-        self.video_size = QSize(600, 450)
+        self.video_size = QSize(608, 456)
         self.camera_mode = 0
 
         self.setup_UI()
