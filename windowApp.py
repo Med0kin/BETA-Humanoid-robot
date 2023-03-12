@@ -233,8 +233,15 @@ class Window(QWidget):
         if self.camera_mode == 1:
             frame, id_list = pe.estimate_pose(frame)
             print(id_list)
+        # flip frame
+        frame = cv2.flip(frame, 1)
+        # convert to QImage
         image = qimage2ndarray.array2qimage(frame)
+        # set image to image label
         self.image_label.setPixmap(QPixmap.fromImage(image))
+        # set image label size
+        self.image_label.setScaledContents(True)
+        
 '''
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(frame, 1), (800, 600)))
 
