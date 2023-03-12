@@ -215,10 +215,9 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
-        #self.capture = cv2.VideoCapture("/dev/video0")
-        #self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
-        #self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.video = cv2.VideoCapture("/dev/video0")
+        self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
+        self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.timer = QTimer()
         self.timer.timeout.connect(self.display_video_stream)
 
@@ -240,7 +239,6 @@ class Window(QWidget):
         # set image to image label
         self.image_label.setPixmap(QPixmap.fromImage(image))
         # set image label size
-        self.image_label.setScaledContents(True)
         
 '''
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(frame, 1), (800, 600)))
