@@ -231,13 +231,13 @@ class Window(QWidget):
             print(id_list)
         image = qimage2ndarray.array2qimage(frame)
         self.image_label.setPixmap(QPixmap.fromImage(image))
-
+'''
         cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(frame, 1), (800, 600)))
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
             self.video.release()
-            cv2.destroyAllWindows()
+            cv2.destroyAllWindows()'''
 
 
 
