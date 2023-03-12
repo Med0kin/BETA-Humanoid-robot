@@ -211,7 +211,7 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
-        self.capture = cv2.VideoCapture(0)
+        self.capture = cv2.VideoCapture("/dev/video0")
         self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
 
