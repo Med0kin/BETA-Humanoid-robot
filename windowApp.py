@@ -29,7 +29,7 @@ class Window(QWidget):
         self.camera_mode = 0
 
         self.setup_UI()
-        self.s2t = s2t.speech_2_text()
+        s2t = s2t.speech_2_text()
         self.show()
 
     # d(-_-)b ~-=< USER INTERFACE >=-~ d(-_-)b
