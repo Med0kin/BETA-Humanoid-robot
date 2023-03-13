@@ -11,7 +11,7 @@ gpio = Servo()
 # Numeration         0  1  2  3   0  1    4  5  6  7
 #                    0  1  2  3   8  9    4  5  6  7
 
-#Create the servo objects
+# Create the servo objects
 armjoint[0] = Servo(17)
 armjoint[1] = Servo(27)
 armjoint[2] = Servo(11)
@@ -27,7 +27,7 @@ armjoint[1].servo_range = 270
 armjoint[1].max_angle = 180
 armjoint[1].min_angle = -180
 
-#Enter the servo number and the angle you want to move, press q to quit
+# Enter the servo number and the angle you want to move, press q to quit
 while True:
 
     servo = input("Enter servo number: ")
