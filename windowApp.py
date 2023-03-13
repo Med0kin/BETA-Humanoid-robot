@@ -1,4 +1,5 @@
 import sys
+import os
 from PySide2.QtWidgets import *
 from PySide2.QtGui import *
 from PySide2.QtCore import *
@@ -41,7 +42,7 @@ class Window(QWidget):
         self.setStyleSheet("background-color: white;")
 
         # Left and right layouts
-        self.leftLayout = QFormLayout()
+        self.leftLayout = QHBoxLayout()
         self.rightLayout = QVBoxLayout()
 
         # Video stream label
@@ -57,8 +58,10 @@ class Window(QWidget):
         self.mainLayout.addLayout(self.rightLayout, 10)
         self.setLayout(self.mainLayout)
 
-        #self.create_image()
+        # Image
+        self.create_image()
 
+        # Buttons style and font
         btn_font = QFont("System", 12)
         button_style = "background-color: cyan; font: 20px;\
                     border-radius: 10px; border: 2px solid grey;\
@@ -206,12 +209,20 @@ class Window(QWidget):
 
     # Creates an image and adds it to the left layout
     def create_image(self):
-        label1 = QLabel('Image', self)
-        pixmap = QPixmap("serious.png")
-        pixmap = pixmap.scaled(self.height-100, self.height-100, Qt.KeepAspectRatio)
-        label1.setPixmap(pixmap)
-        label1.setAlignment(Qt.AlignCenter)
-        self.leftLayout.addRow(label1)
+        self.label1 = QLabel('Image', self)
+        #create path to image
+        pixmap = QPixmap("head.png")
+        pixmap = pixmap.scaled(self.height*1.5, self.height*1.5, Qt.KeepAspectRatio)
+        self.label1.setPixmap(pixmap)
+        self.label1.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
+        self.leftLayout.addWidget(self.label1)
+
+    def change_image(self):
+        pixmap = QPixmap("head.png")
+        pixmap = pixmap.scaled(self.height*1.5, self.height*1.5, Qt.KeepAspectRatio)
+        self.label1.setPixmap(pixmap)
+
+
 
     # Camera capture setup
     def setup_camera(self):
