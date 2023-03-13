@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import Select
 import time
 
 
-browserDIR = "/home/pi/.config/chromium/Default"
+browserDIR = "user-data-dir=/home/pi/.config/chromium/Default"
 webdriverDIR = "/usr/lib/chromium-browser/chromedriver"
 # C:\Users\Shinken\AppData\Local\Google\Chrome\User Data\Default
 options = Options()
@@ -20,8 +20,8 @@ stt.minimize_window()
 #stt.find_element("xpath", "//a[normalize-space()='Got it!']").click()
 select = Select(stt.find_element("xpath", "//select[@id='lang']"))
 select.select_by_value('pl-pl')
-time.sleep(10) # //a[@class='btn-mic btn btn--primary-1']
-stt.find_element("xpath", "//span[normalize-space()='Clear']").click()
+time.sleep(1) # //a[@class='btn-mic btn btn--primary-1']
+#stt.find_element("xpath", "//span[normalize-space()='Clear']").click()
 stt.find_element("xpath", "//a[@class='btn-mic btn btn--primary-1']").click()
 time.sleep(5)
 textbox = stt.find_element("xpath", "//div[@class='ql-editor ql-blank']")
