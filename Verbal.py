@@ -21,9 +21,9 @@ stt.find_element("xpath", "//a[normalize-space()='Got it!']").click()
 select = Select(stt.find_element("xpath", "//select[@id='lang']"))
 select.select_by_value('pl-pl')
 time.sleep(5)
+stt.find_element("xpath", "//span[normalize-space()='Clear']").click()
 stt.find_element("xpath", "//a[@class='btn-mic btn btn--primary-1']").click()
 time.sleep(5)
-stt.find_element("xpath", "//span[normalize-space()='Clear']").click()
 textbox = stt.find_element("xpath", "//div[@class='ql-editor ql-blank']")
 
 
