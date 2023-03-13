@@ -20,7 +20,7 @@ stt.get('https://smodin.io/pl/przemowienie-do-tekst-i-tekst-do-przemowienie')
 stt.minimize_window()
 #stt.find_element("xpath", "//a[normalize-space()='Got it!']").click()
 # select = Select(stt.find_element("xpath", "//select[@id='lang']"))
-# select.select_by_value('pl-pl')
+# select.select_by_value('pl-pl')  //span[@data-text='Kasować']//button//span
 # time.sleep(1) # //a[@class='btn-mic btn btn--primary-1']
 stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
 stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
@@ -33,11 +33,12 @@ textbox = stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij
 while True:
     if textbox.text != '':
         if textbox.text.strip() == 'koniec':
-            textbox.clear()
+            #textbox.clear()
+            stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click()
             stt.quit()
             print('Koniec1')
             exit()
         print(textbox.text)
-        textbox.clear()
+        stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click()
 
 # stt.quit()
