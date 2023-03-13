@@ -15,16 +15,16 @@ options.add_experimental_option("prefs", {
   })
 service = Service(webdriverDIR)
 stt = webdriver.Chrome(webdriverDIR, options=options)
-stt.get('https://dictation.io/speech')
+stt.get('https://smodin.io/pl/przemowienie-do-tekst-i-tekst-do-przemowienie')
 stt.minimize_window()
 #stt.find_element("xpath", "//a[normalize-space()='Got it!']").click()
-select = Select(stt.find_element("xpath", "//select[@id='lang']"))
-select.select_by_value('pl-pl')
-time.sleep(1) # //a[@class='btn-mic btn btn--primary-1']
-#stt.find_element("xpath", "//span[normalize-space()='Clear']").click()
-stt.find_element("xpath", "//a[@class='btn-mic btn btn--primary-1']").click()
+# select = Select(stt.find_element("xpath", "//select[@id='lang']"))
+# select.select_by_value('pl-pl')
+# time.sleep(1) # //a[@class='btn-mic btn btn--primary-1']
+stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
+stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
 time.sleep(5)
-textbox = stt.find_element("xpath", "//div[@class='ql-editor ql-blank']")
+textbox = stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciœnij przycisk i zacznij mówiæ')]")
 #textbox = stt.find_element("xpath", "//div[@class='ql-editor']")
 #textbox.clear()
 
