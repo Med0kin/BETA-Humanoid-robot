@@ -214,14 +214,15 @@ class Window(QWidget):
         self.label1 = QLabel('Image', self)
         #create path to image
         pixmap = QPixmap("neutral.png")
-        pixmap = pixmap.scaled(self.height*1.5, self.height*1.5, Qt.KeepAspectRatio)
+        # scale to the size of window
+        pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
         self.label1.setPixmap(pixmap)
         self.label1.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.label1)
 
     def change_image(self, image):
         pixmap = QPixmap(image + ".png")
-        pixmap = pixmap.scaled(self.height*1.5, self.height*1.5, Qt.KeepAspectRatio)
+        pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
         self.label1.setPixmap(pixmap)
 
     def make_robot_blink(self):
