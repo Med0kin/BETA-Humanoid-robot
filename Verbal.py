@@ -24,7 +24,9 @@ time.sleep(1) # //a[@class='btn-mic btn btn--primary-1']
 #stt.find_element("xpath", "//span[normalize-space()='Clear']").click()
 stt.find_element("xpath", "//a[@class='btn-mic btn btn--primary-1']").click()
 time.sleep(5)
-textbox = stt.find_element("xpath", "//div[@class='ql-editor ql-blank']")
+#textbox = stt.find_element("xpath", "//div[@class='ql-editor ql-blank']")
+textbox = stt.find_element("xpath", "//div[@class='ql-editor']")
+textbox.clear()
 
 
 while True:
