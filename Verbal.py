@@ -28,17 +28,16 @@ time.sleep(5)
 textbox = stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
 #textbox = stt.find_element("xpath", "//div[@class='ql-editor']")
 #textbox.clear()
-
+clear = stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click
 
 while True:
     if textbox.text != '':
         if textbox.text.strip() == 'koniec':
             #textbox.clear()
-            stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click()
+            clear()
             stt.quit()
             print('Koniec1')
             exit()
         print(textbox.text)
-        stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click()
-
+        clear()
 # stt.quit()
