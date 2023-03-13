@@ -64,8 +64,8 @@ class Window(QWidget):
         self.make_robot_blink()
 
         # Buttons style and font
-        btn_font = QFont("System", 12)
-        button_style = "background-color: cyan; font: 20px;\
+        btn_font = QFont("System", 12)        
+        button_style = "background-color: #00accc; font: 20px;\
                     border-radius: 10px; border: 2px solid grey;\
                     padding: 10px; margin: 10px; text-align: center;"
         
