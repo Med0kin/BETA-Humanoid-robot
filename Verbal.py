@@ -25,7 +25,7 @@ stt.minimize_window()
 stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
 stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
 time.sleep(5)
-textbox = stt.find_element("xpath", r"//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
+textbox = stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
 #textbox = stt.find_element("xpath", "//div[@class='ql-editor']")
 #textbox.clear()
 
@@ -39,6 +39,5 @@ while True:
             exit()
         print(textbox.text)
         textbox.clear()
-        textbox.text.clear()
 
 # stt.quit()
