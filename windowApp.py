@@ -6,6 +6,7 @@ from PySide2.QtCore import *
 import qimage2ndarray
 import pose_estim_lib as pe
 import numpy as np
+import threading
 
 
 
@@ -60,6 +61,7 @@ class Window(QWidget):
 
         # Image
         self.create_image()
+        self.make_robot_blink()
 
         # Buttons style and font
         btn_font = QFont("System", 12)
@@ -211,16 +213,30 @@ class Window(QWidget):
     def create_image(self):
         self.label1 = QLabel('Image', self)
         #create path to image
-        pixmap = QPixmap("head.png")
+        pixmap = QPixmap("neutral.png")
         pixmap = pixmap.scaled(self.height*1.5, self.height*1.5, Qt.KeepAspectRatio)
         self.label1.setPixmap(pixmap)
         self.label1.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.label1)
 
-    def change_image(self):
-        pixmap = QPixmap("head.png")
+    def change_image(self, image):
+        pixmap = QPixmap(image + ".png")
         pixmap = pixmap.scaled(self.height*1.5, self.height*1.5, Qt.KeepAspectRatio)
         self.label1.setPixmap(pixmap)
+
+    def make_robot_blink(self):
+        self.blink_thread = threading.Thread(target=self.blink)
+        self.blink_thread.start()
+        self.blink_thread._stop = False
+
+    def blink(self):
+        while True:
+            self.change_image("blink")
+            time.sleep(0.1)
+            self.change_image("neutral")
+            time.sleep(2)
+            if self.blink_thread._stop:
+                break
 
 
 
@@ -266,4 +282,9 @@ class Window(QWidget):
 myapp = QApplication(sys.argv)
 window = Window()
 myapp.exec_()
+# Release the video capture
+window.video.release()
+# Close threads
+window.blink_thread._stop = True
+# Close the app
 sys.exit()
