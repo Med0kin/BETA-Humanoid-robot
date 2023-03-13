@@ -59,9 +59,7 @@ class Window(QWidget):
         self.mainLayout.addLayout(self.rightLayout, 10)
         self.setLayout(self.mainLayout)
 
-        # Image
-        self.create_image()
-        self.make_robot_blink()
+        self.face_functionality()
 
         # Buttons style and font
         btn_font = QFont("System", 12)        
@@ -123,6 +121,15 @@ class Window(QWidget):
         self.btns_count = {self.btns: btn_count, self.btns1: btn1_count, self.btns2: btn2_count}
         self.hide_buttons(self.btns1)
         self.hide_buttons(self.btns2)
+
+
+    def face_functionality(self):
+        self.expression = "blinking"
+        # Image
+        self.create_image()
+        self.make_robot_expressions()
+
+
         
 
 
@@ -144,7 +151,14 @@ class Window(QWidget):
             self.image_label.show()
         elif id == 2:
             # Button 3
-            self.swap_buttons(self.btns, self.btns3)
+            # disable/enable blinking
+            if self.expression == "blinking":
+                self.expression = "none"
+                self.btns.button(2).setText("Enable Blinking")
+            else:
+                self.expression = "blinking"
+                self.btns.button(2).setText("Disable Blinking")
+
         elif id == 3:
             # Quit
             self.close()
@@ -225,18 +239,20 @@ class Window(QWidget):
         pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
         self.label1.setPixmap(pixmap)
 
-    def make_robot_blink(self):
-        self.blink_thread = threading.Thread(target=self.blink)
-        self.blink_thread.start()
-        self.blink_thread._stop = False
+    def make_robot_expressions(self):
+        self.expression_thread = threading.Thread(target=self.blink)
+        self.expression_thread.start()
+        self.expression_thread._stop = False
 
     def blink(self):
         while True:
-            self.change_image("blink")
-            time.sleep(0.1)
-            self.change_image("neutral")
+            if self.expression == "blinking":
+                self.change_image("blink")
+                time.sleep(0.1)
+                self.change_image("neutral")
+
             time.sleep(2)
-            if self.blink_thread._stop:
+            if self.expression_thread._stop:
                 break
 
 
@@ -286,6 +302,6 @@ myapp.exec_()
 # Release the video capture
 window.video.release()
 # Close threads
-window.blink_thread._stop = True
+window.expression_thread._stop = True
 # Close the app
 sys.exit()
