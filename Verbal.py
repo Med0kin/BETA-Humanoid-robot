@@ -39,5 +39,6 @@ while True:
             exit()
         print(textbox.text)
         textbox.clear()
+        textbox.text = ''
 
 # stt.quit()
