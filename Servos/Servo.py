@@ -53,18 +53,18 @@ class Servo:
 
         # Create the servo objects
         self.armjoint[0] = AServo(17)
-        self.armjoint[1] = AServo(27)
-        self.armjoint[2] = AServo(22, 60)
-        self.armjoint[3] = AServo(10)
+        self.armjoint[2] = AServo(27)
+        self.armjoint[4] = AServo(22, 60)
+        self.armjoint[6] = AServo(10)
 
-        self.armjoint[4] = AServo(13)
-        self.armjoint[5] = AServo(19, -60)
-        self.armjoint[6] = AServo(26)
-        self.armjoint[7] = AServo(21)
+        self.armjoint[1] = AServo(21)
+        self.armjoint[3] = AServo(26, -60)
+        self.armjoint[5] = AServo(19)
+        self.armjoint[7] = AServo(13)
         self.armjoint[8] = AServo(9)      # hip 0
         self.armjoint[9] = AServo(11)     # hip 1
-        servo180 = [2, 3, 4, 5]
-        servo270 = [0, 1, 6, 7]
+        servo180 = [4, 5, 6, 7, 8, 9]
+        servo270 = [0, 1, 2, 3]
 
         for i in servo180:
             self.armjoint[i].set_range(180)
@@ -94,6 +94,7 @@ class Servo:
             if i >= 10:
                 raise Exception("Servo number out of range")
             self.set(i, angles[i])
+            time.sleep(0.1)
 
     def set_many_digital(self, servos, angles):
         if len(servos) != len(angles):
@@ -127,10 +128,10 @@ class Servo:
 if __name__ == "__main__":
     servolist = [10, 11, 12, 13, 14, 15, 16, 17]
     anglelist = [0, 0, 0, 0, 0, 0, 0, 0]
-    filenames = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7']
+    akcja = ['p13', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'rrR1', 'rrR2','rrR1','rrR2','fRL1','fRL2','fRL3','fRL4','fRL1','fRL2','fRL3','fRL4','pr1','pr','ch12','j22','default','pb1','default','pbn1','p13','pr1','pr']
     test = Servo()
     #test.set_many_digital(servolist, anglelist)
-    test.setsequence(filenames)
+    test.setsequence(akcja, 3)
 
 
     time.sleep(5)
