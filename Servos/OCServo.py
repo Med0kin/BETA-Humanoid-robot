@@ -51,6 +51,19 @@ def transform(angle):
     return int((angle + 180) * 4095 / 360)
 
 
+def importpos(filename):
+    filename = filename + '.txt'
+    idlist = [0, 0, 0, 0, 0, 0, 0, 0]
+    poslist = [0, 0, 0, 0, 0, 0, 0, 0]
+    with open(filename, 'r') as f:
+        for i in range(len(idlist)):
+            line = f.readline().split()
+            idlist[i] = int(line[0])
+            poslist[i] = int(line[1])
+        f.close()
+    return idlist, poslist
+
+
 class OCServo:
 
     def __init__(self, port):
@@ -63,7 +76,6 @@ class OCServo:
         self.serialPort.write(data)
         hex_data = ' '.join(hex(b)[2:].zfill(2) for b in data)
         print(f"Wrote: {hex_data}")
-
 
     def read(self, bytes_to_read=1):
         msg = self.serialPort.read(bytes_to_read)
@@ -109,20 +121,8 @@ class OCServo:
         data.append(checksum(data))
         self.write(data)
 
-    def importpos(self, filename):
-        filename = filename + '.txt'
-        idlist = [0, 0, 0, 0, 0, 0, 0, 0]
-        poslist = [0, 0, 0, 0, 0, 0, 0, 0]
-        with open(filename, 'r') as f:
-            for i in range(len(idlist)):
-                line = f.readline().split()
-                idlist[i] = int(line[0])
-                poslist[i] = int(line[1])
-            f.close()
-        return idlist, poslist
-
     def importsyncsend(self, filename):
-        idlist, poslist = self.importpos(filename)
+        idlist, poslist = importpos(filename)
         self.syncsend(idlist, poslist)
 
     def dolistofmoves(self, filenameslist):
@@ -131,7 +131,11 @@ class OCServo:
             print("Sending: " + filename)
             time.sleep(1)
 
+    def get(self, id):
+        return self.pos[id]
+
 # p1 ch11 ch2 ch3 ch42 ch51 ch62 ch7 ch8 ch91 ch10 ch110 then back to ch2
+
 
 if __name__ == "__main__":
     ports = serial_ports()
@@ -143,5 +147,8 @@ if __name__ == "__main__":
     time.sleep(2)
     print("Sending list of moves")
     # do a list of moves # p1 ch11 ch2 ch3 ch42 ch51 ch62 ch7 ch8 ch91 ch10 ch110
-    servo.dolistofmoves(['p13', 'ch12', 'ch21', 'ch31', 'ch44', 'ch51','ch997', 'ch63', 'ch71', 'ch83', 'ch92', 'ch10', 'ch111', 'ch21', 'ch3', 'ch44','ch51','ch997', 'ch63', 'ch71', 'ch83', 'ch92', 'ch10', 'ch111', 'ch21', 'p13'])
+    servo.dolistofmoves(['p13', 'ch12', 'ch21', 'ch31', 'ch44', 'ch51','ch997', 'ch63',
+                         'ch71', 'ch83', 'ch92', 'ch10', 'ch111', 'ch21', 'ch3', 'ch44',
+                         'ch51', 'ch997', 'ch63', 'ch71', 'ch83', 'ch92', 'ch10', 'ch111',
+                         'ch21', 'p13'])
     servo.callback()
