@@ -15,6 +15,18 @@ armjoint[3] = Servo(10)
 '''
 arm_lenght = 0.15
 
+# Create vector from 2 points in 3D space
+def create_vector(p1, p2):
+    return np.array([p2[0] - p1[0], p2[1] - p1[1], p2[2] - p1[2]])
+
+# Calculate length of vector
+def vector_length(v):
+    return math.sqrt(v[0] ** 2 + v[1] ** 2 + v[2] ** 2)
+
+# Calculate angle between 2 vectors
+def angle_between_vectors(v1, v2):
+    return math.acos(np.dot(v1, v2) / (vector_length(v1) * vector_length(v2)))
+
 def rad_to_deg(rad):
     return rad * 180 / np.pi
 
