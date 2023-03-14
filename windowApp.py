@@ -28,8 +28,8 @@ class Window(QWidget):
         self.video_size = QSize(608, 456)
         self.camera_mode = 0
 
-        self.expression_thread_running = False
-        self.react_thread_running = False
+        self.expression_thread_running = True
+        self.react_thread_running = True
 
 
         self.setup_UI()
