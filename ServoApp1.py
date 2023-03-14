@@ -14,20 +14,22 @@ gpio = Servo()
 # Numeration         0  1  2  3   0  1    4  5  6  7
 #                    0  1  2  3   8  9    4  5  6  7
 
+#Left hand
 armjoint[0] = Servo(17) #17
-armjoint[1] = Servo(27) #27
-armjoint[2] = Servo(22)
-armjoint[3] = Servo(10)
+armjoint[2] = Servo(27) #27
+armjoint[4] = Servo(22)
+armjoint[6] = Servo(10)
 
-armjoint[4] = Servo(21)
-armjoint[5] = Servo(26)
-armjoint[6] = Servo(19)
+#Right hand
+armjoint[1] = Servo(21)
+armjoint[3] = Servo(26)
+armjoint[5] = Servo(19)
 armjoint[7] = Servo(13)
 
 armjoint[0].servo_range = 270
 armjoint[1].servo_range = 270
-armjoint[4].servo_range = 270
-armjoint[5].servo_range = 270
+armjoint[2].servo_range = 270
+armjoint[3].servo_range = 270
 
 def translate(value, leftMin, leftMax, rightMin, rightMax):
     # Figure out how 'wide' each range is
@@ -116,8 +118,8 @@ def move1(event):
 
     coordinates1.config(text="Coordinates1 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
-    armjoint[0].move_servo(cord[0]-90,100)
-    armjoint[2].move_servo(cord[1]-90,100)
+    armjoint[1].move_servo(cord[0]-90,100)
+    armjoint[3].move_servo(cord[1]-90,100)
 
 
 def move2(event):
@@ -135,8 +137,8 @@ def move2(event):
 
     coordinates2.config(text="Coordinates2 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
-    armjoint[1].move_servo(cord[0]-90,100)
-    armjoint[3].move_servo(cord[1]-90,100)
+    armjoint[0].move_servo(cord[0]-90,100)
+    armjoint[2].move_servo(cord[1]-90,100)
 
 
 
