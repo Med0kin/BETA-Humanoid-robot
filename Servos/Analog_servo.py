@@ -33,7 +33,7 @@ class AServo:
             self.num = servoNum
 
             self.pos = 0
-            self.speed = 50
+            self.speed = 100
             self.target = target
 
             self.delay = time.sleep
