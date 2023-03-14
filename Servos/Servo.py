@@ -74,6 +74,22 @@ class Servo:
         else:
             self.digital.send(servo, angle)
 
+    def set_many_analog(self, servos, angles):
+        if len(servos) != len(angles):
+            raise Exception("Servo number and angle number mismatch")
+        for i in range(len(servos)):
+            if i >= 10:
+                raise Exception("Servo number out of range")
+        self.set(servos[i], angles[i])
+
+    def set_many_digital(self, servos, angles):
+        if len(servos) != len(angles):
+            raise Exception("Servo number and angle number mismatch")
+        for i in range(len(servos)):
+            if i < 10:
+                raise Exception("Servo number out of range")
+        self.digital.syncsend(servos[i], angles[i])
+
     def get(self, servo):
         if servo < 0 or servo > 17:
             raise Exception("Servo number out of range")
@@ -84,9 +100,10 @@ class Servo:
 
 
 if __name__ == "__main__":
+    servolist = [10, 11, 12, 13, 14, 15, 16, 17]
+    anglelist = [0, 0, 0, 0, 0, 0, 0, 0]
     test = Servo()
-    for i in range(8):
-        test.set(i+10, 0)
+    test.set_many_digital(servolist, anglelist)
     time.sleep(1)
     test.callback()
     # for i in range(10):

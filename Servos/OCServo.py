@@ -112,7 +112,7 @@ class OCServo:
         length = 0x04
         data = bytearray([0xff, 0xff, 0xfe, datalength, instruction, address, length])
         for i in range(len(idlist)):
-            pos = poslist[i].to_bytes(2, 'little')
+            pos = transform(poslist[i]).to_bytes(2, 'little')
             data.append(idlist[i])
             data.append(pos[0])
             data.append(pos[1])
