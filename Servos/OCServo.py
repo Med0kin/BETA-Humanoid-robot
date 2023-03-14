@@ -102,7 +102,7 @@ class OCServo:
         data[3] = len(data) - 3
         data.append(checksum(data))
         self.write(data)
-        #self.read(100)
+        # self.read(100)
         time.sleep(0.5)
 
     def syncsend(self, idlist, poslist):

@@ -3,12 +3,12 @@ import sys
 import time
 import numpy as np
 
-from OLD_FILES.servo_lib_old_2 import *
+from Servos.Analog_servo import AServo
 
-armjoint = [Servo]*8
+armjoint = [AServo]*8
 
 # try:
-gpio = Servo()
+gpio = AServo()
 root = tk.Tk()
 
 # Analog pins LtR   17 27 22 10   9 11   13 19 26 21  #
@@ -24,16 +24,16 @@ x = w//2
 y = h//2
 
 # Left hand
-armjoint[0] = Servo(17) #17
-armjoint[2] = Servo(27) #27
-armjoint[4] = Servo(22) 
-armjoint[6] = Servo(10)
+armjoint[0] = AServo(17) #17
+armjoint[2] = AServo(27) #27
+armjoint[4] = AServo(22) 
+armjoint[6] = AServo(10)
 
 # Right hand
-armjoint[1] = Servo(21)
-armjoint[3] = Servo(26)
-armjoint[5] = Servo(19)
-armjoint[7] = Servo(13)
+armjoint[1] = AServo(21)
+armjoint[3] = AServo(26)
+armjoint[5] = AServo(19)
+armjoint[7] = AServo(13)
 
 armjoint[0].servo_range = 270
 armjoint[1].servo_range = 270
@@ -75,6 +75,21 @@ def exportpos():
         f.close()
 
 
+def importpos():
+    global armspos
+    global filename
+    global filenamevar
+    filename = filenamevar.get()
+    filename = filename + '.txt'
+    armspos = [0, 0, 0, 0, 0, 0, 0, 0]
+    with open(filename, 'r') as f:
+        for i in range(len(armspos)):
+            line = f.readline().split()
+            armspos[i] = int(line[1])
+        f.close()
+    for i in range(len(armspos)):
+        armjoint[i].move_servo(armspos[i])
+
 def callback():
     for i in range(0, 8):
         try:
@@ -97,7 +112,6 @@ m_filter = ""
 root.title('Servo Manager')
 root.geometry("800x600")
 root.config(bg=bcg)
-
 
 
 tp_frame = tk.Frame(root)
@@ -131,6 +145,8 @@ b_export = tk.Button(root, text="EXPORT", command=exportpos, bg="#00ACCC")
 b_export.pack(anchor=tk.S, side=tk.RIGHT)
 filename_entry = tk.Entry(root, textvariable=filenamevar, bg="#00ACCC")
 filename_entry.pack(anchor=tk.S, side=tk.RIGHT)
+b_export = tk.Button(root, text="IMPORT", command=importpos, bg="#00ACCC")
+b_export.pack(anchor=tk.S, side=tk.RIGHT)
 
 
 def move1(event):
