@@ -15,6 +15,11 @@ gpio = Servo()
 #                    0  1  2  3   8  9    4  5  6  7
 arm = 0
 armspos = [0, 0, 0, 0, 0, 0, 0, 0]
+w = 350
+h = w
+x = w//2
+y = h//2
+
 # Left hand
 armjoint[0] = Servo(17) #17
 armjoint[2] = Servo(27) #27
@@ -50,7 +55,8 @@ def changearm():
 
 
 def map_pos(value):
-    return round(translate(value, 0, 400, 0, 180))
+    global w
+    return round(translate(value, 0, w, 0, 180))
 
 
 root = tk.Tk()
@@ -80,10 +86,6 @@ root.geometry("800x600")
 root.config(bg=bcg)
 
 
-w = 400
-h = 400
-x = w//2
-y = h//2
 
 tp_frame = tk.Frame(root)
 tp_frame.pack(pady=10)
@@ -117,12 +119,13 @@ b_changearm.pack(anchor=tk.S, side=tk.RIGHT)
 def move1(event):
     global circle1
     global arm
+    global w
     pos = [event.x, event.y]
     for i in range(2):
         if pos[i] < 0:
             pos[i] = 0
-        elif pos[i] > 400:
-            pos[i] = 400
+        elif pos[i] > w:
+            pos[i] = w
 
     tpad1.delete(circle1)
     circle1 = tpad1.create_oval(pos[0]-3, pos[1]-3, pos[0]+3, pos[1]+3, fill="black")
@@ -137,12 +140,13 @@ def move1(event):
 def move2(event):
     global circle2
     global arm
+    global w
     pos = [event.x, event.y]
     for i in range(2):
         if pos[i] < 0:
             pos[i] = 0
-        elif pos[i] > 400:
-            pos[i] = 400
+        elif pos[i] > w:
+            pos[i] = w
 
     tpad2.delete(circle2)
     circle2 = tpad2.create_oval(pos[0]-3, pos[1]-3, pos[0]+3, pos[1]+3, fill="black")
