@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 import time
 
-class speech_2_text():
+class speech_to_text():
     def __init__(self):
         browserDIR = "--user-data-dir=/home/pi/.config/chromium/Default"
         webdriverDIR = "/usr/lib/chromium-browser/chromedriver"
