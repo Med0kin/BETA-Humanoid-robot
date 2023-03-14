@@ -85,7 +85,7 @@ class Servo:
 
 if __name__ == "__main__":
     test = Servo()
-    test.set(2, 20)
+    test.set(2, -20)
     test.set(5, 20)
     time.sleep(2)
     test.callback()
