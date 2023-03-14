@@ -376,18 +376,25 @@ class Window(QWidget):
         # set image label size
 
     def control_with_estimated_pose(self, id_list, loc, rot):
+
+        # Rotation based
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
-        if round(servo.get(0)) != round(90):
-            servo.set(0, 0)
+        if round(servo.get(6)) != round(90):
+            servo.set(6, 90)
 
-        if len(id_list) == 2:
+        # Z axis distance based
+        servo.set(4, 0)
+
+        # Distance based
+        if (1 in id_list) and (2 in id_list):
             servo_angle3 = ak.get_servo3_angle(ak.vector_length(ak.create_vector(loc[1], loc[2])))
-            if round(servo.get(4)) != round(servo_angle3):
-                servo.set(4, round(-(180 - servo_angle3)))
+            if round(servo.get(2)) != round(servo_angle3):
+                servo.set(2, round(-(180 - servo_angle3)))
 
+        # Rotation based
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
-        if round(servo.get(6)) != round(servo_angle4):
-            servo.set(6, round(-servo_angle4))
+        if round(servo.get(0)) != round(servo_angle4):
+            servo.set(0, round(-servo_angle4))
 
 
 # Main
