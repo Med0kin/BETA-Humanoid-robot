@@ -44,7 +44,5 @@ class speech_to_text():
                 self.clear()
             if self.get_text_thread_running == False:
                 print("get_text_thread stoped")
-                self.get_text_thread.join()
-                print("get_text_thread joined")
                 break
 

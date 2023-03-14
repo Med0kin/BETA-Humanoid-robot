@@ -272,14 +272,24 @@ class Window(QWidget):
 
     # d(-_-)b ~-=< THREADS >=-~ d(-_-)b
     def make_robot_expressions(self):
-        self.expression_thread = threading.Thread(target=self.express)
         self.expression_thread_running = True
+        self.expression_thread = threading.Thread(target=self.express)
         self.expression_thread.start()
 
     def react_to_text(self):
-        self.react_thread = threading.Thread(target=self.react)
         self.react_thread_running = True
+        self.react_thread = threading.Thread(target=self.react)
         self.react_thread.start()
+
+    def stop_threads(self):
+        self.expression_thread_running = False
+        print("expression thread stopped")
+        self.react_thread_running = False
+        print("react thread stopped")
+        self.expression_thread.join()
+        print("expression thread joined")
+        self.react_thread.join()
+        print("react thread joined")
 
     # d(-_-)b ~-=< EXPRESSIONS and REACTIONS (happens in thread) >=-~ d(-_-)b
     def express(self):
@@ -319,7 +329,6 @@ class Window(QWidget):
 
             if self.react_thread._stop:
                 print("react thread stopped!")
-
                 break
             
 
@@ -363,13 +372,10 @@ myapp.exec_()
 # Release the video capture
 window.video.release()
 # Close threads
-window.expression_thread_running = False
-s2t.get_text_thread_running = False
-window.react_thread_running = False
 
-window.expression_thread.join()
+s2t.get_text_thread_running = False
 s2t.get_text_thread.join()
-window.react_thread.join()
+
 servo.callback()
 # Close the app
 sys.exit()
