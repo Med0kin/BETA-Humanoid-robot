@@ -9,7 +9,7 @@ import pose_estim_lib as pe
 import s2t_lib
 import numpy as np
 import threading
-import servo_lib
+from Servos.Servo import Servo
 
 import cv2
 import time
@@ -327,17 +327,19 @@ class Window(QWidget):
             s2t_text_list = s2t.s2t_text.lower().split()
 
             text_received = s2t.s2t_text
-            if len(text_received) > 100:
-                text_received = text_received[:100] + "..."
+            if len(text_received) > 40:
+                text_received = text_received[:40] + "..."
             self.change_text(s2t.s2t_text)
 
             for txt in s2t_text_list:
-                if txt == ("hej" or "cześć" or "witaj" or "siema"):
+                if txt in ["cześć", "hej", "witaj", "siema"]:
                     self.expression = "none"
                 elif txt == ("mrugaj"):
                     self.expression = "blinking"
                 elif txt == ("podejrzyj"):
                     self.expression = "peeking"
+                elif txt == ("przysiad"):
+                    pass
 
             if self.react_thread_running == False:
                 print("react thread stopped!")
@@ -375,7 +377,7 @@ class Window(QWidget):
 # Main
 servo_list = [10, 11, 12, 13, 14, 15, 16, 17]
 angle_list = [0, 0, 0, 0, 0, 0, 0, 0]
-servo = servo_lib.Servo()
+servo = Servo()
 servo.set_many_digital(servo_list, angle_list)
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
