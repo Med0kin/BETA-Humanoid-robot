@@ -2,8 +2,8 @@ import time
 import numpy as np
 
 from Servos.Analog_servo import AServo
-from OCServo import OCServo
-from OCServo import serial_ports
+from Servos.OCServo import OCServo
+from Servos.OCServo import serial_ports
 import os
 import psutil
 
