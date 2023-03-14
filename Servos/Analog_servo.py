@@ -32,7 +32,7 @@ class AServo:
             self._registry.append(self)
             self.num = servoNum
 
-            self.pos = 0
+            self.pos = target
             self.speed = 100
             self.target = target
 
