@@ -46,11 +46,11 @@ class Window(QWidget):
         self.rightLayout = QVBoxLayout()
 
         # Video stream label
-        self.image_label = QLabel()
-        self.image_label.setFixedSize(self.video_size)
+        self.camera_label = QLabel()
+        self.camera_label.setFixedSize(self.video_size)
         self.setup_camera()
-        self.leftLayout.addWidget(self.image_label)
-        self.image_label.hide()
+        self.leftLayout.addWidget(self.camera_label)
+        self.camera_label.hide()
 
         # Main layout
         self.mainLayout = QHBoxLayout()
@@ -135,7 +135,7 @@ class Window(QWidget):
         
 
 
-    # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
+        # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
     def btn_clickMain(self, id):
 
         self.expression = "peeking"
@@ -143,15 +143,17 @@ class Window(QWidget):
         if id == 0:
             # Camera
             self.swap_buttons(self.btns, self.btns1)
-            # Show video stream
+            # Show video stream & hide image
+            self.img_label.hide()
             self.timer.start(30)
-            self.image_label.show()
+            self.camera_label.show()
         elif id == 1:
             # Pose Estimation
             self.swap_buttons(self.btns, self.btns2)
-            # Show video stream
+            # Show video stream & hide image
+            self.img_label.hide()
             self.timer.start(30)
-            self.image_label.show()
+            self.camera_label.show()
         elif id == 2:
             # Button 3
             # disable/enable blinking
@@ -182,7 +184,8 @@ class Window(QWidget):
             self.swap_buttons(self.btns1, self.btns)
             # Remove video stream
             self.timer.stop()
-            self.image_label.hide()
+            self.camera_label.hide()
+            self.img_label.show()
 
 
     def btn_click2(self, id):
@@ -204,7 +207,8 @@ class Window(QWidget):
             self.camera_mode = 0
             # Remove video stream
             self.timer.stop()
-            self.image_label.hide()
+            self.camera_label.hide()
+            self.img_label.show()
 
 
 
@@ -227,35 +231,35 @@ class Window(QWidget):
 
     # Creates an image and adds it to the left layout
     def create_image(self):
-        self.label1 = QLabel('Image', self)
+        self.img_label = QLabel('Image', self)
         #create path to image
         pixmap = QPixmap("neutral.png")
         # scale to the size of window
         pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
-        self.label1.setPixmap(pixmap)
-        self.label1.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
-        self.leftLayout.addWidget(self.label1)
+        self.img_label.setPixmap(pixmap)
+        self.img_label.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
+        self.leftLayout.addWidget(self.img_label)
 
     def change_image(self, image):
         pixmap = QPixmap(image + ".png")
         pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
-        self.label1.setPixmap(pixmap)
+        self.img_label.setPixmap(pixmap)
 
     # Creates a text and adds it to the left layout
     def create_text_box(self):
-        self.text = QLabel('Text', self)
+        self.text_label = QLabel('Text', self)
         # Set font
         font = QFont()
         font.setPointSize(20)
         font.setFamily("System")
-        self.text.setFont(font)
+        self.text_label.setFont(font)
         # Change text color
-        self.text.setStyleSheet("color: #00accc")
-        self.text.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
-        self.leftLayout.addWidget(self.text)
+        self.text_label.setStyleSheet("color: #00accc")
+        self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
+        self.leftLayout.addWidget(self.text_label)
         
     def change_text(self, text):
-        self.text.setText(text)
+        self.text_label.setText(text)
 
     # d(-_-)b ~-=< THREADS >=-~ d(-_-)b
     def make_robot_expressions(self):
@@ -313,7 +317,7 @@ class Window(QWidget):
         # convert to QImage
         image = qimage2ndarray.array2qimage(frame)
         # set image to image label
-        self.image_label.setPixmap(QPixmap.fromImage(image))
+        self.camera_label.setPixmap(QPixmap.fromImage(image))
         # set image label size
         
 '''
