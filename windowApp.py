@@ -28,6 +28,10 @@ class Window(QWidget):
         self.video_size = QSize(608, 456)
         self.camera_mode = 0
 
+        self.expression_thread_running = False
+        self.react_thread_running = False
+
+
         self.setup_UI()
         self.show()
 
@@ -269,10 +273,15 @@ class Window(QWidget):
     # d(-_-)b ~-=< THREADS >=-~ d(-_-)b
     def make_robot_expressions(self):
         self.expression_thread = threading.Thread(target=self.express)
+        self.expression_thread_running = True
         self.expression_thread.start()
-        self.expression_thread._stop = False
 
-    # d(-_-)b ~-=< EXPRESSIONS (happens in thread) >=-~ d(-_-)b
+    def react_to_text(self):
+        self.react_thread = threading.Thread(target=self.react)
+        self.react_thread_running = True
+        self.react_thread.start()
+
+    # d(-_-)b ~-=< EXPRESSIONS and REACTIONS (happens in thread) >=-~ d(-_-)b
     def express(self):
         while True:
             if self.expression == "none":
@@ -292,14 +301,10 @@ class Window(QWidget):
                 time.sleep(1)
                 self.change_image("left_peek")
                 time.sleep(1)
-            if self.expression_thread._stop:
+            if self.expression_thread_running == False:
                 print("expression thread stopped!")
                 break
 
-    def react_to_text(self):
-        self.react_thread = threading.Thread(target=self.react)
-        self.react_thread.start()
-        self.react_thread._stop = False
 
     def react(self):
         while True:
@@ -314,6 +319,7 @@ class Window(QWidget):
 
             if self.react_thread._stop:
                 print("react thread stopped!")
+
                 break
             
 
@@ -357,9 +363,9 @@ myapp.exec_()
 # Release the video capture
 window.video.release()
 # Close threads
-window.expression_thread._stop = True
-s2t.get_text_thread._stop = True
-window.react_thread._stop = True
+window.expression_thread_running = False
+s2t.get_text_thread_running = False
+window.react_thread_running = False
 
 window.expression_thread.join()
 s2t.get_text_thread.join()
