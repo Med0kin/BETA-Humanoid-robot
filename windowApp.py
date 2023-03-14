@@ -299,19 +299,20 @@ class Window(QWidget):
                 self.change_image("neutral")
                 time.sleep(1)
 
-            if self.expression == "blinking":
+            elif self.expression == "blinking":
                 self.change_image("blink")
                 time.sleep(0.1)
                 self.change_image("neutral")
                 time.sleep(2)
 
-            if self.expression == "peeking":
+            elif self.expression == "peeking":
                 self.change_image("left_peek")
                 time.sleep(1)
                 self.change_image("top_left_peek")
                 time.sleep(1)
                 self.change_image("left_peek")
                 time.sleep(1)
+
             if self.expression_thread_running == False:
                 print("expression thread stopped!")
                 break
@@ -325,10 +326,10 @@ class Window(QWidget):
             if "hej" in s2t_text_list:
                 self.expression = "none"
 
-            if "mrugaj" in s2t_text_list:
+            elif "mrugaj" in s2t_text_list:
                 self.expression = "blinking"
 
-            if self.react_thread._stop:
+            if self.react_thread_running == False:
                 print("react thread stopped!")
                 break
             
