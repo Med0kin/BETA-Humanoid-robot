@@ -43,5 +43,6 @@ class speech_to_text():
                 self.s2t_text = self.textbox.text
                 self.clear()
             if self.get_text_thread._stop:
+                print("get_text_thread stoped")
                 break
 

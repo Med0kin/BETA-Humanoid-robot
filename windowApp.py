@@ -293,6 +293,7 @@ class Window(QWidget):
                 self.change_image("left_peek")
                 time.sleep(1)
             if self.expression_thread._stop:
+                print("expression thread stopped!")
                 break
 
     def react_to_text(self):
@@ -312,6 +313,7 @@ class Window(QWidget):
                 self.expression = "blinking"
 
             if self.react_thread._stop:
+                print("react thread stopped!")
                 break
             
 
@@ -358,6 +360,7 @@ window.video.release()
 window.expression_thread._stop = True
 s2t.get_text_thread._stop = True
 window.react_thread._stop = True
+
 window.expression_thread.join()
 s2t.get_text_thread.join()
 window.react_thread.join()
