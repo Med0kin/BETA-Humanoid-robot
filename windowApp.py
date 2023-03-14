@@ -171,6 +171,7 @@ class Window(QWidget):
                 self.btns.button(2).setText("Disable Blinking")
         elif id == 3:
             # Quit
+            self.stop_threads()
             self.close()
 
     def btn_click1(self, id):
@@ -374,10 +375,6 @@ myapp.exec_()
 # Release the video capture
 window.video.release()
 # Close threads
-
-s2t.get_text_thread_running = False
-s2t.get_text_thread.join()
-
 servo.callback()
 # Close the app
 sys.exit()
