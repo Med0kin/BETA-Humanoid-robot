@@ -34,11 +34,6 @@ class speech_to_text():
     def get_text(self):
         while True:
             if self.textbox.text != '':
-                if self.textbox.text.strip() == 'koniec':
-                    self.clear()
-                    self.stt.quit() ################ WAZNE !!!!!!!! ################
-                    print('Koniec1')
-                    exit()
                 print(self.textbox.text)
                 self.s2t_text = self.textbox.text
                 self.clear()
@@ -46,6 +41,7 @@ class speech_to_text():
                 print("get_text_thread stoped")
                 break
     def close_thread(self):
+        self.stt.quit()
         self.get_text_thread_running = False
         self.get_text_thread.join()
 
