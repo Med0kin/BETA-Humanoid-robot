@@ -62,6 +62,7 @@ class Window(QWidget):
         self.create_text_box()
         self.change_text("Welcome to the robot control app!")
         self.face_functionality()
+        self.react_to_text()
 
         # Buttons style and font
         btn_font = QFont("System", 12)        
