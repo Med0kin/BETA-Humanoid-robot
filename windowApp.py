@@ -33,7 +33,7 @@ class Window(QWidget):
         self.expression_thread_running = True
         self.react_thread_running = True
 
-        self.frameCounter = 0
+        self.frame_counter = 0
 
         self.setup_UI()
         self.show()
@@ -346,7 +346,6 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
-        self.frameCounter = 0
         self.video = cv2.VideoCapture("/dev/video0")
         self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
@@ -367,7 +366,7 @@ class Window(QWidget):
                 #if there are any markers on screen, control robot
                 if len(id_list) > 0:
                     self.control_with_estimated_pose(id_list, loc, rot)
-            self.frameCounter = 0
+            self.frame_counter = 0
         # flip frame
         frame = cv2.flip(frame, 1)
         # convert to QImage
