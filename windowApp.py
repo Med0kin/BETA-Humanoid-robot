@@ -325,20 +325,21 @@ class Window(QWidget):
             s2t_text_list = s2t.s2t_text.lower().split()
 
             text_received = s2t.s2t_text
-            if len(text_received) > 40:
-                text_received = text_received[:40] + "..."
+            if len(text_received) > 20:
+                text_received = text_received[:20] + "..."
             self.change_text(s2t.s2t_text)
 
             for txt in s2t_text_list:
-                if txt in ["cześć", "hej", "witaj", "siema"]:
+                if txt in ["czeĹ›Ä‡", "hej", "witaj", "siema"]:
                     self.expression = "none"
                 elif txt == ("mrugaj"):
                     self.expression = "blinking"
                 elif txt == ("podejrzyj"):
                     self.expression = "peeking"
                 elif txt == ("przysiad"):
-                    pass
-
+                    servo.setimport("p2")
+                elif txt == ("wstawaj"):
+                    servo.setimport("p13")
             if self.react_thread_running == False:
                 print("react thread stopped!")
                 break
@@ -398,9 +399,8 @@ class Window(QWidget):
 
 
 # Main
-servo_list = [10, 11, 12, 13, 14, 15, 16, 17]
-angle_list = [2047, 2047, 2047, 2047, 2047, 2047, 2047, 2047]
 servo = Servo()
+servo.setimport("p13")
 servo.set_many_digital(servo_list, angle_list)
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
