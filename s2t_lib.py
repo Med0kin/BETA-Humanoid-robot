@@ -39,6 +39,7 @@ class speech_to_text():
                     print('Koniec1')
                     exit()
                 print(self.textbox.text)
+                window.change_text(self.textbox.text)
                 self.clear()
             if self.get_text_thread._stop:
                 break
