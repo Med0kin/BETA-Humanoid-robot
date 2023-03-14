@@ -9,6 +9,7 @@ armjoint = [Servo]*8
 
 # try:
 gpio = Servo()
+root = tk.Tk()
 
 # Analog pins LtR   17 27 22 10   9 11   13 19 26 21  #
 # Numeration         0  1  2  3   0  1    4  5  6  7
@@ -16,7 +17,7 @@ gpio = Servo()
 arm = 0
 armspos = [0, 0, 0, 0, 0, 0, 0, 0]
 filename = "default"
-filenamevar = tk.StringVar()
+filenamevar = tk.StringVar(root, value=filename)
 w = 350
 h = w
 x = w//2
@@ -74,9 +75,6 @@ def exportpos():
         f.close()
 
 
-root = tk.Tk()
-
-
 def callback():
     for i in range(0, 8):
         try:
@@ -96,7 +94,7 @@ men = "#91B9F6"
 blu = "#639BF3"
 m_filter = ""
 
-
+root.title('Servo Manager')
 root.geometry("800x600")
 root.config(bg=bcg)
 
