@@ -257,6 +257,9 @@ class Window(QWidget):
         self.text_label.setFont(font)
         # Change text color
         self.text_label.setStyleSheet("color: #00accc")
+        # Set maximum width
+        self.text_label.setFixedWidth(100)
+        # Set text alignment
         self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.text_label)
         
@@ -300,8 +303,8 @@ class Window(QWidget):
     def react(self):
         while True:
             self.change_text(s2t.s2t_text)
-            # s2t_text to array of words
-            s2t_text_list = s2t.s2t_text.split()
+            # s2t_text to array of words and lower case
+            s2t_text_list = s2t.s2t_text.lower().split()
             if "hej" in s2t_text_list:
                 self.expression = "none"
 
