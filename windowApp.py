@@ -33,6 +33,7 @@ class Window(QWidget):
         self.expression_thread_running = True
         self.react_thread_running = True
 
+        self.frameCounter = 0
 
         self.setup_UI()
         self.show()
@@ -354,7 +355,7 @@ class Window(QWidget):
 
     # Displays the camera capture
     def display_video_stream(self):
-        self.frame_counter += 1
+        self.frame_counter = self.frame_counter + 1
         ret, frame = self.video.read()
         if not ret:
             return
