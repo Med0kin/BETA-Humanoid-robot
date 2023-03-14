@@ -19,11 +19,15 @@ armjoint[1] = Servo(27) #27
 armjoint[2] = Servo(22)
 armjoint[3] = Servo(10)
 
-armjoint[4] = Servo(13)
-armjoint[5] = Servo(19)
-armjoint[6] = Servo(26)
-armjoint[7] = Servo(21)
+armjoint[4] = Servo(21)
+armjoint[5] = Servo(26)
+armjoint[6] = Servo(19)
+armjoint[7] = Servo(13)
 
+armjoint[0].servo_range = 270
+armjoint[1].servo_range = 270
+armjoint[4].servo_range = 270
+armjoint[5].servo_range = 270
 
 def translate(value, leftMin, leftMax, rightMin, rightMax):
     # Figure out how 'wide' each range is
