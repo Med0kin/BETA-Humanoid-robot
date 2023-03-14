@@ -1,106 +1,99 @@
-import serial
 import time
-import RPi.GPIO as GPIO
-import pigpio
-import threading
+import numpy as np
 
-'''
-    This is a class for the analog servos where:
-    servoNum = id of the servo
-    pos = current position of the servo
-    speed = speed of the servo
-    target = target position of the servo
+from analog_servo_lib import AServo
+from digital_servo_lib import OCServo
+from digital_servo_lib import serial_ports
+import os
+import psutil
 
-    max_angle = maximum angle of the servo
-    min_angle = minimum angle of the servo
-    servo_range = range of the servo
 
-    opened_thread = determines if the thread is open
-'''
+# def checkIfProcessRunning(processName):
+#     """
+#     Check if there is any running process that contains the given name processName.
+#     """
+#     # Iterate over the all the running process
+#     for proc in psutil.process_iter():
+#         try:
+#             # Check if process name contains the given name string.
+#             if processName.lower() in proc.name().lower():
+#                 return True
+#         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+#             pass
+#     return False
 
 class Servo:
-    _registry = []
-    def __init__(self, servoNum=None):
-        if(servoNum != None):
-            self._registry.append(self)
-            self.num = servoNum
+    def __init__(self):
+        ports = serial_ports()
+        if len(ports) == 0:
+            raise Exception("No serial ports found")
+        self.digital = OCServo(ports[0])
+        # if checkIfProcessRunning("pigpiod"):
+        #     os.system("sudo pigpiod")
+        self.armjoint = [AServo]*10
 
-            self.pos = 0
-            self.speed = 50
-            self.target = 0
+        self.gpio = AServo()
 
-            self.delay = time.sleep
-            self.servo_range = 180
-            self.max_angle = 90
-            self.min_angle = -90
-            self.opened_thread = False
+        # Analog pins LtR   17 27 22 10   9 11   13 19 26 21  #
+        # Numeration         0  1  2  3   0  1    4  5  6  7
+        #                    0  1  2  3   8  9    4  5  6  7
 
-            self.servo = pigpio.pi()
-            self.servo.set_mode(servoNum, pigpio.OUTPUT)
-            self.servo.set_PWM_frequency(servoNum, 50 )
-            self.servo.set_servo_pulsewidth(self.num, 1500)
+        # Create the servo objects
+        self.armjoint[0] = AServo(17)
+        self.armjoint[1] = AServo(27)
+        self.armjoint[2] = AServo(22, 83)
+        self.armjoint[3] = AServo(10)
 
-            self.run_thread()
+        self.armjoint[4] = AServo(13)
+        self.armjoint[5] = AServo(19, -80)
+        self.armjoint[6] = AServo(26)
+        self.armjoint[7] = AServo(21)
+        self.armjoint[8] = AServo(9)      # hip 0
+        self.armjoint[9] = AServo(11)     # hip 1
+        servo180 = [2, 3, 4, 5]
+        servo270 = [0, 1, 6, 7]
+
+        for i in servo180:
+            self.armjoint[i].set_range(180)
+
+        for i in servo270:
+            self.armjoint[i].set_range(270)
+
+    def callback(self):
+        for i in self.armjoint:
+            i.stop_thread()
+        # self.gpio.kill()
+        self.digital.callback()
+
+
+    def set(self, id, angle):
+        if id < 0 or id > 17:
+            raise Exception("Servo number out of range")
+        elif id < 10:
+            self.armjoint[id].move_servo(angle)
         else:
-            pass
-        self.killer = GPIO.cleanup
+            self.digital.send(id, angle)
 
-    def kill(self):
-        #Kill the servo
-        self.killer
+    def set_many_analog(self, ids, angles):
+        if len(ids) != len(angles):
+            raise Exception("Servo number and angle number mismatch")
+        for i in ids:
+            if i >= 10:
+                raise Exception("Servo number out of range")
+            self.set(i, angles[i])
 
-    #This is the function that runs the servo_loop in a thread
-    def run_thread(self):
-        #Run the servo in a thread
-        self.thread = threading.Thread(target=self.servo_loop)
-        self.opened_thread = True
-        self.thread.start()
-        return 1
-    
-    #This is the function that sets the target position
-    #and speed of the servo
-    def move_servo(self, angle, speed):
-        #Move the servo
-        #if speed isn't in range 1-100 then stop
-        difference = abs(angle - self.pos)
-        if difference < 5:
-            return 1
-        if speed < 1 or speed > 100:
-            return 0
-        #if angle isn't in range
-        if angle > self.max_angle:
-            angle = self.max_angle
-        elif angle < self.min_angle:
-            angle = self.min_angle
+    def set_many_digital(self, ids, angles):
+        if len(ids) != len(angles):
+            raise Exception("Servo number and angle number mismatch")
+        for x in ids:
+            if x < 10 or x > 17:
+                raise Exception("Servo number out of range")
+        self.digital.syncsend(ids, angles)
 
-        self.target = angle
-        self.speed = speed
-        return 1
-    
-    #Sets the pulsewidth of the servo from the angle (500-2500)
-    #This is the function that actually moves the servo
-    def set_pulsewidth_from_angle(self, angle):
-
-        #angle -> pulsewidth
-        pulsewidth = round(1500 + ((angle/(self.servo_range/2))*1000))
-
-        self.servo.set_servo_pulsewidth(self.num, pulsewidth)
-        
-        self.pos = angle
-        print("Position: ", self.pos)
-        return 1
-    
-    #This is the loop that runs in the thread
-    #It moves the servo to the target position
-    #at specified speed
-    def servo_loop(self):
-        while True:
-            self.delay(1/self.speed)
-            if self.pos > self.target:
-                self.set_pulsewidth_from_angle(round(self.pos - 1))
-            elif self.pos < self.target:
-                self.set_pulsewidth_from_angle(round(self.pos + 1))
-
-            if self.opened_thread == False:
-                break
-
+    def get(self, id):
+        if id < 0 or id > 17:
+            raise Exception("Servo number out of range")
+        elif id < 10:
+            return self.armjoint[id].get_angle()
+        else:
+            return self.digital.get(id)

@@ -8,7 +8,7 @@ import pose_estim_lib as pe
 import s2t_lib
 import numpy as np
 import threading
-
+import servo_lib
 
 import cv2
 import time
@@ -333,6 +333,7 @@ class Window(QWidget):
 
 
 # Main
+servo = servo_lib
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()

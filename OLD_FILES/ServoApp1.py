@@ -3,7 +3,7 @@ import tkinter as tk
 import time
 import numpy as np
 
-from Servo import *
+from servo_lib import *
 
 armjoint = [Servo]*8
 
