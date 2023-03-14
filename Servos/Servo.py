@@ -57,10 +57,10 @@ class Servo:
         self.armjoint[4] = AServo(22, 60)
         self.armjoint[6] = AServo(10)
 
-        self.armjoint[1] = AServo(13)
-        self.armjoint[3] = AServo(19, -60)
-        self.armjoint[5] = AServo(26)
-        self.armjoint[7] = AServo(21)
+        self.armjoint[1] = AServo(21)
+        self.armjoint[3] = AServo(26, -60)
+        self.armjoint[5] = AServo(19)
+        self.armjoint[7] = AServo(13)
         self.armjoint[8] = AServo(9)      # hip 0
         self.armjoint[9] = AServo(11)     # hip 1
         servo180 = [2, 3, 4, 5]
