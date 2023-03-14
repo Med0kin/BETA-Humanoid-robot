@@ -114,6 +114,8 @@ coordinates2.pack(pady=10)
 
 b_changearm = tk.Button(root, text="CHANGE ARM", command=changearm, bg="#00ACCC")
 b_changearm.pack(anchor=tk.S, side=tk.RIGHT)
+b_export = tk.Button(root, text="EXPORT", command=changearm, bg="#00ACCC")
+b_export.pack(anchor=tk.S, side=tk.RIGHT)
 
 
 def move1(event):
