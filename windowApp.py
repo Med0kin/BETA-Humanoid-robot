@@ -292,7 +292,24 @@ class Window(QWidget):
             if self.expression_thread._stop:
                 break
 
+    def react_to_text(self):
+        self.react_thread = threading.Thread(target=self.react)
+        self.react_thread.start()
+        self.react_thread._stop = False
 
+    def react(self):
+        while True:
+            # s2t_text to array of words
+            s2t_text_list = s2t.s2t_text.split()
+            if "hej" in s2t_text_list:
+                self.expression = "none"
+
+            if "mrugaj" in s2t_text_list:
+                self.expression = "blinking"
+
+            if self.react_thread._stop:
+                break
+            
 
     # Camera capture setup
     def setup_camera(self):
@@ -320,16 +337,6 @@ class Window(QWidget):
         # set image to image label
         self.camera_label.setPixmap(QPixmap.fromImage(image))
         # set image label size
-        
-'''
-        cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(frame, 1), (800, 600)))
-
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
-            self.video.release()
-            cv2.destroyAllWindows()'''
-
-
 
 
 # Main
@@ -346,8 +353,10 @@ window.video.release()
 # Close threads
 window.expression_thread._stop = True
 s2t.get_text_thread._stop = True
+window.react_thread._stop = True
 window.expression_thread.join()
 s2t.get_text_thread.join()
+window.react_thread.join()
 servo.callback()
 # Close the app
 sys.exit()
