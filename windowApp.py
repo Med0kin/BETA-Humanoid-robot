@@ -330,14 +330,13 @@ class Window(QWidget):
                 text_received = text_received[:100] + "..."
             self.change_text(s2t.s2t_text)
 
-            for i in s2t_text_list:
-                match i:
-                    case "hej" | "czeœæ" | "witaj" | "siema":
-                        self.expression = "none"
-                    case "mrugaj":
-                        self.expression = "blinking"
-                    case "podejrzyj":
-                        self.expression = "peeking"
+            for txt in s2t_text_list:
+                if txt == ("hej" or "czeœæ" or "witaj" or "siema"):
+                    self.expression = "none"
+                elif txt == ("mrugaj"):
+                    self.expression = "blinking"
+                elif txt == ("podejrzyj"):
+                    self.expression = "peeking"
 
             if self.react_thread_running == False:
                 print("react thread stopped!")
