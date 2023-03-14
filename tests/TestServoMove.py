@@ -1,7 +1,7 @@
 import time
 import numpy as np
 
-from servo_lib import *
+from OLD_FILES.servo_lib_old_2 import *
 
 armjoint = [Servo]*8
 
