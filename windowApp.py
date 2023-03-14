@@ -361,7 +361,7 @@ class Window(QWidget):
 
         if self.camera_mode == 1:
             frame, id_list, loc, rot = pe.estimate_pose(frame)
-            #self.control_with_estimated_pose(id_list, loc, rot)
+            self.control_with_estimated_pose(id_list, loc, rot)
 
 
 
@@ -393,7 +393,7 @@ class Window(QWidget):
 
 # Main
 servo_list = [10, 11, 12, 13, 14, 15, 16, 17]
-angle_list = [0, 0, 0, 0, 0, 0, 0, 0]
+angle_list = [2047, 2047, 2047, 2047, 2047, 2047, 2047, 2047]
 servo = Servo()
 servo.set_many_digital(servo_list, angle_list)
 s2t = s2t_lib.speech_to_text()
