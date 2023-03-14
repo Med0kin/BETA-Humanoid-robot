@@ -3,12 +3,12 @@ import sys
 import time
 import numpy as np
 
-from OLD_FILES.servo_lib_old_2 import *
+from Servos.Analog_servo import AServo
 
-armjoint = [Servo]*8
+armjoint = [AServo]*8
 
 # try:
-gpio = Servo()
+gpio = AServo()
 root = tk.Tk()
 
 # Analog pins LtR   17 27 22 10   9 11   13 19 26 21  #
@@ -24,16 +24,16 @@ x = w//2
 y = h//2
 
 # Left hand
-armjoint[0] = Servo(17) #17
-armjoint[2] = Servo(27) #27
-armjoint[4] = Servo(22) 
-armjoint[6] = Servo(10)
+armjoint[0] = AServo(17) #17
+armjoint[2] = AServo(27) #27
+armjoint[4] = AServo(22) 
+armjoint[6] = AServo(10)
 
 # Right hand
-armjoint[1] = Servo(21)
-armjoint[3] = Servo(26)
-armjoint[5] = Servo(19)
-armjoint[7] = Servo(13)
+armjoint[1] = AServo(21)
+armjoint[3] = AServo(26)
+armjoint[5] = AServo(19)
+armjoint[7] = AServo(13)
 
 armjoint[0].servo_range = 270
 armjoint[1].servo_range = 270
