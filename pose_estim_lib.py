@@ -135,4 +135,4 @@ def estimate_pose(frame):
             rot[ids_list[i]] = rotationMatrixToEulerAngles(R)
 
 
-    return frame, ids_list
+    return frame, ids_list, loc, rot

@@ -10,6 +10,7 @@ import s2t_lib
 import numpy as np
 import threading
 from Servos.Servo import Servo
+import arm_kinematics_lib as ak
 
 import cv2
 import time
@@ -137,10 +138,6 @@ class Window(QWidget):
         # Image
         self.create_image()
         self.make_robot_expressions()
-
-
-        
-
 
         # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
     def btn_clickMain(self, id):
@@ -363,8 +360,13 @@ class Window(QWidget):
         #frame = cv2.flip(frame, 1)
 
         if self.camera_mode == 1:
-            frame, id_list = pe.estimate_pose(frame)
-            print(id_list)
+            frame, id_list, loc, rot = pe.estimate_pose(frame)
+            #if there are any markers on screen, control robot
+            if len(id_list) > 0:
+                self.control_with_estimated_pose(id_list, loc, rot)
+
+
+
         # flip frame
         frame = cv2.flip(frame, 1)
         # convert to QImage
@@ -373,10 +375,24 @@ class Window(QWidget):
         self.camera_label.setPixmap(QPixmap.fromImage(image))
         # set image label size
 
+    def control_with_estimated_pose(self, id_list, loc, rot):
+        servo_angle1 = ak.get_servo1_angle(rot[1][1])
+        if round(servo.get(0)) != round(90):
+            servo.set(0, 0)
+
+        if len(id_list) == 2:
+            servo_angle3 = ak.get_servo3_angle(ak.vector_length(ak.create_vector(loc[1], loc[2])))
+            if round(servo.get(4)) != round(servo_angle3):
+                servo.set(4, round(-(180 - servo_angle3)))
+
+        servo_angle4 = ak.get_servo4_angle(rot[1][0])
+        if round(servo.get(6)) != round(servo_angle4):
+            servo.set(6, round(-servo_angle4))
+
 
 # Main
 servo_list = [10, 11, 12, 13, 14, 15, 16, 17]
-angle_list = [0, 0, 0, 0, 0, 0, 0, 0]
+angle_list = [2047, 2047, 2047, 2047, 2047, 2047, 2047, 2047]
 servo = Servo()
 servo.set_many_digital(servo_list, angle_list)
 s2t = s2t_lib.speech_to_text()
