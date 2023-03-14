@@ -1,3 +1,4 @@
+# coding: utf8
 import sys
 import os
 from PySide2.QtWidgets import *
@@ -28,6 +29,10 @@ class Window(QWidget):
         self.video_size = QSize(608, 456)
         self.camera_mode = 0
 
+        self.expression_thread_running = True
+        self.react_thread_running = True
+
+
         self.setup_UI()
         self.show()
 
@@ -36,7 +41,7 @@ class Window(QWidget):
 
 
         # Set full screen
-        #self.showFullScreen()
+        self.showFullScreen()
 
         # Set window icon and background color
         self.setWindowIcon(QIcon("icon.png"))
@@ -62,6 +67,7 @@ class Window(QWidget):
         self.create_text_box()
         self.change_text("Welcome to the robot control app!")
         self.face_functionality()
+        self.react_to_text()
 
         # Buttons style and font
         btn_font = QFont("System", 12)        
@@ -166,6 +172,7 @@ class Window(QWidget):
                 self.btns.button(2).setText("Disable Blinking")
         elif id == 3:
             # Quit
+            self.stop_threads()
             self.close()
 
     def btn_click1(self, id):
@@ -256,6 +263,10 @@ class Window(QWidget):
         self.text_label.setFont(font)
         # Change text color
         self.text_label.setStyleSheet("color: #00accc")
+        # Set maximum width
+        #self.text_label.setFixedWidth(400)
+        #self.text_label.wordWrap(True)
+        # Set text alignment
         self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.text_label)
         
@@ -264,35 +275,74 @@ class Window(QWidget):
 
     # d(-_-)b ~-=< THREADS >=-~ d(-_-)b
     def make_robot_expressions(self):
+        self.expression_thread_running = True
         self.expression_thread = threading.Thread(target=self.express)
         self.expression_thread.start()
-        self.expression_thread._stop = False
 
-    # d(-_-)b ~-=< EXPRESSIONS (happens in thread) >=-~ d(-_-)b
+    def react_to_text(self):
+        self.react_thread_running = True
+        self.react_thread = threading.Thread(target=self.react)
+        self.react_thread.start()
+
+    def stop_threads(self):
+        self.expression_thread_running = False
+        print("expression thread stopped")
+        self.expression_thread.join()
+        print("expression thread joined")
+        self.react_thread_running = False
+        print("react thread stopped")
+        self.react_thread.join()
+        print("react thread joined")
+        s2t.close_thread()
+
+    # d(-_-)b ~-=< EXPRESSIONS and REACTIONS (happens in thread) >=-~ d(-_-)b
     def express(self):
         while True:
             if self.expression == "none":
                 self.change_image("neutral")
                 time.sleep(1)
 
-            if self.expression == "blinking":
+            elif self.expression == "blinking":
                 self.change_image("blink")
                 time.sleep(0.1)
                 self.change_image("neutral")
                 time.sleep(2)
 
-            if self.expression == "peeking":
+            elif self.expression == "peeking":
                 self.change_image("left_peek")
                 time.sleep(1)
                 self.change_image("top_left_peek")
                 time.sleep(1)
                 self.change_image("left_peek")
                 time.sleep(1)
-            self.change_text(s2t.s2t_text)
-            if self.expression_thread._stop:
+
+            if self.expression_thread_running == False:
+                print("expression thread stopped!")
                 break
 
 
+    def react(self):
+        while True:
+
+            s2t_text_list = s2t.s2t_text.lower().split()
+
+            text_received = s2t.s2t_text
+            if len(text_received) > 100:
+                text_received = text_received[:100] + "..."
+            self.change_text(s2t.s2t_text)
+
+            for txt in s2t_text_list:
+                if txt == ("hej" or "cześć" or "witaj" or "siema"):
+                    self.expression = "none"
+                elif txt == ("mrugaj"):
+                    self.expression = "blinking"
+                elif txt == ("podejrzyj"):
+                    self.expression = "peeking"
+
+            if self.react_thread_running == False:
+                print("react thread stopped!")
+                break
+            
 
     # Camera capture setup
     def setup_camera(self):
@@ -320,16 +370,6 @@ class Window(QWidget):
         # set image to image label
         self.camera_label.setPixmap(QPixmap.fromImage(image))
         # set image label size
-        
-'''
-        cv2.imshow('Estimated Pose', cv2.resize(cv2.flip(frame, 1), (800, 600)))
-
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
-            self.video.release()
-            cv2.destroyAllWindows()'''
-
-
 
 
 # Main
@@ -344,10 +384,6 @@ myapp.exec_()
 # Release the video capture
 window.video.release()
 # Close threads
-window.expression_thread._stop = True
-s2t.get_text_thread._stop = True
-window.expression_thread.join()
-s2t.get_text_thread.join()
 servo.callback()
 # Close the app
 sys.exit()
