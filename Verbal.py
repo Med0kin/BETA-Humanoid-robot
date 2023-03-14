@@ -18,26 +18,18 @@ service = Service(webdriverDIR)
 stt = webdriver.Chrome(webdriverDIR, options=options)
 stt.get('https://smodin.io/pl/przemowienie-do-tekst-i-tekst-do-przemowienie')
 stt.minimize_window()
-#stt.find_element("xpath", "//a[normalize-space()='Got it!']").click()
-# select = Select(stt.find_element("xpath", "//select[@id='lang']"))
-# select.select_by_value('pl-pl')  //span[@data-text='Kasować']//button//span
-# time.sleep(1) # //a[@class='btn-mic btn btn--primary-1']
 stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
 stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
 time.sleep(5)
 textbox = stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
-#textbox = stt.find_element("xpath", "//div[@class='ql-editor']")
-#textbox.clear()
 clear = stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click
 
 while True:
     if textbox.text != '':
         if textbox.text.strip() == 'koniec':
-            #textbox.clear()
             clear()
-            stt.quit()
+            stt.quit() ################ WAZNE !!!!!!!! ################
             print('Koniec1')
             exit()
         print(textbox.text)
         clear()
-# stt.quit()

@@ -5,7 +5,6 @@ from PySide2.QtGui import *
 from PySide2.QtCore import *
 import qimage2ndarray
 import pose_estim_lib as pe
-import s2t_lib as s2t
 import numpy as np
 import threading
 
@@ -29,7 +28,6 @@ class Window(QWidget):
         self.camera_mode = 0
 
         self.setup_UI()
-        s2t = s2t.speech_2_text()
         self.show()
 
     # d(-_-)b ~-=< USER INTERFACE >=-~ d(-_-)b
@@ -44,7 +42,7 @@ class Window(QWidget):
         self.setStyleSheet("background-color: white;")
 
         # Left and right layouts
-        self.leftLayout = QHBoxLayout()
+        self.leftLayout = QGridLayout()
         self.rightLayout = QVBoxLayout()
 
         # Video stream label
@@ -60,6 +58,8 @@ class Window(QWidget):
         self.mainLayout.addLayout(self.rightLayout, 10)
         self.setLayout(self.mainLayout)
 
+        self.create_text_box()
+        self.change_text("Welcome to the robot control app!")
         self.face_functionality()
 
         # Buttons style and font
@@ -125,6 +125,7 @@ class Window(QWidget):
 
 
     def face_functionality(self):
+        # default expression
         self.expression = "blinking"
         # Image
         self.create_image()
@@ -136,7 +137,8 @@ class Window(QWidget):
 
     # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
     def btn_clickMain(self, id):
-        print(id)
+
+        self.expression = "peeking"
         # Main menu
         if id == 0:
             # Camera
@@ -159,13 +161,12 @@ class Window(QWidget):
             else:
                 self.expression = "blinking"
                 self.btns.button(2).setText("Disable Blinking")
-
         elif id == 3:
             # Quit
             self.close()
 
     def btn_click1(self, id):
-        print(id)
+        self.expression = "blinking"
         if id == 0:
             # Pause video stream or resume
             if self.timer.isActive():
@@ -185,7 +186,7 @@ class Window(QWidget):
 
 
     def btn_click2(self, id):
-        print(id)
+        self.expression = "blinking"
         # Button 1 menu
         if id == 0:
 
@@ -240,19 +241,49 @@ class Window(QWidget):
         pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
         self.label1.setPixmap(pixmap)
 
+    # Creates a text and adds it to the left layout
+    def create_text_box(self):
+        self.text = QLabel('Text', self)
+        # Set font
+        font = QFont()
+        font.setPointSize(20)
+        font.setFamily("System")
+        self.text.setFont(font)
+        # Change text color
+        self.text.setStyleSheet("color: #00accc")
+        self.text.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
+        self.leftLayout.addWidget(self.text)
+        
+    def change_text(self, text):
+        self.text.setText(text)
+
+    # d(-_-)b ~-=< THREADS >=-~ d(-_-)b
     def make_robot_expressions(self):
-        self.expression_thread = threading.Thread(target=self.blink)
+        self.expression_thread = threading.Thread(target=self.express)
         self.expression_thread.start()
         self.expression_thread._stop = False
 
-    def blink(self):
+    # d(-_-)b ~-=< EXPRESSIONS (happens in thread) >=-~ d(-_-)b
+    def express(self):
         while True:
+            if self.expression == "none":
+                self.change_image("neutral")
+                time.sleep(1)
+
             if self.expression == "blinking":
                 self.change_image("blink")
                 time.sleep(0.1)
                 self.change_image("neutral")
+                time.sleep(2)
 
-            time.sleep(2)
+            if self.expression == "peeking":
+                self.change_image("left_peek")
+                time.sleep(1)
+                self.change_image("top_left_peek")
+                time.sleep(1)
+                self.change_image("left_peek")
+                time.sleep(1)
+
             if self.expression_thread._stop:
                 break
 

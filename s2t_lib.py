@@ -6,7 +6,7 @@ import time
 
 class speech_2_text():
     def __init__(self):
-        browserDIR = "/tmp/.org.chromium.Chromium.0sEz4a/Default"
+        browserDIR = "--user-data-dir=/home/pi/.config/chromium/Default"
         webdriverDIR = "/usr/lib/chromium-browser/chromedriver"
         # C:\Users\Shinken\AppData\Local\Google\Chrome\User Data\Default
         options = Options()
@@ -16,25 +16,22 @@ class speech_2_text():
         })
         service = Service(webdriverDIR)
         self.stt = webdriver.Chrome(webdriverDIR, options=options)
-        self.stt.get('https://dictation.io/speech')
+        self.stt.get('https://smodin.io/pl/przemowienie-do-tekst-i-tekst-do-przemowienie')
         self.stt.minimize_window()
-        select = Select(self.stt.find_element("xpath", "//select[@id='lang']"))
-        select.select_by_value('pl-pl')
-        time.sleep(1)
-        self.stt.find_element("xpath", "//a[@class='btn-mic btn btn--primary-1']").click()
+        self.stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
+        self.stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
         time.sleep(5)
-        self.textbox = self.stt.find_element("xpath", "//div[@class='ql-editor ql-blank']")
-        self.get_text()
+        self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciœnij przycisk i zacznij mówiæ')]")
+        self.clear = self.stt.find_element("xpath", "//span[@data-text='Kasowaæ']//button//span").click
 
     def get_text(self):
         while True:
             if self.textbox.text != '':
                 if self.textbox.text.strip() == 'koniec':
-                    self.textbox.clear()
-                    self.stt.quit()
+                    self.clear()
+                    self.stt.quit() ################ WAZNE !!!!!!!! ################
                     print('Koniec1')
                     exit()
                 print(self.textbox.text)
-                self.textbox.clear()
+                self.clear()
 
-# self.stt.quit()
