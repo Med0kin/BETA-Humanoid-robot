@@ -335,6 +335,7 @@ class Window(QWidget):
 s2t = s2t_lib.speech_to_text()
 #run s2t.get_text() in a thread
 s2t_thread = threading.Thread(target=s2t.get_text)
+s2t_thread.start()
 
 # Main
 myapp = QApplication(sys.argv)

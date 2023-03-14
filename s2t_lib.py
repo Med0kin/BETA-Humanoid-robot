@@ -24,6 +24,7 @@ class speech_to_text():
         time.sleep(5)
         self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
         self.clear = self.stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click
+        
     def get_text(self):
         while True:
             if self.textbox.text != '':
