@@ -89,7 +89,7 @@ if __name__ == "__main__":
     test.set(5, -80)
     for i in range(8):
         test.set(i+10, 2047)
-    time.sleep(4)
+    time.sleep(1)
     test.callback()
     # for i in range(10):
     #     test.set(i, 0)

@@ -103,6 +103,7 @@ class OCServo:
         data.append(checksum(data))
         self.write(data)
         self.read(100)
+        time.sleep(1)
 
     def syncsend(self, idlist, poslist):
         datalength = 0
