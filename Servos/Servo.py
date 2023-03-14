@@ -131,7 +131,7 @@ if __name__ == "__main__":
     akcja = ['p13', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'rrR1', 'rrR2','rrR1','rrR2','fRL1','fRL2','fRL3','fRL4','fRL1','fRL2','fRL3','fRL4','pr1','pr','ch12','j22','default','pb1','default','pbn1','p13','pr1','pr']
     test = Servo()
     #test.set_many_digital(servolist, anglelist)
-    test.setsequence(akcja, 3)
+    test.setsequence(akcja, 1)
 
 
     time.sleep(5)
