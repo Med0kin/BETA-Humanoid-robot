@@ -112,7 +112,7 @@ coordinates1.pack(pady=10)
 coordinates2 = tk.Label(tframe2, text="Touchpad2", bg=men)
 coordinates2.pack(pady=10)
 
-b_changearm = tk.Button(root, text="CLOSE", command=changearm, bg="#00ACCC")
+b_changearm = tk.Button(root, text="CHANGE ARM", command=changearm, bg="#00ACCC")
 b_changearm.pack(anchor=tk.S, side=tk.RIGHT)
 
 
