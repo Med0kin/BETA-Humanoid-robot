@@ -74,8 +74,8 @@ class OCServo:
 
     def write(self, data):
         self.serialPort.write(data)
-        #hex_data = ' '.join(hex(b)[2:].zfill(2) for b in data)
-        #print(f"Wrote: {hex_data}")
+        hex_data = ' '.join(hex(b)[2:].zfill(2) for b in data)
+        print(f"Wrote: {hex_data}")
 
     def read(self, bytes_to_read=1):
         msg = self.serialPort.read(bytes_to_read)
@@ -102,8 +102,8 @@ class OCServo:
         data[3] = len(data) - 3
         data.append(checksum(data))
         self.write(data)
-        self.read(100)
-        time.sleep(1)
+        #self.read(100)
+        time.sleep(0.5)
 
     def syncsend(self, idlist, poslist):
         datalength = 0
