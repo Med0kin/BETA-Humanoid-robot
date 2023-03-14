@@ -16,6 +16,7 @@ gpio = Servo()
 arm = 0
 armspos = [0, 0, 0, 0, 0, 0, 0, 0]
 filename = "default"
+filenamevar = tk.StringVar()
 w = 350
 h = w
 x = w//2
@@ -64,6 +65,8 @@ def map_pos(value):
 def exportpos():
     global armspos
     global filename
+    global filenamevar
+    filename = filenamevar.get()
     filename = filename + '.txt'
     with open(filename, 'w') as f:
         for i in range(len(armspos)):
@@ -128,6 +131,8 @@ b_changearm = tk.Button(root, text="CHANGE ARM", command=changearm, bg="#00ACCC"
 b_changearm.pack(anchor=tk.S, side=tk.RIGHT)
 b_export = tk.Button(root, text="EXPORT", command=exportpos, bg="#00ACCC")
 b_export.pack(anchor=tk.S, side=tk.RIGHT)
+filename_entry = tk.Entry(root, textvariable=filenamevar, bg="#00ACCC")
+filename_entry.pack(anchor=tk.S, side=tk.RIGHT)
 
 
 def move1(event):
