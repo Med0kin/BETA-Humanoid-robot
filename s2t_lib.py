@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
+import threading
 import time
 
 class speech_to_text():
@@ -24,7 +25,11 @@ class speech_to_text():
         time.sleep(5)
         self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
         self.clear = self.stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click
-        
+        self.get_text_thread = threading.Thread(target=self.get_text)
+        self.get_text_thread.start()
+        self.get_text_thread._stop = False
+
+
     def get_text(self):
         while True:
             if self.textbox.text != '':
@@ -35,4 +40,6 @@ class speech_to_text():
                     exit()
                 print(self.textbox.text)
                 self.clear()
+            if self.get_text_thread._stop:
+                break
 
