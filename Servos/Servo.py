@@ -88,7 +88,7 @@ class Servo:
         for i in servos:
             if i < 10:
                 raise Exception("Servo number out of range")
-        self.digital.syncsend(i, angles[i])
+        self.digital.syncsend(i, angles[i-10])
 
     def get(self, servo):
         if servo < 0 or servo > 17:
