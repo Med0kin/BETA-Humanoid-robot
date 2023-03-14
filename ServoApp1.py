@@ -75,6 +75,21 @@ def exportpos():
         f.close()
 
 
+def importpos():
+    global armspos
+    global filename
+    global filenamevar
+    filename = filenamevar.get()
+    filename = filename + '.txt'
+    armspos = [0, 0, 0, 0, 0, 0, 0, 0]
+    with open(filename, 'r') as f:
+        for i in range(len(armspos)):
+            line = f.readline().split()
+            armspos[i] = int(line[1])
+        f.close()
+    for i in range(len(armspos)):
+        armjoint[i].move_servo(armspos[i])
+
 def callback():
     for i in range(0, 8):
         try:
@@ -97,7 +112,6 @@ m_filter = ""
 root.title('Servo Manager')
 root.geometry("800x600")
 root.config(bg=bcg)
-
 
 
 tp_frame = tk.Frame(root)
@@ -131,6 +145,8 @@ b_export = tk.Button(root, text="EXPORT", command=exportpos, bg="#00ACCC")
 b_export.pack(anchor=tk.S, side=tk.RIGHT)
 filename_entry = tk.Entry(root, textvariable=filenamevar, bg="#00ACCC")
 filename_entry.pack(anchor=tk.S, side=tk.RIGHT)
+b_export = tk.Button(root, text="IMPORT", command=importpos, bg="#00ACCC")
+b_export.pack(anchor=tk.S, side=tk.RIGHT)
 
 
 def move1(event):
