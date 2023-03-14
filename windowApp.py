@@ -263,8 +263,8 @@ class Window(QWidget):
         # Change text color
         self.text_label.setStyleSheet("color: #00accc")
         # Set maximum width
-        self.text_label.setFixedWidth(400)
-        self.text_label.wordWrap(True)
+        #self.text_label.setFixedWidth(400)
+        #self.text_label.wordWrap(True)
         # Set text alignment
         self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.text_label)
@@ -322,14 +322,22 @@ class Window(QWidget):
 
     def react(self):
         while True:
-            self.change_text(s2t.s2t_text)
-            # s2t_text to array of words and lower case
-            s2t_text_list = s2t.s2t_text.lower().split()
-            if "hej" in s2t_text_list:
-                self.expression = "none"
 
-            elif "mrugaj" in s2t_text_list:
-                self.expression = "blinking"
+            s2t_text_list = s2t.s2t_text.lower().split()
+
+            text_received = s2t.s2t_text
+            if len(text_received) > 100:
+                text_received = text_received[:100] + "..."
+            self.change_text(s2t.s2t_text)
+
+            for i in s2t_text_list:
+                match i:
+                    case "hej" | "czeœæ" | "witaj" | "siema":
+                        self.expression = "none"
+                    case "mrugaj":
+                        self.expression = "blinking"
+                    case "podejrzyj":
+                        self.expression = "peeking"
 
             if self.react_thread_running == False:
                 print("react thread stopped!")
