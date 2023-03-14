@@ -60,7 +60,11 @@ class Servo:
             self.armjoint[i].set_range(270)
 
     def callback(self):
+        for i in self.armjoint:
+            i.stop_thread()
         self.gpio.kill()
+        self.digital.callback()
+
 
     def set(self, servo, angle):
         if servo < 0 or servo > 17:
@@ -81,6 +85,8 @@ class Servo:
 
 if __name__ == "__main__":
     test = Servo()
+    test.set(2, 10)
+    test.set(5, 10)
     # for i in range(10):
     #     test.set(i, 0)
     #     time.sleep(0.5)
