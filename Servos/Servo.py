@@ -63,3 +63,6 @@ class Servo:
 
 if __name__ == "__main__":
     test = Servo()
+    for i in range(10):
+        test.set(i, 0)
+        time.sleep(0.5)
