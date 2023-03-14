@@ -65,7 +65,7 @@ class AServo:
 
     # This is the function that sets the target position
     # and speed of the servo
-    def move_servo(self, angle, speed):
+    def move_servo(self, angle, speed=50):
         # Move the servo
         # if speed isn't in srange 1-100 then stop
         difference = abs(angle - self.pos)
