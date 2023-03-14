@@ -345,6 +345,7 @@ class Window(QWidget):
 
     # Camera capture setup
     def setup_camera(self):
+        self.frameCounter = 0
         self.video = cv2.VideoCapture("/dev/video0")
         self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
@@ -353,20 +354,19 @@ class Window(QWidget):
 
     # Displays the camera capture
     def display_video_stream(self):
+        self.frame_counter += 1
         ret, frame = self.video.read()
         if not ret:
             return
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        #frame = cv2.flip(frame, 1)
-
-        if self.camera_mode == 1:
-            frame, id_list, loc, rot = pe.estimate_pose(frame)
-            #if there are any markers on screen, control robot
-            if len(id_list) > 0:
-                self.control_with_estimated_pose(id_list, loc, rot)
-
-
-
+        # do it every 10 frames
+        if self.frame_counter % 4 == 0:
+            if self.camera_mode == 1:
+                frame, id_list, loc, rot = pe.estimate_pose(frame)
+                #if there are any markers on screen, control robot
+                if len(id_list) > 0:
+                    self.control_with_estimated_pose(id_list, loc, rot)
+            self.frameCounter = 0
         # flip frame
         frame = cv2.flip(frame, 1)
         # convert to QImage
