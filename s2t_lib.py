@@ -1,3 +1,4 @@
+# coding: utf8
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -21,8 +22,8 @@ class speech_2_text():
         self.stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
         self.stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
         time.sleep(5)
-        self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciœnij przycisk i zacznij mówiæ')]")
-        self.clear = self.stt.find_element("xpath", "//span[@data-text='Kasowaæ']//button//span").click
+        self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'NaciÅ›nij przycisk i zacznij mÃ³wiÄ‡')]")
+        self.clear = self.stt.find_element("xpath", "//span[@data-text='KasowaÄ‡']//button//span").click
     def get_text(self):
         while True:
             if self.textbox.text != '':
