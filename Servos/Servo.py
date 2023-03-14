@@ -7,7 +7,7 @@ from OCServo import serial_ports
 
 
 class Servo:
-    def __int__(self):
+    def __init__(self):
         ports = serial_ports()
         if len(ports) == 0:
             raise Exception("No serial ports found")
@@ -63,6 +63,6 @@ class Servo:
 
 if __name__ == "__main__":
     test = Servo()
-    for i in range(10):
-        test.set(i, 0)
-        time.sleep(0.5)
+    # for i in range(10):
+    #     test.set(i, 0)
+    #     time.sleep(0.5)
