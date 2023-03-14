@@ -62,7 +62,7 @@ class Servo:
     def callback(self):
         for i in self.armjoint:
             i.stop_thread()
-        self.gpio.kill()
+        # self.gpio.kill()
         self.digital.callback()
 
 
@@ -85,8 +85,8 @@ class Servo:
 
 if __name__ == "__main__":
     test = Servo()
-    test.set(2, 10)
-    test.set(5, 10)
+    test.set(2, 20)
+    test.set(5, 20)
     test.callback()
     # for i in range(10):
     #     test.set(i, 0)
