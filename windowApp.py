@@ -288,6 +288,8 @@ class Window(QWidget):
                 time.sleep(1)
                 self.change_image("left_peek")
                 time.sleep(1)
+            
+            self.change_text(s2t.textbox.text)
 
             if self.expression_thread._stop:
                 break
@@ -343,6 +345,7 @@ window.video.release()
 # Close threads
 window.expression_thread._stop = True
 s2t.get_text_thread._stop = True
-
+window.expression_thread.join()
+s2t.get_text_thread.join()
 # Close the app
 sys.exit()
