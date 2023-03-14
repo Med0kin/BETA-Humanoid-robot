@@ -104,7 +104,7 @@ if __name__ == "__main__":
     anglelist = [0, 0, 0, 0, 0, 0, 0, 0]
     test = Servo()
     test.set_many_digital(servolist, anglelist)
-    time.sleep(1)
+    time.sleep(5)
     test.callback()
     # for i in range(10):
     #     test.set(i, 0)
