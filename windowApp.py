@@ -361,7 +361,7 @@ class Window(QWidget):
 
         if self.camera_mode == 1:
             frame, id_list, loc, rot = pe.estimate_pose(frame)
-            self.control_with_estimated_pose(id_list, loc, rot)
+            #self.control_with_estimated_pose(id_list, loc, rot)
 
 
 
@@ -380,7 +380,7 @@ class Window(QWidget):
         if len(id_list) == 2:
             servo_angle3 = ak.get_servo3_angle(ak.vector_length(ak.create_vector(loc[1], loc[2])))
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
-        
+
         #if round(armjoint[0].pos) != round(servo_angle1):
         #    armjoint[0].move_servo(round(servo_angle1), 50)
         if round(servo.get(0)) != round(90):
