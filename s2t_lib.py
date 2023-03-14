@@ -28,6 +28,7 @@ class speech_to_text():
         self.get_text_thread = threading.Thread(target=self.get_text)
         self.get_text_thread.start()
         self.get_text_thread._stop = False
+        self.s2t_text = ''
 
 
     def get_text(self):
@@ -39,7 +40,7 @@ class speech_to_text():
                     print('Koniec1')
                     exit()
                 print(self.textbox.text)
-                window.change_text(self.textbox.text)
+                self.s2t_text = self.textbox.text
                 self.clear()
             if self.get_text_thread._stop:
                 break

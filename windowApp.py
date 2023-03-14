@@ -288,7 +288,7 @@ class Window(QWidget):
                 time.sleep(1)
                 self.change_image("left_peek")
                 time.sleep(1)
-
+            self.change_text(s2t.s2t_text)
             if self.expression_thread._stop:
                 break
 
@@ -333,9 +333,9 @@ class Window(QWidget):
 
 
 # Main
+s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()
-s2t = s2t_lib.speech_to_text()
 myapp.exec_()
 # Release the video capture
 window.video.release()
