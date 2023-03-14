@@ -87,7 +87,9 @@ if __name__ == "__main__":
     test = Servo()
     test.set(2, 80)
     test.set(5, -80)
-    time.sleep(2)
+    for i in range(8):
+        test.set(i+10, 2047)
+    time.sleep(4)
     test.callback()
     # for i in range(10):
     #     test.set(i, 0)
