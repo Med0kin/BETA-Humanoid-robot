@@ -22,6 +22,19 @@ import psutil
 #             pass
 #     return False
 
+def importpos(filename):
+    filename = filename + '.txt'
+    idlist = [0, 0, 0, 0, 0, 0, 0, 0]
+    poslist = [0, 0, 0, 0, 0, 0, 0, 0]
+    with open(filename, 'r') as f:
+        for i in range(len(idlist)):
+            line = f.readline().split()
+            idlist[i] = int(line[0])
+            poslist[i] = int(line[1])
+        f.close()
+    return idlist, poslist
+
+
 class Servo:
     def __init__(self):
         ports = serial_ports()
@@ -97,6 +110,18 @@ class Servo:
             return self.armjoint[servo].get_angle()
         else:
             return self.digital.get(servo)
+
+    def setimport(self, filename):
+        idlist, poslist = importpos(filename)
+        if idlist[0] < 10:
+            self.set_many_analog(idlist, poslist)
+        else:
+            self.set_many_digital(idlist, poslist)
+
+    def setsequence(self, filenames, averagetime=1):
+        for i in filenames:
+            self.setimport(i)
+            time.sleep(averagetime)
 
 
 if __name__ == "__main__":
