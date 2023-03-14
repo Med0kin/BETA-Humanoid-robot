@@ -1,3 +1,4 @@
+# coding: utf8
 import sys
 import os
 from PySide2.QtWidgets import *
@@ -331,7 +332,7 @@ class Window(QWidget):
             self.change_text(s2t.s2t_text)
 
             for txt in s2t_text_list:
-                if txt == ("hej" or "czeœæ" or "witaj" or "siema"):
+                if txt == ("hej" or "czeÅ›Ä‡" or "witaj" or "siema"):
                     self.expression = "none"
                 elif txt == ("mrugaj"):
                     self.expression = "blinking"
