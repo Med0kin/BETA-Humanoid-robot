@@ -333,7 +333,10 @@ class Window(QWidget):
 
 
 # Main
-servo = servo_lib
+servo_list = [10, 11, 12, 13, 14, 15, 16, 17]
+angle_list = [0, 0, 0, 0, 0, 0, 0, 0]
+servo = servo_lib.Servo()
+servo.set_many_digital(servo_list, angle_list)
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()
@@ -345,5 +348,6 @@ window.expression_thread._stop = True
 s2t.get_text_thread._stop = True
 window.expression_thread.join()
 s2t.get_text_thread.join()
+servo.callback()
 # Close the app
 sys.exit()
