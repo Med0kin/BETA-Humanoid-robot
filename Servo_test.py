@@ -8,8 +8,6 @@ test = Servo()
 # test.set_many_digital(servolist, anglelist)
 test.setsequence(akcja, 1)
 
-
-time.sleep(5)
 test.callback()
 # for i in range(10):
 #     test.set(i, 0)
