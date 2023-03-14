@@ -41,11 +41,11 @@ class Servo:
         # Create the servo objects
         self.armjoint[0] = AServo(17)
         self.armjoint[1] = AServo(27)
-        self.armjoint[2] = AServo(22)
+        self.armjoint[2] = AServo(22, 83)
         self.armjoint[3] = AServo(10)
 
         self.armjoint[4] = AServo(13)
-        self.armjoint[5] = AServo(19)
+        self.armjoint[5] = AServo(19, -80)
         self.armjoint[6] = AServo(26)
         self.armjoint[7] = AServo(21)
         self.armjoint[8] = AServo(9)      # hip 0
@@ -85,8 +85,6 @@ class Servo:
 
 if __name__ == "__main__":
     test = Servo()
-    test.set(2, 80)
-    test.set(5, -80)
     for i in range(8):
         test.set(i+10, 0)
     time.sleep(1)

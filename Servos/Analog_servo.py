@@ -26,7 +26,7 @@ import os
 class AServo:
     _registry = []
 
-    def __init__(self, servoNum=None):
+    def __init__(self, servoNum=None, target=0):
 
         if servoNum is not None:
             self._registry.append(self)
@@ -34,7 +34,7 @@ class AServo:
 
             self.pos = 0
             self.speed = 50
-            self.target = 0
+            self.target = target
 
             self.delay = time.sleep
             self.servo_range = 180
