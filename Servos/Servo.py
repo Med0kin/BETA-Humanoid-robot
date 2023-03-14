@@ -8,19 +8,19 @@ import os
 import psutil
 
 
-def checkIfProcessRunning(processName):
-    """
-    Check if there is any running process that contains the given name processName.
-    """
-    # Iterate over the all the running process
-    for proc in psutil.process_iter():
-        try:
-            # Check if process name contains the given name string.
-            if processName.lower() in proc.name().lower():
-                return True
-        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            pass
-    return False
+# def checkIfProcessRunning(processName):
+#     """
+#     Check if there is any running process that contains the given name processName.
+#     """
+#     # Iterate over the all the running process
+#     for proc in psutil.process_iter():
+#         try:
+#             # Check if process name contains the given name string.
+#             if processName.lower() in proc.name().lower():
+#                 return True
+#         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+#             pass
+#     return False
 
 class Servo:
     def __init__(self):
@@ -28,8 +28,8 @@ class Servo:
         if len(ports) == 0:
             raise Exception("No serial ports found")
         self.digital = OCServo(ports[0])
-        if checkIfProcessRunning("pigpiod"):
-            os.system("sudo pigpiod")
+        # if checkIfProcessRunning("pigpiod"):
+        #     os.system("sudo pigpiod")
         self.armjoint = [AServo]*10
 
         self.gpio = AServo()
