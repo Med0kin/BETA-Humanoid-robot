@@ -284,12 +284,13 @@ class Window(QWidget):
     def stop_threads(self):
         self.expression_thread_running = False
         print("expression thread stopped")
-        self.react_thread_running = False
-        print("react thread stopped")
         self.expression_thread.join()
         print("expression thread joined")
+        self.react_thread_running = False
+        print("react thread stopped")
         self.react_thread.join()
         print("react thread joined")
+        s2t.close_thread()
 
     # d(-_-)b ~-=< EXPRESSIONS and REACTIONS (happens in thread) >=-~ d(-_-)b
     def express(self):
