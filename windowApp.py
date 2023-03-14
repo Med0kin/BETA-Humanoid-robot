@@ -263,7 +263,8 @@ class Window(QWidget):
         # Change text color
         self.text_label.setStyleSheet("color: #00accc")
         # Set maximum width
-        self.text_label.setFixedWidth(100)
+        self.text_label.setFixedWidth(400)
+        self.text_label.wordWrap(True)
         # Set text alignment
         self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.text_label)
