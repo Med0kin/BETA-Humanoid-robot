@@ -35,10 +35,10 @@ armjoint[3] = AServo(26)
 armjoint[5] = AServo(19)
 armjoint[7] = AServo(13)
 
-armjoint[0].servo_range = 270
-armjoint[1].servo_range = 270
-armjoint[2].servo_range = 270
-armjoint[3].servo_range = 270
+armjoint[0].set_range(270)
+armjoint[1].set_range(270)
+armjoint[2].set_range(270)
+armjoint[3].set_range(270)
 
 
 def translate(value, leftMin, leftMax, rightMin, rightMax):

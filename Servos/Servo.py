@@ -63,8 +63,8 @@ class Servo:
         self.armjoint[7] = AServo(13)
         self.armjoint[8] = AServo(9)      # hip 0
         self.armjoint[9] = AServo(11)     # hip 1
-        servo180 = [2, 3, 4, 5]
-        servo270 = [0, 1, 6, 7]
+        servo180 = [4, 5, 6, 7, 8, 9]
+        servo270 = [0, 1, 2, 3]
 
         for i in servo180:
             self.armjoint[i].set_range(180)
@@ -94,6 +94,7 @@ class Servo:
             if i >= 10:
                 raise Exception("Servo number out of range")
             self.set(i, angles[i])
+            time.sleep(0.1)
 
     def set_many_digital(self, servos, angles):
         if len(servos) != len(angles):
