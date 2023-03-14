@@ -60,3 +60,6 @@ class Servo:
         else:
             return self.__digital.get(servo)
 
+
+if __name__ == "__main__":
+    test = Servo()
