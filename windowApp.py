@@ -401,7 +401,6 @@ class Window(QWidget):
 # Main
 servo = Servo()
 servo.setimport("p13")
-servo.set_many_digital(servo_list, angle_list)
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()
