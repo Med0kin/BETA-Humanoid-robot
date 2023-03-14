@@ -361,7 +361,9 @@ class Window(QWidget):
 
         if self.camera_mode == 1:
             frame, id_list, loc, rot = pe.estimate_pose(frame)
-            self.control_with_estimated_pose(id_list, loc, rot)
+            #if there are any markers on screen, control robot
+            if len(id_list) > 0:
+                self.control_with_estimated_pose(id_list, loc, rot)
 
 
 
@@ -374,19 +376,16 @@ class Window(QWidget):
         # set image label size
 
     def control_with_estimated_pose(self, id_list, loc, rot):
-        #output, ids_list = pose_estimation(frame, aruco_dict_type, k, d)
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
-        #if there aren't 2 markers on screen, set servo angle to 0
-        if len(id_list) == 2:
-            servo_angle3 = ak.get_servo3_angle(ak.vector_length(ak.create_vector(loc[1], loc[2])))
-        servo_angle4 = ak.get_servo4_angle(rot[1][0])
-
-        #if round(armjoint[0].pos) != round(servo_angle1):
-        #    armjoint[0].move_servo(round(servo_angle1), 50)
         if round(servo.get(0)) != round(90):
             servo.set(0, 0)
-        if round(servo.get(4)) != round(servo_angle3):
-            servo.set(4, round(-(180 - servo_angle3)))
+
+        if len(id_list) == 2:
+            servo_angle3 = ak.get_servo3_angle(ak.vector_length(ak.create_vector(loc[1], loc[2])))
+            if round(servo.get(4)) != round(servo_angle3):
+                servo.set(4, round(-(180 - servo_angle3)))
+
+        servo_angle4 = ak.get_servo4_angle(rot[1][0])
         if round(servo.get(6)) != round(servo_angle4):
             servo.set(6, round(-servo_angle4))
 
