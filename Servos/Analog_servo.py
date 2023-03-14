@@ -89,7 +89,10 @@ class AServo:
 
         # angle -> pulsewidth
         pulsewidth = round(1500 + ((angle / (self.servo_range / 2)) * 1000))
-
+        if pulsewidth > 2500:
+            pulsewidth = 2500
+        elif pulsewidth < 500:
+            pulsewidth = 500
         self.servo.set_servo_pulsewidth(self.num, pulsewidth)
 
         self.pos = angle
@@ -119,8 +122,14 @@ class AServo:
     # This is the function that sets range of the servo
     def set_range(self, srange):
         self.servo_range = srange
-        self.max_angle = srange / 2
-        self.min_angle = - srange / 2
+        if srange == 270:
+            self.max_angle = 100
+            self.min_angle = -100
+        elif srange == 180:
+            self.max_angle = srange / 2
+            self.min_angle = - srange / 2
+        else:
+            raise ValueError("Servo range must be 180 or 270")
         return 1
 
     def get_angle(self):
