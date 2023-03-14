@@ -127,8 +127,12 @@ class Servo:
 if __name__ == "__main__":
     servolist = [10, 11, 12, 13, 14, 15, 16, 17]
     anglelist = [0, 0, 0, 0, 0, 0, 0, 0]
+    filenames = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7']
     test = Servo()
-    test.set_many_digital(servolist, anglelist)
+    #test.set_many_digital(servolist, anglelist)
+    test.setsequence(filenames)
+
+
     time.sleep(5)
     test.callback()
     # for i in range(10):
