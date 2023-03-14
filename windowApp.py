@@ -5,7 +5,7 @@ from PySide2.QtGui import *
 from PySide2.QtCore import *
 import qimage2ndarray
 import pose_estim_lib as pe
-import s2t_lib as s2t
+import s2t_lib
 import numpy as np
 import threading
 
@@ -332,7 +332,7 @@ class Window(QWidget):
 
 
 
-s2t = s2t.speech_to_text()
+s2t = s2t_lib.speech_to_text()
 #run s2t.get_text() in a thread
 s2t_thread = threading.Thread(target=s2t.get_text)
 
