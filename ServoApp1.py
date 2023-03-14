@@ -118,7 +118,7 @@ def move1(event):
 
     coordinates1.config(text="Coordinates1 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
-    armjoint[4].move_servo(cord[0]-90,100)
+    armjoint[2].move_servo(cord[0]-90,100)
     armjoint[6].move_servo(cord[1]-90,100)
 
 
@@ -138,7 +138,7 @@ def move2(event):
     coordinates2.config(text="Coordinates2 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
     armjoint[0].move_servo(cord[0]-90,100)
-    armjoint[2].move_servo(cord[1]-90,100)
+    armjoint[4].move_servo(cord[1]-90,100)
 
 
 
