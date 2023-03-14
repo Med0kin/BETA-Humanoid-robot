@@ -1,7 +1,7 @@
 import time
 import numpy as np
 
-from Analog_servo import AServo
+from Servos.Analog_servo import AServo
 from OCServo import OCServo
 from OCServo import serial_ports
 import os
