@@ -15,6 +15,7 @@ gpio = Servo()
 #                    0  1  2  3   8  9    4  5  6  7
 arm = 0
 armspos = [0, 0, 0, 0, 0, 0, 0, 0]
+filename = "default"
 w = 350
 h = w
 x = w//2
@@ -49,6 +50,7 @@ def translate(value, leftMin, leftMax, rightMin, rightMax):
     # Convert the 0-1 range into a value in the right range.
     return rightMin + (valueScaled * rightSpan)
 
+
 def changearm():
     global arm
     arm = 1 - arm
@@ -57,6 +59,16 @@ def changearm():
 def map_pos(value):
     global w
     return round(translate(value, 0, w, 0, 180))
+
+
+def exportpos():
+    global armspos
+    global filename
+    filename = filename + '.txt'
+    with open(filename, 'w') as f:
+        for i in range(len(armspos)):
+            f.write("%d %d\n" % (i, armspos[i]))
+        f.close()
 
 
 root = tk.Tk()
@@ -114,7 +126,7 @@ coordinates2.pack(pady=10)
 
 b_changearm = tk.Button(root, text="CHANGE ARM", command=changearm, bg="#00ACCC")
 b_changearm.pack(anchor=tk.S, side=tk.RIGHT)
-b_export = tk.Button(root, text="EXPORT", command=changearm, bg="#00ACCC")
+b_export = tk.Button(root, text="EXPORT", command=exportpos, bg="#00ACCC")
 b_export.pack(anchor=tk.S, side=tk.RIGHT)
 
 
@@ -122,6 +134,7 @@ def move1(event):
     global circle1
     global arm
     global w
+    global armspos
     pos = [event.x, event.y]
     for i in range(2):
         if pos[i] < 0:
@@ -135,6 +148,8 @@ def move1(event):
 
     coordinates1.config(text="Coordinates1 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
+    armspos[arm+2] = cord[0]-90
+    armspos[arm+6] = cord[1]-90
     armjoint[arm+2].move_servo(cord[0]-90, 100)
     armjoint[arm+6].move_servo(cord[1]-90, 100)
 
@@ -156,6 +171,8 @@ def move2(event):
 
     coordinates2.config(text="Coordinates2 x: " + str(cord[0]) + ", y: " + str(cord[1]))
 
+    armspos[arm] = cord[0]-90
+    armspos[arm+4] = cord[1]-90
     armjoint[arm].move_servo(cord[0]-90, 100)
     armjoint[arm+4].move_servo(cord[1]-90, 100)
 
