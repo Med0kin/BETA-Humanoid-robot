@@ -367,11 +367,14 @@ class Window(QWidget):
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # do it every 10 frames
         if self.frame_counter % 4 == 0:
-            if self.camera_mode == 1:
+            if self.camera_mode > 0:
                 frame, id_list, loc, rot = pe.estimate_pose(frame)
                 #if there are any markers on screen, control robot
-                if len(id_list) > 0:
-                    self.control_with_estimated_pose(id_list, loc, rot)
+                if self.camera_mode == 1:
+                    if len(id_list) > 0:
+                        self.control_with_estimated_pose(id_list, loc, rot)
+                elif self.camera_mode == 2:
+                    self.control_walking_with_marker(id_list, loc, rot)
             self.frame_counter = 0
         # flip frame
         frame = cv2.flip(frame, 1)
@@ -381,8 +384,20 @@ class Window(QWidget):
         self.camera_label.setPixmap(QPixmap.fromImage(image))
         # set image label size
 
-    def control_with_estimated_pose(self, id_list, loc, rot):
+    def control_walking_with_marker(self, id_list, loc, rot):
+        # if id_list is empty, stop walking
+        if len(id_list) == 0:
+            servo.walking = False
+        else:
+            z_ax = loc[id_list[0]][2]
+            print("Z: " + z_ax)
+            if z_ax > 0.5:
+                servo.acrobate("endlesswalking")
+            else:
+                servo.warking = False
 
+
+    def control_with_estimated_pose(self, id_list, loc, rot):
         # Rotation based
         servo_angle1 = ak.get_servo1_angle(rot[1][1])
         if round(servo.get(6)) != round(90):
