@@ -43,9 +43,11 @@ class Servo:
         # if checkIfProcessRunning("pigpiod"):
         #     os.system("sudo pigpiod")
         self.armjoint = [AServo]*10
+        self.acrobations = ""
         self.walking = False
+        self.choreographyswitch = True
         self.gpio = AServo()
-
+        self.initialize()
         # Analog pins LtR   17 27 22 10   9 11   13 19 26 21  #
         # Numeration         0  1  2  3   0  1    4  5  6  7
         #                    0  1  2  3   8  9    4  5  6  7
@@ -74,6 +76,8 @@ class Servo:
     def callback(self):
         for i in self.armjoint:
             i.stop_thread()
+        self.choreographyswitch = False
+        self.acrobation.join()
         # self.gpio.kill()
         self.digital.callback()
 
@@ -123,7 +127,8 @@ class Servo:
             self.setimport(i)
             time.sleep(averagetime)
 
-    def dance(self):
+    def dancing(self):
+        self.is_dancing = True
         act1 = ['p13', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'rrR1', 'rrR2', 'rrR1', 'rrR2', 'fRL1', 'fRL2',
                 'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pr1', 'pr', 'ch12', 'j22', 'default']
         act2 = ['default', 'pb1', 'default']
@@ -131,6 +136,7 @@ class Servo:
         self.setsequence(act1, 1)
         self.setsequence(act2, 3)
         self.setsequence(act3, 1)
+
 
     def walk(self):
         loop = ['p13', 'ch12', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
@@ -147,11 +153,23 @@ class Servo:
             self.setsequence(walk)
         self.setsequence(end)
 
-    def startwalking(self):
-        self.walking = True
-        self.walkingthread = threading.Thread(target=self.endlesswalking)
-        self.walkingthread.start()
+    def coreography(self):
+        while self.choreographyswitch:
+            if self.acrobations == "dancing":
+                self.dancing()
+                self.acrobations = ""
+            elif self.acrobations == "walking":
+                self.walk()
+                self.acrobations = ""
+            elif self.acrobations == "endlesswalking":
+                self.endlesswalking()
+                self.acrobations = ""
+            else:
+                time.sleep(0.5)
 
-    def stopwalking(self):
-        self.walking = False
-        self.walkingthread.join()
+    def acrobate(self, acrobation):
+        self.acrobations = acrobation
+
+    def initialize(self):
+        self.acrobation = threading.Thread(target=self.coreography)
+        self.acrobation.start()
