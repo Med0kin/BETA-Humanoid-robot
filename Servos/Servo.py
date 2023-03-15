@@ -134,6 +134,6 @@ class Servo:
         self.setsequence(act3, 1)
 
     def walk(self):
-        loop = []
+        loop = ['p13', 'ch12', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71', 'ch83', 'ch92', 'ch101', 'ch113'] #po wykonaniu powracasz do ch22 i zapêtlasz
         self.setsequence(loop)
 
