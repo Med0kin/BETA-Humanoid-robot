@@ -117,7 +117,7 @@ class Window(QWidget):
         # Pose Estimation buttons
         self.btns2 = QButtonGroup(self)
         btn2 = []
-        for i, name in enumerate(["Mode 0", "Back"]):
+        for i, name in enumerate(["Turned Off", "Back"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
@@ -203,10 +203,13 @@ class Window(QWidget):
             # Switch camera mode
             if self.camera_mode == 0:
                 self.camera_mode = 1
-                self.btns2.button(0).setText("Mode 1")
+                self.btns2.button(0).setText("Pose Estim")
+            elif self.camera_mode == 1:
+                self.camera_mode = 2
+                self.btns2.button(0).setText("Follow Mark")
             else:
                 self.camera_mode = 0
-                self.btns2.button(0).setText("Mode 0")
+                self.btns2.button(0).setText("Turned Off")
 
         elif id == 1:
             # Back
@@ -326,9 +329,9 @@ class Window(QWidget):
             s2t_text_list = s2t.s2t_text.lower().split()
 
             text_received = s2t.s2t_text
-            if len(text_received) > 20:
-                text_received = text_received[:20] + "..."
-            self.change_text(s2t.s2t_text)
+            if len(text_received) > 30:
+                text_received = text_received[:30] + "..."
+            self.change_text(text_received)
 
             for txt in s2t_text_list:
                 if txt in ["cześć", "hej", "witaj", "siema"]:
