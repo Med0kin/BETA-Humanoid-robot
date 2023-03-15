@@ -145,6 +145,7 @@ class Servo:
         self.setsequence(loop)
 
     def endlesswalking(self):
+        self.walking = True
         start = ['p13', 'ch12']
         walk = ['ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
                 'ch83', 'ch92', 'ch101', 'ch113']
