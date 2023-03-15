@@ -1,11 +1,10 @@
 import time
-import numpy as np
+import threading
 
 from Servos.Analog_servo import AServo
 from Servos.OCServo import OCServo
 from Servos.OCServo import serial_ports
-import os
-import psutil
+
 
 
 # def checkIfProcessRunning(processName):
@@ -44,7 +43,7 @@ class Servo:
         # if checkIfProcessRunning("pigpiod"):
         #     os.system("sudo pigpiod")
         self.armjoint = [AServo]*10
-
+        self.walking = False
         self.gpio = AServo()
 
         # Analog pins LtR   17 27 22 10   9 11   13 19 26 21  #
@@ -134,6 +133,25 @@ class Servo:
         self.setsequence(act3, 1)
 
     def walk(self):
-        loop = ['p13', 'ch12', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71', 'ch83', 'ch92', 'ch101', 'ch113'] #po wykonaniu powracasz do ch22 i zapêtlasz
+        loop = ['p13', 'ch12', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
+                'ch83', 'ch92', 'ch101', 'ch113', 'p13'] #po wykonaniu powracasz do ch22 i zapï¿½tlasz
         self.setsequence(loop)
 
+    def endlesswalking(self):
+        start = ['p13', 'ch12']
+        walk = ['ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
+                'ch83', 'ch92', 'ch101', 'ch113']
+        end = ['p13']
+        self.setsequence(start)
+        while self.walking:
+            self.setsequence(walk)
+        self.setsequence(end)
+
+    def startwalking(self):
+        self.walking = True
+        self.walkingthread = threading.Thread(target=self.endlesswalking)
+        self.walkingthread.start()
+
+    def stopwalking(self):
+        self.walking = False
+        self.walkingthread.join()
