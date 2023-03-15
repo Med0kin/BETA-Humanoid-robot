@@ -342,7 +342,8 @@ class Window(QWidget):
                     servo.setimport("p13")
                 elif txt == ("zatańcz"):
                     servo.dance()
-                
+                elif txt in ["chodź", "idź"]:
+                    servo.walk()
             if self.react_thread_running == False:
                 print("react thread stopped!")
                 break
