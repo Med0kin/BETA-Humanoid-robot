@@ -330,7 +330,7 @@ class Window(QWidget):
             self.change_text(s2t.s2t_text)
 
             for txt in s2t_text_list:
-                if txt in ["czeĹ›Ä‡", "hej", "witaj", "siema"]:
+                if txt in ["cześć", "hej", "witaj", "siema"]:
                     self.expression = "none"
                 elif txt == ("mrugaj"):
                     self.expression = "blinking"
@@ -340,6 +340,9 @@ class Window(QWidget):
                     servo.setimport("p2")
                 elif txt == ("wstawaj"):
                     servo.setimport("p13")
+                elif txt == ("zatańcz"):
+                    servo.dance()
+                
             if self.react_thread_running == False:
                 print("react thread stopped!")
                 break
