@@ -393,7 +393,7 @@ class Window(QWidget):
             servo.walking = False
         else:
             z_ax = loc[id_list[0]][2]
-            print("Z: " + z_ax)
+            print("Z: " + str(z_ax))
             if z_ax > 0.5:
                 servo.acrobate("endlesswalking")
             else:
