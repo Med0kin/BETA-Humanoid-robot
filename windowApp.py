@@ -38,6 +38,7 @@ class Window(QWidget):
         self.setup_UI()
         self.show()
 
+
     # d(-_-)b ~-=< USER INTERFACE >=-~ d(-_-)b
     def setup_UI(self):
 
@@ -341,9 +342,9 @@ class Window(QWidget):
                 elif txt == ("wstawaj"):
                     servo.setimport("p13")
                 elif txt == ("zatańcz"):
-                    servo.dance()
+                    servo.acrobate("dancing")
                 elif txt in ["chodź", "idź"]:
-                    servo.walk()
+                    servo.acrobate("walking")
             if self.react_thread_running == False:
                 print("react thread stopped!")
                 break
