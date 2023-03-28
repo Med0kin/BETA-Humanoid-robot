@@ -133,7 +133,7 @@ class Servo:
                 'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pr1', 'pr', 'ch12', 'j22', 'default']
         act2 = ['default', 'pb1', 'default']
         act3 = ['pbn1', 'p13', 'pr1', 'pr']
-        self.setsequence(act1, 1)
+        self.setsequence(act1, 0.5)
         self.setsequence(act2, 4)
         self.setsequence(act3, 1)
 
