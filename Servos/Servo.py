@@ -130,12 +130,14 @@ class Servo:
     def dancing(self):
         self.is_dancing = True
         act1 = ['p13', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'rrR1', 'rrR2', 'rrR1', 'rrR2', 'fRL1', 'fRL2',
-                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pr1', 'pr', 'ch12', 'default']
-        act2 = ['j22','default', 'pb1', 'default']
-        act3 = ['pbn1', 'p13', 'pr1', 'pr']
-        self.setsequence(act1, 0.5)
-        self.setsequence(act2, 4)
-        self.setsequence(act3, 1)
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pr1', 'pr', 'ch12']
+        act2 = ['j22', 'default']
+        act3 = ['default', 'pb1', 'default']
+        act4 = ['pbn1', 'p13', 'pr1', 'pr']
+        self.setsequence(act1, 0.3)
+        self.setsequence(act2, 1)
+        self.setsequence(act3, 4)
+        self.setsequence(act4, 1)
 
 
     def walk(self):
