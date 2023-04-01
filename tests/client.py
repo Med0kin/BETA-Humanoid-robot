@@ -3,7 +3,7 @@ import numpy as np
 import socket
 
 # Set up socket connection
-HOST = '192.168.0.2'  # IP address of receiving computer
+HOST = '192.168.1.10'  # IP address of receiving computer
 PORT = 8080
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((HOST, PORT))
