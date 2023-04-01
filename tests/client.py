@@ -3,7 +3,7 @@ from vidgear.gears import VideoGear
 from vidgear.gears import NetGear
 
 stream = VideoGear(camera_num=0).start()  # Open any video stream
-server = NetGear()  # Define netgear server with default settings
+server = NetGear(port='5555')  # Define netgear server with default settings
 
 # infinite loop until [Ctrl+C] is pressed
 while True:
