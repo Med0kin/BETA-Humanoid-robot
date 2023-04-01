@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import socket
+import struct
 
 # Set up socket connection
 HOST = '192.168.1.10'  # IP address of receiving computer
@@ -8,23 +9,23 @@ PORT = 8080
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((HOST, PORT))
 
-# Set up video capture
-cap = cv2.VideoCapture(0)  # use default camera
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-
 # Send video stream
+cap = cv2.VideoCapture(0)
 while True:
+    # Capture frame
     ret, frame = cap.read()
-    if not ret:
-        break
-    # Encode frame as JPEG image
-    _, img_encoded = cv2.imencode('.jpg', frame)
-    # Send image length and image data
-    data = np.array(img_encoded)
-    stringData = data.tobytes()
-    sock.sendall(str(len(stringData)).ljust(16).encode())
+    # Encode frame
+    encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+    result, encimg = cv2.imencode('.jpg', frame, encode_param)
+    # Debugging statements
+    print(f"Encoded image size: {encimg.size}")
+    # Send encoded frame
+    data = np.array(encimg)
+    stringData = data.tostring()
+    sock.sendall(struct.pack('!I', len(stringData)))
     sock.sendall(stringData)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
 # Clean up
 cap.release()
