@@ -22,7 +22,7 @@ from Servos.OCServo import serial_ports
 #     return False
 
 def importpos(filename):
-    filename = '~/BETA-Humanoid-robot/Positions/' + filename + '.txt'
+    filename = '/home/pi/BETA-Humanoid-robot/Positions/' + filename + '.txt'
     idlist = [0, 0, 0, 0, 0, 0, 0, 0]
     poslist = [0, 0, 0, 0, 0, 0, 0, 0]
     with open(filename, 'r') as f:
@@ -33,7 +33,7 @@ def importpos(filename):
         f.close()
     return idlist, poslist
 
-
+# /home/pi/BETA-Humanoid-robot/Positions/p13.txt
 class Servo:
     def __init__(self):
         ports = serial_ports()
