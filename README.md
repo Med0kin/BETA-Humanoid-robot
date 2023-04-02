@@ -3,7 +3,7 @@
 ## Table of content
 
 - [Description](#humanoid-robot-repository)
-    - [Built with](#build-with)
+    - [Built with](#built-with)
 - Detailed description:
     - [Contruction](#contruction)
     - [Servo control](#servo-control)
@@ -17,7 +17,6 @@ Along with idea, project started back in 2018, changing it's form with new upgra
 
 https://www.facebook.com/KNHStyleOfficial
 ## Built with
-
 
 - [Raspberry Pi 4 Model B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 - [Raspberry Pi display](https://www.dfrobot.com/product-1784.html)
