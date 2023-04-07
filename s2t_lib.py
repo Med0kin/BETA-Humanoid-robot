@@ -21,7 +21,7 @@ class speech_to_text():
         self.stt.get('https://smodin.io/pl/przemowienie-do-tekst-i-tekst-do-przemowienie')
         self.stt.minimize_window()
         self.stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
-        self.stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
+        #self.stt.find_element("xpath", "//body/div[@id='__next']/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
         time.sleep(5)
         self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
         self.clear = self.stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click
