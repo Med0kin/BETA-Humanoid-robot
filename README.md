@@ -24,7 +24,9 @@ BETA is an ambitious undertaking that seeks to develop a humanoid robot possessi
 
 Conceived in 2018, the project has undergone several transformations and upgrades over the years. Presently, it is being developed as part of the "[Koło Naukowe Humanoid](https://www.facebook.com/KNHStyleOfficial)" student scientific association, where updates on its progress and new features are regularly shared.
 
-![Animation](https://user-images.githubusercontent.com/110100322/230668078-4c8fa947-df42-4cb7-8807-3819f159b147.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/110100322/230668078-4c8fa947-df42-4cb7-8807-3819f159b147.gif" width=60%>
+</p>
 
 ---
 
@@ -48,6 +50,14 @@ Conceived in 2018, the project has undergone several transformations and upgrade
 ---
 
 ## Contruction
+
+The framework of the robot is composed of a hybrid of components that are either 3D-printed, purchased, or self-fabricated. The design of these parts was created in Blender, a 3D modeling software, and subsequently constructed by our team.
+
+<p align="center">
+  <img src="https://i.imgur.com/RL8Mg1e.png" width=60%>
+</p>
+
+Additionally, a 3D printer was utilized to produce the robot's chest component.
 
 ---
 
