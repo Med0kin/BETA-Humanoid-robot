@@ -94,7 +94,7 @@ In regards to the management of the second group of servos, communication is est
   <img src="https://i.imgur.com/7DqY3fH.png" width=50%>
 </p>
 
-For more information about Bus servo control check out our [Servo library](https://github.com/Shinnken/OCServo_App/)
+For more information about Bus servo control check out our [Servo library](https://github.com/Shinnken/OCServo_App/).
 
 ### Sequencial movement
 
