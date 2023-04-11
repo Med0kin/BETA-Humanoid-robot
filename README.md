@@ -1,5 +1,5 @@
 
-![Logo](https://user-images.githubusercontent.com/110100322/221649400-126d697b-5f4d-46e4-a58b-ef75a5e70e93.png)
+![Logo](https://i.imgur.com/otlVGcp.png)
 
 ## Table of content
 
@@ -43,7 +43,7 @@ Conceived in 2018, the project has undergone several transformations and upgrade
 
 ### Programming language
 
-The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition and speech-to-text capabilities.
+The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition capabilities.
 
 ### Used libraries
 
@@ -51,7 +51,7 @@ The programming language of choice for the project is Python. This decision was 
 - [Selenium](https://www.selenium.dev/) - automation of browser used in [Speech-to-text](#speech-to-text)
 - [OpenCV](https://opencv.org/) - real-time computer vision used in [Pose estimation](#pose-estimation)
 - [OCServo](https://github.com/Shinnken/OCServo_App/) - servo control app used in [Servo control](#servo-control)
-- [pigpio](https://pypi.org/project/pigpio/) - control of GPIO to generate software PWM signal to control [Pulse servos](#disclaimer) servos.
+- [pigpio](https://pypi.org/project/pigpio/) - control of GPIO to generate software PWM signal to control [Pulse servos](#disclaimer).
 
 ## Construction
 
