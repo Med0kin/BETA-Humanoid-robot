@@ -1,7 +1,7 @@
 
 ![Logo](https://user-images.githubusercontent.com/110100322/221649400-126d697b-5f4d-46e4-a58b-ef75a5e70e93.png)
 
-### Table of content
+## Table of content
 
 - [Humanoid robot *BETA*](#humanoid-robot-beta)
 - [Built with](#built-with)
@@ -13,7 +13,7 @@
   - [Bus Servo](#bus-servo)
   - [Future plans](#future-plans)
 - [Application](#application)
-- [Text-to-speech](#text-to-speech)
+- [Speech-to-text](#speech-to-text)
 - [Pose estimation](#pose-estimation)
 
 ---
@@ -42,7 +42,7 @@ Conceived in 2018, the project has undergone several transformations and upgrade
 ## Used libraries
 
 - [PySide2](https://pypi.org/project/PySide2/) - GUI toolkit used in [Application](#application)
-- [Selenium](https://www.selenium.dev/) - automation of browser used in [Text-to-speech](#text-to-speech)
+- [Selenium](https://www.selenium.dev/) - automation of browser used in [Speech-to-text](#speech-to-text)
 - [OpenCV](https://opencv.org/) - real-time computer vision used in [Pose estimation](#pose-estimation)
 - [OCServo](https://github.com/Shinnken/OCServo_App/) - servo control app used in [Servo control](#servo-control)
 - [pigpio](https://pypi.org/project/pigpio/) - control of GPIO to generate software PWM signal to control [Pulse servos](#disclaimer) servos.
@@ -75,7 +75,9 @@ We are confident that this proposed power supply solution will provide a safe, e
 
 ## Programming language
 
-The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition and text-to-speech capabilities.
+The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition and speech-to-text capabilities.
+
+---
 
 ## Servo control
 
@@ -129,11 +131,11 @@ The software application that has been developed utilizes the PySide2 library to
 
 ---
 
-## Text-to-speech
+## Speech-to-text
 
-For the purpose of text-to-speech, we have utilized the text to speech website. The website is accessed through the use of the Selenium library. The library allows for the automation of the browser, which enables the implementation of the text-to-speech functionality.
+For the purpose of speech-to-text, we have utilized the speech to textV website. The website is accessed through the use of the Selenium library. The library allows for the automation of the browser, which enables the implementation of the speech-to-text functionality.
 
-One possible solution to address this issue is to utilize an application programming interface (API) that provides text-to-speech functionality. However, after careful consideration, it was determined that this approach was not optimal due to cost implications and implementation complexity. As an alternative, a solution was chosen that is both cost-effective and easy to implement, and does not impose excessive demands on computer resources.
+One possible solution to address this issue is to utilize an application programming interface (API) that provides speech-to-text functionality. However, after careful consideration, it was determined that this approach was not optimal due to cost implications and implementation complexity. As an alternative, a solution was chosen that is both cost-effective and easy to implement, and does not impose excessive demands on computer resources.
 
 ---
 
@@ -141,11 +143,17 @@ One possible solution to address this issue is to utilize an application program
 
 For the purpose of pose estimation, the project team has chosen to use ArUco trackers, which are part of the OpenCV library. This is because ArUco markers are an efficient and accurate type of fiducial marker that can be easily detected and identified in image or video streams. By attaching multiple ArUco markers to the robot's limbs and joints, the position and orientation of these markers can be tracked to estimate the robot's pose with a high degree of accuracy.
 
+<p align="center">
+  <img src="https://i.imgur.com/AFKgGQ0.jpg" width=50%>
+</p>
+
 In order to collect information about the location and orientation of the human body's joints and calculate angles for the robot, ArUco trackers will be attached to the human body. At this time, no other solutions have been selected for pose estimation purposes. However, the project team is considering adding gyroscope sensors to provide a more accurate source of information for angle estimation, thus allowing the robot to replicate human movements more accurately. Furthermore, a combination of different solutions, such as ArUco trackers, 2D pose estimation, and gyroscopes, may be tested to determine which approach yields the best results.
+
+---
 
 ## Safety precautions
 
-While operating your humanoid robot BETA, it is important to take the necessary safety precautions to prevent injury or damage to the robot or its surroundings. Please read the following guidelines carefully before using the robot:
+While operating humanoid robot BETA, it is important to take the necessary safety precautions to prevent injury or damage to the robot or its surroundings. Please read the following guidelines carefully before using the robot:
 
     Supervision: Always supervise the robot when it is in use. Do not leave the robot unattended around small children or pets.
 
