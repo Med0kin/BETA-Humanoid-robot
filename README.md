@@ -8,7 +8,7 @@
   - [Hardware components](#hardware-components)
   - [Programming language](#programming-language)
   - [Used libraries](#used-libraries)
-- [Contruction](#contruction)
+- [Construction](#construction)
 - [Power supply](#power-supply)
 - [Servo control](#servo-control)
   - [Disclaimer](#disclaimer)
@@ -53,7 +53,7 @@ The programming language of choice for the project is Python. This decision was 
 - [OCServo](https://github.com/Shinnken/OCServo_App/) - servo control app used in [Servo control](#servo-control)
 - [pigpio](https://pypi.org/project/pigpio/) - control of GPIO to generate software PWM signal to control [Pulse servos](#disclaimer) servos.
 
-## Contruction
+## Construction
 
 The framework of the robot is composed of a hybrid of components that are either 3D-printed, purchased, or self-fabricated. The design of these parts was created in Blender, a 3D modeling software, and subsequently constructed by our team.
 
