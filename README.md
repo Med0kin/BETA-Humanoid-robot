@@ -5,18 +5,21 @@
 
 - [Humanoid robot *BETA*](#humanoid-robot-beta)
 - [Built with](#built-with)
-- [Used libraries](#used-libraries)
+  - [Hardware components](#hardware-components)
+  - [Programming language](#programming-language)
+  - [Used libraries](#used-libraries)
 - [Contruction](#contruction)
+- [Power supply](#power-supply)
 - [Servo control](#servo-control)
   - [Disclaimer](#disclaimer)
   - [Pulse Servo](#pulse-servo)
   - [Bus Servo](#bus-servo)
-  - [Future plans](#future-plans)
+  - [Sequencial movement](#sequencial-movement)
 - [Application](#application)
 - [Speech-to-text](#speech-to-text)
 - [Pose estimation](#pose-estimation)
-
----
+- [Safety precautions](#safety-precautions)
+- [Future plans](#future-plans)
 
 ## Humanoid robot *BETA*
 
@@ -28,26 +31,27 @@ Conceived in 2018, the project has undergone several transformations and upgrade
   <img src="https://user-images.githubusercontent.com/110100322/230668078-4c8fa947-df42-4cb7-8807-3819f159b147.gif" width=60%>
 </p>
 
----
-
 ## Built with
+
+### Hardware components
 
 - [Raspberry Pi 4 Model B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 - [Raspberry Pi display](https://www.dfrobot.com/product-1784.html)
 - [Bus servos](https://en.ocservo.com/?post_type=products&page_id=16170)
 - Pulse servos: [RDS3235-180](https://pl.aliexpress.com/item/32734965011.html?spm=a2g0o.order_list.order_list_main.173.29321c247JQ9SQ&gatewayAdapt=glo2pol) and [RDS3115-270](https://pl.aliexpress.com/item/32270225462.html?spm=a2g0o.order_list.order_list_main.172.29321c24tig7ZX&gatewayAdapt=glo2pol)
 - USB Webcam
--
 
-## Used libraries
+### Programming language
+
+The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition and speech-to-text capabilities.
+
+### Used libraries
 
 - [PySide2](https://pypi.org/project/PySide2/) - GUI toolkit used in [Application](#application)
 - [Selenium](https://www.selenium.dev/) - automation of browser used in [Speech-to-text](#speech-to-text)
 - [OpenCV](https://opencv.org/) - real-time computer vision used in [Pose estimation](#pose-estimation)
 - [OCServo](https://github.com/Shinnken/OCServo_App/) - servo control app used in [Servo control](#servo-control)
 - [pigpio](https://pypi.org/project/pigpio/) - control of GPIO to generate software PWM signal to control [Pulse servos](#disclaimer) servos.
-
----
 
 ## Contruction
 
@@ -59,25 +63,9 @@ The framework of the robot is composed of a hybrid of components that are either
 
 Additionally, a 3D printer was utilized to produce the robot's chest component.
 
----
-
 ## Power supply
 
-Humanoid robot BETA is powered by a combination of two step-up voltage regulators that convert 5V to 6V and 5V to 12V respectively. While this power supply configuration is functional, it is not an ideal solution for providing power to the robot's components. As such, we plan to upgrade the power supply to a more efficient and stable configuration that uses step-down voltage regulators to convert 12V to 5V and 12V to 6V respectively.
-
-The proposed power supply solution involves the use of a 3-cell lithium-ion battery. The nominal voltage of a typical 3-cell lithium-ion battery is 11.1 volts (3.7 volts per cell). However, the actual voltage of a fully charged lithium-ion battery can range from 12.6 volts (4.2 volts per cell) to 9.0 volts (3.0 volts per cell) when fully discharged.
-
-By using a step-down voltage regulator to convert the 12V output from the battery to 5V and 6V respectively, we can ensure a stable and efficient power supply for the robot's components. This power supply solution also provides the added benefit of making the robot battery-powered, which increases its mobility and versatility.
-
-We are confident that this proposed power supply solution will provide a safe, efficient, and reliable source of power for Humanoid robot BETA, and we look forward to implementing this upgrade in the near future.
-
----
-
-## Programming language
-
-The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition and speech-to-text capabilities.
-
----
+Humanoid robot BETA is powered by a combination of two step-up voltage regulators that convert 5V to 6V and 5V to 12V respectively. While this power supply configuration is functional, it is not an ideal solution for providing power to the robot's components.
 
 ## Servo control
 
@@ -110,15 +98,14 @@ For more information about Bus servo control check out our [Servo library](https
 
 ### Sequencial movement
 
-To achieve smooth movement we've created tool that allows to control servos in sequence. It's main purpose is to control servos in sequence to achieve smooth movement.
+To achieve smooth movement of our robot, we have developed a tool that enables the sequential control of servos. The primary objective of this tool is to facilitate the coordinated movement of servos to achieve seamless motion.
 
-*INTERT DETAILED DESCRIPTION OF SEQUENTIAL MOVEMENT*
+The program operates by utilizing text files, which contain data regarding the angles of each servo required for a given pose. By compiling a list of various poses, complex movements can be achieved through the sequential execution of poses. To create these text files, we have developed a custom tool that allows for the adjustment of the robot to a desired pose and the subsequent saving of this pose to a text file for later use.
 
-### Future plans
-
-As part of our future development plans, we intend to upgrade the current servos with more powerful alternatives. This enhancement will enable the creation of more intricate and sophisticated movements. In addition, we plan to incorporate a more advanced control system, which will allow for the implementation of more complex behaviors and actions.
-
----
+<p align="center">
+  <img src="https://i.imgur.com/BYwo2w8.png" width=38%>
+  <img src="https://i.imgur.com/klipFKc.png" width=61%>
+</p>
 
 ## Application
 
@@ -129,15 +116,11 @@ The software application that has been developed utilizes the PySide2 library to
   <img src="https://i.imgur.com/EkO7Dwt.png" width=50.5%>
 </p>
 
----
-
 ## Speech-to-text
 
 For the purpose of speech-to-text, we have utilized the speech to textV website. The website is accessed through the use of the Selenium library. The library allows for the automation of the browser, which enables the implementation of the speech-to-text functionality.
 
 One possible solution to address this issue is to utilize an application programming interface (API) that provides speech-to-text functionality. However, after careful consideration, it was determined that this approach was not optimal due to cost implications and implementation complexity. As an alternative, a solution was chosen that is both cost-effective and easy to implement, and does not impose excessive demands on computer resources.
-
----
 
 ## Pose estimation
 
@@ -147,24 +130,42 @@ For the purpose of pose estimation, the project team has chosen to use ArUco tra
   <img src="https://i.imgur.com/AFKgGQ0.jpg" width=50%>
 </p>
 
-In order to collect information about the location and orientation of the human body's joints and calculate angles for the robot, ArUco trackers will be attached to the human body. At this time, no other solutions have been selected for pose estimation purposes. However, the project team is considering adding gyroscope sensors to provide a more accurate source of information for angle estimation, thus allowing the robot to replicate human movements more accurately. Furthermore, a combination of different solutions, such as ArUco trackers, 2D pose estimation, and gyroscopes, may be tested to determine which approach yields the best results.
-
----
+In order to collect information about the location and orientation of the human body's joints and calculate angles for the robot, ArUco trackers will be attached to the human body. At this time, no other solutions have been selected for pose estimation purposes.
 
 ## Safety precautions
 
 While operating humanoid robot BETA, it is important to take the necessary safety precautions to prevent injury or damage to the robot or its surroundings. Please read the following guidelines carefully before using the robot:
 
-    Supervision: Always supervise the robot when it is in use. Do not leave the robot unattended around small children or pets.
+- Supervision: Always supervise the robot when it is in use. Do not leave the robot unattended around small children or pets.
 
-    Operating environment: Use the robot in a safe and controlled environment. Avoid using the robot near stairs, ledges, or other hazards that could cause the robot to fall or be damaged.
+- Operating environment: Use the robot in a safe and controlled environment. Avoid using the robot near stairs, ledges, or other hazards that could cause the robot to fall or be damaged.
 
-    Power source: Only use the power source specified in the documentation. Do not use unauthorized power sources or chargers, as this could damage the robot or cause a fire.
+- Power source: Only use the power source specified in the documentation. Do not use unauthorized power sources or chargers, as this could damage the robot or cause a fire.
 
-    Servo control: When controlling the robot's servos, be aware of their range of motion and potential speed. Do not exceed the recommended range or speed, as this could damage the robot or cause it to malfunction.
+- Servo control: When controlling the robot's servos, be aware of their range of motion and potential speed. Do not exceed the recommended range or speed, as this could damage the robot or cause it to malfunction.
 
-    Maintenance: Regularly inspect the robot for wear and tear such as loose screws, frayed wires, or damaged components. If any issues are found, take the necessary steps to repair or replace the affected parts.
+- Maintenance: Regularly inspect the robot for wear and tear such as loose screws, frayed wires, or damaged components. If any issues are found, take the necessary steps to repair or replace the affected parts.
 
-    Transport: When transporting the robot, make sure it is securely fastened and protected from damage.
+- Transport: When transporting the robot, make sure it is securely fastened and protected from damage.
 
 By following these safety precautions, you can help ensure the safe and reliable operation of your humanoid robot BETA.
+
+## Future plans
+
+- [Power supply](#power-supply)
+
+We plan to upgrade the power supply to a more efficient and stable configuration that uses step-down voltage regulators to convert 12V to 5V and 12V to 6V respectively.
+
+The proposed power supply solution involves the use of a 3-cell lithium-ion battery.
+
+By using a step-down voltage regulator to convert the 12V output from the battery to 5V and 6V respectively, we can ensure a stable and efficient power supply for the robot's components. This power supply solution also provides the added benefit of making the robot battery-powered, which increases its mobility and versatility.
+
+We are confident that this proposed power supply solution will provide a safe, efficient, and reliable source of power for Humanoid robot BETA, and we look forward to implementing this upgrade in the near future.
+
+- [Servo control](#servo-control)
+
+As part of our future development plans, we intend to upgrade the current servos with more powerful alternatives. This enhancement will enable the creation of more intricate and sophisticated movements. In addition, we plan to incorporate a more advanced control system, which will allow for the implementation of more complex behaviors and actions.
+
+- [Pose estimation](#pose-estimation)
+
+The project team is considering adding gyroscope sensors to provide a more accurate source of information for angle estimation, thus allowing the robot to replicate human movements more accurately. Furthermore, a combination of different solutions, such as ArUco trackers, 2D pose estimation, and gyroscopes, may be tested to determine which approach yields the best results.
