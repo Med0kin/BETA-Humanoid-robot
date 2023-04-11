@@ -61,6 +61,22 @@ Additionally, a 3D printer was utilized to produce the robot's chest component.
 
 ---
 
+## Power supply
+
+Humanoid robot BETA is powered by a combination of two step-up voltage regulators that convert 5V to 6V and 5V to 12V respectively. While this power supply configuration is functional, it is not an ideal solution for providing power to the robot's components. As such, we plan to upgrade the power supply to a more efficient and stable configuration that uses step-down voltage regulators to convert 12V to 5V and 12V to 6V respectively.
+
+The proposed power supply solution involves the use of a 3-cell lithium-ion battery. The nominal voltage of a typical 3-cell lithium-ion battery is 11.1 volts (3.7 volts per cell). However, the actual voltage of a fully charged lithium-ion battery can range from 12.6 volts (4.2 volts per cell) to 9.0 volts (3.0 volts per cell) when fully discharged.
+
+By using a step-down voltage regulator to convert the 12V output from the battery to 5V and 6V respectively, we can ensure a stable and efficient power supply for the robot's components. This power supply solution also provides the added benefit of making the robot battery-powered, which increases its mobility and versatility.
+
+We are confident that this proposed power supply solution will provide a safe, efficient, and reliable source of power for Humanoid robot BETA, and we look forward to implementing this upgrade in the near future.
+
+---
+
+## Programming language
+
+The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition and text-to-speech capabilities.
+
 ## Servo control
 
 As previously stated, our project utilizes two distinct types of servos. Due to their differing control mechanisms, we have partitioned their descriptions into two distinct subcategories.
@@ -122,3 +138,25 @@ One possible solution to address this issue is to utilize an application program
 ---
 
 ## Pose estimation
+
+For the purpose of pose estimation, the project team has chosen to use ArUco trackers, which are part of the OpenCV library. This is because ArUco markers are an efficient and accurate type of fiducial marker that can be easily detected and identified in image or video streams. By attaching multiple ArUco markers to the robot's limbs and joints, the position and orientation of these markers can be tracked to estimate the robot's pose with a high degree of accuracy.
+
+In order to collect information about the location and orientation of the human body's joints and calculate angles for the robot, ArUco trackers will be attached to the human body. At this time, no other solutions have been selected for pose estimation purposes. However, the project team is considering adding gyroscope sensors to provide a more accurate source of information for angle estimation, thus allowing the robot to replicate human movements more accurately. Furthermore, a combination of different solutions, such as ArUco trackers, 2D pose estimation, and gyroscopes, may be tested to determine which approach yields the best results.
+
+## Safety precautions
+
+While operating your humanoid robot BETA, it is important to take the necessary safety precautions to prevent injury or damage to the robot or its surroundings. Please read the following guidelines carefully before using the robot:
+
+    Supervision: Always supervise the robot when it is in use. Do not leave the robot unattended around small children or pets.
+
+    Operating environment: Use the robot in a safe and controlled environment. Avoid using the robot near stairs, ledges, or other hazards that could cause the robot to fall or be damaged.
+
+    Power source: Only use the power source specified in the documentation. Do not use unauthorized power sources or chargers, as this could damage the robot or cause a fire.
+
+    Servo control: When controlling the robot's servos, be aware of their range of motion and potential speed. Do not exceed the recommended range or speed, as this could damage the robot or cause it to malfunction.
+
+    Maintenance: Regularly inspect the robot for wear and tear such as loose screws, frayed wires, or damaged components. If any issues are found, take the necessary steps to repair or replace the affected parts.
+
+    Transport: When transporting the robot, make sure it is securely fastened and protected from damage.
+
+By following these safety precautions, you can help ensure the safe and reliable operation of your humanoid robot BETA.
