@@ -25,7 +25,7 @@
 
 BETA is an ambitious undertaking that seeks to develop a humanoid robot possessing a range of human-like capabilities, including the ability to walk, see, and communicate verbally.
 
-Conceived in 2018, the project has undergone several transformations and upgrades over the years. Presently, it is being developed as part of the "[Koło Naukowe Humanoid](https://www.facebook.com/KNHStyleOfficial)" student scientific association, where updates on its progress and new features are regularly shared.
+Conceived in 2018, the project has undergone several transformations and upgrades over the years. Currently, it is being developed as part of the *"Koło Naukowe Humanoid"* student research circle. Updates on its progress and new features are regularly shared on the group's [Facebook page](https://www.facebook.com/KNHStyleOfficial).
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/110100322/230668078-4c8fa947-df42-4cb7-8807-3819f159b147.gif" width=60%>
@@ -43,7 +43,7 @@ Conceived in 2018, the project has undergone several transformations and upgrade
 
 ### Programming language
 
-The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, many libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition capabilities.
+The programming language of choice for the project is Python. This decision was made because of its ease of use, large community, large number of libraries and frameworks and cross-platform compatilibity. Additionally, Python is a versatile language that can be used to develop a wide range of applications, including those that are used for the control of the robot's servos, the implementation of its vision system, and the development of its speech recognition capabilities.
 
 ### Used libraries
 
