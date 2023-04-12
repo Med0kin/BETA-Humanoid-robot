@@ -144,7 +144,7 @@ class Servo:
 
     def wave(self):
         loop = ['p13', 'mach2', 'mach1', 'mach2','mach1', 'mach2', 'p13']
-        self.setsequence(loop)
+        self.setsequence(loop, 0.5)
 
 
     def walk(self):
