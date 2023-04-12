@@ -335,7 +335,7 @@ class Window(QWidget):
 
             for txt in s2t_text_list:
                 if txt in ["cześć", "hej", "witaj", "siema"]:
-                    self.expression = "none"
+                    servo.acrobate("wave")
                 elif txt == ("mrugaj"):
                     self.expression = "blinking"
                 elif txt == ("podejrzyj"):
