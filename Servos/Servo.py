@@ -143,7 +143,7 @@ class Servo:
         self.setsequence(act5, 1)
 
     def wave(self):
-        loop = ['pr', 'mach2', 'mach1', 'mach2', 'mach1', 'mach2', 'pr']
+        loop = ['pr1', 'mach2', 'mach1', 'mach2', 'mach1', 'mach2', 'pr1']
         self.setsequence(loop, 0.5)
 
 
