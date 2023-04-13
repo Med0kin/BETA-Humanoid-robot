@@ -124,7 +124,7 @@ One possible solution to address this issue is to utilize an application program
 
 ## Pose estimation
 
-For the purpose of pose estimation, the project team has chosen to use ArUco trackers, which are part of the OpenCV library. This is because ArUco markers are an efficient and accurate type of fiducial marker that can be easily detected and identified in image or video streams. By attaching multiple ArUco markers to the robot's limbs and joints, the position and orientation of these markers can be tracked to estimate the robot's pose with a high degree of accuracy.
+For the purpose of pose estimation, the project team has chosen to use ArUco trackers, which are part of the OpenCV library. This is because ArUco markers are an efficient and accurate type of fiducial marker that can be easily detected and identified in image or video streams. By attaching multiple ArUco markers to the human's limbs and joints, the position and orientation of these markers can be tracked to estimate the robot's pose with a high degree of accuracy.
 
 <p align="center">
   <img src="https://i.imgur.com/AFKgGQ0.jpg" width=50%>
