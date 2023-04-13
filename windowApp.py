@@ -17,8 +17,10 @@ import time
 """
 PySide2 app for controlling robot
 """
+
+
+# Window class for the app
 class Window(QWidget):
-    # d(-_-)b ~-=< INITIALIZATION >=-~ d(-_-)b
     def __init__(self):
         super(Window, self).__init__()
         self.setWindowTitle("Robot Control")
@@ -39,7 +41,7 @@ class Window(QWidget):
         self.show()
 
 
-    # d(-_-)b ~-=< USER INTERFACE >=-~ d(-_-)b
+# Setup UI
     def setup_UI(self):
 
 
@@ -67,8 +69,11 @@ class Window(QWidget):
         self.mainLayout.addLayout(self.rightLayout, 10)
         self.setLayout(self.mainLayout)
 
+        # Text box
         self.create_text_box()
         self.change_text("Welcome to the robot control app!")
+
+        # Add face and reactions
         self.face_functionality()
         self.react_to_text()
 
@@ -78,7 +83,7 @@ class Window(QWidget):
                     border-radius: 10px; border: 2px solid grey;\
                     padding: 10px; margin: 10px; text-align: center;"
         
-        # Main menu buttons
+        # MAIN MENU BUTTONS
         self.btns = QButtonGroup(self)
         btn = []
         for i, name in enumerate(["Camera", "Pose Estimation", "Button 3","Quit"]):
@@ -90,6 +95,7 @@ class Window(QWidget):
             self.rightLayout.addWidget(btn[i])
             self.btns.addButton(btn[i], i)
 
+        # Add button functionality
         # Can't figure out how to add this to for loop above without getting error
         btn[0].clicked.connect(lambda: self.btn_clickMain(0))
         btn[1].clicked.connect(lambda: self.btn_clickMain(1))
@@ -98,7 +104,7 @@ class Window(QWidget):
 
 
 
-        # Camera buttons
+        # CAMERA BUTTONS
         self.btns1 = QButtonGroup(self)
         btn1 = []
         for i, name in enumerate(["Pause", "Back"]):
@@ -110,11 +116,12 @@ class Window(QWidget):
             self.rightLayout.addWidget(btn1[i])
             self.btns1.addButton(btn1[i], i)
 
+        # Add button functionality
         btn1[0].clicked.connect(lambda: self.btn_click1(0))
         btn1[1].clicked.connect(lambda: self.btn_click1(1))
 
 
-        # Pose Estimation buttons
+        # POSE ESTIMATION BUTTONS
         self.btns2 = QButtonGroup(self)
         btn2 = []
         for i, name in enumerate(["Turned Off", "Back"]):
@@ -126,14 +133,19 @@ class Window(QWidget):
             self.rightLayout.addWidget(btn2[i])
             self.btns2.addButton(btn2[i], i)
 
+        # Add button functionality
         btn2[0].clicked.connect(lambda: self.btn_click2(0))
         btn2[1].clicked.connect(lambda: self.btn_click2(1))
 
+        # Assign button count to each button group
         self.btns_count = {self.btns: btn_count, self.btns1: btn1_count, self.btns2: btn2_count}
+
+        # Hide all buttons except main menu for start
         self.hide_buttons(self.btns1)
         self.hide_buttons(self.btns2)
 
 
+    # Turn on face functionality
     def face_functionality(self):
         # default expression
         self.expression = "blinking"
@@ -141,7 +153,8 @@ class Window(QWidget):
         self.create_image()
         self.make_robot_expressions()
 
-        # d(-_-)b ~-=< BUTTON FUNCTIONALITY >=-~ d(-_-)b
+    
+    # BUTTONS REACTIONS
     def btn_clickMain(self, id):
 
         self.expression = "peeking"
@@ -221,9 +234,6 @@ class Window(QWidget):
             self.img_label.show()
 
 
-
-    # d(-_-)b ~-=< FUNCTIONS >=-~ d(-_-)b
-
     # Hides all buttons in a btnsGroup
     def hide_buttons(self, btnsGroup):
         for i in range(self.btns_count[btnsGroup]):
@@ -250,6 +260,7 @@ class Window(QWidget):
         self.img_label.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.img_label)
 
+    # Changes the image in the left layout
     def change_image(self, image):
         pixmap = QPixmap(image + ".png")
         pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
@@ -265,17 +276,15 @@ class Window(QWidget):
         self.text_label.setFont(font)
         # Change text color
         self.text_label.setStyleSheet("color: #00accc")
-        # Set maximum width
-        #self.text_label.setFixedWidth(400)
-        #self.text_label.wordWrap(True)
         # Set text alignment
         self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
         self.leftLayout.addWidget(self.text_label)
-        
+    
+    # Changes the text in the left layout
     def change_text(self, text):
         self.text_label.setText(text)
 
-    # d(-_-)b ~-=< THREADS >=-~ d(-_-)b
+    # FUCNTIONS FOR THREADS
     def make_robot_expressions(self):
         self.expression_thread_running = True
         self.expression_thread = threading.Thread(target=self.express)
@@ -297,7 +306,7 @@ class Window(QWidget):
         print("react thread joined")
         s2t.close_thread()
 
-    # d(-_-)b ~-=< EXPRESSIONS and REACTIONS (happens in thread) >=-~ d(-_-)b
+    # EXPRESSIONS (happens in thread)
     def express(self):
         while True:
             if self.expression == "none":
@@ -322,7 +331,7 @@ class Window(QWidget):
                 print("expression thread stopped!")
                 break
 
-
+    # REACT TO TEXT (happens in thread)
     def react(self):
         while True:
 
