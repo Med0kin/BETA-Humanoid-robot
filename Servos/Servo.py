@@ -142,6 +142,10 @@ class Servo:
         self.setsequence(act4, 4)
         self.setsequence(act5, 1)
 
+    def wave(self):
+        loop = ['pr', 'mach2', 'mach1', 'mach2', 'mach1', 'mach2', 'pr']
+        self.setsequence(loop, 0.5)
+
 
     def walk(self):
         loop = ['p13', 'ch12', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
@@ -170,6 +174,9 @@ class Servo:
                 self.acrobations = ""
             elif self.acrobations == "endlesswalking":
                 self.endlesswalking()
+                self.acrobations = ""
+            elif self.acrobations == "wave":
+                self.wave()
                 self.acrobations = ""
             else:
                 time.sleep(0.5)
