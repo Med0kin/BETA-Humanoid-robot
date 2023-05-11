@@ -8,6 +8,9 @@ from pose_engine import PoseEngine
 import time
 import threading
 
+jpg = None
+poses = None
+
 def thread():
     global jpg
     global poses
@@ -23,9 +26,6 @@ thread = threading.Thread(target=thread)
 time.sleep(1)
 thread.start()
 while True:
-    global jpg
-    global poses
-
     ret, frame = video.read()
     if not ret:
         print("empty frame")
