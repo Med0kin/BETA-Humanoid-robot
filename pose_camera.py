@@ -118,6 +118,12 @@ def run(inf_callback, render_callback):
     engine = PoseEngine(model)
     input_shape = engine.get_input_tensor_shape()
     inference_size = (input_shape[2], input_shape[1])
+    poses, inference_time = engine.ParseOutput()
+    for pose in poses:
+        print('Pose Score: ', pose.score)
+        for label, keypoint in pose.keypoints.items():
+            print(' %-20s x=%-4d y=%-4d score=%.1f' %
+                  (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
 
     gstreamer.run_pipeline(partial(inf_callback, engine), partial(render_callback, engine),
                            src_size, inference_size,
