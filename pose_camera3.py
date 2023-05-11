@@ -6,20 +6,35 @@ from PIL import Image
 from PIL import ImageDraw
 from pose_engine import PoseEngine
 import time
+import threading
+
+def thread():
+    global jpg
+    global poses
+    while True:
+        if jpg is not None:
+            poses, _ = engine.DetectPosesInImage(jpg)
+
+
 
 engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
 video = cv2.VideoCapture("/dev/video0")
+thread = threading.Thread(target=thread)
 time.sleep(1)
+thread.start()
 while True:
+    global jpg
+    global poses
+
     ret, frame = video.read()
     if not ret:
         print("empty frame")
         break
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = cv2.resize(cv2.flip(frame, 1), (640, 480))
     jpg = Image.fromarray(frame).convert('RGB')
 
-    poses, _ = engine.DetectPosesInImage(jpg)
+    #poses, _ = engine.DetectPosesInImage(jpg)
     for pose in poses:
         print('\nPose Score: ', pose.score)
         for label, keypoint in pose.keypoints.items():
@@ -32,6 +47,8 @@ while True:
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
+        thread.stop()
         break
+thread.join()
 video.release()
 cv2.destroyAllWindows()
