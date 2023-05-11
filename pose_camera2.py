@@ -123,7 +123,6 @@ def run(inf_callback, render_callback):
     
     print('Inference size: ', inference_size)
     print('Input shape: ', input_shape)
-    print('Output shape: ', engine.get_output_tensor_shape())
     print('Setup camera...')
     video = cv2.VideoCapture("/dev/video0")
     time.sleep(1)
