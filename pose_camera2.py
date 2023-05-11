@@ -138,13 +138,16 @@ def run(inf_callback, render_callback):
         # frame = frame.astype(np.uint8)
         # engine.run_inference(frame)
         # print(poses)
-        poses, _ = engine.DetectPosesInImage(frame)
 
-        for pose in poses:
-            print('\nPose Score: ', pose.score)
-            for label, keypoint in pose.keypoints.items():
-                print(' %-20s x=%-4d y=%-4d score=%.1f' %
-                      (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
+        # poses, _ = engine.DetectPosesInImage(frame)
+
+        # for pose in poses:
+        #     print('\nPose Score: ', pose.score)
+        #     for label, keypoint in pose.keypoints.items():
+        #         print(' %-20s x=%-4d y=%-4d score=%.1f' %
+        #               (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
+
+        print(type(frame))
                 
         cv2.imshow("Frame", cv2.resize(cv2.flip(frame, 1), (800, 600)))
 
