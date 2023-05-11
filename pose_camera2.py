@@ -121,20 +121,31 @@ def run(inf_callback, render_callback):
     inference_size = (input_shape[2], input_shape[1])
     poses, inference_time = engine.ParseOutput()
     
+    print('Inference size: ', inference_size)
+    print('Input shape: ', input_shape)
+    print('Output shape: ', engine.get_output_tensor_shape())
+    print('Setup camera...')
     video = cv2.VideoCapture("/dev/video0")
     time.sleep(1)
     while True:
         ret, frame = video.read()
         if not ret:
+            print("empty frame")
             break
         # display the frame
-        cv2.imshow("Frame", frame)
+        cv2.imshow("Frame", cv2.resize(cv2.flip(frame, 1), (800, 600)))
         # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # frame = cv2.resize(frame, inference_size)
         # frame = np.expand_dims(frame, axis=0)
         # frame = frame.astype(np.uint8)
         # engine.run_inference(frame)
-        # print(poses)r
+        # print(poses)
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord("q"):
+            break
+    video.release()
+    cv2.destroyAllWindows()
 
 
         
