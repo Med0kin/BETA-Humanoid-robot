@@ -132,9 +132,8 @@ def run(inf_callback, render_callback):
             print("empty frame")
             break
         # display the frame
-        cv2.imshow("Frame", cv2.resize(cv2.flip(frame, 1), (800, 600)))
         # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frame = cv2.resize(frame, inference_size)
+        frame = cv2.resize(cv2.flip(frame, 1), (640, 480))
         # frame = np.expand_dims(frame, axis=0)
         # frame = frame.astype(np.uint8)
         # engine.run_inference(frame)
