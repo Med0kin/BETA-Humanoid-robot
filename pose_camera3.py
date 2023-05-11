@@ -7,7 +7,7 @@ from PIL import ImageDraw
 from pose_engine import PoseEngine
 import time
 
-engine = PoseEngine('models/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
+engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
 video = cv2.VideoCapture("/dev/video0")
 time.sleep(1)
 while True:
