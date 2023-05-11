@@ -27,7 +27,7 @@ while True:
                   (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
             # if keypoint.score > 0.2:
                 # frame = cv2.circle(frame, (keypoint.point[0], keypoint.point[1]), 5, (0, 0, 255), -1)
-    
+            print(type(keypoint.point[0]))
             
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
