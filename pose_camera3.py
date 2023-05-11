@@ -27,12 +27,12 @@ thread = threading.Thread(target=thread)
 time.sleep(1)
 thread.start()
 while True:
-    ret, frame = video.read()
+    ret, frame_pure = video.read()
     if not ret:
         print("empty frame")
         break
     #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    frame = cv2.resize(cv2.flip(frame, 1), (640, 480))
+    frame = cv2.resize(cv2.flip(frame_pure, 1), (640, 480))
     #poses, _ = engine.DetectPosesInImage(jpg)
     if poses is not None:
         for pose in poses:
@@ -47,7 +47,6 @@ while True:
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
-        thread.stop()
         break
 thread.join()
 video.release()
