@@ -134,11 +134,20 @@ def run(inf_callback, render_callback):
         # display the frame
         cv2.imshow("Frame", cv2.resize(cv2.flip(frame, 1), (800, 600)))
         # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        # frame = cv2.resize(frame, inference_size)
+        frame = cv2.resize(frame, inference_size)
         # frame = np.expand_dims(frame, axis=0)
         # frame = frame.astype(np.uint8)
         # engine.run_inference(frame)
         # print(poses)
+        poses, _ = engine.DetectPosesInImage(frame)
+
+        for pose in poses:
+            print('\nPose Score: ', pose.score)
+            for label, keypoint in pose.keypoints.items():
+                print(' %-20s x=%-4d y=%-4d score=%.1f' %
+                      (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
+                
+        cv2.imshow("Frame", cv2.resize(cv2.flip(frame, 1), (800, 600)))
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord("q"):
