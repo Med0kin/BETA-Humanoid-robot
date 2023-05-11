@@ -551,7 +551,6 @@ class GstPipeline:
                 if not self.running:
                     break
                 output = self.output
-                print('Render thread: ', output)
                 self.output = None
 
             svg, freeze = self.render_callback(output, self.src_size, self.get_box())
