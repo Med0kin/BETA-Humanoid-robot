@@ -127,12 +127,14 @@ def run(inf_callback, render_callback):
         ret, frame = video.read()
         if not ret:
             break
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frame = cv2.resize(frame, inference_size)
-        frame = np.expand_dims(frame, axis=0)
-        frame = frame.astype(np.uint8)
-        engine.run_inference(frame)
-        print(poses)
+        # display the frame
+        cv2.imshow("Frame", frame)
+        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        # frame = cv2.resize(frame, inference_size)
+        # frame = np.expand_dims(frame, axis=0)
+        # frame = frame.astype(np.uint8)
+        # engine.run_inference(frame)
+        # print(poses)r
 
 
         
