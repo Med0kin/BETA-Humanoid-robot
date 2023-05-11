@@ -29,7 +29,7 @@ while True:
                 # frame = cv2.circle(frame, (keypoint.point[0], keypoint.point[1]), 5, (0, 0, 255), -1)
     
             
-    cv2.imshow("Frame", jpg)
+    cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
