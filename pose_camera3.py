@@ -15,7 +15,7 @@ while True:
     if not ret:
         print("empty frame")
         break
-    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = cv2.resize(cv2.flip(frame, 1), (640, 480))
     jpg = Image.fromarray(frame).convert('RGB')
 
@@ -25,8 +25,8 @@ while True:
         for label, keypoint in pose.keypoints.items():
             print(' %-20s x=%-4d y=%-4d score=%.1f' %
                   (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
-            frame = cv2.circle(frame, (keypoint.point[0], keypoint.point[1]), 5, (0, 0, 255), -1)
-    
+            if keypoint.score > 0.2:
+                frame = cv2.circle(frame, (keypoint.point[0], keypoint.point[1]), 5, (0, 0, 255), -1)
     
             
     cv2.imshow("Frame", frame)
