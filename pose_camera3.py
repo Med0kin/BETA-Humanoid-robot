@@ -8,14 +8,15 @@ from pose_engine import PoseEngine
 import time
 import threading
 
-jpg = None
+frame = None
 poses = None
 
 def thread():
-    global jpg
+    global frame
     global poses
     while True:
-        if jpg is not None:
+        if frame is not None:
+            jpg = Image.fromarray(frame).convert('RGB')
             poses, _ = engine.DetectPosesInImage(jpg)
 
 
@@ -32,17 +33,16 @@ while True:
         break
     #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = cv2.resize(cv2.flip(frame, 1), (640, 480))
-    jpg = Image.fromarray(frame).convert('RGB')
-
     #poses, _ = engine.DetectPosesInImage(jpg)
-    for pose in poses:
-        print('\nPose Score: ', pose.score)
-        for label, keypoint in pose.keypoints.items():
-            print(' %-20s x=%-4d y=%-4d score=%.1f' %
-                  (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
-            if keypoint.score > 0.2:
-                frame = cv2.circle(frame, (round(keypoint.point[0]), round(keypoint.point[1])), 5, (0, 0, 255), -1)
-            print(type(round(keypoint.point[0])))
+    if poses is not None:
+        for pose in poses:
+            print('\nPose Score: ', pose.score)
+            for label, keypoint in pose.keypoints.items():
+                print(' %-20s x=%-4d y=%-4d score=%.1f' %
+                    (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
+                if keypoint.score > 0.2:
+                    frame = cv2.circle(frame, (round(keypoint.point[0]), round(keypoint.point[1])), 5, (0, 0, 255), -1)
+                print(type(round(keypoint.point[0])))
             
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
