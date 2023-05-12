@@ -102,6 +102,7 @@ def callback():
 
 root.protocol("WM_DELETE_WINDOW", callback)
 root.title('BETA Servo Manager')
+root.geometry("800x600")
 
 
 bcg = "#3D82F0"
