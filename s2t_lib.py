@@ -9,7 +9,7 @@ import time
 class speech_to_text():
     def __init__(self):
         browserDIR = "--user-data-dir=/home/pi/.config/chromium/Default"
-        webdriverDIR = "/usr/lib/chromium-browser/chromedriver"
+        webdriverDIR = r"/usr/lib/chromium-browser/chromedriver"
         # C:\Users\Shinken\AppData\Local\Google\Chrome\User Data\Default
         options = Options()
         options.add_argument(browserDIR)
