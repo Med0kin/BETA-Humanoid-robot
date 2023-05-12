@@ -328,12 +328,13 @@ class Window(QWidget):
 
     # REACT TO TEXT (happens in thread)
     def react(self):
+        old_text = None
         while True:
 
             s2t_text_list = s2t.s2t_text.lower().split()
-            if old_text == s2t_text_list:
+            if s2t_text_list == old_text:
                 continue
-            
+
             text_received = s2t.s2t_text
             if len(text_received) > 30:
                 text_received = text_received[:30] + "..."
