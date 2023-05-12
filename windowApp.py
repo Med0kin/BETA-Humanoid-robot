@@ -86,7 +86,7 @@ class Window(QWidget):
         # MAIN MENU BUTTONS
         self.btns = QButtonGroup(self)
         btn = []
-        for i, name in enumerate(["Camera", "Pose Estimation", "Button 3","Quit"]):
+        for i, name in enumerate(["Camera", "Pose Estimation", "Arms Control","Quit"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
@@ -176,12 +176,7 @@ class Window(QWidget):
         elif id == 2:
             # Button 3
             # disable/enable blinking
-            if self.expression == "blinking":
-                self.expression = "none"
-                self.btns.button(2).setText("Enable Blinking")
-            else:
-                self.expression = "blinking"
-                self.btns.button(2).setText("Disable Blinking")
+            os.system('python3 ServoApp1.py')
         elif id == 3:
             # Quit
             self.stop_threads()
@@ -336,7 +331,9 @@ class Window(QWidget):
         while True:
 
             s2t_text_list = s2t.s2t_text.lower().split()
-
+            if old_text == s2t_text_list:
+                continue
+            
             text_received = s2t.s2t_text
             if len(text_received) > 30:
                 text_received = text_received[:30] + "..."
@@ -360,6 +357,8 @@ class Window(QWidget):
             if self.react_thread_running == False:
                 print("react thread stopped!")
                 break
+            old_text = s2t_text_list
+
             
 
     # Camera capture setup
