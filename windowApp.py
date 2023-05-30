@@ -5,19 +5,31 @@ from PySide2.QtWidgets import *
 from PySide2.QtGui import *
 from PySide2.QtCore import *
 import qimage2ndarray
-import pose_estim_lib as pe
-import s2t_lib
+#import pose_estim_lib as pe
+#import s2t_lib
 import numpy as np
 import threading
-from Servos.Servo import Servo
-import arm_kinematics_lib as ak
+#from Servos.Servo import Servo
+#import arm_kinematics_lib as ak
 
 import cv2
 import time
 """
 PySide2 app for controlling robot
 """
+class PicButton(QAbstractButton):
+    def __init__(self, pixmap, parent=None):
+        super(PicButton, self).__init__(parent)
+        self.pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
 
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.drawPixmap(event.rect(), self.pixmap)
+
+    def sizeHint(self):
+        return self.pixmap.size()
+    
+    
 
 # Window class for the app
 class Window(QWidget):
@@ -28,6 +40,8 @@ class Window(QWidget):
         self.width = 800
         self.height = 600
         self.setGeometry(100, 100, self.width, self.height)
+
+        self.language = "pl"
 
         self.video_size = QSize(608, 456)
         self.camera_mode = 0
@@ -52,183 +66,178 @@ class Window(QWidget):
         self.setWindowIcon(QIcon("icon.png"))
         self.setStyleSheet("background-color: white;")
 
-        # Left and right layouts
-        self.leftLayout = QGridLayout()
-        self.rightLayout = QVBoxLayout()
+        # Layouts
+        self.main_layout = QHBoxLayout()
+        self.left_layout = QStackedLayout()
+        self.head_container = QWidget()
+        self.head_layout = QGridLayout(self.head_container)
+        self.settings_contrainer = QWidget()
+        self.settings_layout = QGridLayout(self.settings_contrainer)
+        self.right_layout = QVBoxLayout()
 
         # Video stream label
-        self.camera_label = QLabel()
-        self.camera_label.setFixedSize(self.video_size)
-        self.setup_camera()
-        self.leftLayout.addWidget(self.camera_label)
-        self.camera_label.hide()
+        #self.camera_label = QLabel()
+        #self.camera_label.setFixedSize(self.video_size)
+        #self.setup_camera()
+        #self.leftLayout.addWidget(self.camera_label)
+        #self.camera_label.hide()
 
-        # Main layout
-        self.mainLayout = QHBoxLayout()
-        self.mainLayout.addLayout(self.leftLayout, 40)
-        self.mainLayout.addLayout(self.rightLayout, 10)
-        self.setLayout(self.mainLayout)
+        # Layouts configuration
+        self.main_layout.addLayout(self.left_layout, 40)
+        self.main_layout.addLayout(self.right_layout, 20)
+        self.left_layout.addWidget(self.settings_contrainer)
+        self.left_layout.addWidget(self.head_container)
+        self.left_layout.setCurrentIndex(1)
+        self.setLayout(self.main_layout)
+
+        # Settings
+        self.setup_settings()
 
         # Text box
-        self.create_text_box()
+        self.setup_text()
         self.change_text("Welcome to the robot control app!")
 
         # Add face and reactions
+        self.setup_image()
         self.face_functionality()
-        self.react_to_text()
+        #self.react_to_text()
 
-        # Buttons style and font
+        # Buttons
+        self.setup_buttons()
+
+    def setup_settings(self):
+        self.pl_button = PicButton(QPixmap("flag_pl.png"))
+        self.pl_button.clicked.connect(lambda: self.change_language("pl"))
+        self.us_button = PicButton(QPixmap("flag_us.png"))
+        self.us_button.clicked.connect(lambda: self.change_language("us"))
+        self.cs_button = PicButton(QPixmap("flag_cs.png"))
+        self.cs_button.clicked.connect(lambda: self.change_language("cs"))
+        self.settings_layout.addWidget(self.pl_button)
+        self.settings_layout.addWidget(self.us_button)
+        self.settings_layout.addWidget(self.cs_button)
+        self.settings_layout.setAlignment(Qt.AlignCenter)
+
+
+    def change_language(self, language):
+        self.language = language
+
+    def setup_buttons(self):
+        # STYLE
         btn_font = QFont("System", 12)        
-        button_style = "background-color: #00accc; font: 20px;\
+        button_style = "QPushButton { background-color: #00accc; font: 60px;\
                     border-radius: 10px; border: 2px solid grey;\
-                    padding: 10px; margin: 10px; text-align: center;"
+                    padding: 10px; margin: 10px; text-align: center; }\
+                    QPushButton:pressed { background-color: #005666; }"
         
         # MAIN MENU BUTTONS
         self.btns = QButtonGroup(self)
         btn = []
-        for i, name in enumerate(["Camera", "Pose Estimation", "Arms Control","Quit"]):
+        for i, name in enumerate(["Camera", "Arms Control", "Settings", "Quit"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
             btn.append(btn_temp)
             btn_count = i+1
-            self.rightLayout.addWidget(btn[i])
+            self.right_layout.addWidget(btn[i])
             self.btns.addButton(btn[i], i)
-
         # Add button functionality
-        # Can't figure out how to add this to for loop above without getting error
-        btn[0].clicked.connect(lambda: self.btn_clickMain(0))
-        btn[1].clicked.connect(lambda: self.btn_clickMain(1))
-        btn[2].clicked.connect(lambda: self.btn_clickMain(2))
-        btn[3].clicked.connect(lambda: self.btn_clickMain(3))
+        # ISSUE: Can't figure out how to add this to for loop above without getting error
+        btn[0].clicked.connect(lambda: self.btn_click(0))
+        btn[1].clicked.connect(lambda: self.btn_click(1))
+        btn[2].clicked.connect(lambda: self.btn_click(2))
+        btn[3].clicked.connect(lambda: self.btn_click(3))
 
 
 
         # CAMERA BUTTONS
-        self.btns1 = QButtonGroup(self)
-        btn1 = []
-        for i, name in enumerate(["Pause", "Back"]):
+        self.btns_cam = QButtonGroup(self)
+        btn_cam = []
+        for i, name in enumerate(["Aruco", "Control", "Back"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
-            btn1.append(btn_temp)
-            btn1_count = i+1
-            self.rightLayout.addWidget(btn1[i])
-            self.btns1.addButton(btn1[i], i)
-
+            btn_cam.append(btn_temp)
+            btn_cam_count = i+1
+            self.right_layout.addWidget(btn_cam[i])
+            self.btns_cam.addButton(btn_cam[i], i)
         # Add button functionality
-        btn1[0].clicked.connect(lambda: self.btn_click1(0))
-        btn1[1].clicked.connect(lambda: self.btn_click1(1))
+        btn_cam[0].clicked.connect(lambda: self.btn_cam_click(0))
+        btn_cam[1].clicked.connect(lambda: self.btn_cam_click(1))
+        btn_cam[2].clicked.connect(lambda: self.btn_cam_click(2))
 
 
-        # POSE ESTIMATION BUTTONS
-        self.btns2 = QButtonGroup(self)
-        btn2 = []
-        for i, name in enumerate(["Turned Off", "Back"]):
+        # CONFIGURATION BUTTONS
+        self.btns_cfg = QButtonGroup(self)
+        btn_cfg = []
+        for i, name in enumerate(["Back"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
-            btn2.append(btn_temp)
-            btn2_count = i+1
-            self.rightLayout.addWidget(btn2[i])
-            self.btns2.addButton(btn2[i], i)
-
+            btn_cfg.append(btn_temp)
+            btn_cfg_count = i+1
+            self.right_layout.addWidget(btn_cfg[i])
+            self.btns_cfg.addButton(btn_cfg[i], i)
         # Add button functionality
-        btn2[0].clicked.connect(lambda: self.btn_click2(0))
-        btn2[1].clicked.connect(lambda: self.btn_click2(1))
+        btn_cfg[0].clicked.connect(lambda: self.btn_cfg_click(0))
 
+        # ENDING SETUP
         # Assign button count to each button group
-        self.btns_count = {self.btns: btn_count, self.btns1: btn1_count, self.btns2: btn2_count}
+        self.btns_count = {self.btns: btn_count, self.btns_cam: btn_cam_count, self.btns_cfg: btn_cfg_count}
 
         # Hide all buttons except main menu for start
-        self.hide_buttons(self.btns1)
-        self.hide_buttons(self.btns2)
-
-
-    # Turn on face functionality
-    def face_functionality(self):
-        # default expression
-        self.expression = "blinking"
-        # Image
-        self.create_image()
-        self.make_robot_expressions()
+        self.hide_buttons(self.btns_cam)
+        self.hide_buttons(self.btns_cfg)
 
     
     # BUTTONS REACTIONS
-    def btn_clickMain(self, id):
-
+    def btn_click(self, id):
         self.expression = "peeking"
         # Main menu
-        if id == 0:
-            # Camera
-            self.swap_buttons(self.btns, self.btns1)
+        if id == 0: # Camera
+            self.swap_buttons(self.btns, self.btns_cam)
             # Show video stream & hide image
             self.img_label.hide()
             self.timer.start(30)
             self.camera_label.show()
-        elif id == 1:
-            # Pose Estimation
-            self.swap_buttons(self.btns, self.btns2)
-            # Show video stream & hide image
-            self.img_label.hide()
-            self.timer.start(30)
-            self.camera_label.show()
-        elif id == 2:
-            # Button 3
-            # disable/enable blinking
+        elif id == 1: # Arms control
+            # Arms control
             os.system('python3 ServoApp1.py')
-        elif id == 3:
-            # Quit
+        elif id == 2: # Settings
+            self.swap_buttons(self.btns, self.btns_cfg)
+            self.left_layout.setCurrentIndex(0)
+
+        elif id == 3: # Quit
             self.stop_threads()
             self.close()
 
-    def btn_click1(self, id):
+    def btn_cam_click(self, id):
         self.expression = "blinking"
         if id == 0:
             # Pause video stream or resume
             if self.timer.isActive():
                 self.timer.stop()
                 # Change button text
-                self.btns1.button(0).setText("Resume")
+                self.btns_cam.button(0).setText("Resume")
             else:
                 self.timer.start(30)
                 # Change button text
-                self.btns1.button(0).setText("Pause")
+                self.btns_cam.button(0).setText("Pause")
         elif id == 1:
             # Back
-            self.swap_buttons(self.btns1, self.btns)
+            self.swap_buttons(self.btns_cam, self.btns)
             # Remove video stream
             self.timer.stop()
             self.camera_label.hide()
             self.img_label.show()
 
 
-    def btn_click2(self, id):
+    def btn_cfg_click(self, id):
         self.expression = "blinking"
-        # Button 1 menu
-        if id == 0:
+        if id == 0: # Back
+            self.swap_buttons(self.btns_cfg, self.btns)
+            self.left_layout.setCurrentIndex(1)
 
-            # Switch camera mode
-            if self.camera_mode == 0:
-                self.camera_mode = 1
-                self.btns2.button(0).setText("Pose Estim")
-            elif self.camera_mode == 1:
-                self.camera_mode = 2
-                self.btns2.button(0).setText("Follow Mark")
-            else:
-                self.camera_mode = 0
-                self.btns2.button(0).setText("Turned Off")
-
-        elif id == 1:
-            # Back
-            self.swap_buttons(self.btns2, self.btns)
-            self.camera_mode = 0
-            # Remove video stream
-            self.timer.stop()
-            self.camera_label.hide()
-            self.img_label.show()
-
-
+    ### BUTTONS FUNCTIONS
     # Hides all buttons in a btnsGroup
     def hide_buttons(self, btnsGroup):
         for i in range(self.btns_count[btnsGroup]):
@@ -244,8 +253,9 @@ class Window(QWidget):
         self.hide_buttons(btnsGroup1)
         self.show_buttons(btnsGroup2)
 
+    ### IMAGE AND TEXT
     # Creates an image and adds it to the left layout
-    def create_image(self):
+    def setup_image(self):
         self.img_label = QLabel('Image', self)
         #create path to image
         pixmap = QPixmap("neutral.png")
@@ -253,7 +263,7 @@ class Window(QWidget):
         pixmap = pixmap.scaled(400, 400, Qt.KeepAspectRatio)
         self.img_label.setPixmap(pixmap)
         self.img_label.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
-        self.leftLayout.addWidget(self.img_label)
+        self.head_layout.addWidget(self.img_label)
 
     # Changes the image in the left layout
     def change_image(self, image):
@@ -262,7 +272,7 @@ class Window(QWidget):
         self.img_label.setPixmap(pixmap)
 
     # Creates a text and adds it to the left layout
-    def create_text_box(self):
+    def setup_text(self):
         self.text_label = QLabel('Text', self)
         # Set font
         font = QFont()
@@ -273,14 +283,19 @@ class Window(QWidget):
         self.text_label.setStyleSheet("color: #00accc")
         # Set text alignment
         self.text_label.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
-        self.leftLayout.addWidget(self.text_label)
+        self.head_layout.addWidget(self.text_label)
     
     # Changes the text in the left layout
     def change_text(self, text):
         self.text_label.setText(text)
 
-    # FUCNTIONS FOR THREADS
-    def make_robot_expressions(self):
+
+    ### THREADS HANDLING
+    # Turn on face functionality
+    def face_functionality(self):
+        # Defult expression
+        self.expression = "blinking"
+        # Start expression thread
         self.expression_thread_running = True
         self.expression_thread = threading.Thread(target=self.express)
         self.expression_thread.start()
@@ -297,10 +312,11 @@ class Window(QWidget):
         print("expression thread joined")
         self.react_thread_running = False
         print("react thread stopped")
-        self.react_thread.join()
+        #self.react_thread.join()
         print("react thread joined")
-        s2t.close_thread()
+        #s2t.close_thread()
 
+    ### FUNCTIONS PASSED TO THREADS
     # EXPRESSIONS (happens in thread)
     def express(self):
         while True:
@@ -325,7 +341,7 @@ class Window(QWidget):
             if self.expression_thread_running == False:
                 print("expression thread stopped!")
                 break
-
+'''
     # REACT TO TEXT (happens in thread)
     def react(self):
         old_text = None
@@ -360,7 +376,7 @@ class Window(QWidget):
                 break
             old_text = s2t_text_list
 
-            
+    
 
     # Camera capture setup
     def setup_camera(self):
@@ -427,18 +443,18 @@ class Window(QWidget):
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
         if round(servo.get(0)) != round(servo_angle4):
             servo.set(0, round(-servo_angle4))
-
+'''
 
 # Main
-servo = Servo()
-servo.setimport("p13")
-s2t = s2t_lib.speech_to_text()
+#servo = Servo()
+#servo.setimport("p13")
+#s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()
 myapp.exec_()
 # Release the video capture
-window.video.release()
+#window.video.release()
 # Close threads
-servo.callback()
+#servo.callback()
 # Close the app
 sys.exit()
