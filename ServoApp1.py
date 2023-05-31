@@ -68,7 +68,7 @@ def exportpos():
     global filename
     global filenamevar
     filename = filenamevar.get()
-    filename = filename + '.txt'
+    filename = '/home/pi/BETA-Humanoid-robot/Positions/' + filename + '.txt'
     with open(filename, 'w') as f:
         for i in range(len(armspos)):
             f.write("%d %d\n" % (i, armspos[i]))
@@ -80,7 +80,7 @@ def importpos():
     global filename
     global filenamevar
     filename = filenamevar.get()
-    filename = filename + '.txt'
+    filename = '/home/pi/BETA-Humanoid-robot/Positions/' + filename + '.txt'
     armspos = [0, 0, 0, 0, 0, 0, 0, 0]
     with open(filename, 'r') as f:
         for i in range(len(armspos)):
