@@ -36,14 +36,13 @@ class speech_to_text():
         self.get_text_thread.start()
         self.s2t_text = ''
 
-
     def get_text(self):
         while True:
             if self.textbox.text != '':
                 print(self.textbox.text)
                 self.s2t_text = self.textbox.text
                 self.clear()
-            if self.get_text_thread_running == False:
+            if not self.get_text_thread_running:
                 print("get_text_thread stoped")
                 break
     def close_thread(self):
@@ -53,11 +52,11 @@ class speech_to_text():
 
     def change_language(self, language: str) -> None:
         self.stt.find_element("xpath", "//div[@class='styles_navEnd__ys5VT']//button[1]//span[1]").click()
-        if(language == "en"):
+        if(language == "us"):
             self.stt.find_element("xpath", "//li[contains(@value,'en')]//span[contains(@class,'styles_rippleSpan__M7thf')]").click()
         elif(language == "pl"):
             self.stt.find_element("xpath", "//li[contains(@value,'pl')]//span[contains(@class,'styles_rippleSpan__M7thf')]").click()
-        elif(language == "cz"):
+        elif(language == "cs"):
             self.stt.find_element("xpath", "//li[contains(@value,'cs')]//span[contains(@class,'styles_rippleSpan__M7thf')]").click()
         else:
             raise Exception("Language not supported")
