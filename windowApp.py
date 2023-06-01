@@ -73,13 +73,15 @@ class Window(QWidget):
         self.head_layout = QGridLayout(self.head_container)
         self.settings_contrainer = QWidget()
         self.settings_layout = QGridLayout(self.settings_contrainer)
+        self.cam_container = QWidget()
+        self.cam_layout = QVBoxLayout(self.cam_container)
         self.right_layout = QVBoxLayout()
 
         # Video stream label
         self.camera_label = QLabel()
         self.camera_label.setFixedSize(self.video_size)
         self.setup_camera()
-        self.leftLayout.addWidget(self.camera_label)
+        self.cam_layout.addWidget(self.camera_label)
         self.camera_label.hide()
 
         # Layouts configuration
@@ -87,6 +89,7 @@ class Window(QWidget):
         self.main_layout.addLayout(self.right_layout, 20)
         self.left_layout.addWidget(self.settings_contrainer)
         self.left_layout.addWidget(self.head_container)
+        self.left_layout.addWidget(self.cam_container)
         self.left_layout.setCurrentIndex(1)
         self.setLayout(self.main_layout)
 
