@@ -5,12 +5,12 @@ from PySide2.QtWidgets import *
 from PySide2.QtGui import *
 from PySide2.QtCore import *
 import qimage2ndarray
-#import pose_estim_lib as pe
-#import s2t_lib
+import pose_estim_lib as pe
+import s2t_lib
 import numpy as np
 import threading
-#from Servos.Servo import Servo
-#import arm_kinematics_lib as ak
+from Servos.Servo import Servo
+import arm_kinematics_lib as ak
 
 import cv2
 import time
@@ -76,11 +76,11 @@ class Window(QWidget):
         self.right_layout = QVBoxLayout()
 
         # Video stream label
-        #self.camera_label = QLabel()
-        #self.camera_label.setFixedSize(self.video_size)
-        #self.setup_camera()
-        #self.leftLayout.addWidget(self.camera_label)
-        #self.camera_label.hide()
+        self.camera_label = QLabel()
+        self.camera_label.setFixedSize(self.video_size)
+        self.setup_camera()
+        self.leftLayout.addWidget(self.camera_label)
+        self.camera_label.hide()
 
         # Layouts configuration
         self.main_layout.addLayout(self.left_layout, 40)
@@ -100,7 +100,7 @@ class Window(QWidget):
         # Add face and reactions
         self.setup_image()
         self.face_functionality()
-        #self.react_to_text()
+        self.react_to_text()
 
         # Buttons
         self.setup_buttons()
@@ -120,6 +120,7 @@ class Window(QWidget):
 
     def change_language(self, language):
         self.language = language
+        s2t.set_language(self.language)
 
     def setup_buttons(self):
         # STYLE
@@ -220,8 +221,6 @@ class Window(QWidget):
                 self.btns_cam.button(0).setText("Resume")
             else:
                 self.timer.start(30)
-                # Change button text
-                self.btns_cam.button(0).setText("Pause")
         elif id == 1:
             # Back
             self.swap_buttons(self.btns_cam, self.btns)
@@ -312,9 +311,9 @@ class Window(QWidget):
         print("expression thread joined")
         self.react_thread_running = False
         print("react thread stopped")
-        #self.react_thread.join()
+        self.react_thread.join()
         print("react thread joined")
-        #s2t.close_thread()
+        s2t.close_thread()
 
     ### FUNCTIONS PASSED TO THREADS
     # EXPRESSIONS (happens in thread)
@@ -341,7 +340,7 @@ class Window(QWidget):
             if self.expression_thread_running == False:
                 print("expression thread stopped!")
                 break
-'''
+
     # REACT TO TEXT (happens in thread)
     def react(self):
         old_text = None
@@ -443,18 +442,18 @@ class Window(QWidget):
         servo_angle4 = ak.get_servo4_angle(rot[1][0])
         if round(servo.get(0)) != round(servo_angle4):
             servo.set(0, round(-servo_angle4))
-'''
+
 
 # Main
-#servo = Servo()
-#servo.setimport("p13")
-#s2t = s2t_lib.speech_to_text()
+servo = Servo()
+servo.setimport("p13")
+s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()
 myapp.exec_()
 # Release the video capture
-#window.video.release()
+window.video.release()
 # Close threads
-#servo.callback()
+servo.callback()
 # Close the app
 sys.exit()
