@@ -109,12 +109,16 @@ class Window(QWidget):
         self.setup_buttons()
 
     def setup_settings(self):
-        self.pl_button = PicButton(QPixmap("flag_pl.png"))
+        self.pl_button = PicButton(QPixmap("flag_pl.png").)
         self.pl_button.clicked.connect(lambda: self.change_language("pl"))
         self.us_button = PicButton(QPixmap("flag_us.png"))
         self.us_button.clicked.connect(lambda: self.change_language("us"))
         self.cs_button = PicButton(QPixmap("flag_cs.png"))
         self.cs_button.clicked.connect(lambda: self.change_language("cs"))
+        # resize
+        self.pl_button.setFixedSize(100, 100)
+        self.us_button.setFixedSize(100, 100)
+        self.cs_button.setFixedSize(100, 100)
         self.settings_layout.addWidget(self.pl_button)
         self.settings_layout.addWidget(self.us_button)
         self.settings_layout.addWidget(self.cs_button)
