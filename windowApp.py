@@ -119,11 +119,14 @@ class Window(QWidget):
         self.settings_layout.addWidget(self.us_button)
         self.settings_layout.addWidget(self.cs_button)
         self.settings_layout.setAlignment(Qt.AlignCenter)
+        # set press button reaction
+
 
 
     def change_language(self, language):
         self.language = language
         s2t.set_language(self.language)
+        print("Language changed to: " + self.language)
 
     def setup_buttons(self):
         # STYLE
