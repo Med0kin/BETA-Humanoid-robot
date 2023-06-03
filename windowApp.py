@@ -11,6 +11,7 @@ import numpy as np
 import threading
 from Servos.Servo import Servo
 import arm_kinematics_lib as ak
+import controllers
 
 import cv2
 import time
@@ -186,7 +187,7 @@ class Window(QWidget):
         # CAMERA BUTTONS
         self.btns_cam = QButtonGroup(self)
         btn_cam = []
-        for i, name in enumerate(["Aruco", "Control", "Back"]):
+        for i, name in enumerate(["Aruco", "Control", "Conctrolers", "Back"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
@@ -230,7 +231,6 @@ class Window(QWidget):
         if id == 0: # Camera
             self.swap_buttons(self.btns, self.btns_cam)
             # Show video stream & hide image
-            self.left_layout.setCurrentIndex(2)
             self.timer.start(30)
         elif id == 1: # Arms control
             os.system('python3 ServoApp1.py')
@@ -245,11 +245,18 @@ class Window(QWidget):
     def btn_cam_click(self, id):
         self.expression = "blinking"
         if id == 0:
+            self.left_layout.setCurrentIndex(2)
             self.timer.start(30)
-            self.img_label.show()
         elif id == 1:
+            self.left_layout.setCurrentIndex(2)
             self.timer.start(30)
         elif id == 2:
+            self.left_layout.setCurrentIndex(1)
+            self.timer2 = QTimer()
+            self.timer2.timeout.connect(self.walk_with_controller())
+            self.timer2.start(30)
+
+        elif id == 3:
             # Back
             self.swap_buttons(self.btns_cam, self.btns)
             # Remove video stream
@@ -522,6 +529,17 @@ class Window(QWidget):
             else:
                 servo.warking = False
 
+    def walk_with_controller(self):
+        right = controllers.received_r
+        left = controllers.received_t
+
+        if right[2] > 300 and left[2] > 300:
+            servo.acrobate("turn right")
+        elif right[2] < 240 and left[2] < 240:
+            servo.acrobate("turn left")
+        elif right[0] > 300 and left[0] > 300:
+            servo.acrobate("walk forward")
+
 
     def control_with_estimated_pose(self, id_list, loc, rot):
         # Rotation based
@@ -546,6 +564,7 @@ class Window(QWidget):
 
 # Main
 servo = Servo()
+controllers = controllers.Controllers()
 servo.setimport("p13")
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
