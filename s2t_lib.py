@@ -50,7 +50,7 @@ class speech_to_text():
         self.get_text_thread_running = False
         self.get_text_thread.join()
 
-    def change_language(self, language: str) -> None:
+    def set_language(self, language: str) -> None:
         self.stt.find_element("xpath", "//div[@class='styles_navEnd__ys5VT']//button[1]//span[1]").click()
         if(language == "us"):
             self.stt.find_element("xpath", "//li[contains(@value,'en')]//span[contains(@class,'styles_rippleSpan__M7thf')]").click()
