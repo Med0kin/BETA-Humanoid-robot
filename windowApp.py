@@ -260,6 +260,7 @@ class Window(QWidget):
             # Back
             self.swap_buttons(self.btns_cam, self.btns)
             # Remove video stream
+            self.timer2.stop()
             self.timer.stop()
             self.left_layout.setCurrentIndex(1)
 
