@@ -384,6 +384,7 @@ class Window(QWidget):
         model = tflearn.DNN(net)
 
         model.load("languages/" + lang_path + "/model.tflearn")
+        print("model loaded")
 
 
     def bag_of_words(self, s, words):
