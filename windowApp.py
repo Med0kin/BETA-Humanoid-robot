@@ -25,6 +25,19 @@ import tensorflow
 import random
 import json
 import pickle
+
+from tflite_runtime.interpreter import Interpreter
+import os
+import cv2
+import numpy as np
+from PIL import Image
+from PIL import ImageDraw
+from pose_engine import PoseEngine
+import time
+import threading
+
+frame = None
+poses = None
 """
 PySide2 app for controlling robot
 """
@@ -93,7 +106,6 @@ class Window(QWidget):
         self.camera_label.setFixedSize(self.video_size)
         self.setup_camera()
         self.cam_layout.addWidget(self.camera_label)
-        self.camera_label.hide()
 
         # Layouts configuration
         self.main_layout.addLayout(self.left_layout, 40)
@@ -218,11 +230,9 @@ class Window(QWidget):
         if id == 0: # Camera
             self.swap_buttons(self.btns, self.btns_cam)
             # Show video stream & hide image
-            self.img_label.hide()
+            self.left_layout.setCurrentIndex(2)
             self.timer.start(30)
-            self.camera_label.show()
         elif id == 1: # Arms control
-            # Arms control
             os.system('python3 ServoApp1.py')
         elif id == 2: # Settings
             self.swap_buttons(self.btns, self.btns_cfg)
@@ -235,20 +245,16 @@ class Window(QWidget):
     def btn_cam_click(self, id):
         self.expression = "blinking"
         if id == 0:
-            # Pause video stream or resume
-            if self.timer.isActive():
-                self.timer.stop()
-                # Change button text
-                self.btns_cam.button(0).setText("Resume")
-            else:
-                self.timer.start(30)
+            self.timer.start(30)
+            self.img_label.show()
         elif id == 1:
+            self.timer.start(30)
+        elif id == 2:
             # Back
             self.swap_buttons(self.btns_cam, self.btns)
             # Remove video stream
             self.timer.stop()
-            self.camera_label.hide()
-            self.img_label.show()
+            self.left_layout.setCurrentIndex(1)
 
 
     def btn_cfg_click(self, id):
@@ -451,7 +457,33 @@ class Window(QWidget):
         self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.timer = QTimer()
-        self.timer.timeout.connect(self.display_video_stream)
+        self.timer.timeout.connect(self.pose_with_controller)
+        self.engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
+
+    def pose_with_controller(self):
+        ret, frame_pure = self.video.read()
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.resize(cv2.flip(frame_pure, 1), (640, 480))
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        jpg = Image.fromarray(frame).convert('RGB')
+        poses, _ = self.engine.DetectPosesInImage(jpg)
+        #poses, _ = engine.DetectPosesInImage(jpg)
+        if poses is not None:
+            for pose in poses:
+                print('\nPose Score: ', pose.score)
+                for label, keypoint in pose.keypoints.items():
+                    print(' %-20s x=%-4d y=%-4d score=%.1f' %
+                        (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
+                    if keypoint.score > 0.1:
+                        frame = cv2.circle(frame, (round(keypoint.point[0]), round(keypoint.point[1])), 5, (0, 0, 255), -1)
+                    print(type(round(keypoint.point[0])))
+
+        frame = cv2.flip(frame, 1)
+        # convert to QImage
+        image = qimage2ndarray.array2qimage(frame)
+        # set image to image label
+        print("img changed")
+        self.camera_label.setPixmap(QPixmap.fromImage(image))
 
     # Displays the camera capture
     def display_video_stream(self):
