@@ -365,7 +365,6 @@ class Window(QWidget):
     # REACT TO TEXT (happens in thread)
     def init_model(self, lang_path):
         global words, labels, training, output, model, data
-        lang_path = "pl"
 
         with open("languages/" + lang_path + "/intents.json") as file:
             data = json.load(file)
