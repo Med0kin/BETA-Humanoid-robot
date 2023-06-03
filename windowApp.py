@@ -199,6 +199,7 @@ class Window(QWidget):
         btn_cam[0].clicked.connect(lambda: self.btn_cam_click(0))
         btn_cam[1].clicked.connect(lambda: self.btn_cam_click(1))
         btn_cam[2].clicked.connect(lambda: self.btn_cam_click(2))
+        btn_cam[3].clicked.connect(lambda: self.btn_cam_click(3))
 
 
         # CONFIGURATION BUTTONS
@@ -564,8 +565,8 @@ class Window(QWidget):
 
 
 # Main
-servo = Servo()
 controllers = controllers.Controllers()
+servo = Servo()
 servo.setimport("p13")
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)

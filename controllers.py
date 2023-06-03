@@ -48,4 +48,5 @@ class Controllers():
                 print("\ntransmitter" + str(received_t))
                 message = b''
 
-        s.close()
+        self.s.close()
+        
