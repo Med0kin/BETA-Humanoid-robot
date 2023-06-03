@@ -106,7 +106,6 @@ class Window(QWidget):
         self.camera_label.setFixedSize(self.video_size)
         self.setup_camera()
         self.cam_layout.addWidget(self.camera_label)
-        self.camera_label.hide()
 
         # Layouts configuration
         self.main_layout.addLayout(self.left_layout, 40)
