@@ -120,7 +120,7 @@ class Window(QWidget):
         self.setup_buttons()
 
     def setup_settings(self):
-        self.pl_button = PicButton(QPixmap("flag_pl.png").)
+        self.pl_button = PicButton(QPixmap("flag_pl.png"))
         self.pl_button.clicked.connect(lambda: self.change_language("pl"))
         self.us_button = PicButton(QPixmap("flag_us.png"))
         self.us_button.clicked.connect(lambda: self.change_language("us"))
