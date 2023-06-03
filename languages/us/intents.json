@@ -1,0 +1,76 @@
+{
+    "intents": [
+        {
+            "tag": "hello",
+            "patterns": [
+                "howdy",
+                "nice to meet you",
+                "good evening",
+                "how are you?",
+                "it's nice to mee you",
+                "good afternoon",
+                "goodbye",
+                "how do you do?",
+                "hello stranger",
+                "hi there",
+                "hi",
+                "hey",
+                "heya",
+                "hey there",
+                "morning",
+                "yo"
+            ],
+            "responses": [
+                "wave"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "squat",
+            "patterns": [
+                "squat",
+                "sit",
+                "crouch",
+                "scrooch",
+                "pop a squat",
+                "hunk down"
+            ],
+            "responses": [
+                "squat"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "stand",
+            "patterns": [
+                "stand up",
+                "stand",
+                "get up",
+                " pick yourself up",
+                "get to your feet",
+                "rise to your feet",
+                "stand upright"
+            ],
+            "responses": [
+                "stand"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "dance",
+            "patterns": [
+                "throw shapes",
+                "throw some shapes",
+                "dance",
+                "bust a move",
+                "hit the dance floor",
+                "shake your booty",
+                "show your moves"
+            ],
+            "responses": [
+                "dance"
+            ],
+            "context_set": ""
+        }
+    ]
+}

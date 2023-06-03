@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/shinken/Git/intentsCreator/model.tflearn"
+all_model_checkpoint_paths: "/home/shinken/Git/intentsCreator/model.tflearn"

@@ -1,0 +1,57 @@
+{
+    "intents": [
+        {
+            "tag": "hello",
+            "patterns": [
+                "ahoj",
+                "nazdar",
+                "čau",
+                "dobrý den"
+            ],
+            "responses": [
+                "wave"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "squat",
+            "patterns": [
+                "podřep",
+                "squat",
+                "dřepnout si",
+                "přikrčit se"
+            ],
+            "responses": [
+                "squat"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "stand",
+            "patterns": [
+                "postav se",
+                "postavit se",
+                "vstát",
+                "vstávej"
+            ],
+            "responses": [
+                "stand"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "dance",
+            "patterns": [
+                "tanec",
+                "tancovačka",
+                "vyrazit na taneční parket",
+                "tance",
+                "taneční"
+            ],
+            "responses": [
+                "dance"
+            ],
+            "context_set": ""
+        }
+    ]
+}

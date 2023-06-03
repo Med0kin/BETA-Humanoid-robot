@@ -14,6 +14,17 @@ import arm_kinematics_lib as ak
 
 import cv2
 import time
+
+import nltk
+from nltk.stem.lancaster import LancasterStemmer
+stemmer = LancasterStemmer()
+
+import numpy
+import tflearn
+import tensorflow
+import random
+import json
+import pickle
 """
 PySide2 app for controlling robot
 """
@@ -352,9 +363,55 @@ class Window(QWidget):
                 break
 
     # REACT TO TEXT (happens in thread)
+    def init_model(self, lang_path):
+        global words, labels, training, output, model, data
+        lang_path = "pl"
+
+        with open(lang_path + "/intents.json") as file:
+            data = json.load(file)
+
+        with open(lang_path + "/data.pickle", "rb") as f:
+            words, labels, training, output = pickle.load(f)
+
+        tensorflow.compat.v1.reset_default_graph()
+
+        net = tflearn.input_data(shape=[None, len(training[0])])
+        net = tflearn.fully_connected(net, 8)
+        net = tflearn.fully_connected(net, 8)
+        net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
+        net = tflearn.regression(net)
+
+        model = tflearn.DNN(net)
+
+        model.load(lang_path + "/model.tflearn")
+
+
+    def bag_of_words(self, s, words):
+        
+        bag = [0 for _ in range(len(words))]
+
+        s_words = nltk.word_tokenize(s)
+        s_words = [stemmer.stem(word.lower()) for word in s_words]
+
+        for se in s_words:
+            for i, w in enumerate(words):
+                if w == se:
+                    bag[i] = 1
+
+        return numpy.array(bag)
+
     def react(self):
+        lang = self.language
+        self.init_model(lang)
         old_text = None
+        
         while True:
+            if self.react_thread_running == False:
+                print("react thread stopped!")
+                break
+            if lang != self.language:
+                lang = self.language
+                self.init_model(lang)
 
             s2t_text_list = s2t.s2t_text.lower().split()
             if s2t_text_list == old_text:
@@ -365,25 +422,27 @@ class Window(QWidget):
                 text_received = text_received[:30] + "..."
             self.change_text(text_received)
 
-            for txt in s2t_text_list:
-                if txt in ["cześć", "hej", "witaj", "siema"]:
-                    servo.acrobate("wave")
-                elif txt == ("mrugaj"):
-                    self.expression = "blinking"
-                elif txt == ("podejrzyj"):
-                    self.expression = "peeking"
-                elif txt == ("przysiad"):
-                    servo.setimport("p2")
-                elif txt == ("wstawaj"):
-                    servo.setimport("p13")
-                elif txt == ("zatańcz"):
-                    servo.acrobate("dancing")
-                elif txt in ["chodź", "idź"]:
-                    servo.acrobate("walking")
-            if self.react_thread_running == False:
-                print("react thread stopped!")
-                break
+            if "beta" not in s2t_text_list:
+                continue
+
             old_text = s2t_text_list
+
+            inp = s2t.s2t_text.lower()
+
+            results = model.predict([self.bag_of_words(inp, words)])
+            results_index = numpy.argmax(results)
+            tag = labels[results_index]
+
+            if results[0][results_index] > 0.7:
+                for tg in data["intents"]:
+                    if tg['tag'] == tag:
+                        responses = tg['responses']
+
+                response = random.choice(responses)
+            else:
+                print("none found")
+
+            self.acrobate(response)
 
     
 

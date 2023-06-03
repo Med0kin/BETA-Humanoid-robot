@@ -1,0 +1,68 @@
+{
+    "intents": [
+        {
+            "tag": "hello",
+            "patterns": [
+                "cześć",
+                "siema",
+                "siemasz",
+                "siemano",
+                "hej",
+                "witam",
+                "witaj",
+                "czołem",
+                "dzień dobry",
+                "dobry wieczór"
+            ],
+            "responses": [
+                "wave"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "squat",
+            "patterns": [
+                "przysiad",
+                "przykucnij",
+                "kucnij",
+                "padnij",
+                "zrób przysiad",
+                "siad",
+                "przysiądź"
+            ],
+            "responses": [
+                "squat"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "stand",
+            "patterns": [
+                "wstawaj",
+                "wstań",
+                "stój",
+                "wyprostuj się",
+                "baczność"
+            ],
+            "responses": [
+                "stand"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "dance",
+            "patterns": [
+                "zatańcz",
+                "tańczenie",
+                "taniec",
+                "weź zatańcz",
+                "dawaj na parkiet",
+                "pokaż swoje ruchy"
+            ],
+            "responses": [
+                "dance"
+            ],
+            "context_set": ""
+        }
+    ]
+}

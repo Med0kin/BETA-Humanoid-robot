@@ -1,0 +1,49 @@
+{
+    "intents": [
+        {
+            "tag": "hello",
+            "patterns": [
+                "γεια",
+                "Καλημέρα",
+                "Καλό απόγευμα",
+                "Hiya"
+            ],
+            "responses": [
+                "wave"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "squat",
+            "patterns": [
+                "κοντόχονδρος",
+                "ζαρώνω"
+            ],
+            "responses": [
+                "squat"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "stand",
+            "patterns": [
+                "Σήκω",
+                "ισιώστε"
+            ],
+            "responses": [
+                "stand"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "dance",
+            "patterns": [
+                "χορός"
+            ],
+            "responses": [
+                "dance"
+            ],
+            "context_set": ""
+        }
+    ]
+}
