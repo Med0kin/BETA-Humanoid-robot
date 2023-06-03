@@ -462,8 +462,9 @@ class Window(QWidget):
 
     def pose_with_controller(self):
         ret, frame_pure = self.video.read()
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame = cv2.resize(cv2.flip(frame_pure, 1), (640, 480))
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         jpg = Image.fromarray(frame).convert('RGB')
         poses, _ = self.engine.DetectPosesInImage(jpg)
         #poses, _ = engine.DetectPosesInImage(jpg)
