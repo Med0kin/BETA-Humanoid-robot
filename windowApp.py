@@ -231,7 +231,7 @@ class Window(QWidget):
         if id == 0: # Camera
             self.swap_buttons(self.btns, self.btns_cam)
             # Show video stream & hide image
-            self.left_layout.setCurrentIndex(1)
+            self.left_layout.setCurrentIndex(2)
             self.timer.start(30)
         elif id == 1: # Arms control
             os.system('python3 ServoApp1.py')
