@@ -350,6 +350,7 @@ class Window(QWidget):
         self.react_thread.join()
         print("react thread joined")
         s2t.close_thread()
+        controllers.close_thread()
 
     ### FUNCTIONS PASSED TO THREADS
     # EXPRESSIONS (happens in thread)
