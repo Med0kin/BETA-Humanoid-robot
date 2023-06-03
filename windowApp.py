@@ -253,7 +253,7 @@ class Window(QWidget):
         elif id == 2:
             self.left_layout.setCurrentIndex(1)
             self.timer2 = QTimer()
-            self.timer2.timeout.connect(self.walk_with_controller())
+            self.timer2.timeout.connect(self.walk_with_controller)
             self.timer2.start(30)
 
         elif id == 3:
