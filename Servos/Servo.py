@@ -146,19 +146,78 @@ class Servo:
         loop = ['pr', 'mach2', 'mach1', 'mach2', 'mach1', 'mach2', 'pr']
         self.setsequence(loop, 0.5)
 
+    def squat(self):
+        loop = ['start', 's1', 'start']
+        self.setsequence(loop)
+
+    def rocking(self):
+        loop = ['start', 'r1', 'r2', 'r1', 'r2', 'start']
+        self.setsequence(loop)
+
+    def standOnOneLeg(self):
+        loop = ['start', 'w1', 'w2', 'w3', 'd1', 'w3', 'w2', 'w1', 'start']
+        self.setsequence(loop)
+
+    def seaWave(self):
+        loop = ['start', 'fRL1', 'fRL2',
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'pr1']
+        self.setsequence(loop)
+
+    def matrix(self):
+        loop = ['start', 'm1', 'fRL1', 'fRL2',
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'start', 'pr1']
+        self.setsequence(loop)
+
+    def jogging(self):
+        loop = ['start', 'l1', 'l2',
+                'l1', 'l2', 'l1', 'l2', 'start']
+        self.setsequence(loop)
+
+    def insideOutside(self):
+        loop = ['start', 'i1', 'o1',
+                'i1', 'o1', 'i1', 'o1', 'start']
+        self.setsequence(loop)
+
+    def bow(self):
+        loop = ['start', 'b1', 'start']
+        self.setsequence(loop)
+
+    def ballerina(self):
+        loop = ['start', 'w1', 'w2', 'w3', 'd1', 'default', 'pb1', 'default', 'w4', 'start', 'pbn1', 'pr1']
+        self.setsequence(loop)
+
+    def twist(self):
+        loop = ['start', 'twist', 'w7', 'w15', 'w7', 'w15', 'w7', 'w15', 'w7', 'start', 'pbn1', 'pr1']
+        self.setsequence(loop)
+
+    def techno(self):
+        loop = ['start', 'rrR1', 'rrR2', 't', 't1', 't2', 't1', 'fRL1', 'fRL2',
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'pr1']
+        self.setsequence(loop)
+
+    def hipHop(self):
+        loop = ['start', 'r1', 'r2', 'r1', 'r2', 'r1', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'start', 'pbn1', 'pr1']
+        self.setsequence(loop)
+
+    def turnRight(self):
+        loop = ['start', 'w7']
+        self.setsequence(loop)
+
+    def turnLeft(self):
+        loop = ['start', 'w15']
+        self.setsequence(loop)
 
     def walk(self):
-        loop = ['p13', 'ch12', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
-                'ch83', 'ch92', 'ch101', 'ch113', 'ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
-                'ch83', 'ch92', 'ch101', 'ch113', 'p13'] #po wykonaniu powracasz do ch22 i zap�tlasz
+        loop = ['start', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8',
+                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'start'] #po wykonaniu powracasz do ch22 i zap�tlasz
         self.setsequence(loop)
 
     def endlesswalking(self):
         self.walking = True
-        start = ['p13', 'ch12']
-        walk = ['ch22', 'ch3', 'ch44', 'ch51', 'ch9971', 'ch64', 'ch71',
-                'ch83', 'ch92', 'ch101', 'ch113']
-        end = ['p13']
+        start = ['start', 'w1', 'w2', 'w3']
+        walk = ['w4', 'w5', 'w6', 'w7', 'w8',
+                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18']
+        end = ['start']
         self.setsequence(start)
         while self.walking:
             self.setsequence(walk)
@@ -171,6 +230,45 @@ class Servo:
                 self.acrobations = ""
             elif self.acrobations == "walking":
                 self.walk()
+                self.acrobations = ""
+            elif self.acrobations == "rocking":
+                self.rocking()
+                self.acrobations = ""
+            elif self.acrobations == "standOnOneLeg":
+                self.standOnOneLeg()
+                self.acrobations = ""
+            elif self.acrobations == "seaWave":
+                self.seaWave()
+                self.acrobations = ""
+            elif self.acrobations == "matrix":
+                self.matrix()
+                self.acrobations = ""
+            elif self.acrobations == "jogging":
+                self.jogging()
+                self.acrobations = ""
+            elif self.acrobations == "insideOutside":
+                self.insideOutside()
+                self.acrobations = ""
+            elif self.acrobations == "bow":
+                self.bow()
+                self.acrobations = ""
+            elif self.acrobations == "ballerina":
+                self.ballerina()
+                self.acrobations = ""
+            elif self.acrobations == "twist":
+                self.twist()
+                self.acrobations = ""
+            elif self.acrobations == "techno":
+                self.techno()
+                self.acrobations = ""
+            elif self.acrobations == "hipHop":
+                self.hipHop()
+                self.acrobations = ""
+            elif self.acrobations == "turnRight":
+                self.turnRight()
+                self.acrobations = ""
+            elif self.acrobations == "turnLeft":
+                self.turnLeft()
                 self.acrobations = ""
             elif self.acrobations == "endlesswalking":
                 self.endlesswalking()
