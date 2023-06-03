@@ -150,7 +150,7 @@ class Servo:
 
     def squat(self):
         loop = ['start', 's1', 'start']
-        self.setsequence(loop, 1)
+        self.setsequence(loop, 2)
 
     def rocking(self):
         loop = ['start', 'r1', 'r2', 'r1', 'r2', 'start']
