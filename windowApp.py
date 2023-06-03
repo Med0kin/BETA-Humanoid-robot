@@ -235,7 +235,6 @@ class Window(QWidget):
             self.timer.start(30)
             self.camera_label.show()
         elif id == 1: # Arms control
-            # Arms control
             os.system('python3 ServoApp1.py')
         elif id == 2: # Settings
             self.swap_buttons(self.btns, self.btns_cfg)
@@ -248,14 +247,10 @@ class Window(QWidget):
     def btn_cam_click(self, id):
         self.expression = "blinking"
         if id == 0:
-            # Pause video stream or resume
-            if self.timer.isActive():
-                self.timer.stop()
-                # Change button text
-                self.btns_cam.button(0).setText("Resume")
-            else:
-                self.timer.start(30)
+            self.timer.start(30)
         elif id == 1:
+            self.timer.start(30)
+        elif id == 2:
             # Back
             self.swap_buttons(self.btns_cam, self.btns)
             # Remove video stream
