@@ -166,7 +166,7 @@ class Servo:
 
     def coreography(self):
         while self.choreographyswitch:
-            if self.acrobations == "dancing":
+            if self.acrobations == "dance":
                 self.dancing()
                 self.acrobations = ""
             elif self.acrobations == "walking":
