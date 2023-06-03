@@ -25,6 +25,19 @@ import tensorflow
 import random
 import json
 import pickle
+
+from tflite_runtime.interpreter import Interpreter
+import os
+import cv2
+import numpy as np
+from PIL import Image
+from PIL import ImageDraw
+from pose_engine import PoseEngine
+import time
+import threading
+
+frame = None
+poses = None
 """
 PySide2 app for controlling robot
 """
@@ -452,6 +465,31 @@ class Window(QWidget):
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.timer = QTimer()
         self.timer.timeout.connect(self.display_video_stream)
+        self.engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
+        thread = threading.Thread(target=thread)
+
+    def pose_with_controller(self):
+        ret, frame_pure = self.video.read()
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.resize(cv2.flip(frame_pure, 1), (640, 480))
+        jpg = Image.fromarray(frame).convert('RGB')
+        poses, _ = self.engine.DetectPosesInImage(jpg)
+        #poses, _ = engine.DetectPosesInImage(jpg)
+        if poses is not None:
+            for pose in poses:
+                print('\nPose Score: ', pose.score)
+                for label, keypoint in pose.keypoints.items():
+                    print(' %-20s x=%-4d y=%-4d score=%.1f' %
+                        (label.name, keypoint.point[0], keypoint.point[1], keypoint.score))
+                    if keypoint.score > 0.1:
+                        frame = cv2.circle(frame, (round(keypoint.point[0]), round(keypoint.point[1])), 5, (0, 0, 255), -1)
+                    print(type(round(keypoint.point[0])))
+
+        frame = cv2.flip(frame, 1)
+        # convert to QImage
+        image = qimage2ndarray.array2qimage(frame)
+        # set image to image label
+        self.camera_label.setPixmap(QPixmap.fromImage(image))
 
     # Displays the camera capture
     def display_video_stream(self):

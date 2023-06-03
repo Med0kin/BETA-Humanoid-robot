@@ -154,6 +154,14 @@ class Servo:
         loop = ['start', 'r1', 'r2', 'r1', 'r2', 'start']
         self.setsequence(loop)
 
+    def rocking1(self):
+        loop = ['r1']
+        self.setsequence(loop)
+
+    def rocking2(self):
+        loop = ['r2']
+        self.setsequence(loop)
+
     def standOnOneLeg(self):
         loop = ['start', 'w1', 'w2', 'w3', 'd1', 'w3', 'w2', 'w1', 'start']
         self.setsequence(loop)
@@ -171,6 +179,22 @@ class Servo:
     def jogging(self):
         loop = ['start', 'l1', 'l2',
                 'l1', 'l2', 'l1', 'l2', 'start']
+        self.setsequence(loop)
+
+    def jogging1(self):
+        loop = ['l1']
+        self.setsequence(loop)
+
+    def jogging2(self):
+        loop = ['l2']
+        self.setsequence(loop)
+
+    def inside(self):
+        loop = ['i1']
+        self.setsequence(loop)
+
+    def outside(self):
+        loop = ['o1']
         self.setsequence(loop)
 
     def insideOutside(self):
@@ -234,6 +258,18 @@ class Servo:
             elif self.acrobations == "rocking":
                 self.rocking()
                 self.acrobations = ""
+            elif self.acrobations == "rocking1":
+                self.rocking1()
+                self.acrobations = ""
+            elif self.acrobations == "rocking2":
+                self.rocking2()
+                self.acrobations = ""
+            elif self.acrobations == "inside":
+                self.inside()
+                self.acrobations = ""
+            elif self.acrobations == "outside":
+                self.outside()
+                self.acrobations = ""
             elif self.acrobations == "standOnOneLeg":
                 self.standOnOneLeg()
                 self.acrobations = ""
@@ -245,6 +281,9 @@ class Servo:
                 self.acrobations = ""
             elif self.acrobations == "jogging":
                 self.jogging()
+                self.acrobations = ""
+            elif self.acrobations == "jogging1":
+                self.jogging1()
                 self.acrobations = ""
             elif self.acrobations == "insideOutside":
                 self.insideOutside()
