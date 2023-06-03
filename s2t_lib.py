@@ -60,7 +60,7 @@ class speech_to_text():
         if(language == "us"):
             self.stt.get('https://smodin.io/speech-to-text-and-text-to-speech')
             self.stt.minimize_window()
-            self.stt.find_element("xpath", "//button[@value='Speech']").click()
+            self.stt.find_element("xpath", "//button[normalize-space()='Speech to Text']").click()
             time.sleep(2)
             self.stt.find_element("xpath", "//body/div[@id='__next']/div/div/div/div/div/button/span[1]").click()
             time.sleep(2)
