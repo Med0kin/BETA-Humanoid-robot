@@ -318,6 +318,9 @@ class Servo:
             elif self.acrobations == "wave":
                 self.wave()
                 self.acrobations = ""
+            elif self.acrobations == "squat":
+                self.squat()
+                self
             else:
                 time.sleep(0.5)
 
