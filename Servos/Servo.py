@@ -100,13 +100,13 @@ class Servo:
             self.set(i, angles[i])
             time.sleep(0.1)
 
-    def set_many_digital(self, servos, angles):
+    def set_many_digital(self, servos, angles, speed=1000):
         if len(servos) != len(angles):
             raise Exception("Servo number and angle number mismatch")
         for x in servos:
             if x < 10 or x > 17:
                 raise Exception("Servo number out of range")
-        self.digital.syncsend(servos, angles)
+        self.digital.syncsend(servos, angles, speed)
 
     def get(self, servo):
         if servo < 0 or servo > 17:
@@ -116,16 +116,17 @@ class Servo:
         else:
             return self.digital.get(servo)
 
-    def setimport(self, filename):
+    def setimport(self, filename, speed=1000):
         idlist, poslist = importpos(filename)
         if idlist[0] < 10:
             self.set_many_analog(idlist, poslist)
         else:
-            self.set_many_digital(idlist, poslist)
+            self.set_many_digital(idlist, poslist, speed)
 
     def setsequence(self, filenames, averagetime=1):
+        spd = averagetime * 1000
         for i in filenames:
-            self.setimport(i)
+            self.setimport(i, spd)
             time.sleep(averagetime)
 
     def dancing(self):

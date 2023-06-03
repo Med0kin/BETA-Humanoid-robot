@@ -108,7 +108,7 @@ class OCServo:
         # self.read(100)
         time.sleep(0.5)
 
-    def syncsend(self, idlist, poslist):
+    def syncsend(self, idlist, poslist, operationtime=1000):
         datalength = 0
         instruction = 0x83
         address = 0x2a
@@ -122,8 +122,9 @@ class OCServo:
             data.append(idlist[i])
             data.append(pos[0])
             data.append(pos[1])
-            data.append(0xe8)
-            data.append(0x03)
+            spd = operationtime.to_bytes(2, 'little')
+            data.append(spd[0])
+            data.append(spd[1])
         data[3] = len(data) - 3
         data.append(checksum(data))
         self.write(data)
