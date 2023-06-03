@@ -82,7 +82,7 @@ class speech_to_text():
             self.stt.minimize_window()
             self.stt.find_element("xpath", "//button[contains(text(),'Řeč na text')]").click()
             time.sleep(2)
-            self.stt.find_element("xpath", "//body/div[@id='__next']/div/div/div/div/div/button/span[1]`").click()
+            self.stt.find_element("xpath", "//body/div[@id='__next']/div/div/div/div/div/button/span[1]").click()
             time.sleep(2)
             self.textbox = self.stt.find_element("xpath", "//textarea[@placeholder='Stiskněte tlačítko a začněte mluvit']")
             self.clear = self.stt.find_element("xpath", "//span[@data-text='Vymazat']//button//span").click
