@@ -248,6 +248,7 @@ class Window(QWidget):
         self.expression = "blinking"
         if id == 0:
             self.timer.start(30)
+            self.img_label.show()
         elif id == 1:
             self.timer.start(30)
         elif id == 2:
@@ -459,7 +460,7 @@ class Window(QWidget):
         self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.timer = QTimer()
-        self.timer.timeout.connect(self.display_video_stream)
+        self.timer.timeout.connect(self.pose_with_controller)
         self.engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
 
     def pose_with_controller(self):
@@ -483,6 +484,7 @@ class Window(QWidget):
         # convert to QImage
         image = qimage2ndarray.array2qimage(frame)
         # set image to image label
+        print("img changed")
         self.camera_label.setPixmap(QPixmap.fromImage(image))
 
     # Displays the camera capture
