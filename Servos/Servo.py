@@ -320,7 +320,7 @@ class Servo:
                 self.acrobations = ""
             elif self.acrobations == "squat":
                 self.squat()
-                self
+                self.acrobations = ""
             else:
                 time.sleep(0.5)
 
