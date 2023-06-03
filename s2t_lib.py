@@ -70,7 +70,7 @@ class speech_to_text():
         elif(language == "pl"):
             self.stt.get('https://smodin.io/pl/przemowienie-do-tekst-i-tekst-do-przemowienie')
             self.stt.minimize_window()
-            self.stt.find_element("xpath", "//button[@value='Speech']").click()
+            self.stt.find_element("xpath", "//button[normalize-space()='Mowa na tekst']").click()
             time.sleep(2)
             self.stt.find_element("xpath", "//body/div[@id='__next']/div[3]/div[1]/div[1]/div[2]/div[2]/button[1]/span[1]").click()
             time.sleep(2)
@@ -80,7 +80,7 @@ class speech_to_text():
         elif(language == "cs"):
             self.stt.get('https://smodin.io/cs/mluveny-projev-na-text-a-text-na-mluveny-projev')
             self.stt.minimize_window()
-            self.stt.find_element("xpath", "//button[@value='Speech']").click()
+            self.stt.find_element("xpath", "//button[contains(text(),'Řeč na text')]").click()
             time.sleep(2)
             self.stt.find_element("xpath", "//body/div[@id='__next']/div/div/div/div/div/button/span[1]`").click()
             time.sleep(2)
