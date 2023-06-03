@@ -32,7 +32,7 @@ class speech_to_text():
         self.textbox = self.stt.find_element("xpath", "//textarea[contains(@placeholder,'Naciśnij przycisk i zacznij mówić')]")
         self.clear = self.stt.find_element("xpath", "//span[@data-text='Kasować']//button//span").click
         self.pause = False
-        self.get_text_thread_running = False
+        self.get_text_thread_running = True
         self.get_text_thread = threading.Thread(target=self.get_text)
         self.get_text_thread.start()
         self.s2t_text = ''
