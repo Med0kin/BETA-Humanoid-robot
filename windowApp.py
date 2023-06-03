@@ -439,10 +439,9 @@ class Window(QWidget):
                         responses = tg['responses']
 
                 response = random.choice(responses)
+                servo.acrobate(response)
             else:
                 print("none found")
-
-            servo.acrobate(response)
 
     
 
