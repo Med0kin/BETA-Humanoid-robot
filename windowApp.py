@@ -433,7 +433,7 @@ class Window(QWidget):
             results_index = numpy.argmax(results)
             tag = labels[results_index]
 
-            if results[0][results_index] > 0.7:
+            if results[0][results_index] > 0.5:
                 for tg in data["intents"]:
                     if tg['tag'] == tag:
                         responses = tg['responses']
