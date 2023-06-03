@@ -448,11 +448,11 @@ class Window(QWidget):
                     if tg['tag'] == tag:
                         responses = tg['responses']
 
+                response = random.choice(responses)
                 if response == "dance":
                     dances_list = ["ballerina", "twist", "techno", "hipHop"]
                     random_dance = random.randint(0, len(dances_list) - 1)
                     response = dances_list[random_dance]
-                response = random.choice(responses)
                 servo.acrobate(response)
             else:
                 print("none found")
@@ -554,7 +554,7 @@ class Window(QWidget):
 
 # Main
 servo = Servo()
-servo.setimport("p13")
+servo.setimport("start")
 s2t = s2t_lib.speech_to_text()
 myapp = QApplication(sys.argv)
 window = Window()
