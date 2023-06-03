@@ -22,7 +22,7 @@ class Controllers():
         while True:
             if not self.get_text_thread_running:
                 break
-            byte_received = s.recv(1)
+            byte_received = self.s.recv(1)
             message += byte_received
             if(byte_received == b't'):
                 count_t = count_t + 1
@@ -44,9 +44,11 @@ class Controllers():
                         self.received_t[i] = num/100
                     elif count_r == 3:
                         self.received_r[i] = num/100
-                print("\nreceiver" + str(received_r))
-                print("\ntransmitter" + str(received_t))
+                print("\nreceiver" + str(self.received_r))
+                print("\ntransmitter" + str(self.received_t))
                 message = b''
-
-        self.s.close()
         
+    def close_thread(self):
+        self.s.close()
+        self.get_text_thread_running = False
+        self.get_text_thread.join()
