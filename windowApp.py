@@ -448,6 +448,10 @@ class Window(QWidget):
                     if tg['tag'] == tag:
                         responses = tg['responses']
 
+                if response == "dance":
+                    dances_list = ["ballerina", "twist", "techno", "hipHop"]
+                    random_dance = random.randint(0, len(dances_list) - 1)
+                    response = dances_list[random_dance]
                 response = random.choice(responses)
                 servo.acrobate(response)
             else:
