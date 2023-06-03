@@ -367,10 +367,10 @@ class Window(QWidget):
         global words, labels, training, output, model, data
         lang_path = "pl"
 
-        with open(lang_path + "/intents.json") as file:
+        with open("languages/" + lang_path + "/intents.json") as file:
             data = json.load(file)
 
-        with open(lang_path + "/data.pickle", "rb") as f:
+        with open("languages/" + lang_path + "/data.pickle", "rb") as f:
             words, labels, training, output = pickle.load(f)
 
         tensorflow.compat.v1.reset_default_graph()
@@ -383,7 +383,7 @@ class Window(QWidget):
 
         model = tflearn.DNN(net)
 
-        model.load(lang_path + "/model.tflearn")
+        model.load("languages/" + lang_path + "/model.tflearn")
 
 
     def bag_of_words(self, s, words):
