@@ -57,6 +57,6 @@ class speech_to_text():
         elif(language == "pl"):
             self.stt.find_element("xpath", "//li[contains(@value,'pl')]//span[contains(@class,'styles_rippleSpan__M7thf')]").click()
         elif(language == "cs"):
-            self.stt.find_element("xpath", "//li[contains(@value,'cs')]//span[contains(@class,'styles_rippleSpan__M7thf')]").click()
+            self.stt.find_element("xpath", "//li[@value='cs']//span").click()
         else:
             raise Exception("Language not supported")
