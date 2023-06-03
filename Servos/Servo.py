@@ -1,11 +1,12 @@
 import time
 import threading
+import pygame
 
 from Servos.Analog_servo import AServo
 from Servos.OCServo import OCServo
 from Servos.OCServo import serial_ports
 
-
+pygame.init()
 
 # def checkIfProcessRunning(processName):
 #     """
@@ -252,6 +253,8 @@ class Servo:
             if self.acrobations == "dance":
                 self.dancing()
                 self.acrobations = ""
+                first_sound = pygame.mixer.Sound('test1.wav')
+                first_sound.play()
             elif self.acrobations == "walking":
                 self.walk()
                 self.acrobations = ""
