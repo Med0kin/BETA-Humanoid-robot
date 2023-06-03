@@ -146,7 +146,7 @@ class Window(QWidget):
     def setup_buttons(self):
         # STYLE
         btn_font = QFont("System", 12)        
-        button_style = "QPushButton { background-color: #00accc; font: 60px;\
+        button_style = "QPushButton { background-color: #00accc; font: 40px;\
                     border-radius: 10px; border: 2px solid grey;\
                     padding: 10px; margin: 10px; text-align: center; }\
                     QPushButton:pressed { background-color: #005666; }"
