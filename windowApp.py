@@ -11,7 +11,6 @@ import numpy as np
 import threading
 from Servos.Servo import Servo
 import arm_kinematics_lib as ak
-import controllers
 
 import cv2
 import time
@@ -187,7 +186,7 @@ class Window(QWidget):
         # CAMERA BUTTONS
         self.btns_cam = QButtonGroup(self)
         btn_cam = []
-        for i, name in enumerate(["Aruco", "Control", "Conctrolers", "Back"]):
+        for i, name in enumerate(["Aruco", "Control", "Controlers", "Back"]):
             btn_temp = QPushButton(name)
             btn_temp.setFont(btn_font)
             btn_temp.setStyleSheet(button_style)
@@ -252,11 +251,7 @@ class Window(QWidget):
             self.left_layout.setCurrentIndex(2)
             self.timer.start(30)
         elif id == 2:
-            self.left_layout.setCurrentIndex(1)
-            self.timer2 = QTimer()
-            self.timer2.timeout.connect(self.walk_with_controller)
-            self.timer2.start(30)
-
+            print("Controlers")
         elif id == 3:
             # Back
             self.swap_buttons(self.btns_cam, self.btns)
@@ -350,7 +345,6 @@ class Window(QWidget):
         self.react_thread.join()
         print("react thread joined")
         s2t.close_thread()
-        controllers.close_thread()
 
     ### FUNCTIONS PASSED TO THREADS
     # EXPRESSIONS (happens in thread)
@@ -532,17 +526,6 @@ class Window(QWidget):
             else:
                 servo.warking = False
 
-    def walk_with_controller(self):
-        right = controllers.received_r
-        left = controllers.received_t
-
-        if right[2] > 300 and left[2] > 300:
-            servo.acrobate("turn right")
-        elif right[2] < 240 and left[2] < 240:
-            servo.acrobate("turn left")
-        elif right[0] > 300 and left[0] > 300:
-            servo.acrobate("walk forward")
-
 
     def control_with_estimated_pose(self, id_list, loc, rot):
         # Rotation based
@@ -566,7 +549,6 @@ class Window(QWidget):
 
 
 # Main
-controllers = controllers.Controllers()
 servo = Servo()
 servo.setimport("p13")
 s2t = s2t_lib.speech_to_text()
