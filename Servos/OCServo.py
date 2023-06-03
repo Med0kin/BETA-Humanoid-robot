@@ -93,6 +93,9 @@ class OCServo:
         print(self.inputdata)
 
     def send(self, id, angle):
+        left_leg_ids = [11, 12, 14, 16]
+        if(id in left_leg_ids):
+            angle = 4095 - angle
         datalength = 0
         instruction = 0x03
         address = 0x2a
@@ -112,6 +115,9 @@ class OCServo:
         length = 0x04
         data = bytearray([0xff, 0xff, 0xfe, datalength, instruction, address, length])
         for i in range(len(idlist)):
+            left_leg_ids = [11, 12, 14, 16]
+            if(idlist[i] in left_leg_ids):
+                poslist[i] = 4095 - poslist[i]
             pos = poslist[i].to_bytes(2, 'little')
             data.append(idlist[i])
             data.append(pos[0])
