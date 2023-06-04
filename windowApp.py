@@ -84,7 +84,7 @@ class Window(QWidget):
 
 
         # Set full screen
-        # self.showFullScreen()
+        self.showFullScreen()
 
         # Set window icon and background color
         self.setWindowIcon(QIcon("icon.png"))
@@ -158,7 +158,7 @@ class Window(QWidget):
     def setup_buttons(self):
         # STYLE
         btn_font = QFont("System", 12)        
-        button_style = "QPushButton { background-color: #00accc; font: 40px;\
+        button_style = "QPushButton { background-color: #00accc; font: 20px;\
                     border-radius: 10px; border: 2px solid grey;\
                     padding: 10px; margin: 10px; text-align: center; }\
                     QPushButton:pressed { background-color: #005666; }"
@@ -465,7 +465,7 @@ class Window(QWidget):
         self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.timer = QTimer()
-        self.timer.timeout.connect(self.pose_with_controller)
+        self.timer.timeout.connect(self.display_video_stream)
         self.engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
 
     def pose_with_controller(self):
