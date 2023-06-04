@@ -444,6 +444,8 @@ class Window(QWidget):
                 servo.acrobate("standOnOneLeg")
             if "wave" in s2t_text_list:
                 servo.acrobate("seaWave")
+            if "matrix" in s2t_text_list:
+                servo.acrobate("matrix")
             
 
             old_text = s2t_text_list
