@@ -297,7 +297,7 @@ class Servo:
                 self.matrix()
                 self.acrobations = ""
             elif self.acrobations == "jogging":
-                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/jogging.mp3')
+                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/jogging2.mp3')
                 mixer.music.set_volume(0.5)
                 mixer.music.play()
                 self.jogging()
@@ -327,6 +327,9 @@ class Servo:
                 self.techno()
                 self.acrobations = ""
             elif self.acrobations == "hipHop":
+                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/hiphop.mp3')
+                mixer.music.set_volume(0.5)
+                mixer.music.play()
                 self.hipHop()
                 self.acrobations = ""
             elif self.acrobations == "turnRight":
