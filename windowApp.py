@@ -465,7 +465,7 @@ class Window(QWidget):
         self.video.set(cv2.CAP_PROP_FRAME_WIDTH, self.video_size.width())
         self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, self.video_size.height())
         self.timer = QTimer()
-        self.timer.timeout.connect(self.pose_with_controller)
+        self.timer.timeout.connect(self.display_video_stream)
         self.engine = PoseEngine('models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite')
 
     def pose_with_controller(self):
