@@ -294,6 +294,9 @@ class Servo:
                 self.matrix()
                 self.acrobations = ""
             elif self.acrobations == "jogging":
+                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/jogging.mp3')
+                mixer.music.set_volume(0.5)
+                mixer.music.play()
                 self.jogging()
                 self.acrobations = ""
             elif self.acrobations == "jogging1":
@@ -306,9 +309,15 @@ class Servo:
                 self.bow()
                 self.acrobations = ""
             elif self.acrobations == "ballerina":
+                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/ballerina.mp3')
+                mixer.music.set_volume(0.5)
+                mixer.music.play()
                 self.ballerina()
                 self.acrobations = ""
             elif self.acrobations == "twist":
+                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/twist.mp3')
+                mixer.music.set_volume(0.5)
+                mixer.music.play()
                 self.twist()
                 self.acrobations = ""
             elif self.acrobations == "techno":
@@ -332,9 +341,7 @@ class Servo:
             elif self.acrobations == "squat":
                 self.squat()
                 self.acrobations = ""
-                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/test1.mp3')
-                mixer.music.set_volume(0.5)
-                mixer.music.play()
+                
 
             else:
                 time.sleep(0.5)
