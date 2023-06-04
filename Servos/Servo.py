@@ -8,6 +8,7 @@ from pygame import mixer
 
 mixer.init()
 
+#
 # def checkIfProcessRunning(processName):
 #     """
 #     Check if there is any running process that contains the given name processName.
@@ -240,42 +241,25 @@ class Servo:
         self.setsequence(loop)
 
     def turnRight(self):
-<<<<<<< HEAD
         loop = ['start', 'w15', 'w16', 'w18', 'start','pbn1', 'pr1']
-=======
-        loop = ['start', 'w15', 'w16', 'w17', 'w18', 'start']
->>>>>>> 312b1d55a08651ed737e70f057188ff733c01e54
         self.setsequence(loop, 1)
 
     def turnLeft(self):
         loop = ['start', 'w7', 'w8',
-<<<<<<< HEAD
                 'w9', 'w10', 'w11', 'turnL', 'start', 'pbn1', 'pr1']
-=======
-                'w9', 'w10', 'w11', 'w12', 'turnL', 'start']
->>>>>>> 312b1d55a08651ed737e70f057188ff733c01e54
         self.setsequence(loop, 1)
 
     def walk(self):
         loop = ['start', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8',
-<<<<<<< HEAD
                 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'start', 'pbn1', 'pr1'] #po wykonaniu powracasz do ch22 i zap�tlasz
-=======
-                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'start'] #po wykonaniu powracasz do ch22 i zap�tlasz
->>>>>>> 312b1d55a08651ed737e70f057188ff733c01e54
         self.setsequence(loop, 0.5)
 
     def endlesswalking(self):
         self.walking = True
         start = ['start', 'w1', 'w2', 'w3']
         walk = ['w4', 'w5', 'w6', 'w7', 'w8',
-<<<<<<< HEAD
                 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18']
         end = ['start', 'pbn1', 'pr1']
-=======
-                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18']
-        end = ['start']
->>>>>>> 312b1d55a08651ed737e70f057188ff733c01e54
         self.setsequence(start)
         while self.walking:
             self.setsequence(walk)
