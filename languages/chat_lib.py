@@ -10,7 +10,7 @@ import json
 import pickle
 def init(lang_path):
     global words, labels, training, output, model, data
-    lang_path = "us"
+    lang_path = "pl"
 
     with open(lang_path + "/intents.json") as file:
         data = json.load(file)
@@ -60,5 +60,5 @@ def chat():
             print(random.choice(responses))
         else:
             print("none found")
-init("us")
+init("pl")
 chat()

@@ -68,7 +68,90 @@
                 "show your moves"
             ],
             "responses": [
-                "dance"
+                "hipHop",
+                "ballerina",
+                "twist"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "turnRight",
+            "patterns": [
+                "turn right",
+                "right"
+            ],
+            "responses": [
+                "turnRight"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "turnLeft",
+            "patterns": [
+                "turn left",
+                "left"
+            ],
+            "responses": [
+                "turnLeft"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "ballerina",
+            "patterns": [
+                "ballerina",
+                "balerina"
+            ],
+            "responses": [
+                "ballerina"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "bow",
+            "patterns": [
+                "namaste",
+                "bow",
+                "please bow"
+            ],
+            "responses": [
+                "bow"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "jogging",
+            "patterns": [
+                "break a leg",
+                "break your legs",
+                "break legs"
+            ],
+            "responses": [
+                "jogging"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "walking",
+            "patterns": [
+                "walk",
+                "come",
+                "forward",
+                "follow me"
+            ],
+            "responses": [
+                "walking"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "rocking",
+            "patterns": [
+                "rock",
+                "let's rock"
+            ],
+            "responses": [
+                "rocking"
             ],
             "context_set": ""
         }
