@@ -240,7 +240,7 @@ class Servo:
         self.setsequence(loop)
 
     def turnRight(self):
-        loop = ['start', 'w15', 'w16', 'w18', 'start']
+        loop = ['start', 'w15', 'w16', 'w17', 'w18', 'start']
         self.setsequence(loop, 1)
 
     def turnLeft(self):
@@ -250,8 +250,8 @@ class Servo:
 
     def walk(self):
         loop = ['start', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8',
-                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'start'] #po wykonaniu powracasz do ch22 i zap�tlasz
-        self.setsequence(loop, 1)
+                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'start'] #po wykonaniu powracasz do ch22 i zap�tlasz
+        self.setsequence(loop)
 
     def endlesswalking(self):
         self.walking = True
