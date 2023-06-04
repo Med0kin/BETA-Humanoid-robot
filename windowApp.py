@@ -432,7 +432,7 @@ class Window(QWidget):
                 text_received = text_received[:30] + "..."
             self.change_text(text_received)
 
-            if "beta" not in s2t_text_list or "robot" not in s2t_text_list:
+            if "beta" not in s2t_text_list and "robot" not in s2t_text_list:
                 continue
 
             old_text = s2t_text_list
