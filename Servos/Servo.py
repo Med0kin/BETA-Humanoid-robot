@@ -166,7 +166,8 @@ class Servo:
 
     def standOnOneLeg(self):
         loop = ['start', 'w1', 'w2', 'w3', 'd1', 'w3', 'w2', 'w1', 'start']
-        self.setsequence(loop)
+        self.setsequence(loop
+                         )
 
     def seaWave(self):
         loop = ['start', 'fRL1', 'fRL2',
@@ -176,12 +177,12 @@ class Servo:
     def matrix(self):
         loop = ['start', 'm1', 'fRL1', 'fRL2',
                 'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'start', 'pr1']
-        self.setsequence(loop)
+        self.setsequence(loop, 1)
 
     def jogging(self):
         loop = ['start', 'l1', 'l2',
                 'l1', 'l2', 'l1', 'l2', 'start']
-        self.setsequence(loop)
+        self.setsequence(loop, 2)
 
     def jogging1(self):
         loop = ['l1']
@@ -206,6 +207,7 @@ class Servo:
 
     def bow(self):
         loop = ['start', 'b1', 'start']
+        self.setsequence(loop, 1)
 
     def ballerina(self):
         self.is_dancing = True
@@ -226,7 +228,7 @@ class Servo:
 
     def twist(self):
         loop = ['start', 'twist', 'w7', 'w15', 'w7', 'w15', 'w7', 'w15', 'w7', 'start', 'pbn1', 'pr1']
-        self.setsequence(loop)
+        self.setsequence(loop, 1)
 
     def techno(self):
         loop = ['start', 'rrR1', 'rrR2', 't', 't1', 't2', 't1', 'fRL1', 'fRL2',
@@ -238,17 +240,18 @@ class Servo:
         self.setsequence(loop)
 
     def turnRight(self):
-        loop = ['start', 'w7']
-        self.setsequence(loop)
+        loop = ['start', 'w15', 'w16', 'w18', 'start']
+        self.setsequence(loop, 1)
 
     def turnLeft(self):
-        loop = ['start', 'w15']
-        self.setsequence(loop)
+        loop = ['start', 'w7', 'w8',
+                'w9', 'w10', 'w11', 'turnL', 'start',]
+        self.setsequence(loop, 1)
 
     def walk(self):
         loop = ['start', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8',
                 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'start'] #po wykonaniu powracasz do ch22 i zap�tlasz
-        self.setsequence(loop)
+        self.setsequence(loop, 0.5)
 
     def endlesswalking(self):
         self.walking = True
