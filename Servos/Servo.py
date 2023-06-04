@@ -126,7 +126,7 @@ class Servo:
     def setsequence(self, filenames, averagetime=1):
         spd = averagetime * 1000
         for i in filenames:
-            self.setimport(i, spd)
+            self.setimport(i, int(spd))
             time.sleep(averagetime)
 
     def dancing(self):
@@ -251,13 +251,13 @@ class Servo:
     def walk(self):
         loop = ['start', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8',
                 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'start'] #po wykonaniu powracasz do ch22 i zap�tlasz
-        self.setsequence(loop)
+        self.setsequence(loop, 0.5)
 
     def endlesswalking(self):
         self.walking = True
         start = ['start', 'w1', 'w2', 'w3']
         walk = ['w4', 'w5', 'w6', 'w7', 'w8',
-                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18']
+                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18']
         end = ['start']
         self.setsequence(start)
         while self.walking:
