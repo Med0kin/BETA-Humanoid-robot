@@ -432,7 +432,11 @@ class Window(QWidget):
                 text_received = text_received[:30] + "..."
             self.change_text(text_received)
 
-            if "beta" not in s2t_text_list and "robot" not in s2t_text_list:
+            if "beta" not in s2t_text_list and "robot" not in s2t_text_list and "robots" not in s2t_text_list:
+                continue
+
+            if "hop" in s2t_text_list:
+                servo.acrobate("hipHop")
                 continue
 
             old_text = s2t_text_list
