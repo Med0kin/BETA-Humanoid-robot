@@ -438,6 +438,14 @@ class Window(QWidget):
             if "hop" in s2t_text_list:
                 servo.acrobate("hipHop")
                 continue
+            if "twist" in s2t_text_list:
+                servo.acrobate("twist")
+            if "leg" in s2t_text_list:
+                servo.acrobate("standOnOneLeg")
+            if "wave" in s2t_text_list:
+                servo.acrobate("seaWave")
+            if
+            
 
             old_text = s2t_text_list
 
@@ -457,6 +465,8 @@ class Window(QWidget):
                     dances_list = ["ballerina", "twist", "techno", "hipHop"]
                     random_dance = random.randint(0, len(dances_list) - 1)
                     response = dances_list[random_dance]
+                if (response == "ballerina"):
+                    continue
                 servo.acrobate(response)
             else:
                 print("none found")
