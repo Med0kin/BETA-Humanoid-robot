@@ -245,7 +245,7 @@ class Servo:
 
     def turnLeft(self):
         loop = ['start', 'w7', 'w8',
-                'w9', 'w10', 'w11', 'turnL', 'start',]
+                'w9', 'w10', 'w11', 'w12', 'turnL', 'start']
         self.setsequence(loop, 1)
 
     def walk(self):
