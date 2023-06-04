@@ -206,11 +206,23 @@ class Servo:
 
     def bow(self):
         loop = ['start', 'b1', 'start']
-        self.setsequence(loop)
 
     def ballerina(self):
-        loop = ['start', 'w1', 'w2', 'w3', 'd1', 'default', 'pb1', 'default', 'w4', 'start', 'pbn1', 'pr1']
-        self.setsequence(loop)
+        self.is_dancing = True
+        act1 = ['start', 'w1', 'w2', 'w3', 'd1']
+        act2 = ['default']
+        act3 = ['pb1', 'default']
+        act4 = ['w3', 'w2', 'w1', 'start']
+        act5 = ['pbn1', 'p13', 'pr1', 'pr']
+        self.setsequence(act1, 1)
+        self.setsequence(act2, 2)
+        self.setsequence(act3, 4)
+        self.setsequence(act4, 1)
+        self.setsequence(act5, 1)
+
+    #def ballerina(self):
+    #    loop = ['start', 'w1', 'w2', 'w3', 'd1', 'default', 'pb1', 'default', 'w4', 'start', 'pbn1', 'pr1']
+    #    self.setsequence(loop)
 
     def twist(self):
         loop = ['start', 'twist', 'w7', 'w15', 'w7', 'w15', 'w7', 'w15', 'w7', 'start', 'pbn1', 'pr1']
