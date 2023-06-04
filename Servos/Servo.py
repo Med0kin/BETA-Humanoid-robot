@@ -332,7 +332,7 @@ class Servo:
             elif self.acrobations == "squat":
                 self.squat()
                 self.acrobations = ""
-                mixer.music.load('test1.mp3')
+                mixer.music.load('/home/pi/BETA-Humanoid-robot/Servos/test1.mp3')
                 mixer.music.set_volume(0.5)
                 mixer.music.play()
 
