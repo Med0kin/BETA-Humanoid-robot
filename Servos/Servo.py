@@ -33,6 +33,7 @@ def importpos(filename):
             idlist[i] = int(line[0])
             poslist[i] = int(line[1])
         f.close()
+        print("Pos_list: " + str(poslist) + " Id_list: " + str(idlist))
     return idlist, poslist
 
 # /home/pi/BETA-Humanoid-robot/Positions/p13.txt
@@ -233,7 +234,7 @@ class Servo:
 
     def techno(self):
         loop = ['start', 'rrR1', 'rrR2', 't', 't1', 't2', 't1', 'fRL1', 'fRL2',
-                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'pr1']
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'pr1', 'start']
         self.setsequence(loop)
 
     def hipHop(self):
