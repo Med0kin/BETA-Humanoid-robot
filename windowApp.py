@@ -466,8 +466,8 @@ class Window(QWidget):
                     dances_list = ["ballerina", "twist", "techno", "hipHop"]
                     random_dance = random.randint(0, len(dances_list) - 1)
                     response = dances_list[random_dance]
-                if (response == "ballerina"):
-                    continue
+                #if (response == "ballerina"):
+                #    continue
                 servo.acrobate(response)
             else:
                 print("none found")
