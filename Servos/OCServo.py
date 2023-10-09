@@ -94,8 +94,8 @@ class OCServo:
 
     def send(self, id, angle):
         left_leg_ids = [11, 12, 14, 16]
-        if(id in left_leg_ids):
-            angle = 4095 - angle
+        #if(id in left_leg_ids):
+        #    angle = 4095 - angle
         datalength = 0
         instruction = 0x03
         address = 0x2a
