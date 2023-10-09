@@ -33,7 +33,7 @@ def importpos(filename):
             idlist[i] = int(line[0])
             poslist[i] = int(line[1])
         f.close()
-        print("Pos_list: " + str(poslist) + " Id_list: " + str(idlist))
+        print(str(filename) + "Pos_list: " + str(poslist) + " Id_list: " + str(idlist))
     return idlist, poslist
 
 # /home/pi/BETA-Humanoid-robot/Positions/p13.txt
