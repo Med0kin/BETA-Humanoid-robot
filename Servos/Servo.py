@@ -138,7 +138,7 @@ class Servo:
         act2 = [ 'ch12','j22']
         act3 = ['default']
         act4 = ['pb1', 'default']
-        act5 = ['pbn1', 'p13', 'pr1', 'pr']
+        act5 = ['p13', 'pr1', 'pr']
         self.setsequence(act1, 0.5)
         time.sleep(1)
         self.setsequence(act2, 1)
@@ -151,11 +151,11 @@ class Servo:
         self.setsequence(loop, 0.5)
 
     def squat(self):
-        loop = ['start', 's1', 'start', 'pbn1', 'pr1']
+        loop = ['start', 's1', 'start', 'pr1']
         self.setsequence(loop, 2)
 
     def rocking(self):
-        loop = ['start', 'r1', 'r2', 'r1', 'r2', 'start', 'pbn1', 'pr1']
+        loop = ['start', 'r1', 'r2', 'r1', 'r2', 'start', 'pr1']
         self.setsequence(loop)
 
     def rocking1(self):
@@ -173,17 +173,17 @@ class Servo:
 
     def seaWave(self):
         loop = ['start', 'fRL1', 'fRL2',
-                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'pr1']
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pr1']
         self.setsequence(loop)
 
     def matrix(self):
         loop = ['start', 'm1', 'fRL1', 'fRL2',
-                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'start', 'pr1']
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'start', 'pr1']
         self.setsequence(loop, 1)
 
     def jogging(self):
         loop = ['start', 'l1', 'l2',
-                'l1', 'l2', 'l1', 'l2', 'start', 'pbn1', 'pr1']
+                'l1', 'l2', 'l1', 'l2', 'start', 'pr1']
         self.setsequence(loop, 2)
 
     def jogging1(self):
@@ -217,43 +217,43 @@ class Servo:
         act2 = ['default']
         act3 = ['pb1', 'default']
         act4 = ['w4','w3', 'w2', 'w1', 'start']
-        act5 = ['pbn1', 'pr1', 'pr']
+        act5 = ['pr1', 'pr']
         self.setsequence(act1, 1)
         self.setsequence(act2, 2)
         self.setsequence(act3, 4)
         self.setsequence(act4, 1)
         self.setsequence(act5, 1)
 
-    #def ballerina(self):
-    #    loop = ['start', 'w1', 'w2', 'w3', 'd1', 'default', 'pb1', 'default', 'w4', 'start', 'pbn1', 'pr1']
-    #    self.setsequence(loop)
+    def ballerina(self):
+        loop = ['start', 'w1', 'w2', 'w3', 'd1', 'default', 'pb1', 'default', 'w4', 'start','pr1']
+        self.setsequence(loop)
 
     def twist(self):
-        loop = ['start', 'twist', 'w7', 'w15', 'w7', 'w15', 'w7', 'w15', 'w7', 'start', 'pbn1', 'pr1']
+        loop = ['start', 'twist', 'w7', 'w15', 'w7', 'w15', 'w7', 'w15', 'w7', 'start', 'pr1']
         self.setsequence(loop, 1)
 
     def techno(self):
         loop = ['start', 'rrR1', 'rrR2', 't', 't1', 't2', 't1', 'fRL1', 'fRL2',
-                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pbn1', 'pr1', 'start']
+                'fRL3', 'fRL4', 'fRL1', 'fRL2', 'fRL3', 'fRL4', 'pr1', 'start']
         self.setsequence(loop)
 
     def hipHop(self):
-        loop = ['start', 'r1', 'r2', 'r1', 'r2', 'r1', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'start', 'pbn1', 'pr1']
+        loop = ['start', 'r1', 'r2', 'r1', 'r2', 'r1', 'rgdL1', 'rgdL2', 'rgdL1', 'rgdL2', 'start', 'pr1']
         self.setsequence(loop)
 
     def turnRight(self):
-        loop = ['start', 'w15', 'w16', 'w18', 'start','pbn1', 'pr1']
+        loop = ['start', 'w15', 'w16', 'w18', 'start', 'pr1']
         self.setsequence(loop, 1)
 
     def turnLeft(self):
         loop = ['start', 'w7', 'w8',
-                'w9', 'w10', 'w11', 'turnL', 'start', 'pbn1', 'pr1']
+                'w9', 'w10', 'w11', 'turnL', 'start', 'pr1']
         self.setsequence(loop, 1)
 
     def walk(self):
         loop = ['start', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8',
                 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'w4', 'w5', 'w6', 'w7', 'w8',
-                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'start', 'pbn1', 'pr1'] #po wykonaniu powracasz do ch22 i zap�tlasz
+                'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18', 'start', 'pr1'] #po wykonaniu powracasz do ch22 i zap�tlasz
         self.setsequence(loop, 0.5)
 
     def endlesswalking(self):
@@ -261,7 +261,7 @@ class Servo:
         start = ['start', 'w1', 'w2', 'w3']
         walk = ['w4', 'w5', 'w6', 'w7', 'w8',
                 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w18']
-        end = ['start', 'pbn1', 'pr1']
+        end = ['start', 'pr1']
         self.setsequence(start)
         while self.walking:
             self.setsequence(walk)
