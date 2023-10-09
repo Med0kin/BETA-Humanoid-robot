@@ -215,7 +215,7 @@ class Servo:
         act1 = ['start', 'w1', 'w2', 'w3', 'd1']
         act2 = ['default']
         act3 = ['pb1', 'default']
-        act4 = ['w3', 'w2', 'w1', 'start']
+        act4 = ['w4','w3', 'w2', 'w1', 'start']
         act5 = ['pbn1', 'pr1', 'pr']
         self.setsequence(act1, 1)
         self.setsequence(act2, 2)
