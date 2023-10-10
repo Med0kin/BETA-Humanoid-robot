@@ -84,7 +84,7 @@ class Window(QWidget):
 
 
         # Set full screen
-        #self.showFullScreen()
+        self.showFullScreen()
 
         # Set window icon and background color
         self.setWindowIcon(QIcon("icon.png"))
