@@ -472,8 +472,6 @@ class Window(QWidget):
             else:
                 print("none found")
 
-            servo.setsequence("start")
-
     
 
     # Camera capture setup
