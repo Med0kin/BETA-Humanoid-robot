@@ -83,7 +83,7 @@ class PWMServo(Servo):
             #TODO: Figure out how to deal with type checking here
             current_goal = self.target_pos
             travel = int(abs(self.target_pos - self.pos)) # type: ignore
-            amount_of_steps = travel/step
+            amount_of_steps = travel/abs(step)
             time_jump = self.target_time / amount_of_steps
             pos_list = range(self.pos, self.target_pos, step) # type: ignore
             
