@@ -1,0 +1,67 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "93ecd3e1c3f79dece2398f91d25d295ce58214a8f36e694bf6067e452add3b3c"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.11"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "multidispatch": {
+            "hashes": [
+                "sha256:85883632d08f7226091e488d0a070e3a21365367b9abd66281dd0e1839e4edcf"
+            ],
+            "index": "pypi",
+            "version": "==0.2"
+        },
+        "multimethod": {
+            "hashes": [
+                "sha256:afd84da9c3d0445c84f827e4d63ad42d17c6d29b122427c6dee9032ac2d2a0d4",
+                "sha256:daa45af3fe257f73abb69673fd54ddeaf31df0eb7363ad6e1251b7c9b192d8c5"
+            ],
+            "index": "pypi",
+            "version": "==1.10"
+        },
+        "multipledispatch": {
+            "hashes": [
+                "sha256:0c53cd8b077546da4e48869f49b13164bebafd0c2a5afceb6bb6a316e7fb46e4",
+                "sha256:5c839915465c68206c3e9c473357908216c28383b425361e5d144594bf85a7e0"
+            ],
+            "index": "pypi",
+            "version": "==1.0.0"
+        },
+        "pyside2": {
+            "hashes": [
+                "sha256:589b90944c24046d31bf76694590a600d59d20130015086491b793a81753629a",
+                "sha256:63cc845434388b398b79b65f7b5312b9b5348fbc772d84092c9245efbf341197",
+                "sha256:7c57fe60ed57a3a8b95d9163abca9caa803a1470f29b40bff8ef4103b97a96c8",
+                "sha256:7c61a6883f3474939097b9dabc80f028887046be003ce416da1b3565a08d1f92",
+                "sha256:ed6d22c7a3a99f480d4c9348bcced97ef7bc0c9d353ad3665ae705e8eb61feb5",
+                "sha256:ede8ed6e7021232184829d16614eb153f188ea250862304eac35e04b2bd0120c"
+            ],
+            "index": "pypi",
+            "version": "==5.13.2"
+        },
+        "shiboken2": {
+            "hashes": [
+                "sha256:5e84a4b4e7ab08bb5db0a8168e5d0316fbf3c25b788012701a82079faadfb19b",
+                "sha256:7c766c4160636a238e0e4430e2f40b504b13bcc4951902eb78cd5c971f26c898",
+                "sha256:81fa9b288c6c4b4c91220fcca2002eadb48fc5c3238e8bd88e982e00ffa77c53",
+                "sha256:ca08a3c95b1b20ac2b243b7b06379609bd73929dbc27b28c01415feffe3bcea1",
+                "sha256:e2f72b5cfdb8b48bdb55bda4b42ec7d36d1bce0be73d6d7d4a358225d6fb5f25",
+                "sha256:e6543506cb353d417961b9ec3c6fc726ec2f72eeab609dc88943c2e5cb6d6408"
+            ],
+            "version": "==5.13.2"
+        }
+    },
+    "develop": {}
+}
