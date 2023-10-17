@@ -1,7 +1,7 @@
 import threading
 from model.Servo import Servo
 import RPi.GPIO as GPIO
-import pigpio
+import pigpio as pg
 from typing import Union
 from time import sleep
 
@@ -50,14 +50,14 @@ class PWMServo(Servo):
         if verbose:
             print(self._generate_move_info(pos, time, verbose))
 
-    def _setup_pigpiod(self, gpio_port: int) -> pigpio.pi:
+    def _setup_pigpiod(self, gpio_port: int) -> pg.pi:
         '''
         Sets up the pigpiod daemon
         :param gpio_port: GPIO port of the servo
         :return: pigpio object
         '''
-        pigpio = pigpio.pi()
-        pigpio.set_mode(gpio_port, pigpio.OUTPUT)
+        pigpio = pg.pi()
+        pigpio.set_mode(gpio_port, pg.OUTPUT)
         pigpio.set_PWM_frequency(gpio_port, 50)
         pigpio.set_servo_pulsewidth(gpio_port, 1500)
         self.pos = 1500
@@ -104,7 +104,7 @@ class PWMServo(Servo):
         return self._GPIO_PORT
 
     @property
-    def pigpio(self) -> pigpio.pi:
+    def pigpio(self) -> pg.pi:
         return self._pigpio
     
     @property
