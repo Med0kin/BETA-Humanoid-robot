@@ -69,15 +69,12 @@ class PWMServo(Servo):
         (it is meant to be run in a thread)
         """
         current_goal = self.pos
-        print("Test1")
         while not self._thread_stop_event.is_set():
-            print("Test2")
+            raise Exception("1")
             if self.target_pos == self.pos:
                 continue
-            print("Test3")
             if self.target_pos == None:
                 raise ValueError("Target position is None")
-            print("Test4")
             if self.target_time == 0:
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, self.target_pos)
                 self.pos = self.target_pos
