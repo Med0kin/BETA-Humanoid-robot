@@ -86,7 +86,7 @@ class PWMServo(Servo):
             amount_of_steps = travel/abs(step)
             time_jump = self.target_time / amount_of_steps
             pos_list = range(self.pos, self.target_pos, step) # type: ignore
-            
+            print(pos_list)
             for pos in pos_list:
                 if current_goal != self.target_pos:
                     break
