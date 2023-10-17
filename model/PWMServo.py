@@ -76,13 +76,15 @@ class PWMServo(Servo):
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, self.target_pos)
                 self.pos = self.target_pos
                 continue
-
-            STEP = 5
+            if self.target_pos > self.pos: # type: ignore
+                step = 5
+            else:
+                step = -5
             #TODO: Figure out how to deal with type checking here
             current_goal = self.target_pos
-            travel = int(abs(self.target_pos - self.pos))
-            time_jump = self.target_time / (travel/STEP)
-            pos_list = range(self.pos, self.target_pos, STEP)
+            travel = int(abs(self.target_pos - self.pos)) # type: ignore
+            time_jump = self.target_time / (travel/step)
+            pos_list = range(self.pos, self.target_pos, step) # type: ignore
             
             for pos in pos_list:
                 if current_goal != self.target_pos:
