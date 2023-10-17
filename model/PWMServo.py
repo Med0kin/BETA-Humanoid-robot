@@ -27,9 +27,9 @@ class PWMServo(Servo):
         self._pigpio = self._setup_pigpiod(gpio_port)
         self._target_pos = None
         self._target_time = 0
-        self._thread = None
+        self._thread = threading.Thread(target=self._control_servo)
         self._thread_stop_event = threading.Event()
-        self._run_thread()
+        self._thread.start()
 
     def move(self, pos: int, time: int = 0, verbose: bool = False) -> None:
         '''
@@ -70,7 +70,6 @@ class PWMServo(Servo):
         """
         current_goal = self.pos
         while not self._thread_stop_event.is_set():
-            raise Exception("1")
             if self.target_pos == self.pos:
                 continue
             if self.target_pos == None:
@@ -92,9 +91,6 @@ class PWMServo(Servo):
                     break
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, pos)
                 sleep(time_jump)
-
-    def _run_thread(self) -> None:
-        self.thread = threading.Thread(target=self._control_servo)
     
     @property
     def servo_range(self) -> int:
@@ -117,7 +113,7 @@ class PWMServo(Servo):
         return self._target_time
     
     @property
-    def thread(self) -> Union[threading.Thread, None]:
+    def thread(self) -> threading.Thread:
         return self._thread
 
     @property
