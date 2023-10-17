@@ -135,5 +135,5 @@ class PWMServo(Servo):
 
     def __repr__(self) -> str:
         return (f"PWMServo({self.id}, {self.max_pos}, {self.min_pos}, "
-                f"{self.servo_range}, {self.pigpio})")
+                f"{self.servo_range})")
 

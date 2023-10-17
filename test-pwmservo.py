@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     sleep(1)
     while(True):
-        servo.move(2200, verbose = True)
+        servo.move(2200, 2,verbose = True)
         sleep(2)
-        servo.move(800, verbose = True)
+        servo.move(800, 2,verbose = True)
         sleep(2)
