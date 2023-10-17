@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, Union
 
 class Servo(ABC):
 
@@ -40,7 +40,7 @@ class Servo(ABC):
         return self._min_pos
 
     @property
-    def pos(self) -> int | None:
+    def pos(self) -> Union[int, None]:
         return self._pos
 
     @property
