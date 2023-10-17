@@ -50,8 +50,8 @@ class Servo(ABC):
     @pos.setter
     def pos(self, pos: int) -> None:
         if pos < self._min_pos or pos > self._max_pos:
-            raise ValueError(f"Position must be between {self._min_pos}
-                               and {self._max_pos}")
+            raise ValueError(f"Position must be between {self._min_pos}" \
+                             f"and {self._max_pos}")
         self._pos = pos
 
     @reversed.setter
