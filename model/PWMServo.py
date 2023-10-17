@@ -92,7 +92,8 @@ class PWMServo(Servo):
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, pos)
                 print(f"Pos: {pos} Time: {time_jump}")
                 sleep(time_jump)
-    
+                self.pos = pos
+            self.pos = self.target_pos
     @property
     def servo_range(self) -> int:
         return self._servo_range
