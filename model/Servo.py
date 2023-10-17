@@ -15,19 +15,6 @@ class Servo(ABC):
     def move(self, arg: Any, verbose: bool = False) -> None: ...
 
     
-    def _setup_pigpiod(self, gpio_port: int) -> pigpio.pi:
-        '''
-        Sets up the pigpiod daemon
-        :param gpio_port: GPIO port of the servo
-        :return: pigpio object
-        '''
-        pigpio = pigpio.pi()
-        pigpio.set_mode(gpio_port, pigpio.OUTPUT)
-        pigpio.set_PWM_frequency(gpio_port, 50)
-        pigpio.set_servo_pulsewidth(gpio_port, 1500)
-        self.pos = 1500
-        return pigpio
-
     def _generate_move_info(self, pos: int, time: int, verbose: bool) -> str:
         if time is 0:
             return (

@@ -23,6 +23,7 @@ class PWMServo(Servo):
         if max_pos > self._MAX_SERVO_DUTY or min_pos < self._MIN_SERVO_DUTY:
             raise ValueError("Position must be between 500 and 2500")
         self._servo_range = servo_range
+        self._GPIO_PORT = gpio_port
         self._pigpio = self._setup_pigpiod(gpio_port)
         self._target_pos = None
         self._target_time = 0
@@ -34,7 +35,7 @@ class PWMServo(Servo):
         '''
         Moves the servo to the given position.
         :param pos: The target position to move the servo to.
-        :param time: The time [ms] to reach the target position (default 0).
+        :param time: The time to reach the target position (default 0).
         :param verbose: Whether to print the position (default False).
         :raises RuntimeError: If the thread is not running.
         :raises ValueError: If the time is negative.
@@ -71,17 +72,24 @@ class PWMServo(Servo):
         while not self._thread_stop_event.is_set():
             if self.target_pos == self.pos:
                 continue
+            if self.target_pos == None:
+                raise ValueError("Target position is None")
+            if self.target_time == 0:
+                self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, self.target_pos)
+                self.pos = self.target_pos
+                continue
+
             STEP = 5
             #TODO: Figure out how to deal with type checking here
             current_goal = self.target_pos
             travel = int(abs(self.target_pos - self.pos))
             time_jump = self.target_time / (travel/STEP)
             pos_list = range(self.pos, self.target_pos, STEP)
-             
+            
             for pos in pos_list:
                 if current_goal != self.target_pos:
                     break
-                # set pulsewith to pos
+                self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, pos)
                 sleep(time_jump)
 
     def _run_thread(self) -> None:
@@ -90,6 +98,10 @@ class PWMServo(Servo):
     @property
     def servo_range(self) -> int:
         return self._servo_range
+    
+    @property
+    def GPIO_PORT(self) -> int:
+        return self._GPIO_PORT
 
     @property
     def pigpio(self) -> pigpio.pi:
@@ -100,7 +112,7 @@ class PWMServo(Servo):
         return self._target_pos
 
     @property
-    def target_time(self) -> Union[int, None]:
+    def target_time(self) -> int:
         return self._target_time
     
     @property
@@ -118,6 +130,10 @@ class PWMServo(Servo):
     @target_time.setter
     def target_time(self, time: int) -> None:
         self._target_time = time
+
+    @thread.setter
+    def thread(self, thread: threading.Thread) -> None:
+        self._thread = thread
 
     def __str__(self) -> str:
         return super().__str__() + f"Servo range: {self._servo_range}\n"
