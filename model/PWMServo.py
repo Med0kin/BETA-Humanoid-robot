@@ -25,7 +25,7 @@ class PWMServo(Servo):
         self._servo_range = servo_range
         self._GPIO_PORT = gpio_port
         self._pigpio = self._setup_pigpiod(gpio_port)
-        self._target_pos = None
+        self._target_pos = 1500
         self._target_time = 0
         self._thread = threading.Thread(target=self._control_servo)
         self._thread_stop_event = threading.Event()
@@ -72,8 +72,6 @@ class PWMServo(Servo):
         while not self._thread_stop_event.is_set():
             if self.target_pos == self.pos:
                 continue
-            if self.target_pos == None:
-                raise ValueError("Target position is None")
             if self.target_time == 0:
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, self.target_pos)
                 self.pos = self.target_pos
@@ -105,7 +103,7 @@ class PWMServo(Servo):
         return self._pigpio
     
     @property
-    def target_pos(self) -> Union[int, None]:
+    def target_pos(self) -> int:
         return self._target_pos
 
     @property
