@@ -1,6 +1,6 @@
-from model.PWMServo import PWMServo
-from model.BusServo import BusServo
-from multimethod import multimethod
+from model.Servo import Servo
+#from model.PWMServo import PWMServo
+#from model.BusServo import BusServo
 from typing import Union, List, Tuple, Any
 from array import array
 
@@ -10,7 +10,7 @@ class ServoController:
         Constructor for ServoController class
         :param servos: Tuple of servos
         '''
-        self._servos = servos
+        self._servos: tuple = servos
 
     
     def move(self, servos: Union[list, tuple, array], positions: Union[list, tuple, array],
@@ -26,20 +26,30 @@ class ServoController:
             raise ValueError("Servos and times must be the same length")
         if times is None:
             times = [0] * len(servos)
-        type_check_list = [isinstance(servo, int) for servo in servos]
-        if all(type_check_list):
+
+        int_type_check_list = [isinstance(servo, int) for servo in servos]
+        servo_type_check_list = [isinstance(servo, Servo) for servo in servos]
+        if all(int_type_check_list):
             servos = self._get_servos_by_ids(servos)
-        pwm_servos = tuple(servo for servo in servos if isinstance(servo, PWMServo))
-        bus_servos = tuple(servo for servo in servos if isinstance(servo, BusServo))
+        elif all(servo_type_check_list):
+            pass
+        else:
+            raise ValueError("Servos must be either all ints or all Servos")
+        #pwm_servos = tuple(servo for servo in servos if isinstance(servo, PWMServo))
+        #bus_servos = tuple(servo for servo in servos if isinstance(servo, BusServo))
         
 
-    def _get_servos_by_ids(self, ids: Union[list, tuple, array]) -> tuple:
-        servos = ()
-        for id in ids:
-            servos = tuple(servo for servo in self.servos if servo.id == id)
+    def _get_servos_by_ids(self, ids: Union[list, tuple, array]) -> list:
+        servos = []
+        for id in sorted(ids):
+            for servo in self.servos:
+                if servo.id == id:
+                    servos.append(servo)
+                    break
         if len(servos) != len(ids):
             raise ValueError("Not all IDs are valid")
         return servos
+
 
     @property
     def servos(self) -> tuple:
@@ -52,7 +62,7 @@ class ServoController:
     def __len__(self) -> int:
         return len(self.servos)
 
-    def __getitem__(self, index: int) -> Union[PWMServo, BusServo]:
+    def __getitem__(self, index: int) -> Servo:
         return self.servos[index]
 
 
