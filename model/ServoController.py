@@ -1,6 +1,4 @@
-from model.Servo import Servo
-#from model.PWMServo import PWMServo
-#from model.BusServo import BusServo
+from model import Servo
 from typing import Union, List, Tuple, Any
 from array import array
 

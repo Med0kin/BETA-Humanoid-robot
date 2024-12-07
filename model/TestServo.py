@@ -1,4 +1,4 @@
-from model.Servo import Servo
+from model import Servo
 
 class TestServo(Servo):
     def __init__(self, id: int, max_pos: int, min_pos: int) -> None:

@@ -1,5 +1,5 @@
 import serial
-from model.Servo import Servo
+from model import Servo
 from multimethod import multimethod
 
 class BusServo(Servo):

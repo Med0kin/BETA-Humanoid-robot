@@ -1,7 +1,6 @@
 import sys
 from PySide2.QtWidgets import QButtonGroup, QPushButton
 
-
 class ButtonsController():
     def __init__(self, dict_of_button_groups) -> None:
         self._dict_of_button_groups = dict_of_button_groups

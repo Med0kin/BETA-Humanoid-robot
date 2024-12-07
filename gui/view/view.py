@@ -3,7 +3,7 @@ from PySide2.QtGui import QPixmap, QFont, QIcon, QPalette, QBrush
 from PySide2.QtWidgets import (QButtonGroup, QPushButton, QHBoxLayout,
                                QVBoxLayout, QWidget)
 from QFace import QFaceGraphicsScene, QFaceGraphicsView
-
+import typing
 
 class Window(QWidget):
     def __init__(self) -> None:
@@ -63,5 +63,5 @@ class Window(QWidget):
         return self._view
  
     @property
-    def dict_of_button_groups(self) -> dict[str, QButtonGroup]:
+    def dict_of_button_groups(self) -> Dict[str, QButtonGroup]:
         return self._dict_of_button_groups

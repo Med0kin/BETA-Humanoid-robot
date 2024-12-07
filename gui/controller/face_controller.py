@@ -1,4 +1,4 @@
-from gui.view.QFace import QFaceGraphicsScene
+from gui.view import QFaceGraphicsScene
 from PySide2.QtCore import QTimer, QPropertyAnimation
 from PySide2.QtCore import Qt, QRectF, QEasingCurve
 from PySide2.QtWidgets import QGraphicsPixmapItem

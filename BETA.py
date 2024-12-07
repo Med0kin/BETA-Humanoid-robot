@@ -2,9 +2,8 @@ import sys
 
 from PySide2.QtWidgets import QApplication
 
-from gui.controller.face_controller import FaceController
-from gui.controller.buttons_controller import ButtonsController
-from gui.view.view import Window
+from gui.controller import FaceController, ButtonsController
+from gui.view import Window
 
 
 class Controller():

@@ -3,6 +3,7 @@ from PySide2.QtCore import QSize, Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import (QFrame, QGraphicsItem, QGraphicsPixmapItem,
                                QGraphicsScene, QGraphicsView)
+import typing
 
 class QFaceGraphicsScene(QGraphicsScene):
     def __init__(self, size: QSize, parent=None) -> None:
@@ -31,7 +32,7 @@ class QFaceGraphicsScene(QGraphicsScene):
         return item
     
     @property
-    def items(self) -> list[QGraphicsPixmapItem]:
+    def items(self) -> List[QGraphicsPixmapItem]:
         return self._items
     
     @property

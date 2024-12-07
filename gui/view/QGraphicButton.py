@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QAbstractButton
-from PyQt5.QtGui import QPainter, QPixmap
-from PyQt5.QtCore import QSize
+from PySide2.QtWidgets import QAbstractButton
+from PySide2.QtGui import QPainter, QPixmap
+from PySide2.QtCore import QSize
 
 class QGraphicButton(QAbstractButton):
     def __init__(self, pixmap, parent=None) -> None:

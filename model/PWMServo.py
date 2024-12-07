@@ -1,5 +1,5 @@
 import threading
-from model.Servo import Servo
+from model import Servo
 import RPi.GPIO as GPIO
 import pigpio as pg
 from typing import Union
