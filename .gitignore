@@ -1,0 +1,10 @@
+### VS Code ###
+.vscode/
+
+### pycache ###
+model/__pycache__/
+gui/controller/__pycache__/
+gui/view/__pycache__/
+__pycache__/
+
+
