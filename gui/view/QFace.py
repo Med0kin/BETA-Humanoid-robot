@@ -3,7 +3,8 @@ from PySide2.QtCore import QSize, Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import (QFrame, QGraphicsItem, QGraphicsPixmapItem,
                                QGraphicsScene, QGraphicsView)
-import typing
+from gui.view import QAnimatedPixmapItem
+from typing import List
 
 class QFaceGraphicsScene(QGraphicsScene):
     def __init__(self, size: QSize, parent=None) -> None:
@@ -15,24 +16,25 @@ class QFaceGraphicsScene(QGraphicsScene):
     def _setup_scene(self) -> None:
         _background_item = self._create_item("background_empty", self._window_size)
         _face_item = self._create_item("face", self._window_size)
+        
         _left_eye_item = self._create_item("eye", QSize(50, 50))
         _right_eye_item = self._create_item("eye", QSize(50, 50))
         
         for item in self._items:
             self.addItem(item)
 
-    def _create_item(self, name: str, size: QSize) -> QGraphicsPixmapItem:
+    def _create_item(self, name: str, size: QSize) -> QAnimatedPixmapItem:
         path = os.path.join(os.path.dirname(__file__), "resources", name + ".png")
         if not os.path.exists(path):
             raise Exception("Image not found at: {}".format(path))
         image = QPixmap(path)
         image = image.scaled(size.width(), size.height(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
-        item = QGraphicsPixmapItem(image)
+        item = QAnimatedPixmapItem(image)
         self._items.append(item)
         return item
     
     @property
-    def items(self) -> List[QGraphicsPixmapItem]:
+    def items(self) -> List[QAnimatedPixmapItem]:
         return self._items
     
     @property

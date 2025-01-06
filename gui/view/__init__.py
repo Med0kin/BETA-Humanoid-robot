@@ -1,6 +1,10 @@
 # gui/view/__init__.py
 
-from .view import Window
+from pkgutil import extend_path
+from .QAnimatedPixmapItem import QAnimatedPixmapItem
 from .QFace import QFaceGraphicsScene, QFaceGraphicsView
+from .view import Window
 
-__all__ = ["Window"]
+__path__ = extend_path(__path__, __name__)
+
+__all__ = ["QAnimatedPixmapItem", "Window", "QFaceGraphicsScene", "QFaceGraphicsView"]

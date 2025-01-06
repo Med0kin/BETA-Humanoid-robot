@@ -4,6 +4,7 @@ from PySide2.QtWidgets import QApplication
 
 from gui.controller import FaceController, ButtonsController
 from gui.view import Window
+from model.model import Model
 
 
 class Controller():
@@ -23,5 +24,5 @@ class Controller():
 if __name__ == "__main__":
     myapp = QApplication(sys.argv)
     view = Window()
-    model = None
+    model = Model()
     controller = Controller(view, model)

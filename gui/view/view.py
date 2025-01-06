@@ -2,8 +2,8 @@ from PySide2.QtCore import QSize, Qt
 from PySide2.QtGui import QPixmap, QFont, QIcon, QPalette, QBrush
 from PySide2.QtWidgets import (QButtonGroup, QPushButton, QHBoxLayout,
                                QVBoxLayout, QWidget)
-from QFace import QFaceGraphicsScene, QFaceGraphicsView
-import typing
+from gui.view import QFaceGraphicsScene, QFaceGraphicsView
+from typing import Dict
 
 class Window(QWidget):
     def __init__(self) -> None:

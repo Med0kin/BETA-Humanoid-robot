@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 from typing import Any, Union
 
 class Servo(ABC):
+    '''
+    :param is_inversed: Whether the servo movement is inversed
+                    (Reqired for mirroring right and left servos) 
+    '''
 
     @abstractmethod
     def __init__(self,id: int, max_pos: int, min_pos: int) -> None:
@@ -9,7 +13,7 @@ class Servo(ABC):
         self._max_pos = max_pos
         self._min_pos = min_pos
         self._pos = None
-        self._reversed = False
+        self._is_inverted = False
     
     @abstractmethod
     def move(self, arg: Any, verbose: bool = False) -> None: ...
@@ -44,8 +48,8 @@ class Servo(ABC):
         return self._pos
 
     @property
-    def reversed(self) -> bool:
-        return self._reversed
+    def is_inverted(self) -> bool:
+        return self._is_inverted
 
     @pos.setter
     def pos(self, pos: int) -> None:
@@ -54,9 +58,9 @@ class Servo(ABC):
                              f"and {self._max_pos}")
         self._pos = pos
 
-    @reversed.setter
-    def reversed(self, value: bool) -> None:
-        self._reversed = value
+    @is_inverted.setter
+    def is_inverted(self, value: bool) -> None:
+        self._is_inverted = value
 
     def __str__(self) -> str:
         return (f"Id {self.id},\n"

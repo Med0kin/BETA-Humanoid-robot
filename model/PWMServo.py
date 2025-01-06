@@ -1,5 +1,5 @@
 import threading
-from model import Servo
+from .Servo import Servo
 import RPi.GPIO as GPIO
 import pigpio as pg
 from typing import Union
@@ -77,9 +77,9 @@ class PWMServo(Servo):
                 self.pos = self.target_pos
                 continue
             if self.target_pos > self.pos: # type: ignore
-                step = 5
+                step = 15
             else:
-                step = -5
+                step = -15
             #TODO: Figure out how to deal with type checking here
             current_goal = self.target_pos
             travel = int(abs(self.target_pos - self.pos)) # type: ignore
@@ -91,7 +91,7 @@ class PWMServo(Servo):
                     break
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, pos)
                 print(f"Pos: {pos} Time: {time_jump}")
-                sleep(time_jump)
+                sleep(time_jump / 1000)
                 self.pos = pos
 
     @property

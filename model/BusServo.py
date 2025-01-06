@@ -13,7 +13,7 @@ class BusServo(Servo):
         :param serial: Serial port of the servo
         '''
         super().__init__(id, max_pos, min_pos)
-        self._serial = serial;
+        self._serial = serial
 
     @multimethod
     def move(self, pos: int, verbose: bool = False) -> None: # type: ignore
