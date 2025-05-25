@@ -40,7 +40,7 @@ class ServoController:
 
         pwm_servos = tuple(servo for servo in servos if isinstance(servo, PWMServo))
         for servo in pwm_servos:
-            servo.move(positions[servos.index(servo)], times[servos.index(servo)], verbose)
+            servo.move(positions[servos.index(servo)], times[servos.index(servo)]/1000, verbose)
         
         bus_servos = tuple(servo for servo in servos if isinstance(servo, BusServo))
         bus_positions = [positions[servos.index(servo)] for servo in bus_servos]
@@ -86,6 +86,11 @@ class ServoController:
         data[3] = len(data) - 3
         data.append(self._checksum(data))
         self.serial.write(data)
+
+    def _old_move_multiple_bus(self, servos: Union[list, tuple, array], positions: Union[list, tuple, array], 
+                           operation_time: Union[list, tuple, array]) -> None:
+    
+        pass
         
 
     def _checksum(self, data: bytearray) -> int:

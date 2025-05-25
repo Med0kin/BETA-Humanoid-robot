@@ -70,29 +70,45 @@ class PWMServo(Servo):
         """
         current_goal = self.pos
         while not self._thread_stop_event.is_set():
+            # Skip if already at target
             if self.target_pos == self.pos:
+                sleep(0.01)  # Small sleep to prevent busy waiting
                 continue
+            
+            # Handle immediate movement
             if self.target_time == 0:
                 self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, self.target_pos)
                 self.pos = self.target_pos
                 continue
-            if self.target_pos > self.pos: # type: ignore
-                step = 15
-            else:
-                step = -15
-            #TODO: Figure out how to deal with type checking here
-            current_goal = self.target_pos
-            travel = int(abs(self.target_pos - self.pos)) # type: ignore
-            amount_of_steps = travel/abs(step)
-            time_jump = self.target_time / amount_of_steps
-            pos_list = range(self.pos, self.target_pos, step) # type: ignore
-            for pos in pos_list:
-                if current_goal != self.target_pos:
-                    break
-                self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, pos)
-                print(f"Pos: {pos} Time: {time_jump}")
-                sleep(time_jump / 1000)
-                self.pos = pos
+            
+            # Calculate movement parameters
+            direction = 1 if self.target_pos > self.pos else -1
+            travel = abs(self.target_pos - self.pos)
+            step_size = max(1, min(5, travel // 10))  # Dynamic step size based on distance
+            amount_of_steps = travel // step_size
+            
+            # Store current targets to detect changes
+            current_target_pos = self.target_pos
+            current_target_time = self.target_time
+            
+            # Calculate time per step
+            time_per_step = current_target_time / amount_of_steps if amount_of_steps > 0 else 0
+            
+            # Movement loop
+            for step in range(1, amount_of_steps + 1):
+                if (self.target_pos != current_target_pos or 
+                    self.target_time != current_target_time):
+                    break  # Target changed, restart movement
+                
+                new_pos = self.pos + (step_size * direction)
+                self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, new_pos)
+                self.pos = new_pos
+                sleep(time_per_step)
+            
+            # Final position (in case we broke out early or had rounding errors)
+            if self.target_pos == current_target_pos:  # Only if target didn't change
+                self.pigpio.set_servo_pulsewidth(self.GPIO_PORT, current_target_pos)
+                self.pos = current_target_pos
 
     @property
     def servo_range(self) -> int:

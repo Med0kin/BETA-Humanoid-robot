@@ -13,7 +13,8 @@ class Controller():
         self._model = model
         self._face_controller = FaceController(self._view.scene)
         self._buttons_controller = ButtonsController(
-            self._view.dict_of_button_groups)
+            self._view.dict_of_button_groups,
+            self._model)
         self.start_app()
 
     def start_app(self) -> None:
@@ -23,6 +24,6 @@ class Controller():
 
 if __name__ == "__main__":
     myapp = QApplication(sys.argv)
-    view = Window()
     model = Model()
+    view = Window()
     controller = Controller(view, model)

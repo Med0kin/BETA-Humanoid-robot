@@ -13,7 +13,7 @@ class Window(QWidget):
         self.setMinimumSize(self.window_size)
         self.setStyleSheet("background-color: white;")
         self.setup_ui()
-        self.show()
+        self.showFullScreen()
 
     def setup_ui(self) -> None:
         self.main_layout = QHBoxLayout(self)
