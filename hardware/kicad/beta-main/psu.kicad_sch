@@ -1,0 +1,217 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "d9bd5e48-e816-41b8-8dde-f45f2e9a7908")
+	(paper "A5")
+	(title_block
+		(title "BETA MAIN BOARD - POWER SUPPLY")
+	)
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 48.26 71.12) (xy 48.26 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1abce275-7968-4069-8214-510a1a77c1bd")
+	)
+	(wire
+		(pts
+			(xy 110.49 58.42) (xy 115.57 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c526515-b405-44a4-aea3-d58e8c2d2e4c")
+	)
+	(wire
+		(pts
+			(xy 64.77 57.15) (xy 71.12 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1cd7f7a-8556-40d9-af65-61b27a573eea")
+	)
+	(wire
+		(pts
+			(xy 99.06 71.12) (xy 99.06 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3ab5625-1776-4015-aa8d-41db056ff9da")
+	)
+	(hierarchical_label "5V"
+		(shape output)
+		(at 115.57 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "14f00314-0241-4164-aa8c-03f8e3c8b3ff")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 99.06 76.2 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a23e5a1f-d671-44a0-b700-715af09a9c73")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 48.26 77.47 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cb19649c-6c1d-48b8-b291-1c91e774cd6f")
+	)
+	(hierarchical_label "3V3"
+		(shape output)
+		(at 71.12 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eeb00187-5202-4419-bc3b-d6efcf652f06")
+	)
+	(sheet
+		(at 34.29 44.45)
+		(size 30.48 26.67)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "62e1a8a0-22a6-4c05-9e8e-c498ad8097c2")
+		(property "Sheetname" "3V3"
+			(at 34.29 43.7384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "psu_3v3.kicad_sch"
+			(at 39.116 42.926 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "3V3" output
+			(at 64.77 57.15 0)
+			(uuid "d2d75bd5-e5f3-4e37-b69b-4763bf683bb9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" passive
+			(at 48.26 71.12 270)
+			(uuid "8f97911a-661f-4931-aca4-36a646ee8069")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "beta-main"
+				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 86.36 44.45)
+		(size 24.13 26.67)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f1c2223e-be40-44a8-b214-5a9dabb6dd01")
+		(property "Sheetname" "5V"
+			(at 86.36 43.7384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "psu_5v.kicad_sch"
+			(at 89.916 42.418 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" output
+			(at 110.49 58.42 0)
+			(uuid "73a923f8-11e2-4b87-b660-53d433796604")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" passive
+			(at 99.06 71.12 270)
+			(uuid "48a072fe-2aac-4448-8d8d-d99f4ed95213")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "beta-main"
+				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd"
+					(page "7")
+				)
+			)
+		)
+	)
+)

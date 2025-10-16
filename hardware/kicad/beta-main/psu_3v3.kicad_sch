@@ -1,0 +1,34 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "51eb0c50-8d64-40b4-9f41-bc6e5bfb9a3a")
+	(paper "A5")
+	(title_block
+		(title "BETA MAIN BOARD - POWER SUPPLY +3V3 ")
+		(comment 1 "Powers: DISPLAY")
+	)
+	(lib_symbols)
+	(hierarchical_label "3V3"
+		(shape output)
+		(at 104.14 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b9018fbe-6bf3-4cf4-9ded-fe384f083d4f")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 58.42 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e6f96697-d3b0-42c8-b548-a81c974656c9")
+	)
+)
