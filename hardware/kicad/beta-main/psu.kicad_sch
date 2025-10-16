@@ -8,19 +8,51 @@
 		(title "BETA MAIN BOARD - POWER SUPPLY")
 	)
 	(lib_symbols)
+	(junction
+		(at 52.07 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "323039e1-5e9a-4179-bfef-31fe4531f684")
+	)
+	(junction
+		(at 52.07 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "78c44451-171e-4b2c-9784-654b1bc3f06b")
+	)
 	(wire
 		(pts
-			(xy 48.26 71.12) (xy 48.26 77.47)
+			(xy 52.07 66.04) (xy 59.69 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1abce275-7968-4069-8214-510a1a77c1bd")
+		(uuid "137b006c-3c8d-43a7-9400-d916a32ef201")
 	)
 	(wire
 		(pts
-			(xy 110.49 58.42) (xy 115.57 58.42)
+			(xy 44.45 50.8) (xy 52.07 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a4bcc7e-c650-4edd-8c00-4a7627476131")
+	)
+	(wire
+		(pts
+			(xy 77.47 92.71) (xy 83.82 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e4013f1-f995-4012-aaa5-496bcebbbb46")
+	)
+	(wire
+		(pts
+			(xy 77.47 66.04) (xy 82.55 66.04)
 		)
 		(stroke
 			(width 0)
@@ -30,17 +62,57 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 57.15) (xy 71.12 57.15)
+			(xy 52.07 91.44) (xy 59.69 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d1cd7f7a-8556-40d9-af65-61b27a573eea")
+		(uuid "8fd779b3-6a1a-4c7d-84ac-3ed5dde47ee8")
 	)
 	(wire
 		(pts
-			(xy 99.06 71.12) (xy 99.06 76.2)
+			(xy 68.58 97.79) (xy 68.58 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1ce0659-01c7-40b7-ab2a-a1c5ba56a8de")
+	)
+	(wire
+		(pts
+			(xy 77.47 41.91) (xy 81.28 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd78475f-072d-40a6-ad14-197c192eb8ef")
+	)
+	(wire
+		(pts
+			(xy 52.07 41.91) (xy 52.07 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c84b0c06-38e7-419c-a0ca-cf2fd22bc225")
+	)
+	(wire
+		(pts
+			(xy 52.07 50.8) (xy 52.07 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cad34284-23c4-4692-befa-c8dddd469551")
+	)
+	(wire
+		(pts
+			(xy 68.58 72.39) (xy 68.58 74.93)
 		)
 		(stroke
 			(width 0)
@@ -48,9 +120,40 @@
 		)
 		(uuid "d3ab5625-1776-4015-aa8d-41db056ff9da")
 	)
+	(wire
+		(pts
+			(xy 52.07 91.44) (xy 52.07 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8b53389-a525-4630-a335-0a96fef2cf7e")
+	)
+	(wire
+		(pts
+			(xy 52.07 41.91) (xy 59.69 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dfa97e4c-626b-498a-b9c9-89f34462a7d6")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 68.58 100.33 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0327fc4e-9e1f-483b-b07f-526dc3d5e53d")
+	)
 	(hierarchical_label "5V"
 		(shape output)
-		(at 115.57 58.42 0)
+		(at 82.55 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -59,9 +162,20 @@
 		)
 		(uuid "14f00314-0241-4164-aa8c-03f8e3c8b3ff")
 	)
+	(hierarchical_label "3V3"
+		(shape output)
+		(at 83.82 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "74e7c3b6-2361-47d4-9a31-84362ddf528a")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
-		(at 99.06 76.2 270)
+		(at 68.58 74.93 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -70,31 +184,20 @@
 		)
 		(uuid "a23e5a1f-d671-44a0-b700-715af09a9c73")
 	)
-	(hierarchical_label "GND"
-		(shape passive)
-		(at 48.26 77.47 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "cb19649c-6c1d-48b8-b291-1c91e774cd6f")
-	)
-	(hierarchical_label "3V3"
+	(hierarchical_label "12V"
 		(shape output)
-		(at 71.12 57.15 0)
+		(at 81.28 41.91 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "eeb00187-5202-4419-bc3b-d6efcf652f06")
+		(uuid "aa7d6777-07b8-4dec-8274-79f2a9e89d96")
 	)
 	(sheet
-		(at 34.29 44.45)
-		(size 30.48 26.67)
+		(at 59.69 85.09)
+		(size 17.78 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -106,9 +209,9 @@
 		(fill
 			(color 0 0 0 0.0000)
 		)
-		(uuid "62e1a8a0-22a6-4c05-9e8e-c498ad8097c2")
+		(uuid "261db230-bd2b-48a8-b49d-21eabae53d2d")
 		(property "Sheetname" "3V3"
-			(at 34.29 43.7384 0)
+			(at 59.436 82.804 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -117,7 +220,7 @@
 			)
 		)
 		(property "Sheetfile" "psu_3v3.kicad_sch"
-			(at 39.116 42.926 0)
+			(at 59.436 83.312 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -126,8 +229,8 @@
 			)
 		)
 		(pin "3V3" output
-			(at 64.77 57.15 0)
-			(uuid "d2d75bd5-e5f3-4e37-b69b-4763bf683bb9")
+			(at 77.47 92.71 0)
+			(uuid "72d938ea-c61f-48c4-b415-eb5bbafe4692")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -136,13 +239,84 @@
 			)
 		)
 		(pin "GND" passive
-			(at 48.26 71.12 270)
-			(uuid "8f97911a-661f-4931-aca4-36a646ee8069")
+			(at 68.58 97.79 270)
+			(uuid "9314b343-4ce6-47aa-b81a-d645293c42ec")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "VIN" input
+			(at 59.69 91.44 180)
+			(uuid "71404ef9-c2ca-4627-b1ab-89bdeeea479e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "beta-main"
+				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 22.86 38.1)
+		(size 21.59 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "7b048636-3ad8-47aa-9650-ed1a60cc171e")
+		(property "Sheetname" "Battery"
+			(at 22.86 35.306 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "psu_battery.kicad_sch"
+			(at 22.606 36.322 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 33.02 63.5 270)
+			(uuid "504ed588-3c98-4f9f-8173-065efccda6bf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "VOUT" output
+			(at 44.45 50.8 0)
+			(uuid "976e0828-cadd-42b5-8e3d-b8b9c2e4fa72")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
@@ -154,8 +328,79 @@
 		)
 	)
 	(sheet
-		(at 86.36 44.45)
-		(size 24.13 26.67)
+		(at 59.69 35.56)
+		(size 17.78 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a683d7dd-5493-4bef-abfb-8a4dbe5de797")
+		(property "Sheetname" "12V"
+			(at 59.69 32.512 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "psu_12v.kicad_sch"
+			(at 59.182 33.528 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "12V" output
+			(at 77.47 41.91 0)
+			(uuid "0c6a039e-a9f6-40d5-a9a6-8540ddda4f75")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" passive
+			(at 68.58 48.26 270)
+			(uuid "dc8a5bc3-3ec0-457e-9c84-306e7fddba5a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "VIN" input
+			(at 59.69 41.91 180)
+			(uuid "83aa68da-f7f7-48b2-954d-b36696b7a9a3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "beta-main"
+				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 59.69 59.69)
+		(size 17.78 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -169,7 +414,7 @@
 		)
 		(uuid "f1c2223e-be40-44a8-b214-5a9dabb6dd01")
 		(property "Sheetname" "5V"
-			(at 86.36 43.7384 0)
+			(at 59.69 56.896 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -178,7 +423,7 @@
 			)
 		)
 		(property "Sheetfile" "psu_5v.kicad_sch"
-			(at 89.916 42.418 0)
+			(at 59.436 57.658 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -187,7 +432,7 @@
 			)
 		)
 		(pin "5V" output
-			(at 110.49 58.42 0)
+			(at 77.47 66.04 0)
 			(uuid "73a923f8-11e2-4b87-b660-53d433796604")
 			(effects
 				(font
@@ -197,8 +442,18 @@
 			)
 		)
 		(pin "GND" passive
-			(at 99.06 71.12 270)
+			(at 68.58 72.39 270)
 			(uuid "48a072fe-2aac-4448-8d8d-d99f4ed95213")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "VIN" input
+			(at 59.69 66.04 180)
+			(uuid "c1c68234-54a2-4d0a-ae3f-6a7f1cef5087")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -209,7 +464,7 @@
 		(instances
 			(project "beta-main"
 				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd"
-					(page "7")
+					(page "8")
 				)
 			)
 		)

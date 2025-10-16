@@ -122,6 +122,16 @@
 	)
 	(wire
 		(pts
+			(xy 73.66 49.53) (xy 93.98 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ef1768c-32f7-44a3-aaa6-a759d6def55d")
+	)
+	(wire
+		(pts
 			(xy 73.66 57.15) (xy 93.98 57.15)
 		)
 		(stroke
@@ -346,6 +356,16 @@
 				(justify right)
 			)
 		)
+		(pin "12V" output
+			(at 73.66 49.53 0)
+			(uuid "95dcce59-23a7-41ce-b125-8236e96add81")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "beta-main"
 				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5"
@@ -411,6 +431,16 @@
 		(pin "3V3" input
 			(at 93.98 57.15 180)
 			(uuid "c94b9470-7958-40ec-a469-0b7bf6772d0d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "12V" input
+			(at 93.98 49.53 180)
+			(uuid "6d95953c-eeb4-4ce6-8bec-14c479206b32")
 			(effects
 				(font
 					(size 1.27 1.27)

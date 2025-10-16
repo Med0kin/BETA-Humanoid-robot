@@ -3844,6 +3844,16 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 92.71) (xy 140.97 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "293cafa4-40c5-4664-87e9-9d83181a991e")
+	)
+	(wire
+		(pts
 			(xy 132.08 85.09) (xy 129.54 85.09)
 		)
 		(stroke
@@ -4134,6 +4144,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 92.71) (xy 68.58 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f87baf74-604b-43af-b6cd-1ef3f1411b2f")
+	)
+	(wire
+		(pts
 			(xy 66.04 82.55) (xy 68.58 82.55)
 		)
 		(stroke
@@ -4318,6 +4338,17 @@
 		)
 		(uuid "b65cef48-556f-49ba-95ec-86909b7dccac")
 	)
+	(hierarchical_label "UART3_TX"
+		(shape passive)
+		(at 140.97 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b8781e66-0840-4ac6-a7df-70260ef41ca9")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 66.04 107.95 180)
@@ -4328,6 +4359,17 @@
 			(justify right)
 		)
 		(uuid "c18ae266-40f8-43de-978f-908f3645971f")
+	)
+	(hierarchical_label "UART3_RX"
+		(shape passive)
+		(at 57.15 92.71 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c5b8ce7b-22c3-4514-9989-5134cf50a07e")
 	)
 	(hierarchical_label "SCL0"
 		(shape passive)

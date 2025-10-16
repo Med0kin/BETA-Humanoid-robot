@@ -1,0 +1,33 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "a44e5573-5864-4aa4-a0f0-91924ec3e7e1")
+	(paper "A5")
+	(title_block
+		(title "BETA MAIN BOARD - POWER SUPPLY - BATTERY")
+	)
+	(lib_symbols)
+	(hierarchical_label "VOUT"
+		(shape output)
+		(at 105.41 67.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "52e1357b-943a-44bb-ba1b-0074bbc58496")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 66.04 81.28 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ae6ab0b1-6538-4bf5-bbf4-384eb1c62ee9")
+	)
+)

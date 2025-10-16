@@ -631,12 +631,20 @@
       "PSU"
     ],
     [
-      "62e1a8a0-22a6-4c05-9e8e-c498ad8097c2",
-      "3V3"
+      "7b048636-3ad8-47aa-9650-ed1a60cc171e",
+      "Battery"
+    ],
+    [
+      "a683d7dd-5493-4bef-abfb-8a4dbe5de797",
+      "12V"
     ],
     [
       "f1c2223e-be40-44a8-b214-5a9dabb6dd01",
       "5V"
+    ],
+    [
+      "261db230-bd2b-48a8-b49d-21eabae53d2d",
+      "3V3"
     ]
   ],
   "text_variables": {}
