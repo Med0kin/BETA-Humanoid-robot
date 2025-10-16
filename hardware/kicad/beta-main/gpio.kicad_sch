@@ -3874,6 +3874,16 @@
 	)
 	(wire
 		(pts
+			(xy 62.23 168.91) (xy 68.58 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a864071-ff25-4491-a5a5-c85d37ddbd88")
+	)
+	(wire
+		(pts
 			(xy 66.04 52.07) (xy 68.58 52.07)
 		)
 		(stroke
@@ -4031,6 +4041,16 @@
 			(type default)
 		)
 		(uuid "95a0c22e-77df-4043-a789-8cbebda6bdad")
+	)
+	(wire
+		(pts
+			(xy 129.54 166.37) (xy 134.62 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2ea3232-6149-4d04-be96-a46ada05d55e")
 	)
 	(wire
 		(pts
@@ -4294,6 +4314,17 @@
 		)
 		(uuid "548356ef-62eb-4c4a-8d0c-563a339bc975")
 	)
+	(hierarchical_label "SDA1"
+		(shape passive)
+		(at 22.86 128.27 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5b03402d-d304-4a6a-a89e-b2ee78b9b6a0")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 132.08 125.73 0)
@@ -4316,6 +4347,17 @@
 		)
 		(uuid "7eb5257c-5bf4-4e3b-afc0-3918d297224c")
 	)
+	(hierarchical_label "CAM_GPIO0"
+		(shape input)
+		(at 134.62 166.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9ad8a4c0-47b2-45b3-ba24-4f5acecc1af9")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 132.08 59.69 0)
@@ -4337,6 +4379,17 @@
 			(justify left)
 		)
 		(uuid "b65cef48-556f-49ba-95ec-86909b7dccac")
+	)
+	(hierarchical_label "SCL1"
+		(shape passive)
+		(at 22.86 124.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b7bc55f6-0b39-4c1e-ae6f-567b55f7c99d")
 	)
 	(hierarchical_label "UART3_TX"
 		(shape passive)
@@ -4392,6 +4445,17 @@
 			(justify left)
 		)
 		(uuid "ccf05bd8-d93f-4a7c-bbbe-6425419a987a")
+	)
+	(hierarchical_label "CAM_GPIO1"
+		(shape input)
+		(at 62.23 168.91 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d485f00f-8db5-476b-98ce-d3908dd74fbb")
 	)
 	(hierarchical_label "GND"
 		(shape passive)
