@@ -15,10 +15,10 @@
 		(uuid "323039e1-5e9a-4179-bfef-31fe4531f684")
 	)
 	(junction
-		(at 52.07 66.04)
+		(at 83.82 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "78c44451-171e-4b2c-9784-654b1bc3f06b")
+		(uuid "48e7d54e-a0a4-405e-82ff-ea1ebfd1f3b3")
 	)
 	(wire
 		(pts
@@ -42,7 +42,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 92.71) (xy 83.82 92.71)
+			(xy 109.22 67.31) (xy 115.57 67.31)
 		)
 		(stroke
 			(width 0)
@@ -52,27 +52,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 66.04) (xy 82.55 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c526515-b405-44a4-aea3-d58e8c2d2e4c")
-	)
-	(wire
-		(pts
-			(xy 52.07 91.44) (xy 59.69 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8fd779b3-6a1a-4c7d-84ac-3ed5dde47ee8")
-	)
-	(wire
-		(pts
-			(xy 68.58 97.79) (xy 68.58 100.33)
+			(xy 100.33 72.39) (xy 100.33 74.93)
 		)
 		(stroke
 			(width 0)
@@ -122,13 +102,13 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 91.44) (xy 52.07 66.04)
+			(xy 83.82 66.04) (xy 91.44 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d8b53389-a525-4630-a335-0a96fef2cf7e")
+		(uuid "ded09ef3-73ac-415a-973a-8caea4b1c822")
 	)
 	(wire
 		(pts
@@ -140,9 +120,29 @@
 		)
 		(uuid "dfa97e4c-626b-498a-b9c9-89f34462a7d6")
 	)
+	(wire
+		(pts
+			(xy 83.82 66.04) (xy 77.47 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e25945b5-c2bd-4a71-a830-12a7eacc2d45")
+	)
+	(wire
+		(pts
+			(xy 83.82 55.88) (xy 83.82 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6b835cc-21e1-4a50-829b-3f30467807b1")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
-		(at 68.58 100.33 270)
+		(at 100.33 74.93 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -153,7 +153,7 @@
 	)
 	(hierarchical_label "5V"
 		(shape output)
-		(at 82.55 66.04 0)
+		(at 83.82 55.88 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -164,7 +164,7 @@
 	)
 	(hierarchical_label "3V3"
 		(shape output)
-		(at 83.82 92.71 0)
+		(at 115.57 67.31 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -196,7 +196,7 @@
 		(uuid "aa7d6777-07b8-4dec-8274-79f2a9e89d96")
 	)
 	(sheet
-		(at 59.69 85.09)
+		(at 91.44 59.69)
 		(size 17.78 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -211,7 +211,7 @@
 		)
 		(uuid "261db230-bd2b-48a8-b49d-21eabae53d2d")
 		(property "Sheetname" "3V3"
-			(at 59.436 82.804 0)
+			(at 91.186 57.404 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -220,7 +220,7 @@
 			)
 		)
 		(property "Sheetfile" "psu_3v3.kicad_sch"
-			(at 59.436 83.312 0)
+			(at 91.186 57.912 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -229,7 +229,7 @@
 			)
 		)
 		(pin "3V3" output
-			(at 77.47 92.71 0)
+			(at 109.22 67.31 0)
 			(uuid "72d938ea-c61f-48c4-b415-eb5bbafe4692")
 			(effects
 				(font
@@ -239,7 +239,7 @@
 			)
 		)
 		(pin "GND" passive
-			(at 68.58 97.79 270)
+			(at 100.33 72.39 270)
 			(uuid "9314b343-4ce6-47aa-b81a-d645293c42ec")
 			(effects
 				(font
@@ -249,7 +249,7 @@
 			)
 		)
 		(pin "VIN" input
-			(at 59.69 91.44 180)
+			(at 91.44 66.04 180)
 			(uuid "71404ef9-c2ca-4627-b1ab-89bdeeea479e")
 			(effects
 				(font
