@@ -645,6 +645,10 @@
     [
       "261db230-bd2b-48a8-b49d-21eabae53d2d",
       "3V3"
+    ],
+    [
+      "c35ad228-8cfd-4958-93e3-246eeca4dc8e",
+      "Servo Controller"
     ]
   ],
   "text_variables": {}
