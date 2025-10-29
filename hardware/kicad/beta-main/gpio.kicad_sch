@@ -4204,6 +4204,17 @@
 		)
 		(uuid "0a1a75fa-db35-47f1-aabb-02b4fc3b9aed")
 	)
+	(hierarchical_label "GPIO21"
+		(shape input)
+		(at 129.54 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0c763cd9-9717-4a21-aa68-0266d7d02369")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 66.04 135.89 180)
@@ -4236,6 +4247,28 @@
 			(justify left)
 		)
 		(uuid "19496e08-5644-4914-b86d-411f386e2d42")
+	)
+	(hierarchical_label "GPIO19"
+		(shape input)
+		(at 68.58 74.93 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "24ead07f-d3db-45a6-85cc-33b08bac4444")
+	)
+	(hierarchical_label "GPIO18"
+		(shape input)
+		(at 129.54 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "251872ad-2144-4be9-8aed-624fe6b965ad")
 	)
 	(hierarchical_label "GND"
 		(shape passive)

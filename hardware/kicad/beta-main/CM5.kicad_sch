@@ -822,6 +822,16 @@
 	)
 	(wire
 		(pts
+			(xy 48.26 41.91) (xy 57.15 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12b02150-baf3-4a9b-a367-3f46a087cd5d")
+	)
+	(wire
+		(pts
 			(xy 237.49 64.77) (xy 241.3 64.77)
 		)
 		(stroke
@@ -992,6 +1002,16 @@
 	)
 	(wire
 		(pts
+			(xy 48.26 44.45) (xy 57.15 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4da8c1d5-37d3-4da9-b837-efd16acf0765")
+	)
+	(wire
+		(pts
 			(xy 231.14 92.71) (xy 241.3 92.71)
 		)
 		(stroke
@@ -1069,6 +1089,16 @@
 			(type default)
 		)
 		(uuid "6ef0f19e-5be4-400a-ba5d-13e9c835421a")
+	)
+	(wire
+		(pts
+			(xy 48.26 39.37) (xy 57.15 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72fdb640-6fec-4dcd-935a-2e8cb2b8a30e")
 	)
 	(wire
 		(pts
@@ -1685,6 +1715,17 @@
 		)
 		(uuid "4ab42d5c-6ef8-4501-a2be-cd0cba879c6c")
 	)
+	(hierarchical_label "GPIO18"
+		(shape input)
+		(at 48.26 39.37 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "50129485-ffd3-4e21-a0a9-7906bbb61071")
+	)
 	(hierarchical_label "GND"
 		(shape input)
 		(at 71.12 96.52 270)
@@ -1784,6 +1825,17 @@
 		)
 		(uuid "be292048-f9de-440c-855f-f05f83bf8de7")
 	)
+	(hierarchical_label "GPIO19"
+		(shape input)
+		(at 48.26 41.91 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c2fde89a-a228-40ae-adda-3084adc4f172")
+	)
 	(hierarchical_label "5V"
 		(shape input)
 		(at 52.07 54.61 180)
@@ -1794,6 +1846,17 @@
 			(justify right)
 		)
 		(uuid "c78fa76a-58d2-4579-8670-b4760f0b77af")
+	)
+	(hierarchical_label "GPIO21"
+		(shape input)
+		(at 48.26 44.45 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ca601722-17d0-498b-8df4-d9a2f24b35c8")
 	)
 	(hierarchical_label "UART3_RX"
 		(shape input)
@@ -2184,6 +2247,36 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "GPIO19" input
+			(at 57.15 41.91 180)
+			(uuid "982249da-99fb-4817-a5fa-fcfdc08a33af")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GPIO18" input
+			(at 57.15 39.37 180)
+			(uuid "2601c7d3-fa5e-4549-ba48-f9a8b00656ba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GPIO21" input
+			(at 57.15 44.45 180)
+			(uuid "b3437dfb-df53-460f-bbf5-d50822bd82c8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
