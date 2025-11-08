@@ -4,7 +4,10 @@ import io
 import wave
 from piper.voice import PiperVoice
 
-SOX_CMD = ["sox", "-t", "wav", "-", "-t", "wav", "-", "flanger", "10", "2", "reverb", "25", "50"]
+# sox -t wav - -t wav - pitch -800 speed 0.9 reverb 50 75
+SOX_CMD_1 = ["sox", "-t", "wav", "-", "-t", "wav", "-", "flanger", "10", "2", "reverb", "25", "50"] # High-Pitched Droid (Pitch & Overdrive)
+SOX_CMD_2 = ["sox", "-t", "wav", "-", "-t", "wav", "-", "pitch", "-800", "speed", "0.9", "reverb", "50", "75"] # Deep Ominous Robot (Pitch & Reverb)
+
 APLAY_CMD = ["aplay"]
 MODEL_PATH = os.path.expanduser("~/piper-models/pl_PL-meski_wg_glos-medium.onnx")
 
@@ -21,7 +24,7 @@ def synthesize_wav_bytes(voice: PiperVoice, text: str) -> bytes:
 
 def play_wav_bytes(wav_bytes: bytes) -> None:
     """Play WAV bytes through SoX effects into aplay."""
-    p_sox = subprocess.Popen(SOX_CMD, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    p_sox = subprocess.Popen(SOX_CMD_1, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     p_aplay = subprocess.Popen(APLAY_CMD, stdin=p_sox.stdout)
     p_sox.stdout.close()  # Allow aplay to detect EOF
 
