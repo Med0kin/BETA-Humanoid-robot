@@ -2008,7 +2008,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c7a10613-faca-4e3d-a2f0-3331235e1216")
-		(property "Reference" "J6"
+		(property "Reference" "J2"
 			(at 247.65 104.1399 0)
 			(effects
 				(font
@@ -2110,7 +2110,7 @@
 		(instances
 			(project "beta-main"
 				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/b3cf40a7-4d41-420e-a440-2c08f4160b31"
-					(reference "J6")
+					(reference "J2")
 					(unit 1)
 				)
 			)

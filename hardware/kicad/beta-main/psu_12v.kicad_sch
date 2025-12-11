@@ -4,10 +4,33 @@
 	(generator_version "9.0")
 	(uuid "ec72918b-3eb2-4bc1-9983-61dd9de4a0d2")
 	(paper "A4")
+	(title_block
+		(comment 1 "Powers: Servo Controller")
+	)
 	(lib_symbols)
+	(wire
+		(pts
+			(xy 86.36 80.01) (xy 111.76 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0be8e71c-e928-470c-a3bf-42dfb14dd78a")
+	)
+	(wire
+		(pts
+			(xy 86.36 91.44) (xy 111.76 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94350922-5e5d-4cf2-bde9-4d89a2b3ea5c")
+	)
 	(hierarchical_label "12V"
 		(shape output)
-		(at 120.65 66.04 0)
+		(at 111.76 80.01 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17,25 +40,36 @@
 		(uuid "1c93a09d-57ae-427b-b530-a1ae2a031b6b")
 	)
 	(hierarchical_label "GND"
-		(shape passive)
-		(at 96.52 82.55 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "24723cf2-db6b-47cc-89c1-d6091decda04")
-	)
-	(hierarchical_label "VIN"
 		(shape input)
-		(at 87.63 64.77 0)
+		(at 111.76 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
+		(uuid "2c5ad071-4dcf-449c-815b-37f31ad8bfa7")
+	)
+	(hierarchical_label "VIN"
+		(shape input)
+		(at 86.36 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
 		(uuid "44b6e065-69f4-425e-bf92-e127ec556123")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 86.36 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "99ee6ec3-db85-4802-82da-5d3c68bad3c7")
 	)
 )

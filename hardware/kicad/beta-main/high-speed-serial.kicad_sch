@@ -5006,7 +5006,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ed2959b4-e120-49a2-9e05-9e00516d242e")
-		(property "Reference" "Module2"
+		(property "Reference" "Module1"
 			(at 101.6 33.02 0)
 			(effects
 				(font
@@ -5668,7 +5668,7 @@
 		(instances
 			(project "beta-main"
 				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/b3cf40a7-4d41-420e-a440-2c08f4160b31/73aabdab-ec7c-4b05-9a0f-ff93ba2e60b6"
-					(reference "Module2")
+					(reference "Module1")
 					(unit 2)
 				)
 			)
