@@ -555,7 +555,7 @@
 	)
 	(hierarchical_label "VOUT"
 		(shape output)
-		(at 123.19 54.61 0)
+		(at 124.46 54.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
