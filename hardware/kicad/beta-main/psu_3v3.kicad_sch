@@ -1749,7 +1749,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uH"
+		(property "Value" "2.2u"
 			(at 100.33 53.3654 90)
 			(effects
 				(font
@@ -2550,7 +2550,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 57.531 60.833 0)
 			(effects
 				(font

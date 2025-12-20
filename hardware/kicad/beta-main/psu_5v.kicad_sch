@@ -1478,7 +1478,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 98.552 63.5 90)
 			(effects
 				(font
@@ -1546,7 +1546,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CM5IO:L_Bourns_SRP5030CC"
 			(at 83.82 48.26 0)
 			(effects
 				(font
@@ -1616,7 +1616,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 165.1 44.45 0)
 			(effects
 				(font
@@ -1683,7 +1683,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 111.4552 62.23 0)
 			(effects
 				(font
@@ -1753,7 +1753,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 125.4252 62.23 0)
 			(effects
 				(font
@@ -1823,7 +1823,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 50.4952 63.5 0)
 			(effects
 				(font
@@ -1893,7 +1893,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 139.3952 62.23 0)
 			(effects
 				(font
@@ -1963,7 +1963,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 40.3352 63.5 0)
 			(effects
 				(font
@@ -2033,7 +2033,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 98.552 53.34 90)
 			(effects
 				(font
@@ -2184,7 +2184,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 30.1752 63.5 0)
 			(effects
 				(font
@@ -2320,7 +2320,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 152.0952 62.23 0)
 			(effects
 				(font

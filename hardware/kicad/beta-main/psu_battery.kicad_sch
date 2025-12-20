@@ -662,7 +662,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220uF"
+		(property "Value" "220u"
 			(at 105.41 58.8009 0)
 			(effects
 				(font
@@ -671,7 +671,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 102.5652 62.23 0)
 			(effects
 				(font
