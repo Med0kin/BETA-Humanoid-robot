@@ -974,8 +974,8 @@
       "Battery"
     ],
     [
-      "a683d7dd-5493-4bef-abfb-8a4dbe5de797",
-      "12V"
+      "eb97c806-c815-45d1-bff9-8ccc678dc3c5",
+      "Sensors"
     ],
     [
       "f1c2223e-be40-44a8-b214-5a9dabb6dd01",
@@ -986,7 +986,7 @@
       "3V3"
     ],
     [
-      "c35ad228-8cfd-4958-93e3-246eeca4dc8e",
+      "83fcb6c9-b3ed-4612-84a6-f247239f6612",
       "Servo Controller"
     ]
   ],
