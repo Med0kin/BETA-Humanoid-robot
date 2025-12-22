@@ -8,7 +8,7 @@
 		(title "BETA MAIN BOARD - CM5")
 	)
 	(lib_symbols
-		(symbol "Audio:MAX98357A"
+		(symbol "Beta:MAX98357A"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -268,7 +268,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 2.54 -12.7 90)
 					(length 2.54)
 					(name "PAD"
@@ -1681,7 +1681,7 @@
 		(at 196.85 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ee690adc-6437-498b-a6cd-6c221da21899")
+		(uuid "e4690a76-0b7a-47d8-a055-7a7652402705")
 	)
 	(no_connect
 		(at 135.89 52.07)
@@ -1744,16 +1744,6 @@
 			(type default)
 		)
 		(uuid "060b4096-4445-48fc-a7f2-3723d2933ef2")
-	)
-	(wire
-		(pts
-			(xy 196.85 41.91) (xy 195.58 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07cf1e8a-0e76-4409-9740-dab45876ba20")
 	)
 	(wire
 		(pts
@@ -2034,16 +2024,6 @@
 			(type default)
 		)
 		(uuid "4da8c1d5-37d3-4da9-b837-efd16acf0765")
-	)
-	(wire
-		(pts
-			(xy 196.85 41.91) (xy 196.85 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f7fd101-3396-4c7b-8425-c737cbb3a406")
 	)
 	(wire
 		(pts
@@ -2407,6 +2387,16 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 41.91) (xy 195.58 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c71d3b06-2317-4e59-a98f-704bbe5d0d8e")
+	)
+	(wire
+		(pts
 			(xy 162.56 116.84) (xy 166.37 116.84)
 		)
 		(stroke
@@ -2414,6 +2404,16 @@
 			(type default)
 		)
 		(uuid "c9a1a1eb-2519-41e7-87f3-834521ed83ab")
+	)
+	(wire
+		(pts
+			(xy 196.85 46.99) (xy 196.85 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ceebb492-560c-4551-be8f-c0a17474ae0b")
 	)
 	(wire
 		(pts
@@ -3337,7 +3337,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Audio:MAX98357A")
+		(lib_id "Beta:MAX98357A")
 		(at 182.88 44.45 90)
 		(unit 1)
 		(exclude_from_sim no)
