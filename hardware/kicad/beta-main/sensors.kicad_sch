@@ -5,29 +5,27 @@
 	(uuid "6bc7dbd5-1967-49d7-ae45-10e3a73100bd")
 	(paper "A4")
 	(lib_symbols
-		(symbol "BNO086:BNO086"
+		(symbol "Beta:BNO086"
 			(pin_names
 				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -25.4 21.59 0)
+			(property "Reference" "U6"
+				(at 0 25.4 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
 			(property "Value" "BNO086"
-				(at -25.4 -25.4 0)
+				(at 0 22.86 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
 			(property "Footprint" "BNO086:IC_BNO086"
@@ -170,8 +168,8 @@
 			)
 			(symbol "BNO086_0_0"
 				(rectangle
-					(start -25.4 -22.86)
-					(end 25.4 20.32)
+					(start -25.4 20.32)
+					(end 25.4 -22.86)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -343,25 +341,7 @@
 					)
 				)
 				(pin no_connect line
-					(at -30.48 -15.24 0)
-					(length 5.08)
-					(name "RESV_NC"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at -30.48 -15.24 0)
+					(at -30.48 -12.7 0)
 					(length 5.08)
 					(hide yes)
 					(name "RESV_NC"
@@ -380,102 +360,7 @@
 					)
 				)
 				(pin no_connect line
-					(at -30.48 -15.24 0)
-					(length 5.08)
-					(hide yes)
-					(name "RESV_NC"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "13"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at -30.48 -15.24 0)
-					(length 5.08)
-					(hide yes)
-					(name "RESV_NC"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "21"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at -30.48 -15.24 0)
-					(length 5.08)
-					(hide yes)
-					(name "RESV_NC"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "22"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at -30.48 -15.24 0)
-					(length 5.08)
-					(hide yes)
-					(name "RESV_NC"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "23"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at -30.48 -15.24 0)
-					(length 5.08)
-					(hide yes)
-					(name "RESV_NC"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "24"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at -30.48 -15.24 0)
+					(at -30.48 -13.97 0)
 					(length 5.08)
 					(hide yes)
 					(name "RESV_NC"
@@ -505,6 +390,101 @@
 						)
 					)
 					(number "8"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -30.48 -16.51 0)
+					(length 5.08)
+					(hide yes)
+					(name "RESV_NC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -30.48 -17.78 0)
+					(length 5.08)
+					(hide yes)
+					(name "RESV_NC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -30.48 -19.05 0)
+					(length 5.08)
+					(hide yes)
+					(name "RESV_NC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -30.48 -20.32 0)
+					(length 5.08)
+					(hide yes)
+					(name "RESV_NC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -30.48 -21.59 0)
+					(length 5.08)
+					(hide yes)
+					(name "RESV_NC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "13"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -685,6 +665,27 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(symbol "BNO086_1_0"
+				(pin no_connect line
+					(at -30.48 -22.86 0)
+					(length 5.08)
+					(hide yes)
+					(name "RESV_NC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -1408,7 +1409,7 @@
 		(uuid "d4474782-4f69-4118-8d6d-587527a4020f")
 	)
 	(symbol
-		(lib_id "BNO086:BNO086")
+		(lib_id "Beta:BNO086")
 		(at 115.57 69.85 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1418,7 +1419,7 @@
 		(fields_autoplaced yes)
 		(uuid "20718eb4-851f-471f-98ac-29c33b990022")
 		(property "Reference" "U6"
-			(at 115.57 95.25 0)
+			(at 115.57 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1426,7 +1427,7 @@
 			)
 		)
 		(property "Value" "BNO086"
-			(at 115.57 92.71 0)
+			(at 115.57 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
