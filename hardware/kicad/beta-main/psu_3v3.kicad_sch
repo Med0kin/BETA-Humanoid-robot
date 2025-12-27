@@ -235,6 +235,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -1132,6 +1239,12 @@
 		(uuid "0d203827-9d27-4c9d-8300-025e2823b2f3")
 	)
 	(junction
+		(at 166.37 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "203483e9-89c6-4c07-ba79-b1e4148a3b58")
+	)
+	(junction
 		(at 36.83 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1162,12 +1275,6 @@
 		(uuid "693905d6-b6c8-4688-812a-6c79c97d3364")
 	)
 	(junction
-		(at 163.83 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "af8dd045-ff94-4b1d-b18b-de861064f036")
-	)
-	(junction
 		(at 151.13 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1190,6 +1297,12 @@
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "e5fc2234-41b8-41af-b237-8ab6ce00dfb4")
+	)
+	(junction
+		(at 163.83 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f08b1224-f03f-4aac-9cfb-45080bbfbfae")
 	)
 	(no_connect
 		(at 63.5 53.34)
@@ -1274,6 +1387,16 @@
 			(type default)
 		)
 		(uuid "25ed8d36-6612-41b8-b652-70e1c8891dd6")
+	)
+	(wire
+		(pts
+			(xy 163.83 55.88) (xy 166.37 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "329f06c8-ff5a-4bfd-b1a5-9dee92bb6800")
 	)
 	(wire
 		(pts
@@ -1487,13 +1610,13 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 55.88) (xy 167.64 55.88)
+			(xy 166.37 55.88) (xy 167.64 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c047501a-7da8-4eeb-aa88-341788598a4a")
+		(uuid "bc81bb07-27ab-4734-8541-4b38ad283d24")
 	)
 	(wire
 		(pts
@@ -1557,7 +1680,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 52.07) (xy 163.83 55.88)
+			(xy 166.37 52.07) (xy 166.37 55.88)
 		)
 		(stroke
 			(width 0)
@@ -2058,7 +2181,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 163.83 52.07 0)
+		(at 166.37 52.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2067,7 +2190,7 @@
 		(fields_autoplaced yes)
 		(uuid "3a9099cd-7435-4738-8a1a-28b5ec41ef33")
 		(property "Reference" "#FLG03"
-			(at 163.83 50.165 0)
+			(at 166.37 50.165 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2076,7 +2199,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 166.37 50.7999 0)
+			(at 168.91 50.7999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2085,7 +2208,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 163.83 52.07 0)
+			(at 166.37 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2094,7 +2217,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 163.83 52.07 0)
+			(at 166.37 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2103,7 +2226,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 163.83 52.07 0)
+			(at 166.37 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3611,6 +3734,72 @@
 			(project "beta-main"
 				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd/261db230-bd2b-48a8-b49d-21eabae53d2d"
 					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 163.83 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b2335c92-f989-4b1c-b01f-81a310465769")
+		(property "Reference" "TP2"
+			(at 159.766 51.308 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "3V3"
+			(at 159.766 53.594 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 168.91 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 168.91 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 163.83 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7c150cf4-1b76-4ba1-9c69-484787eb3647")
+		)
+		(instances
+			(project "beta-main"
+				(path "/ec75fd42-4efa-4f32-b57e-76d632cb46f5/a42372fe-a5e6-45a2-9241-7a7c7af267fd/261db230-bd2b-48a8-b49d-21eabae53d2d"
+					(reference "TP2")
 					(unit 1)
 				)
 			)

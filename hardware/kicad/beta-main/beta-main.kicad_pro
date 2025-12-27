@@ -503,7 +503,7 @@
       {
         "bus_width": 12,
         "name": "12V",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(255, 24, 241)",
         "priority": 4,
         "schematic_color": "rgb(255, 24, 241)",
         "wire_width": 6
@@ -511,7 +511,7 @@
       {
         "bus_width": 12,
         "name": "3V3",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(255, 125, 19)",
         "priority": 6,
         "schematic_color": "rgb(255, 125, 19)",
         "wire_width": 6
@@ -519,7 +519,7 @@
       {
         "bus_width": 12,
         "name": "5V",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(255, 0, 13)",
         "priority": 5,
         "schematic_color": "rgb(255, 0, 13)",
         "wire_width": 6
@@ -527,7 +527,7 @@
       {
         "bus_width": 12,
         "name": "High Speed Serial",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(47, 230, 0)",
         "priority": 3,
         "schematic_color": "rgb(47, 230, 0)",
         "wire_width": 6
@@ -535,7 +535,7 @@
       {
         "bus_width": 12,
         "name": "I2C",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(12, 0, 255)",
         "priority": 0,
         "schematic_color": "rgb(12, 0, 255)",
         "wire_width": 6
@@ -543,7 +543,7 @@
       {
         "bus_width": 12,
         "name": "I2S_Audio",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(240, 232, 3)",
         "priority": 1,
         "schematic_color": "rgb(240, 232, 3)",
         "wire_width": 6
@@ -551,7 +551,7 @@
       {
         "bus_width": 12,
         "name": "UART",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(0, 200, 245)",
         "priority": 2,
         "schematic_color": "rgb(0, 200, 245)",
         "wire_width": 6
