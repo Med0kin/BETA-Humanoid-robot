@@ -1775,7 +1775,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Bourns_SRP5030T"
+		(property "Footprint" "CM5IO:L_Bourns_SRP5030CC"
 			(at 83.82 48.26 0)
 			(effects
 				(font
