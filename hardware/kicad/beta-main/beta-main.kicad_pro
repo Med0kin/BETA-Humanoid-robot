@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.8,
-          "height": 1.27,
-          "width": 2.54
+          "drill": 0.0,
+          "height": 0.7,
+          "width": 0.2
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -56,6 +56,11 @@
           "gap": 0.0,
           "via_gap": 0.0,
           "width": 0.0
+        },
+        {
+          "gap": 0.154,
+          "via_gap": 0.2,
+          "width": 0.2
         },
         {
           "gap": 0.3,
@@ -128,7 +133,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.152,
+        "min_clearance": 0.1,
         "min_connection": 0.152,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
@@ -193,6 +198,7 @@
       ],
       "track_widths": [
         0.0,
+        0.2,
         0.3,
         0.5,
         0.75,
@@ -230,7 +236,7 @@
           "drill": 0.0
         },
         {
-          "diameter": 0.7,
+          "diameter": 0.6,
           "drill": 0.3
         }
       ],
@@ -526,6 +532,7 @@
       },
       {
         "bus_width": 12,
+        "clearance": 0.1,
         "name": "High Speed Serial",
         "pcb_color": "rgb(47, 230, 0)",
         "priority": 3,
@@ -542,7 +549,7 @@
       },
       {
         "bus_width": 12,
-        "name": "I2S_Audio",
+        "name": "I2S",
         "pcb_color": "rgb(240, 232, 3)",
         "priority": 1,
         "schematic_color": "rgb(240, 232, 3)",
@@ -577,127 +584,35 @@
       },
       {
         "netclass": "UART",
-        "pattern": "/CM5/UART3_TX"
+        "pattern": "*TX*"
       },
       {
         "netclass": "UART",
-        "pattern": "/CM5/UART3_RX"
+        "pattern": "*RX*"
       },
       {
-        "netclass": "I2S_Audio",
-        "pattern": "/CM5/SDO"
+        "netclass": "I2S",
+        "pattern": "*SDO*"
       },
       {
-        "netclass": "I2S_Audio",
-        "pattern": "/CM5/SCLK"
+        "netclass": "I2S",
+        "pattern": "*SCLK*"
       },
       {
-        "netclass": "I2S_Audio",
-        "pattern": "/CM5/WS"
-      },
-      {
-        "netclass": "I2C",
-        "pattern": "/CM5/SDA0"
+        "netclass": "I2S",
+        "pattern": "*WS*"
       },
       {
         "netclass": "I2C",
-        "pattern": "/CM5/SCL0"
+        "pattern": "*SDA*"
       },
       {
         "netclass": "I2C",
-        "pattern": "/CM5/SCL1"
-      },
-      {
-        "netclass": "I2C",
-        "pattern": "/CM5/SDA1"
-      },
-      {
-        "netclass": "I2C",
-        "pattern": "/CM5/SCL2"
-      },
-      {
-        "netclass": "I2C",
-        "pattern": "/CM5/SDA2"
+        "pattern": "*SCL*"
       },
       {
         "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI0_D0_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI0_D0_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI0_D1_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI0_D1_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI0_C_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI0_C_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI0_D2_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI0_D2_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI0_D3_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI0_D3_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI1_D0_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI1_D0_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI1_D1_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI1_D1_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI1_C_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/MIPI1_C_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI1_D2_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI1_D2_P"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI1_D3_N"
-      },
-      {
-        "netclass": "High Speed Serial",
-        "pattern": "/CM5/High Speed Serial/MIPI1_D3_P"
+        "pattern": "*MIPI*"
       }
     ]
   },
@@ -917,6 +832,12 @@
           "label": "Exclude from Board",
           "name": "${EXCLUDE_FROM_BOARD}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pin",
+          "name": "Sim.Pin",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -968,15 +889,11 @@
   },
   "sheets": [
     [
-      "ec75fd42-4efa-4f32-b57e-76d632cb46f5",
+      "6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf",
       "Root"
     ],
     [
-      "b3cf40a7-4d41-420e-a440-2c08f4160b31",
-      "CM5"
-    ],
-    [
-      "2457c445-1c7f-4f98-9485-5d4e226b5b8f",
+      "0f61b609-bb14-44c6-b062-99d2f45a8bc0",
       "GPIO"
     ],
     [
@@ -984,28 +901,12 @@
       "High Speed Serial"
     ],
     [
-      "a42372fe-a5e6-45a2-9241-7a7c7af267fd",
-      "PSU"
-    ],
-    [
-      "7b048636-3ad8-47aa-9650-ed1a60cc171e",
-      "Battery"
-    ],
-    [
       "eb97c806-c815-45d1-bff9-8ccc678dc3c5",
-      "Sensors"
+      "Peripherals"
     ],
     [
-      "f1c2223e-be40-44a8-b214-5a9dabb6dd01",
-      "5V"
-    ],
-    [
-      "261db230-bd2b-48a8-b49d-21eabae53d2d",
-      "3V3"
-    ],
-    [
-      "83fcb6c9-b3ed-4612-84a6-f247239f6612",
-      "Servo Controller"
+      "77db638e-233d-4258-91cb-4a238d3a7609",
+      "PSU"
     ]
   ],
   "text_variables": {}
