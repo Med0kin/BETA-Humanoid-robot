@@ -236,6 +236,10 @@
           "drill": 0.0
         },
         {
+          "diameter": 0.4,
+          "drill": 0.2
+        },
+        {
           "diameter": 0.6,
           "drill": 0.3
         }
@@ -490,7 +494,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -510,7 +514,7 @@
         "bus_width": 12,
         "name": "12V",
         "pcb_color": "rgb(255, 24, 241)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(255, 24, 241)",
         "wire_width": 6
       },
@@ -518,7 +522,7 @@
         "bus_width": 12,
         "name": "3V3",
         "pcb_color": "rgb(255, 125, 19)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgb(255, 125, 19)",
         "wire_width": 6
       },
@@ -526,8 +530,16 @@
         "bus_width": 12,
         "name": "5V",
         "pcb_color": "rgb(255, 0, 13)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgb(255, 0, 13)",
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "name": "GND",
+        "pcb_color": "rgb(72, 72, 72)",
+        "priority": 0,
+        "schematic_color": "rgb(72, 72, 72)",
         "wire_width": 6
       },
       {
@@ -535,7 +547,7 @@
         "clearance": 0.1,
         "name": "High Speed Serial",
         "pcb_color": "rgb(47, 230, 0)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(47, 230, 0)",
         "wire_width": 6
       },
@@ -543,7 +555,7 @@
         "bus_width": 12,
         "name": "I2C",
         "pcb_color": "rgb(12, 0, 255)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(12, 0, 255)",
         "wire_width": 6
       },
@@ -551,7 +563,7 @@
         "bus_width": 12,
         "name": "I2S",
         "pcb_color": "rgb(240, 232, 3)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(240, 232, 3)",
         "wire_width": 6
       },
@@ -559,7 +571,7 @@
         "bus_width": 12,
         "name": "UART",
         "pcb_color": "rgb(0, 200, 245)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(0, 200, 245)",
         "wire_width": 6
       }
@@ -572,15 +584,15 @@
     "netclass_patterns": [
       {
         "netclass": "3V3",
-        "pattern": "/3V3"
+        "pattern": "+3V3"
       },
       {
         "netclass": "5V",
-        "pattern": "/5V"
+        "pattern": "+5V"
       },
       {
         "netclass": "12V",
-        "pattern": "/12V"
+        "pattern": "+BATT"
       },
       {
         "netclass": "UART",
@@ -613,6 +625,10 @@
       {
         "netclass": "High Speed Serial",
         "pattern": "*MIPI*"
+      },
+      {
+        "netclass": "GND",
+        "pattern": "GND"
       }
     ]
   },
@@ -845,7 +861,7 @@
       "include_excluded_from_bom": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Footprint"
     },
     "connection_grid_size": 50.0,
     "drawing": {

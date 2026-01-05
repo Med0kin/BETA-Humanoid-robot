@@ -6164,6 +6164,33 @@
 				)
 			)
 		)
+		(property "Sim.Device" ""
+			(at -38.1 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" ""
+			(at -38.1 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" ""
+			(at -38.1 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "105"
 			(uuid "0b4825d7-dcfd-4ccb-b969-726be7832540")
 		)
