@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.0
+          "min_clearance": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -58,14 +58,14 @@
           "width": 0.0
         },
         {
-          "gap": 0.154,
-          "via_gap": 0.2,
-          "width": 0.2
+          "gap": 0.2,
+          "via_gap": 0.2105,
+          "width": 0.29
         },
         {
-          "gap": 0.3,
-          "via_gap": 0.5,
-          "width": 0.3
+          "gap": 0.2,
+          "via_gap": 0.2105,
+          "width": 0.36
         }
       ],
       "drc_exclusions": [],
@@ -199,7 +199,9 @@
       "track_widths": [
         0.0,
         0.2,
+        0.29,
         0.3,
+        0.36,
         0.5,
         0.75,
         1.0
@@ -514,7 +516,7 @@
         "bus_width": 12,
         "name": "12V",
         "pcb_color": "rgb(255, 24, 241)",
-        "priority": 5,
+        "priority": 7,
         "schematic_color": "rgb(255, 24, 241)",
         "wire_width": 6
       },
@@ -522,7 +524,7 @@
         "bus_width": 12,
         "name": "3V3",
         "pcb_color": "rgb(255, 125, 19)",
-        "priority": 7,
+        "priority": 9,
         "schematic_color": "rgb(255, 125, 19)",
         "wire_width": 6
       },
@@ -530,15 +532,35 @@
         "bus_width": 12,
         "name": "5V",
         "pcb_color": "rgb(255, 0, 13)",
-        "priority": 6,
+        "priority": 8,
         "schematic_color": "rgb(255, 0, 13)",
         "wire_width": 6
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.29,
+        "name": "DP_100Ω",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.29
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.36,
+        "name": "DP_90Ω",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.36
       },
       {
         "bus_width": 12,
         "name": "GND",
         "pcb_color": "rgb(72, 72, 72)",
-        "priority": 0,
+        "priority": 2,
         "schematic_color": "rgb(72, 72, 72)",
         "wire_width": 6
       },
@@ -547,7 +569,7 @@
         "clearance": 0.1,
         "name": "High Speed Serial",
         "pcb_color": "rgb(47, 230, 0)",
-        "priority": 4,
+        "priority": 6,
         "schematic_color": "rgb(47, 230, 0)",
         "wire_width": 6
       },
@@ -555,7 +577,7 @@
         "bus_width": 12,
         "name": "I2C",
         "pcb_color": "rgb(12, 0, 255)",
-        "priority": 1,
+        "priority": 3,
         "schematic_color": "rgb(12, 0, 255)",
         "wire_width": 6
       },
@@ -563,7 +585,7 @@
         "bus_width": 12,
         "name": "I2S",
         "pcb_color": "rgb(240, 232, 3)",
-        "priority": 2,
+        "priority": 4,
         "schematic_color": "rgb(240, 232, 3)",
         "wire_width": 6
       },
@@ -571,7 +593,7 @@
         "bus_width": 12,
         "name": "UART",
         "pcb_color": "rgb(0, 200, 245)",
-        "priority": 3,
+        "priority": 5,
         "schematic_color": "rgb(0, 200, 245)",
         "wire_width": 6
       }
@@ -629,6 +651,14 @@
       {
         "netclass": "GND",
         "pattern": "GND"
+      },
+      {
+        "netclass": "DP_100Ω",
+        "pattern": "*MIPI*"
+      },
+      {
+        "netclass": "DP_90Ω",
+        "pattern": "*USB*"
       }
     ]
   },
