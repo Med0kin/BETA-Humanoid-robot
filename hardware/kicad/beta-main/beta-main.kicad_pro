@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.1
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -68,7 +68,28 @@
           "width": 0.36
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "nonmirrored_text_on_back_layer|81655000|43625000|e6f41787-41d0-4d4c-b867-573046ba8385|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "via_dangling|114125412|80800000|218cf964-bacd-41a3-8de7-b1bb46680553|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "via_dangling|114200000|83600000|7410a7fb-b2c5-46db-9dbf-4068c51e90d2|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "via_dangling|116000000|80000000|16ab7e92-21ff-462a-8ed2-2830b8ce883b|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "via_dangling|116200000|84400000|d67dd305-97d4-49bf-ab66-150071764259|00000000-0000-0000-0000-000000000000",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -577,7 +598,7 @@
         "bus_width": 12,
         "name": "I2C",
         "pcb_color": "rgb(12, 0, 255)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(12, 0, 255)",
         "wire_width": 6
       },
@@ -585,7 +606,7 @@
         "bus_width": 12,
         "name": "I2S",
         "pcb_color": "rgb(240, 232, 3)",
-        "priority": 4,
+        "priority": 3,
         "schematic_color": "rgb(240, 232, 3)",
         "wire_width": 6
       },
@@ -659,6 +680,10 @@
       {
         "netclass": "DP_90Ω",
         "pattern": "*USB*"
+      },
+      {
+        "netclass": "I2S",
+        "pattern": "*I2S*"
       }
     ]
   },

@@ -2293,28 +2293,10 @@
 		(uuid "09d3eca6-7a57-4923-9d7b-60e009e3faed")
 	)
 	(junction
-		(at 129.54 34.29)
+		(at 138.43 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0a68492b-17bc-4213-a87d-b839bb75e6c4")
-	)
-	(junction
-		(at 119.38 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "17608689-7817-4c9b-9b2e-543a9ac5cf47")
-	)
-	(junction
-		(at 119.38 87.63)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "214bda86-f51a-4bd1-ba39-084a630a9edd")
-	)
-	(junction
-		(at 214.63 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "232a189a-cb15-4633-9edf-c54480106bcb")
+		(uuid "0bc16ed2-aad6-45f0-9394-39d85e9bbd7f")
 	)
 	(junction
 		(at 190.5 44.45)
@@ -2329,10 +2311,28 @@
 		(uuid "3491ea6c-c814-46c1-aaad-c6319e128693")
 	)
 	(junction
+		(at 210.82 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "43ff94b5-3a61-47fb-b457-582f07e2be41")
+	)
+	(junction
+		(at 231.14 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4fd1eb88-0971-42fc-8ee9-10238728049c")
+	)
+	(junction
 		(at 156.21 139.7)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5f91958f-a788-41d5-b6ea-8244dc53a81e")
+	)
+	(junction
+		(at 128.27 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "691068e5-3fe9-4e96-8778-30e030ab175b")
 	)
 	(junction
 		(at 190.5 87.63)
@@ -2383,12 +2383,6 @@
 		(uuid "af03a197-276a-483a-9ff7-4a286bcaa8bd")
 	)
 	(junction
-		(at 139.7 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b4e57a2f-af91-4e89-9913-7d2ee39eb244")
-	)
-	(junction
 		(at 218.44 139.7)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2419,28 +2413,22 @@
 		(uuid "d34de160-1592-4f61-8160-9e9d8491f730")
 	)
 	(junction
-		(at 228.6 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d82a9544-50f2-42da-b5b5-9eb459524dbc")
-	)
-	(junction
 		(at 223.52 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e1375f6f-1712-4b35-9a1b-7dedf998cde6")
 	)
 	(junction
-		(at 241.3 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e6cff27e-bcc4-4991-bf7b-bab4edf6ff41")
-	)
-	(junction
 		(at 200.66 95.25)
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "e85c1f8b-3af9-4e8b-81e7-ebceadfce8ef")
+	)
+	(junction
+		(at 220.98 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fe9269c2-4290-419d-b382-90ca6e41be4e")
 	)
 	(no_connect
 		(at 194.31 144.78)
@@ -2459,6 +2447,16 @@
 			(type default)
 		)
 		(uuid "0334b413-c642-4e2b-a439-25838fc69cb8")
+	)
+	(wire
+		(pts
+			(xy 124.46 34.29) (xy 124.46 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "037411c4-0cc0-4425-832a-2315e9c02e5a")
 	)
 	(wire
 		(pts
@@ -2492,6 +2490,16 @@
 	)
 	(wire
 		(pts
+			(xy 220.98 34.29) (xy 231.14 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07ea2bd5-cd2a-4c36-a2d7-0adfbd1582c9")
+	)
+	(wire
+		(pts
 			(xy 163.83 82.55) (xy 165.1 82.55)
 		)
 		(stroke
@@ -2502,17 +2510,17 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 34.29) (xy 129.54 34.29)
+			(xy 138.43 34.29) (xy 143.51 34.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0e3e3bae-a2a4-47f3-9ee6-321dace6983d")
+		(uuid "0fb6ed15-f371-46d1-ab86-c4420c11ac23")
 	)
 	(wire
 		(pts
-			(xy 228.6 48.26) (xy 228.6 55.88)
+			(xy 220.98 48.26) (xy 220.98 55.88)
 		)
 		(stroke
 			(width 0)
@@ -2622,7 +2630,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 34.29) (xy 129.54 41.91)
+			(xy 138.43 34.29) (xy 138.43 41.91)
 		)
 		(stroke
 			(width 0)
@@ -2639,16 +2647,6 @@
 			(type default)
 		)
 		(uuid "1e3029fd-5384-4150-b97d-7b32cea1400a")
-	)
-	(wire
-		(pts
-			(xy 119.38 87.63) (xy 128.27 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1f39a959-8945-468b-ad19-df6fa310b641")
 	)
 	(wire
 		(pts
@@ -2672,7 +2670,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 34.29) (xy 256.54 29.21)
+			(xy 231.14 34.29) (xy 231.14 29.21)
 		)
 		(stroke
 			(width 0)
@@ -2722,7 +2720,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 29.21) (xy 228.6 34.29)
+			(xy 200.66 29.21) (xy 200.66 34.29)
 		)
 		(stroke
 			(width 0)
@@ -2732,7 +2730,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 48.26) (xy 241.3 55.88)
+			(xy 231.14 48.26) (xy 231.14 55.88)
 		)
 		(stroke
 			(width 0)
@@ -2742,7 +2740,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 87.63) (xy 119.38 87.63)
+			(xy 124.46 87.63) (xy 128.27 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2759,6 +2757,16 @@
 			(type default)
 		)
 		(uuid "34e88104-f936-434c-bfdb-5fe6bd3fe115")
+	)
+	(wire
+		(pts
+			(xy 128.27 34.29) (xy 138.43 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "379f1834-0575-46fb-95e7-edc7c5cb7ef2")
 	)
 	(wire
 		(pts
@@ -2789,6 +2797,16 @@
 			(type default)
 		)
 		(uuid "3d156a11-9f7e-46a2-823c-6900843f8f56")
+	)
+	(wire
+		(pts
+			(xy 210.82 34.29) (xy 220.98 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d309b93-e8ae-4ee7-8561-fd996e06a86d")
 	)
 	(wire
 		(pts
@@ -2832,7 +2850,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 49.53) (xy 119.38 53.34)
+			(xy 128.27 49.53) (xy 128.27 53.34)
 		)
 		(stroke
 			(width 0)
@@ -2872,7 +2890,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 49.53) (xy 129.54 54.61)
+			(xy 138.43 49.53) (xy 138.43 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2892,7 +2910,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 34.29) (xy 241.3 40.64)
+			(xy 231.14 34.29) (xy 231.14 40.64)
 		)
 		(stroke
 			(width 0)
@@ -2922,16 +2940,6 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 34.29) (xy 139.7 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "536571de-c994-4900-b220-117e8e551960")
-	)
-	(wire
-		(pts
 			(xy 156.21 139.7) (xy 156.21 140.97)
 		)
 		(stroke
@@ -2949,16 +2957,6 @@
 			(type default)
 		)
 		(uuid "55751207-6775-4ca1-8dfd-8b23f2780ff0")
-	)
-	(wire
-		(pts
-			(xy 214.63 34.29) (xy 228.6 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57de52ed-7782-4321-b0a8-af524adfd79d")
 	)
 	(wire
 		(pts
@@ -3022,16 +3020,6 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 49.53) (xy 139.7 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7577fc36-1a13-41fd-8d2b-f9644a33e927")
-	)
-	(wire
-		(pts
 			(xy 165.1 151.13) (xy 165.1 142.24)
 		)
 		(stroke
@@ -3042,7 +3030,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 95.25) (xy 119.38 96.52)
+			(xy 128.27 95.25) (xy 128.27 96.52)
 		)
 		(stroke
 			(width 0)
@@ -3062,16 +3050,6 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 34.29) (xy 256.54 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d15bd58-e50e-4cf1-9763-978aea82aa64")
-	)
-	(wire
-		(pts
 			(xy 194.31 139.7) (xy 207.01 139.7)
 		)
 		(stroke
@@ -3082,7 +3060,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 34.29) (xy 119.38 34.29)
+			(xy 124.46 34.29) (xy 128.27 34.29)
 		)
 		(stroke
 			(width 0)
@@ -3092,7 +3070,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 34.29) (xy 119.38 41.91)
+			(xy 128.27 34.29) (xy 128.27 41.91)
 		)
 		(stroke
 			(width 0)
@@ -3102,23 +3080,13 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 87.63) (xy 111.76 83.82)
+			(xy 124.46 87.63) (xy 124.46 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "8be0fea5-5036-4924-988d-a7b219b6afe4")
-	)
-	(wire
-		(pts
-			(xy 139.7 34.29) (xy 143.51 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8cfe7eba-5584-40a3-bc12-b668f19ece1a")
 	)
 	(wire
 		(pts
@@ -3139,16 +3107,6 @@
 			(type default)
 		)
 		(uuid "90c7595f-a7b8-45c6-9fb4-9b33d913bd3d")
-	)
-	(wire
-		(pts
-			(xy 228.6 34.29) (xy 241.3 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "94b8736b-3fa6-4323-bb90-e3d196c2f8e9")
 	)
 	(wire
 		(pts
@@ -3272,16 +3230,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 34.29) (xy 139.7 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ac935bad-1fa2-4acd-a599-f96e8ff2ce81")
-	)
-	(wire
-		(pts
 			(xy 177.8 139.7) (xy 156.21 139.7)
 		)
 		(stroke
@@ -3302,23 +3250,13 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 29.21) (xy 241.3 34.29)
+			(xy 210.82 29.21) (xy 210.82 34.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "b1d95310-9d94-4660-95f9-65dc91f669aa")
-	)
-	(wire
-		(pts
-			(xy 200.66 34.29) (xy 214.63 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4ddc83c-4d92-4133-aac0-004f3d7f7725")
 	)
 	(wire
 		(pts
@@ -3362,6 +3300,16 @@
 	)
 	(wire
 		(pts
+			(xy 200.66 34.29) (xy 210.82 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c29d8918-8c57-4539-b3d4-7b946d37d6d3")
+	)
+	(wire
+		(pts
 			(xy 143.51 34.29) (xy 143.51 39.37)
 		)
 		(stroke
@@ -3372,7 +3320,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 34.29) (xy 214.63 40.64)
+			(xy 210.82 34.29) (xy 210.82 40.64)
 		)
 		(stroke
 			(width 0)
@@ -3422,7 +3370,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 48.26) (xy 214.63 55.88)
+			(xy 210.82 48.26) (xy 210.82 55.88)
 		)
 		(stroke
 			(width 0)
@@ -3432,7 +3380,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 95.25) (xy 128.27 96.52)
+			(xy 137.16 95.25) (xy 137.16 96.52)
 		)
 		(stroke
 			(width 0)
@@ -3472,7 +3420,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 34.29) (xy 228.6 40.64)
+			(xy 220.98 34.29) (xy 220.98 40.64)
 		)
 		(stroke
 			(width 0)
@@ -3509,16 +3457,6 @@
 			(type default)
 		)
 		(uuid "f90bb3d2-4d3f-45a1-979c-52014cacad47")
-	)
-	(wire
-		(pts
-			(xy 137.16 95.25) (xy 137.16 96.52)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "fb2a8ba9-8c67-4b45-9ded-09675ac4dca6")
 	)
 	(wire
 		(pts
@@ -3659,6 +3597,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "YAGEO"
@@ -3667,6 +3606,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "RC0603JR-0730KL"
@@ -3675,6 +3615,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -3833,6 +3774,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -3841,6 +3783,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -3849,6 +3792,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -3952,6 +3896,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Bourns Inc."
@@ -3960,6 +3905,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "SRP5030CC-2R2M"
@@ -3968,6 +3914,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -4052,7 +3999,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 128.27 91.44 0)
+		(at 137.16 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4060,7 +4007,7 @@
 		(dnp no)
 		(uuid "0be8a27b-1e10-4c67-a0ee-02dc30ff42ad")
 		(property "Reference" "C5"
-			(at 131.191 90.2716 0)
+			(at 140.081 90.2716 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4069,7 +4016,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 131.191 92.583 0)
+			(at 140.081 92.583 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4078,7 +4025,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 129.2352 95.25 0)
+			(at 138.1252 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4087,7 +4034,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4096,7 +4043,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4105,7 +4052,7 @@
 			)
 		)
 		(property "Field4" "Digikey"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4114,7 +4061,7 @@
 			)
 		)
 		(property "Field5" "490-14381-1-ND"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4123,7 +4070,7 @@
 			)
 		)
 		(property "Field6" "GRM21BR71A106KA73L"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4132,7 +4079,7 @@
 			)
 		)
 		(property "Field7" "Murata"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4141,7 +4088,7 @@
 			)
 		)
 		(property "Field8" "111893011"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4150,7 +4097,7 @@
 			)
 		)
 		(property "Part Description" "	10uF 10% 10V Ceramic Capacitor X7R 0805 (2012 Metric)"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4159,7 +4106,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4168,7 +4115,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4177,7 +4124,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4186,27 +4133,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KGM15CS61C106KTDKR-ND"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
-			(at 128.27 91.44 0)
+			(at 137.16 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -4226,7 +4176,7 @@
 	)
 	(symbol
 		(lib_id "power:+BATT")
-		(at 116.84 34.29 90)
+		(at 124.46 31.75 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4235,7 +4185,7 @@
 		(fields_autoplaced yes)
 		(uuid "0fb8b11f-c2fe-43ef-97c5-9820c35728dc")
 		(property "Reference" "#PWR092"
-			(at 120.65 34.29 0)
+			(at 124.46 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4244,16 +4194,15 @@
 			)
 		)
 		(property "Value" "+BATT"
-			(at 113.03 34.2899 90)
+			(at 124.46 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 116.84 34.29 0)
+			(at 124.46 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4262,7 +4211,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 34.29 0)
+			(at 124.46 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4271,7 +4220,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+BATT\""
-			(at 116.84 34.29 0)
+			(at 124.46 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4546,6 +4495,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "YAGEO"
@@ -4554,6 +4504,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "RC0603JR-0715KL"
@@ -4562,6 +4513,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -4646,7 +4598,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 128.27 96.52 0)
+		(at 137.16 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4654,7 +4606,7 @@
 		(dnp no)
 		(uuid "21c74b08-d586-41a4-9db8-b1913e4eb794")
 		(property "Reference" "#PWR095"
-			(at 128.27 102.87 0)
+			(at 137.16 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4663,7 +4615,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 128.397 100.9142 0)
+			(at 137.287 100.9142 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4671,7 +4623,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 128.27 96.52 0)
+			(at 137.16 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4680,7 +4632,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 128.27 96.52 0)
+			(at 137.16 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4689,7 +4641,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 128.27 96.52 0)
+			(at 137.16 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4711,7 +4663,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 129.54 54.61 0)
+		(at 138.43 54.61 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4720,7 +4672,7 @@
 		(fields_autoplaced yes)
 		(uuid "2785eee3-f7bf-4041-b50b-6f95bd5e8751")
 		(property "Reference" "#PWR096"
-			(at 129.54 60.96 0)
+			(at 138.43 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4729,7 +4681,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 132.08 55.8799 0)
+			(at 140.97 55.8799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4738,7 +4690,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 129.54 54.61 0)
+			(at 138.43 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4747,7 +4699,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 129.54 54.61 0)
+			(at 138.43 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4756,7 +4708,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 129.54 54.61 0)
+			(at 138.43 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4843,7 +4795,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 241.3 29.21 0)
+		(at 210.82 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4852,7 +4804,7 @@
 		(fields_autoplaced yes)
 		(uuid "31a7cc34-146f-4f01-8353-36c95aaa8aee")
 		(property "Reference" "#FLG03"
-			(at 241.3 27.305 0)
+			(at 210.82 27.305 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4861,7 +4813,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 243.84 27.9399 0)
+			(at 213.36 27.9399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4870,7 +4822,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 241.3 29.21 0)
+			(at 210.82 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4879,7 +4831,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 241.3 29.21 0)
+			(at 210.82 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4888,7 +4840,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 241.3 29.21 0)
+			(at 210.82 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5063,6 +5015,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Chemi-Con"
@@ -5071,6 +5024,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "EMHJ160ARA101MF80G"
@@ -5079,6 +5033,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -5200,6 +5155,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Diodes Incorporated"
@@ -5208,6 +5164,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "AP2553W6-7"
@@ -5216,6 +5173,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -5366,6 +5324,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Bourns Inc."
@@ -5374,6 +5333,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "SRP5030CC-2R2M"
@@ -5382,6 +5342,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5596,6 +5557,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "YAGEO"
@@ -5604,6 +5566,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "RC0603FR-0710KL"
@@ -5612,6 +5575,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5631,7 +5595,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 228.6 29.21 0)
+		(at 200.66 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5640,7 +5604,7 @@
 		(fields_autoplaced yes)
 		(uuid "4580091b-b44c-498b-9d06-4d5f021367f6")
 		(property "Reference" "TP1"
-			(at 231.14 24.6379 0)
+			(at 203.2 24.6379 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5649,7 +5613,7 @@
 			)
 		)
 		(property "Value" "5V"
-			(at 231.14 27.1779 0)
+			(at 203.2 27.1779 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5658,7 +5622,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 233.68 29.21 0)
+			(at 205.74 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5667,7 +5631,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 233.68 29.21 0)
+			(at 205.74 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5676,7 +5640,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 228.6 29.21 0)
+			(at 200.66 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5685,7 +5649,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 228.6 29.21 0)
+			(at 200.66 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5694,7 +5658,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 228.6 29.21 0)
+			(at 200.66 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5703,7 +5667,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 228.6 29.21 0)
+			(at 200.66 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5811,6 +5775,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -5819,6 +5784,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "KAM15CT70G226KT"
@@ -5827,6 +5793,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -5985,6 +5952,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "YAGEO"
@@ -5993,6 +5961,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "RC0603FR-07100KL"
@@ -6001,6 +5970,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6141,6 +6111,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "YAGEO"
@@ -6149,6 +6120,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "RC0603FR-072K2L"
@@ -6157,6 +6129,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6176,7 +6149,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 119.38 91.44 0)
+		(at 128.27 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6184,7 +6157,7 @@
 		(dnp no)
 		(uuid "59eb5aa6-7ca6-4f1b-b057-0d4de79fcc06")
 		(property "Reference" "C4"
-			(at 122.301 90.2716 0)
+			(at 131.191 90.2716 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6193,7 +6166,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 122.301 92.583 0)
+			(at 131.191 92.583 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6202,7 +6175,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 120.3452 95.25 0)
+			(at 129.2352 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6211,7 +6184,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6220,7 +6193,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6229,7 +6202,7 @@
 			)
 		)
 		(property "Field4" "Digikey"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6238,7 +6211,7 @@
 			)
 		)
 		(property "Field5" "490-14381-1-ND"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6247,7 +6220,7 @@
 			)
 		)
 		(property "Field6" "GRM21BR71A106KA73L"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6256,7 +6229,7 @@
 			)
 		)
 		(property "Field7" "Murata"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6265,7 +6238,7 @@
 			)
 		)
 		(property "Field8" "111893011"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6274,7 +6247,7 @@
 			)
 		)
 		(property "Part Description" "	10uF 10% 10V Ceramic Capacitor X7R 0805 (2012 Metric)"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6283,7 +6256,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6292,7 +6265,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6301,7 +6274,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6310,27 +6283,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KGM15CS61C106KTDKR-ND"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
-			(at 119.38 91.44 0)
+			(at 128.27 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6537,6 +6513,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Diodes Incorporated"
@@ -6545,6 +6522,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "AP3441SHE-7B"
@@ -6553,6 +6531,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "8"
@@ -6593,7 +6572,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 214.63 44.45 0)
+		(at 210.82 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6602,7 +6581,7 @@
 		(fields_autoplaced yes)
 		(uuid "5ca1bd7e-cc48-4401-b508-4c5ebce69717")
 		(property "Reference" "C14"
-			(at 218.44 43.1799 0)
+			(at 214.63 43.1799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6611,7 +6590,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 218.44 45.7199 0)
+			(at 214.63 45.7199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6620,7 +6599,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 215.5952 48.26 0)
+			(at 211.7852 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6629,7 +6608,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6638,7 +6617,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6647,7 +6626,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6656,7 +6635,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6665,7 +6644,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6674,27 +6653,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KAM15CT70G226KTDKR-ND"
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "KAM15CT70G226KT"
-			(at 214.63 44.45 0)
+			(at 210.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -6707,301 +6689,6 @@
 			(project "beta-main"
 				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
 					(reference "C14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 137.16 91.44 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5dfa2014-f34d-44be-9162-e0ecc482a5f0")
-		(property "Reference" "C7"
-			(at 140.081 90.2716 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1u"
-			(at 140.081 92.583 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 138.1252 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71C104KA88-01.pdf"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Field4" "Farnell"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Field5" "2611911"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Field6" "RM EMK105 B7104KV-F"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Field7" "TAIYO YUDEN EUROPE GMBH"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Field8" "110091611"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Description" "	0.1uF 10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" "2571-GMC10X7R104K50NTTR-ND"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MANUFACTURER" "Cal-Chip Electronics, Inc."
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MP" "GMC10X7R104K50NT"
-			(at 137.16 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "bf3649ee-6c06-4953-abda-cb7012a3e139")
-		)
-		(pin "2"
-			(uuid "87700fc7-eb00-47b3-8c16-963505eb448d")
-		)
-		(instances
-			(project "beta-main"
-				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
-					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 139.7 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5ee5a669-b3ac-41bb-a874-f73ccd2ff295")
-		(property "Reference" "C8"
-			(at 143.51 44.4499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1u"
-			(at 143.51 46.9899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 140.6652 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" "2571-GMC10X7R104K50NTTR-ND"
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MANUFACTURER" "Cal-Chip Electronics, Inc."
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MP" "GMC10X7R104K50NT"
-			(at 139.7 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "04ebbf89-3093-4ad1-82e2-d2a849445023")
-		)
-		(pin "1"
-			(uuid "0b6fdf6e-5047-4640-b084-6f2622c44997")
-		)
-		(instances
-			(project "beta-main"
-				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
-					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -7148,6 +6835,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -7156,6 +6844,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -7164,6 +6853,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7317,7 +7007,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 119.38 96.52 0)
+		(at 128.27 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7325,7 +7015,7 @@
 		(dnp no)
 		(uuid "6b3f6bf9-344c-419c-87d3-8db521a30ec1")
 		(property "Reference" "#PWR094"
-			(at 119.38 102.87 0)
+			(at 128.27 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7334,7 +7024,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 119.507 100.9142 0)
+			(at 128.397 100.9142 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7342,7 +7032,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 96.52 0)
+			(at 128.27 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7351,7 +7041,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 96.52 0)
+			(at 128.27 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7360,7 +7050,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 119.38 96.52 0)
+			(at 128.27 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7382,7 +7072,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 228.6 44.45 0)
+		(at 220.98 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7391,7 +7081,7 @@
 		(fields_autoplaced yes)
 		(uuid "7325f58f-beda-4306-8f7f-391db61e140d")
 		(property "Reference" "C17"
-			(at 232.41 43.1799 0)
+			(at 224.79 43.1799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7400,7 +7090,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 232.41 45.7199 0)
+			(at 224.79 45.7199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7409,7 +7099,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 229.5652 48.26 0)
+			(at 221.9452 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7418,7 +7108,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7427,7 +7117,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7436,7 +7126,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7445,7 +7135,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7454,7 +7144,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7463,27 +7153,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KAM15CT70G226KTDKR-ND"
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "KAM15CT70G226KT"
-			(at 228.6 44.45 0)
+			(at 220.98 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -7503,7 +7196,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 228.6 55.88 0)
+		(at 220.98 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7512,7 +7205,7 @@
 		(fields_autoplaced yes)
 		(uuid "74c6402a-f197-4c78-b0a2-18828554e802")
 		(property "Reference" "#PWR0118"
-			(at 228.6 62.23 0)
+			(at 220.98 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7521,7 +7214,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 231.14 57.1499 0)
+			(at 223.52 57.1499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7530,7 +7223,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 228.6 55.88 0)
+			(at 220.98 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7539,7 +7232,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 55.88 0)
+			(at 220.98 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7548,7 +7241,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 228.6 55.88 0)
+			(at 220.98 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7709,6 +7402,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -7717,6 +7411,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -7725,6 +7420,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7744,7 +7440,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 214.63 55.88 0)
+		(at 210.82 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7753,7 +7449,7 @@
 		(fields_autoplaced yes)
 		(uuid "7f66df38-2403-4a42-9a65-8e7d79e017a4")
 		(property "Reference" "#PWR0114"
-			(at 214.63 62.23 0)
+			(at 210.82 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7762,7 +7458,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 217.17 57.1499 0)
+			(at 213.36 57.1499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7771,7 +7467,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 55.88 0)
+			(at 210.82 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7780,7 +7476,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 55.88 0)
+			(at 210.82 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7789,7 +7485,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 214.63 55.88 0)
+			(at 210.82 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7942,7 +7638,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 129.54 45.72 0)
+		(at 138.43 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7951,7 +7647,7 @@
 		(fields_autoplaced yes)
 		(uuid "86e47074-9007-4663-a064-634b7dfe1c52")
 		(property "Reference" "C6"
-			(at 133.35 44.4499 0)
+			(at 142.24 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7960,7 +7656,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 133.35 46.9899 0)
+			(at 142.24 46.9899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7969,7 +7665,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 130.5052 49.53 0)
+			(at 139.3952 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7978,7 +7674,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7987,7 +7683,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7996,7 +7692,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8005,7 +7701,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8014,7 +7710,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8023,27 +7719,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KGM15CS61C106KTDKR-ND"
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
-			(at 129.54 45.72 0)
+			(at 138.43 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8261,7 +7960,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 241.3 55.88 0)
+		(at 231.14 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8270,7 +7969,7 @@
 		(fields_autoplaced yes)
 		(uuid "8a309d11-f526-4358-8239-9d23c0793c8c")
 		(property "Reference" "#PWR0120"
-			(at 241.3 62.23 0)
+			(at 231.14 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8279,7 +7978,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 243.84 57.1499 0)
+			(at 233.68 57.1499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8288,7 +7987,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 241.3 55.88 0)
+			(at 231.14 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8297,7 +7996,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 241.3 55.88 0)
+			(at 231.14 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8306,7 +8005,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 241.3 55.88 0)
+			(at 231.14 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8481,6 +8180,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KOA Speer Electronics, Inc."
@@ -8489,6 +8189,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "RK73B1JTTD224J"
@@ -8497,6 +8198,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8720,6 +8422,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -8728,6 +8431,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -8736,6 +8440,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8849,6 +8554,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "TDK Corporation"
@@ -8857,6 +8563,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "CGJ3E2X7R2A472K080AA"
@@ -8865,6 +8572,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8884,7 +8592,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 119.38 53.34 0)
+		(at 128.27 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8893,7 +8601,7 @@
 		(fields_autoplaced yes)
 		(uuid "9966bf46-2583-4d1e-bcce-0e97317e9a0e")
 		(property "Reference" "#PWR093"
-			(at 119.38 59.69 0)
+			(at 128.27 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8902,7 +8610,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 121.92 54.6099 0)
+			(at 130.81 54.6099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8911,7 +8619,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 53.34 0)
+			(at 128.27 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8920,7 +8628,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 53.34 0)
+			(at 128.27 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8929,7 +8637,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 119.38 53.34 0)
+			(at 128.27 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9059,7 +8767,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 256.54 29.21 0)
+		(at 231.14 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9068,7 +8776,7 @@
 		(fields_autoplaced yes)
 		(uuid "a27be0a1-52e2-43c7-9c90-4fb162f06ca1")
 		(property "Reference" "#PWR0122"
-			(at 256.54 33.02 0)
+			(at 231.14 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9077,7 +8785,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 259.08 27.9399 0)
+			(at 233.68 27.9399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9086,7 +8794,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 256.54 29.21 0)
+			(at 231.14 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9095,7 +8803,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 256.54 29.21 0)
+			(at 231.14 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9104,7 +8812,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 256.54 29.21 0)
+			(at 231.14 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9119,73 +8827,6 @@
 			(project "beta-main"
 				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
 					(reference "#PWR0122")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 139.7 54.61 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "adf21adb-2996-42e6-b285-2fe45e5f31cd")
-		(property "Reference" "#PWR098"
-			(at 139.7 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 142.24 55.8799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 139.7 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 139.7 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 139.7 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ff853d8b-5c35-4517-80ba-00031a074c1f")
-		)
-		(instances
-			(project "beta-main"
-				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
-					(reference "#PWR098")
 					(unit 1)
 				)
 			)
@@ -9653,6 +9294,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -9661,6 +9303,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -9669,6 +9312,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9688,7 +9332,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 119.38 45.72 0)
+		(at 128.27 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9697,7 +9341,7 @@
 		(fields_autoplaced yes)
 		(uuid "baeaefff-73fa-4570-ae93-9b99c4682ecf")
 		(property "Reference" "C3"
-			(at 123.19 44.4499 0)
+			(at 132.08 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9706,7 +9350,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 123.19 46.9899 0)
+			(at 132.08 46.9899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9715,7 +9359,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 120.3452 49.53 0)
+			(at 129.2352 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9724,7 +9368,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9733,7 +9377,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9742,7 +9386,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9751,7 +9395,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9760,7 +9404,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9769,27 +9413,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KGM15CS61C106KTDKR-ND"
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
-			(at 119.38 45.72 0)
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -10276,6 +9923,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -10284,6 +9932,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -10292,6 +9941,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10304,71 +9954,6 @@
 			(project "beta-main"
 				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
 					(reference "C16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 137.16 96.52 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d62198dc-a4f4-46c2-b169-cf11dd39d658")
-		(property "Reference" "#PWR097"
-			(at 137.16 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 137.287 100.9142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.16 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.16 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 137.16 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "837db394-ffbe-4bed-b227-2e57efdc97bb")
-		)
-		(instances
-			(project "beta-main"
-				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
-					(reference "#PWR097")
 					(unit 1)
 				)
 			)
@@ -10582,6 +10167,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
@@ -10590,6 +10176,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "0603YW106KAT2A"
@@ -10598,6 +10185,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10768,6 +10356,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Nichicon"
@@ -10776,6 +10365,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "UKL1A221KPDANA"
@@ -10784,6 +10374,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -10803,7 +10394,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 241.3 44.45 0)
+		(at 231.14 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10812,7 +10403,7 @@
 		(fields_autoplaced yes)
 		(uuid "ee6abbeb-44bb-49ce-b965-4fe7f11f0f9a")
 		(property "Reference" "C19"
-			(at 245.11 43.1799 0)
+			(at 234.95 43.1799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10821,7 +10412,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 245.11 45.7199 0)
+			(at 234.95 45.7199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10830,7 +10421,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 242.2652 48.26 0)
+			(at 232.1052 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10839,7 +10430,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10848,7 +10439,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10857,7 +10448,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10866,7 +10457,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10875,7 +10466,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10884,27 +10475,30 @@
 			)
 		)
 		(property "DigiKey_Part_Number" "478-KAM15CT70G226KTDKR-ND"
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "KYOCERA AVX"
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MP" "KAM15CT70G226KT"
-			(at 241.3 44.45 0)
+			(at 231.14 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -11054,7 +10648,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 111.76 83.82 0)
+		(at 124.46 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11063,7 +10657,7 @@
 		(fields_autoplaced yes)
 		(uuid "f60c83ee-d8a8-42a0-a116-f025f4bbfb9d")
 		(property "Reference" "#PWR091"
-			(at 111.76 87.63 0)
+			(at 124.46 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11072,7 +10666,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 114.3 82.5499 0)
+			(at 127 82.5499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11081,7 +10675,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 111.76 83.82 0)
+			(at 124.46 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11090,7 +10684,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 111.76 83.82 0)
+			(at 124.46 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11099,7 +10693,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 111.76 83.82 0)
+			(at 124.46 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)

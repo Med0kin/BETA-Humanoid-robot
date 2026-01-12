@@ -716,7 +716,7 @@
 					)
 				)
 			)
-			(pin output line
+			(pin passive line
 				(at 30.48 7.62 180)
 				(length 5.08)
 				(name "XOUT32/CLKSEL1"
