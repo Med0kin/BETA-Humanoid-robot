@@ -4419,6 +4419,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "I2S0\n\nI2C0\nI2C1\nI2C2\n\nUART3"
+		(exclude_from_sim no)
+		(at 182.372 58.928 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "fe600982-d0f1-4ea5-8c0d-d4a732cd4222")
+	)
 	(junction
 		(at 130.81 143.51)
 		(diameter 0)
