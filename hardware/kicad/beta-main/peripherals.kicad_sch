@@ -5414,6 +5414,15 @@
 				(hide yes)
 			)
 		)
+		(property "MP" "S4B-PH-K"
+			(at 233.68 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "90508c4d-2567-4ad2-9212-bd5e6735a3b3")
 		)
@@ -6526,6 +6535,15 @@
 			)
 		)
 		(property "Sim.Type" ""
+			(at 207.01 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MP" "S4B-PH-K"
 			(at 207.01 64.77 0)
 			(effects
 				(font
@@ -7947,6 +7965,15 @@
 				(hide yes)
 			)
 		)
+		(property "MP" "S4B-PH-K"
+			(at 233.68 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "c1b09362-eb73-47b6-a265-35900d4d312b")
 		)
@@ -8839,6 +8866,15 @@
 			)
 		)
 		(property "Sim.Type" ""
+			(at 207.01 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MP" "S4B-PH-K"
 			(at 207.01 43.18 0)
 			(effects
 				(font
