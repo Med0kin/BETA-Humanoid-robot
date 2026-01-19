@@ -70,10 +70,6 @@
       ],
       "drc_exclusions": [
         [
-          "nonmirrored_text_on_back_layer|81655000|43625000|e6f41787-41d0-4d4c-b867-573046ba8385|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
           "via_dangling|114125412|80800000|218cf964-bacd-41a3-8de7-b1bb46680553|00000000-0000-0000-0000-000000000000",
           ""
         ],
@@ -175,11 +171,11 @@
       },
       "teardrop_options": [
         {
-          "td_onpthpad": true,
+          "td_onpthpad": false,
           "td_onroundshapesonly": false,
-          "td_onsmdpad": true,
+          "td_onsmdpad": false,
           "td_ontrackend": false,
-          "td_onvia": true
+          "td_onvia": false
         }
       ],
       "teardrop_parameters": [
@@ -692,10 +688,10 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "fab/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "beta-main.step",
       "svg": "",
       "vrml": ""
     },
@@ -720,6 +716,12 @@
       "fields_ordered": [
         {
           "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": true
+        },
+        {
+          "group_by": false,
           "label": "Reference",
           "name": "Reference",
           "show": true
@@ -734,7 +736,7 @@
           "group_by": false,
           "label": "Footprint",
           "name": "Footprint",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -752,13 +754,7 @@
           "group_by": false,
           "label": "Qty",
           "name": "${QUANTITY}",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "#",
-          "name": "${ITEM_NUMBER}",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -911,12 +907,12 @@
           "show": false
         }
       ],
-      "filter_string": "j",
+      "filter_string": "",
       "group_symbols": true,
-      "include_excluded_from_bom": true,
+      "include_excluded_from_bom": false,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "${ITEM_NUMBER}"
     },
     "connection_grid_size": 50.0,
     "drawing": {

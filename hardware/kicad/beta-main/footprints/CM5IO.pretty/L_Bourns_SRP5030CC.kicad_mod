@@ -1,7 +1,7 @@
 (footprint "L_Bourns_SRP5030CC"
-	(version 20240108)
+	(version 20241229)
 	(generator "pcbnew")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(layer "F.Cu")
 	(descr "Inductor, Bourns, SRP5030T, 5.7mmx5.2mm (Script generated with StandardBox.py) (https://www.bourns.com/data/global/pdfs/SRP5030T.pdf)")
 	(tags "Inductor Bourns_SRP5030T")
@@ -27,18 +27,6 @@
 			)
 		)
 	)
-	(property "Footprint" "L_Bourns_SRP5030CC"
-		(at 0 0 0)
-		(unlocked yes)
-		(layer "F.Fab")
-		(hide yes)
-		(uuid "386c9fa6-e9ce-4968-89d8-5e9798dd8488")
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-	)
 	(property "Datasheet" ""
 		(at 0 0 0)
 		(unlocked yes)
@@ -48,6 +36,7 @@
 		(effects
 			(font
 				(size 1.27 1.27)
+				(thickness 0.15)
 			)
 		)
 	)
@@ -60,6 +49,7 @@
 		(effects
 			(font
 				(size 1.27 1.27)
+				(thickness 0.15)
 			)
 		)
 	)
@@ -328,18 +318,19 @@
 	(pad "1" smd roundrect
 		(at -2.25 0)
 		(size 2 2.8)
-		(layers "F.Cu" "F.Paste" "F.Mask")
+		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
 		(uuid "3a77053f-47c3-4ce9-a55a-55a85019e072")
 	)
 	(pad "2" smd roundrect
 		(at 2.25 0)
 		(size 2 2.8)
-		(layers "F.Cu" "F.Paste" "F.Mask")
+		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
 		(uuid "75aed92d-5743-48f8-b099-b6602d249a7c")
 	)
-	(model "${KIPRJMOD}/CM5IO.3dshapes/SRP5030CC.stp"
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/3dshapes/CM5IO.3dshapes/SRP5030CC.stp"
 		(offset
 			(xyz 0 0 0)
 		)

@@ -198,7 +198,7 @@
 				)
 			)
 		)
-		(property "Footprint" "BNO086:IC_BNO086"
+		(property "Footprint" "BETA:IC_BNO086"
 			(at 0 0 0)
 			(effects
 				(font

@@ -2347,12 +2347,6 @@
 		(uuid "73a2d0bd-d884-46a9-998c-8eea4ef7858d")
 	)
 	(junction
-		(at 43.18 31.75)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7f85e85b-4676-4d02-b088-b02fbf657e70")
-	)
-	(junction
 		(at 213.36 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2467,16 +2461,6 @@
 			(type default)
 		)
 		(uuid "05deb055-cb8c-4946-88f9-2473b6442a9a")
-	)
-	(wire
-		(pts
-			(xy 43.18 31.75) (xy 48.26 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "06037f7a-9438-4d6d-b54a-f3cf0bb92f26")
 	)
 	(wire
 		(pts
@@ -2637,16 +2621,6 @@
 			(type default)
 		)
 		(uuid "1dfe3a4d-7c4a-4aaf-aae9-69a985a549b4")
-	)
-	(wire
-		(pts
-			(xy 43.18 39.37) (xy 43.18 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e3029fd-5384-4150-b97d-7b32cea1400a")
 	)
 	(wire
 		(pts
@@ -3290,7 +3264,7 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 31.75) (xy 43.18 31.75)
+			(xy 29.21 31.75) (xy 48.26 31.75)
 		)
 		(stroke
 			(width 0)
@@ -3669,7 +3643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 233.68 92.71 0)
 			(effects
 				(font
@@ -3678,7 +3652,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 233.68 92.71 0)
 			(effects
 				(font
@@ -3854,7 +3828,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Inductor, 22uH, DCR 13.2mΩ, IDC 9.2A"
+		(property "Description" "Inductor"
 			(at 173.99 34.29 0)
 			(effects
 				(font
@@ -4033,7 +4007,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 137.16 91.44 0)
 			(effects
 				(font
@@ -4042,7 +4016,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 137.16 91.44 0)
 			(effects
 				(font
@@ -4408,7 +4382,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://fscdn.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/mcr-e.pdf"
+		(property "Datasheet" "~"
 			(at 196.85 147.32 0)
 			(effects
 				(font
@@ -4417,7 +4391,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 196.85 147.32 0)
 			(effects
 				(font
@@ -4955,7 +4929,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.7"
 			(at 207.9752 151.13 0)
 			(effects
 				(font
@@ -5027,7 +5001,7 @@
 				(hide yes)
 			)
 		)
-		(property "MP" "EMHJ160ARA101MF80G"
+		(property "MP" "RKS1E221MCNAHHGS"
 			(at 207.01 147.32 0)
 			(effects
 				(font
@@ -5237,7 +5211,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/srp5030cc.pdf"
+		(property "Datasheet" "~"
 			(at 182.88 87.63 0)
 			(effects
 				(font
@@ -5246,7 +5220,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Inductor"
 			(at 182.88 87.63 0)
 			(effects
 				(font
@@ -5461,7 +5435,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://fscdn.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/mcr-e.pdf"
+		(property "Datasheet" "~"
 			(at 200.66 91.44 0)
 			(effects
 				(font
@@ -5470,7 +5444,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 200.66 91.44 0)
 			(effects
 				(font
@@ -5598,7 +5572,7 @@
 		(at 200.66 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -5706,7 +5680,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "10u"
 			(at 204.47 45.7199 0)
 			(effects
 				(font
@@ -5829,7 +5803,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100K 1%"
+		(property "Value" "10k"
 			(at 171.45 93.98 0)
 			(effects
 				(font
@@ -5847,7 +5821,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://fscdn.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/mcr-e.pdf"
+		(property "Datasheet" "~"
 			(at 170.18 93.98 0)
 			(effects
 				(font
@@ -5856,7 +5830,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 170.18 93.98 0)
 			(effects
 				(font
@@ -6024,7 +5998,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://fscdn.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/mcr-e.pdf"
+		(property "Datasheet" "~"
 			(at 200.66 100.33 0)
 			(effects
 				(font
@@ -6033,7 +6007,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 200.66 100.33 0)
 			(effects
 				(font
@@ -6183,7 +6157,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 128.27 91.44 0)
 			(effects
 				(font
@@ -6192,7 +6166,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 128.27 91.44 0)
 			(effects
 				(font
@@ -6589,7 +6563,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "10u"
 			(at 214.63 45.7199 0)
 			(effects
 				(font
@@ -6730,7 +6704,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 213.36 92.71 0)
 			(effects
 				(font
@@ -6739,7 +6713,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 213.36 92.71 0)
 			(effects
 				(font
@@ -7089,7 +7063,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "10u"
 			(at 224.79 45.7199 0)
 			(effects
 				(font
@@ -7297,7 +7271,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 228.6 147.32 0)
 			(effects
 				(font
@@ -7306,7 +7280,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 228.6 147.32 0)
 			(effects
 				(font
@@ -7755,72 +7729,6 @@
 			(project "beta-main"
 				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
 					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 43.18 48.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8957da39-c5da-4f4e-b8c7-c2ff127fed2c")
-		(property "Reference" "#PWR089"
-			(at 43.18 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 43.18 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 43.18 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a651c05a-271a-4d89-bbd8-d9b17ff1824c")
-		)
-		(instances
-			(project "CM5"
-				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
-					(reference "#PWR089")
 					(unit 1)
 				)
 			)
@@ -8317,7 +8225,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 218.44 147.32 0)
 			(effects
 				(font
@@ -8326,7 +8234,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 218.44 147.32 0)
 			(effects
 				(font
@@ -8503,7 +8411,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 190.5 91.44 0)
 			(effects
 				(font
@@ -8932,7 +8840,7 @@
 		(at 233.68 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -9189,7 +9097,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 156.21 144.78 0)
 			(effects
 				(font
@@ -9198,7 +9106,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 156.21 144.78 0)
 			(effects
 				(font
@@ -9818,7 +9726,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 223.52 92.71 0)
 			(effects
 				(font
@@ -9827,7 +9735,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 223.52 92.71 0)
 			(effects
 				(font
@@ -10062,7 +9970,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71A106KA73-01.pdf"
+		(property "Datasheet" "~"
 			(at 243.84 92.71 0)
 			(effects
 				(font
@@ -10071,7 +9979,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 243.84 92.71 0)
 			(effects
 				(font
@@ -10269,130 +10177,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 43.18 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "eaf6c307-95f2-42bf-96b2-b70f54942f35")
-		(property "Reference" "C2"
-			(at 46.99 33.4009 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "220u"
-			(at 46.99 35.9409 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
-			(at 44.1452 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" "493-15344-ND"
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" "Nichicon"
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" "UKL1A221KPDANA"
-			(at 43.18 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2a02113d-6805-4739-ba43-e43b1365063d")
-		)
-		(pin "1"
-			(uuid "79db90a7-bbda-455f-9caf-d9cf338740bf")
-		)
-		(instances
-			(project "CM5"
-				(path "/6834c9e9-3e61-4f01-9d2c-ccd95d8f63cf/77db638e-233d-4258-91cb-4a238d3a7609"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 231.14 44.45 0)
 		(unit 1)
@@ -10411,7 +10195,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "10u"
 			(at 234.95 45.7199 0)
 			(effects
 				(font

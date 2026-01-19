@@ -4638,10 +4638,6 @@
 		(uuid "eff97110-5f62-4c25-ad7c-16dfb3bfe404")
 	)
 	(no_connect
-		(at 129.54 113.03)
-		(uuid "f4ce25de-6e42-42ca-8eb1-1601b8f390fc")
-	)
-	(no_connect
 		(at 68.58 128.27)
 		(uuid "f54182b2-b384-44ce-834a-69b099b71d00")
 	)
@@ -4989,6 +4985,16 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 113.03) (xy 135.89 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1d9aa3d-d088-4d43-9a66-fa133eefde1b")
+	)
+	(wire
+		(pts
 			(xy 58.42 146.05) (xy 68.58 146.05)
 		)
 		(stroke
@@ -5233,6 +5239,17 @@
 			(justify left)
 		)
 		(uuid "d877ff80-acd9-4750-a969-99f52b747cc3")
+	)
+	(hierarchical_label "BATT_INT"
+		(shape input)
+		(at 135.89 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d9b41b91-226b-4d21-9ccc-b1db72329aa7")
 	)
 	(hierarchical_label "I2C1_SCL"
 		(shape passive)
@@ -6129,31 +6146,29 @@
 	(symbol
 		(lib_id "Device:R_Small")
 		(at 148.59 66.04 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a8607dee-5d59-4dc7-89b9-d415675a4ce4")
 		(property "Reference" "R12"
-			(at 151.13 64.7699 0)
+			(at 151.13 67.3101 0)
 			(effects
 				(font
 					(size 1.016 1.016)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
-		(property "Value" "1k"
-			(at 151.13 67.3099 0)
+		(property "Value" "100"
+			(at 151.13 64.7701 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
